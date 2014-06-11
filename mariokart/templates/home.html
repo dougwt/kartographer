@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+        <!-- Page Header -->
+        <div class="row">
+            <div class="page-header">
+                <h1>Mario Kart 8 <small>Kart Comparison Tool</small></h1>
+            </div>
+        </div>
+
+        <!-- Begin Loadouts -->
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Your kart configurations:</h3>
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-hover">
+
+                        <!-- Header -->
+                        <thead>
+                            <th class="text-center">Configuration</th>
+                            <th class="text-center">Speed</th>
+                            <th class="text-center">Acceleration</th>
+                            <th class="text-center">Weight</th>
+                            <th class="text-center">Handling</th>
+                            <th class="text-center">Traction</th>
+                        </thead>
+
+                        <!-- Row 1 -->
+                        <tr>
+                            <td class="text-center">
+                                <img src="{% static "mk8/racers/75px-MK8_ShyGuy.png" %}" height="57" width="75" alt="Shy Guy">
+                                <img src="{% static "mk8/bodies/100px-FlameRiderBodyMK8.png" %}" height="64" width="100" alt="Flame Rider">
+                                <img src="{% static "mk8/tires/100px-MonsterTiresMK8.png" %}" height="64" width="100" alt="Monster">
+                                <img src="{% static "mk8/gliders/100px-Cloud_Glider.png" %}" height="64" width="100" alt="Cloud">
+                            </td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                        </tr>
+
+                        <!-- Row 2 -->
+                        <tr>
+                            <td class="text-center">
+                                <img src="{% static "mk8/racers/75px-MK8_ShyGuy.png" %}" height="57" width="75" alt="Shy Guy">
+                                <img src="{% static "mk8/bodies/100px-FlameRiderBodyMK8.png" %}" height="64" width="100" alt="Flame Rider">
+                                <img src="{% static "mk8/tires/100px-MonsterTiresMK8.png" %}" height="64" width="100" alt="Monster">
+                                <img src="{% static "mk8/gliders/100px-Cloud_Glider.png" %}" height="64" width="100" alt="Cloud">
+                            </td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                        </tr>
+
+                        <!-- Row 3 -->
+                        <tr>
+                            <td class="text-center">
+                                <img src="{% static "mk8/racers/75px-MK8_ShyGuy.png" %}" height="57" width="75" alt="Shy Guy">
+                                <img src="{% static "mk8/bodies/100px-FlameRiderBodyMK8.png" %}" height="64" width="100" alt="Flame Rider">
+                                <img src="{% static "mk8/tires/100px-MonsterTiresMK8.png" %}" height="64" width="100" alt="Monster">
+                                <img src="{% static "mk8/gliders/100px-Cloud_Glider.png" %}" height="64" width="100" alt="Cloud">
+                            </td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                            <td class="text-center">X.XX</td>
+                        </tr>
+
+                    </table>
+
+                    <div class="text-right">
+                        <button class="btn btn-default">Add
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End Loadouts -->
+{% endblock %}
