@@ -1,4 +1,4 @@
-- model: comparison.bodies
+- model: comparison.body
   pk: 1
   fields:
     name: Standard Kart
@@ -7,7 +7,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.bodies
+- model: comparison.body
   pk: 2
   fields:
     name: Pipe Frame
@@ -16,7 +16,7 @@
     weight: -0.25
     handling: 0.75
     traction: -0.5
-- model: comparison.bodies
+- model: comparison.body
   pk: 3
   fields:
     name: Mach 8
@@ -25,7 +25,7 @@
     weight: 0.25
     handling: 0
     traction: -1
-- model: comparison.bodies
+- model: comparison.body
   pk: 4
   fields:
     name: Steel Driver
@@ -34,7 +34,7 @@
     weight: 0.5
     handling: -0.5
     traction: 0.5
-- model: comparison.bodies
+- model: comparison.body
   pk: 5
   fields:
     name: Cat Cruiser
@@ -43,7 +43,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.bodies
+- model: comparison.body
   pk: 6
   fields:
     name: Circuit Special
@@ -52,7 +52,7 @@
     weight: 0.25
     handling: 0
     traction: -1
-- model: comparison.bodies
+- model: comparison.body
   pk: 7
   fields:
     name: Tri-Speeder
@@ -61,7 +61,7 @@
     weight: 0.5
     handling: -0.5
     traction: 0.5
-- model: comparison.bodies
+- model: comparison.body
   pk: 8
   fields:
     name: Badwagon
@@ -70,7 +70,7 @@
     weight: 0.5
     handling: -0.5
     traction: 0.5
-- model: comparison.bodies
+- model: comparison.body
   pk: 9
   fields:
     name: Prancer
@@ -79,7 +79,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.bodies
+- model: comparison.body
   pk: 10
   fields:
     name: Biddybuggy
@@ -88,7 +88,7 @@
     weight: -0.5
     handling: 0.5
     traction: -0.25
-- model: comparison.bodies
+- model: comparison.body
   pk: 11
   fields:
     name: Landship
@@ -97,7 +97,7 @@
     weight: -0.5
     handling: 0.5
     traction: -0.25
-- model: comparison.bodies
+- model: comparison.body
   pk: 12
   fields:
     name: Sneeker
@@ -106,7 +106,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.bodies
+- model: comparison.body
   pk: 13
   fields:
     name: Sports Coupe
@@ -115,7 +115,7 @@
     weight: 0.25
     handling: 0
     traction: -1
-- model: comparison.bodies
+- model: comparison.body
   pk: 14
   fields:
     name: Gold Standard
@@ -124,7 +124,7 @@
     weight: 0.25
     handling: 0
     traction: -1
-- model: comparison.bodies
+- model: comparison.body
   pk: 15
   fields:
     name: Standard Bike
@@ -133,7 +133,7 @@
     weight: -0.25
     handling: 0.5
     traction: -0.5
-- model: comparison.bodies
+- model: comparison.body
   pk: 16
   fields:
     name: Comet
@@ -142,7 +142,7 @@
     weight: -0.25
     handling: 0.75
     traction: -1.25
-- model: comparison.bodies
+- model: comparison.body
   pk: 17
   fields:
     name: Sport Bike
@@ -151,7 +151,7 @@
     weight: -0.25
     handling: 0.75
     traction: -1.25
-- model: comparison.bodies
+- model: comparison.body
   pk: 18
   fields:
     name: The Duke
@@ -160,7 +160,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.bodies
+- model: comparison.body
   pk: 19
   fields:
     name: Flame Rider
@@ -169,7 +169,7 @@
     weight: -0.25
     handling: 0.5
     traction: -0.5
-- model: comparison.bodies
+- model: comparison.body
   pk: 20
   fields:
     name: Varmint
@@ -178,7 +178,7 @@
     weight: -0.25
     handling: 0.5
     traction: -0.5
-- model: comparison.bodies
+- model: comparison.body
   pk: 21
   fields:
     name: Mr. Scooty
@@ -187,7 +187,7 @@
     weight: -0.5
     handling: 0.5
     traction: -0.25
-- model: comparison.bodies
+- model: comparison.body
   pk: 22
   fields:
     name: Jet Bike
@@ -196,7 +196,7 @@
     weight: -0.25
     handling: 0.75
     traction: -1.25
-- model: comparison.bodies
+- model: comparison.body
   pk: 23
   fields:
     name: Yoshi Bike
@@ -205,7 +205,7 @@
     weight: -0.25
     handling: 0.75
     traction: -1.25
-- model: comparison.bodies
+- model: comparison.body
   pk: 24
   fields:
     name: Standard ATV
@@ -214,7 +214,7 @@
     weight: 0.5
     handling: -0.5
     traction: 0.5
-- model: comparison.bodies
+- model: comparison.body
   pk: 25
   fields:
     name: Wild Wiggler
@@ -223,7 +223,7 @@
     weight: -0.25
     handling: 0.5
     traction: -0.5
-- model: comparison.bodies
+- model: comparison.body
   pk: 26
   fields:
     name: Teddy Buggy

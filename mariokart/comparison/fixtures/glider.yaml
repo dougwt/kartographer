@@ -1,4 +1,4 @@
-- model: comparison.gliders
+- model: comparison.glider
   pk: 1
   fields:
     name: Super Glider
@@ -7,7 +7,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 2
   fields:
     name: Cloud Glider
@@ -16,7 +16,7 @@
     weight: -0.25
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 3
   fields:
     name: Wario Wing
@@ -25,7 +25,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 4
   fields:
     name: Waddle Wing
@@ -34,7 +34,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 5
   fields:
     name: Peach Parasol
@@ -43,7 +43,7 @@
     weight: -0.25
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 6
   fields:
     name: Parachute
@@ -52,7 +52,7 @@
     weight: -0.25
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 7
   fields:
     name: Parafoil
@@ -61,7 +61,7 @@
     weight: -0.25
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 8
   fields:
     name: Flower Glider
@@ -70,7 +70,7 @@
     weight: -0.25
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 9
   fields:
     name: Bowser Kite
@@ -79,7 +79,7 @@
     weight: -0.25
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 10
   fields:
     name: Plane Glider
@@ -88,7 +88,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 11
   fields:
     name: MKTV Parafoil
@@ -97,7 +97,7 @@
     weight: -0.25
     handling: 0
     traction: 0
-- model: comparison.gliders
+- model: comparison.glider
   pk: 12
   fields:
     name: Gold Glider

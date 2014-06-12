@@ -1,4 +1,4 @@
-- model: comparison.tires
+- model: comparison.tire
   pk: 1
   fields:
     name: Standard
@@ -7,7 +7,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.tires
+- model: comparison.tire
   pk: 2
   fields:
     name: Monster
@@ -16,7 +16,7 @@
     weight: 0.5
     handling: -0.75
     traction: 0.75
-- model: comparison.tires
+- model: comparison.tire
   pk: 3
   fields:
     name: Roller
@@ -25,7 +25,7 @@
     weight: -0.5
     handling: 0.25
     traction: -0.25
-- model: comparison.tires
+- model: comparison.tire
   pk: 4
   fields:
     name: Slim
@@ -34,7 +34,7 @@
     weight: 0
     handling: 0.25
     traction: -0.5
-- model: comparison.tires
+- model: comparison.tire
   pk: 5
   fields:
     name: Slick
@@ -43,7 +43,7 @@
     weight: 0.25
     handling: 0
     traction: -1
-- model: comparison.tires
+- model: comparison.tire
   pk: 6
   fields:
     name: Metal
@@ -52,7 +52,7 @@
     weight: 0.5
     handling: 0
     traction: -0.5
-- model: comparison.tires
+- model: comparison.tire
   pk: 7
   fields:
     name: Button
@@ -61,7 +61,7 @@
     weight: -0.5
     handling: 0.25
     traction: -0.25
-- model: comparison.tires
+- model: comparison.tire
   pk: 8
   fields:
     name: Off-Road
@@ -70,7 +70,7 @@
     weight: 0
     handling: 0
     traction: 0
-- model: comparison.tires
+- model: comparison.tire
   pk: 9
   fields:
     name: Sponge
@@ -79,7 +79,7 @@
     weight: -0.25
     handling: -0.25
     traction: 0.5
-- model: comparison.tires
+- model: comparison.tire
   pk: 10
   fields:
     name: Wood
@@ -88,7 +88,7 @@
     weight: -0.25
     handling: -0.25
     traction: 0.5
-- model: comparison.tires
+- model: comparison.tire
   pk: 11
   fields:
     name: Cushion
@@ -97,7 +97,7 @@
     weight: -0.25
     handling: -0.25
     traction: 0.5
-- model: comparison.tires
+- model: comparison.tire
   pk: 12
   fields:
     name: Blue Standard
@@ -106,7 +106,7 @@
     weight: 0
     handling: 0
     traction:
-- model: comparison.tires
+- model: comparison.tire
   pk: 13
   fields:
     name: Hot Monster
@@ -115,7 +115,7 @@
     weight: 0.5
     handling: -0.75
     traction: 0.75
-- model: comparison.tires
+- model: comparison.tire
   pk: 14
   fields:
     name: Azure Roller
@@ -124,7 +124,7 @@
     weight: -0.5
     handling: 0.25
     traction: -0.25
-- model: comparison.tires
+- model: comparison.tire
   pk: 15
   fields:
     name: Crimson Slim
@@ -133,7 +133,7 @@
     weight: 0
     handling: 0.25
     traction: -0.5
-- model: comparison.tires
+- model: comparison.tire
   pk: 16
   fields:
     name: Cyber Slick
@@ -142,7 +142,7 @@
     weight: 0.25
     handling: 0
     traction: -1
-- model: comparison.tires
+- model: comparison.tire
   pk: 17
   fields:
     name: Retro Off-Road
@@ -151,7 +151,7 @@
     weight: 0
     handling: 0
     traction:
-- model: comparison.tires
+- model: comparison.tire
   pk: 18
   fields:
     name: Gold Tires

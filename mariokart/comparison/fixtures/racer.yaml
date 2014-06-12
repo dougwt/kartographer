@@ -1,4 +1,4 @@
-- model: comparison.racers
+- model: comparison.racer
   pk: 1
   fields:
     name: Baby Mario
@@ -7,7 +7,7 @@
     weight: 2.25
     handling: 4.75
     traction: 4.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 2
   fields:
     name: Baby Luigi
@@ -16,7 +16,7 @@
     weight: 2.25
     handling: 4.75
     traction: 4.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 3
   fields:
     name: Baby Peach
@@ -25,7 +25,7 @@
     weight: 2.25
     handling: 4.75
     traction: 4.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 4
   fields:
     name: Baby Daisy
@@ -34,7 +34,7 @@
     weight: 2.25
     handling: 4.75
     traction: 4.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 5
   fields:
     name: Baby Rosalina
@@ -43,7 +43,7 @@
     weight: 2.25
     handling: 4.75
     traction: 4.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 6
   fields:
     name: Lemmy Koopa
@@ -52,7 +52,7 @@
     weight: 2.25
     handling: 4.75
     traction: 4.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 7
   fields:
     name: Mii (Light)
@@ -61,7 +61,7 @@
     weight: 2.25
     handling: 4.75
     traction: 4.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 8
   fields:
     name: Toad
@@ -70,7 +70,7 @@
     weight: 2.75
     handling: 4.25
     traction: 4.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 9
   fields:
     name: Koopa Troopa
@@ -79,7 +79,7 @@
     weight: 2.75
     handling: 4.25
     traction: 4.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 10
   fields:
     name: Shy Guy
@@ -88,7 +88,7 @@
     weight: 2.75
     handling: 4.25
     traction: 4.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 11
   fields:
     name: Lakitu
@@ -97,7 +97,7 @@
     weight: 2.75
     handling: 4.25
     traction: 4.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 12
   fields:
     name: Toadette
@@ -106,7 +106,7 @@
     weight: 2.75
     handling: 4.25
     traction: 4.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 13
   fields:
     name: Larry Koopa
@@ -115,7 +115,7 @@
     weight: 2.75
     handling: 4.25
     traction: 4.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 14
   fields:
     name: Wendy O. Koopa
@@ -124,7 +124,7 @@
     weight: 2.75
     handling: 4.25
     traction: 4.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 15
   fields:
     name: Peach
@@ -133,7 +133,7 @@
     weight: 3.25
     handling: 3.75
     traction: 4
-- model: comparison.racers
+- model: comparison.racer
   pk: 16
   fields:
     name: Daisy
@@ -142,7 +142,7 @@
     weight: 3.25
     handling: 3.75
     traction: 4
-- model: comparison.racers
+- model: comparison.racer
   pk: 17
   fields:
     name: Yoshi
@@ -151,7 +151,7 @@
     weight: 3.25
     handling: 3.75
     traction: 4
-- model: comparison.racers
+- model: comparison.racer
   pk: 18
   fields:
     name: Mario
@@ -160,7 +160,7 @@
     weight: 3.75
     handling: 3.25
     traction: 3.75
-- model: comparison.racers
+- model: comparison.racer
   pk: 19
   fields:
     name: Luigi
@@ -169,7 +169,7 @@
     weight: 3.75
     handling: 3.25
     traction: 3.75
-- model: comparison.racers
+- model: comparison.racer
   pk: 20
   fields:
     name: Iggy Koopa
@@ -178,7 +178,7 @@
     weight: 3.75
     handling: 3.25
     traction: 3.75
-- model: comparison.racers
+- model: comparison.racer
   pk: 21
   fields:
     name: Ludwig von Koopa
@@ -187,7 +187,7 @@
     weight: 3.75
     handling: 3.25
     traction: 3.75
-- model: comparison.racers
+- model: comparison.racer
   pk: 22
   fields:
     name: Mii (Medium)
@@ -196,7 +196,7 @@
     weight: 3.75
     handling: 3.25
     traction: 3.75
-- model: comparison.racers
+- model: comparison.racer
   pk: 23
   fields:
     name: Donkey Kong
@@ -205,7 +205,7 @@
     weight: 4.25
     handling: 2.75
     traction: 3.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 24
   fields:
     name: Waluigi
@@ -214,7 +214,7 @@
     weight: 4.25
     handling: 2.75
     traction: 3.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 25
   fields:
     name: Rosalina
@@ -223,7 +223,7 @@
     weight: 4.25
     handling: 2.75
     traction: 3.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 26
   fields:
     name: Roy Koopa
@@ -232,7 +232,7 @@
     weight: 4.25
     handling: 2.75
     traction: 3.5
-- model: comparison.racers
+- model: comparison.racer
   pk: 27
   fields:
     name: Metal Mario
@@ -241,7 +241,7 @@
     weight: 4.75
     handling: 2.75
     traction: 3.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 28
   fields:
     name: Metal Peach
@@ -250,7 +250,7 @@
     weight: 4.75
     handling: 2.75
     traction: 3.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 29
   fields:
     name: Bowser
@@ -259,7 +259,7 @@
     weight: 4.75
     handling: 2.75
     traction: 3.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 29
   fields:
     name: Wario
@@ -268,7 +268,7 @@
     weight: 4.75
     handling: 2.75
     traction: 3.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 29
   fields:
     name: Morton Koopa Jr.
@@ -277,7 +277,7 @@
     weight: 4.75
     handling: 2.75
     traction: 3.25
-- model: comparison.racers
+- model: comparison.racer
   pk: 29
   fields:
     name: Wii (Heavy)
