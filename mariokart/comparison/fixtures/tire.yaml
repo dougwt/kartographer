@@ -105,7 +105,7 @@
     acceleration: 0
     weight: 0
     handling: 0
-    traction:
+    traction: 0
 - model: comparison.tire
   pk: 13
   fields:
@@ -150,7 +150,7 @@
     acceleration: 0
     weight: 0
     handling: 0
-    traction:
+    traction: 0
 - model: comparison.tire
   pk: 18
   fields:

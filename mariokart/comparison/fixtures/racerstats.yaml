@@ -1,4 +1,4 @@
-- model: comparison.racer
+- model: comparison.racerstats
   pk: 1
   fields:
     name: Light 1
@@ -7,7 +7,7 @@
     weight: 2.25
     handling: 4.75
     traction: 4.5
-- model: comparison.racer
+- model: comparison.racerstats
   pk: 2
   fields:
     name: Light 2
@@ -16,7 +16,7 @@
     weight: 2.75
     handling: 4.25
     traction: 4.25
-- model: comparison.racer
+- model: comparison.racerstats
   pk: 3
   fields:
     name: Medium 1
@@ -25,7 +25,7 @@
     weight: 3.25
     handling: 3.75
     traction: 4
-- model: comparison.racer
+- model: comparison.racerstats
   pk: 4
   fields:
     name: Medium 2
@@ -34,7 +34,7 @@
     weight: 3.75
     handling: 3.25
     traction: 3.75
-- model: comparison.racer
+- model: comparison.racerstats
   pk: 5
   fields:
     name: Heavy 1
@@ -43,7 +43,7 @@
     weight: 4.25
     handling: 2.75
     traction: 3.5
-- model: comparison.racer
+- model: comparison.racerstats
   pk: 6
   fields:
     name: Heavy 2
@@ -52,7 +52,7 @@
     weight: 4.75
     handling: 2.75
     traction: 3.25
-- model: comparison.racer
+- model: comparison.racerstats
   pk: 7
   fields:
     name: Heavy 3

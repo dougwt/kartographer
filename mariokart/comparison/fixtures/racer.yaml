@@ -22,6 +22,7 @@
   pk: 5
   fields:
     name: Baby Rosalina
+    stats: 1
 - model: comparison.racer
   pk: 6
   fields:
@@ -143,17 +144,17 @@
     name: Bowser
     stats: 7
 - model: comparison.racer
-  pk: 29
+  pk: 30
   fields:
     name: Wario
     stats: 7
 - model: comparison.racer
-  pk: 29
+  pk: 31
   fields:
     name: Morton Koopa Jr.
     stats: 7
 - model: comparison.racer
-  pk: 29
+  pk: 32
   fields:
     name: Wii (Heavy)
     stats: 7
