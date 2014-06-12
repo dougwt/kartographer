@@ -64,6 +64,8 @@ CACHES = {
 }
 ########## END CACHE CONFIGURATION
 
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+STATIC_URL = 'http://static.mycodebytes.com/mariokart/assets/'
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
