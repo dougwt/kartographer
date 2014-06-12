@@ -1,0 +1,320 @@
+- model: comparison.racers
+  pk: 1
+  fields:
+    name: Baby Mario
+    filename:
+    speed: 2.25
+    acceleration: 3.25
+    weight: 2.25
+    handling: 4.75
+    traction: 4.5
+- model: comparison.racers
+  pk: 2
+  fields:
+    name: Baby Luigi
+    filename:
+    speed: 2.25
+    acceleration: 3.25
+    weight: 2.25
+    handling: 4.75
+    traction: 4.5
+- model: comparison.racers
+  pk: 3
+  fields:
+    name: Baby Peach
+    filename:
+    speed: 2.25
+    acceleration: 3.25
+    weight: 2.25
+    handling: 4.75
+    traction: 4.5
+- model: comparison.racers
+  pk: 4
+  fields:
+    name: Baby Daisy
+    filename:
+    speed: 2.25
+    acceleration: 3.25
+    weight: 2.25
+    handling: 4.75
+    traction: 4.5
+- model: comparison.racers
+  pk: 5
+  fields:
+    name: Baby Rosalina
+    filename:
+    speed: 2.25
+    acceleration: 3.25
+    weight: 2.25
+    handling: 4.75
+    traction: 4.5
+- model: comparison.racers
+  pk: 6
+  fields:
+    name: Lemmy Koopa
+    filename:
+    speed: 2.25
+    acceleration: 3.25
+    weight: 2.25
+    handling: 4.75
+    traction: 4.5
+- model: comparison.racers
+  pk: 7
+  fields:
+    name: Mii (Light)
+    filename:
+    speed: 2.25
+    acceleration: 3.25
+    weight: 2.25
+    handling: 4.75
+    traction: 4.5
+- model: comparison.racers
+  pk: 8
+  fields:
+    name: Toad
+    filename:
+    speed: 2.75
+    acceleration: 3
+    weight: 2.75
+    handling: 4.25
+    traction: 4.25
+- model: comparison.racers
+  pk: 9
+  fields:
+    name: Koopa Troopa
+    filename:
+    speed: 2.75
+    acceleration: 3
+    weight: 2.75
+    handling: 4.25
+    traction: 4.25
+- model: comparison.racers
+  pk: 10
+  fields:
+    name: Shy Guy
+    filename:
+    speed: 2.75
+    acceleration: 3
+    weight: 2.75
+    handling: 4.25
+    traction: 4.25
+- model: comparison.racers
+  pk: 11
+  fields:
+    name: Lakitu
+    filename:
+    speed: 2.75
+    acceleration: 3
+    weight: 2.75
+    handling: 4.25
+    traction: 4.25
+- model: comparison.racers
+  pk: 12
+  fields:
+    name: Toadette
+    filename:
+    speed: 2.75
+    acceleration: 3
+    weight: 2.75
+    handling: 4.25
+    traction: 4.25
+- model: comparison.racers
+  pk: 13
+  fields:
+    name: Larry Koopa
+    filename:
+    speed: 2.75
+    acceleration: 3
+    weight: 2.75
+    handling: 4.25
+    traction: 4.25
+- model: comparison.racers
+  pk: 14
+  fields:
+    name: Wendy O. Koopa
+    filename:
+    speed: 2.75
+    acceleration: 3
+    weight: 2.75
+    handling: 4.25
+    traction: 4.25
+- model: comparison.racers
+  pk: 15
+  fields:
+    name: Peach
+    filename:
+    speed: 3.25
+    acceleration: 2.75
+    weight: 3.25
+    handling: 3.75
+    traction: 4
+- model: comparison.racers
+  pk: 16
+  fields:
+    name: Daisy
+    filename:
+    speed: 3.25
+    acceleration: 2.75
+    weight: 3.25
+    handling: 3.75
+    traction: 4
+- model: comparison.racers
+  pk: 17
+  fields:
+    name: Yoshi
+    filename:
+    speed: 3.25
+    acceleration: 2.75
+    weight: 3.25
+    handling: 3.75
+    traction: 4
+- model: comparison.racers
+  pk: 18
+  fields:
+    name: Mario
+    filename:
+    speed: 3.75
+    acceleration: 2.5
+    weight: 3.75
+    handling: 3.25
+    traction: 3.75
+- model: comparison.racers
+  pk: 19
+  fields:
+    name: Luigi
+    filename:
+    speed: 3.75
+    acceleration: 2.5
+    weight: 3.75
+    handling: 3.25
+    traction: 3.75
+- model: comparison.racers
+  pk: 20
+  fields:
+    name: Iggy Koopa
+    filename:
+    speed: 3.75
+    acceleration: 2.5
+    weight: 3.75
+    handling: 3.25
+    traction: 3.75
+- model: comparison.racers
+  pk: 21
+  fields:
+    name: Ludwig von Koopa
+    filename:
+    speed: 3.75
+    acceleration: 2.5
+    weight: 3.75
+    handling: 3.25
+    traction: 3.75
+- model: comparison.racers
+  pk: 22
+  fields:
+    name: Mii (Medium)
+    filename:
+    speed: 3.75
+    acceleration: 2.5
+    weight: 3.75
+    handling: 3.25
+    traction: 3.75
+- model: comparison.racers
+  pk: 23
+  fields:
+    name: Donkey Kong
+    filename:
+    speed: 4.25
+    acceleration: 2.25
+    weight: 4.25
+    handling: 2.75
+    traction: 3.5
+- model: comparison.racers
+  pk: 24
+  fields:
+    name: Waluigi
+    filename:
+    speed: 4.25
+    acceleration: 2.25
+    weight: 4.25
+    handling: 2.75
+    traction: 3.5
+- model: comparison.racers
+  pk: 25
+  fields:
+    name: Rosalina
+    filename:
+    speed: 4.25
+    acceleration: 2.25
+    weight: 4.25
+    handling: 2.75
+    traction: 3.5
+- model: comparison.racers
+  pk: 26
+  fields:
+    name: Roy Koopa
+    filename:
+    speed: 4.25
+    acceleration: 2.25
+    weight: 4.25
+    handling: 2.75
+    traction: 3.5
+- model: comparison.racers
+  pk: 27
+  fields:
+    name: Metal Mario
+    filename:
+    speed: 4.25
+    acceleration: 2
+    weight: 4.75
+    handling: 2.75
+    traction: 3.25
+- model: comparison.racers
+  pk: 28
+  fields:
+    name: Metal Peach
+    filename:
+    speed: 4.25
+    acceleration: 2
+    weight: 4.75
+    handling: 2.75
+    traction: 3.25
+- model: comparison.racers
+  pk: 29
+  fields:
+    name: Bowser
+    filename:
+    speed: 4.75
+    acceleration: 2
+    weight: 4.75
+    handling: 2.75
+    traction: 3.25
+- model: comparison.racers
+  pk: 29
+  fields:
+    name: Wario
+    filename:
+    speed: 4.75
+    acceleration: 2
+    weight: 4.75
+    handling: 2.75
+    traction: 3.25
+- model: comparison.racers
+  pk: 29
+  fields:
+    name: Morton Koopa Jr.
+    filename:
+    speed: 4.75
+    acceleration: 2
+    weight: 4.75
+    handling: 2.75
+    traction: 3.25
+- model: comparison.racers
+  pk: 29
+  fields:
+    name: Wii (Heavy)
+    filename:
+    speed: 4.75
+    acceleration: 2
+    weight: 4.75
+    handling: 2.75
+    traction: 3.25

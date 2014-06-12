@@ -1,0 +1,167 @@
+- model: comparison.tires
+  pk: 1
+  fields:
+    name: Standard
+    filename:
+    speed: 0
+    acceleration: 0
+    weight: 0
+    handling: 0
+    traction: 0
+- model: comparison.tires
+  pk: 2
+  fields:
+    name: Monster
+    filename:
+    speed: 0
+    acceleration: -0.5
+    weight: 0.5
+    handling: -0.75
+    traction: 0.75
+- model: comparison.tires
+  pk: 3
+  fields:
+    name: Roller
+    filename:
+    speed: 0.5
+    acceleration: 1
+    weight: -0.5
+    handling: 0.25
+    traction: -0.25
+- model: comparison.tires
+  pk: 4
+  fields:
+    name: Slim
+    filename:
+    speed: 0.25
+    acceleration: -0.25
+    weight: 0
+    handling: 0.25
+    traction: -0.5
+- model: comparison.tires
+  pk: 5
+  fields:
+    name: Slick
+    filename:
+    speed: 0.5
+    acceleration: -0.25
+    weight: 0.25
+    handling: 0
+    traction: -1
+- model: comparison.tires
+  pk: 6
+  fields:
+    name: Metal
+    speed: 0.25
+    acceleration: -0.5
+    weight: 0.5
+    handling: 0
+    traction: -0.5
+- model: comparison.tires
+  pk: 7
+  fields:
+    name: Button
+    speed: -0.5
+    acceleration: 1
+    weight: -0.5
+    handling: 0.25
+    traction: -0.25
+- model: comparison.tires
+  pk: 8
+  fields:
+    name: Off-Road
+    speed: 0
+    acceleration: 0
+    weight: 0
+    handling: 0
+    traction: 0
+- model: comparison.tires
+  pk: 9
+  fields:
+    name: Sponge
+    speed: -0.25
+    acceleration: 0.25
+    weight: -0.25
+    handling: -0.25
+    traction: 0.5
+- model: comparison.tires
+  pk: 10
+  fields:
+    name: Wood
+    speed: -0.25
+    acceleration: 0.25
+    weight: -0.25
+    handling: -0.25
+    traction: 0.5
+- model: comparison.tires
+  pk: 11
+  fields:
+    name: Cushion
+    speed: -0.25
+    acceleration: 0.25
+    weight: -0.25
+    handling: -0.25
+    traction: 0.5
+- model: comparison.tires
+  pk: 12
+  fields:
+    name: Blue Standard
+    speed: 0
+    acceleration: 0
+    weight: 0
+    handling: 0
+    traction:
+- model: comparison.tires
+  pk: 13
+  fields:
+    name: Hot Monster
+    speed: 0
+    acceleration: -0.5
+    weight: 0.5
+    handling: -0.75
+    traction: 0.75
+- model: comparison.tires
+  pk: 14
+  fields:
+    name: Azure Roller
+    speed: -0.5
+    acceleration: 1
+    weight: -0.5
+    handling: 0.25
+    traction: -0.25
+- model: comparison.tires
+  pk: 15
+  fields:
+    name: Crimson Slim
+    speed: 0.25
+    acceleration: -0.25
+    weight: 0
+    handling: 0.25
+    traction: -0.5
+- model: comparison.tires
+  pk: 16
+  fields:
+    name: Cyber Slick
+    speed: 0.5
+    acceleration: -0.25
+    weight: 0.25
+    handling: 0
+    traction: -1
+- model: comparison.tires
+  pk: 17
+  fields:
+    name: Retro Off-Road
+    speed: 0
+    acceleration: 0
+    weight: 0
+    handling: 0
+    traction:
+- model: comparison.tires
+  pk: 18
+  fields:
+    name: Gold Tires
+    speed: 0.25
+    acceleration: -0.5
+    weight: 0.5
+    handling: 0
+    traction: -0.5

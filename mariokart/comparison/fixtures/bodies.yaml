@@ -1,0 +1,260 @@
+- model: comparison.bodies
+  pk: 1
+  fields:
+    name: Standard Kart
+    filename:
+    speed: 0
+    acceleration: 0
+    weight: 0
+    handling: 0
+    traction: 0
+- model: comparison.bodies
+  pk: 2
+  fields:
+    name: Pipe Frame
+    filename:
+    speed: 0
+    acceleration: 0.25
+    weight: -0.25
+    handling: 0.75
+    traction: -0.5
+- model: comparison.bodies
+  pk: 3
+  fields:
+    name: Mach 8
+    filename:
+    speed: 0.5
+    acceleration: -0.25
+    weight: 0.25
+    handling: 0
+    traction: -1
+- model: comparison.bodies
+  pk: 4
+  fields:
+    name: Steel Driver
+    filename:
+    speed: 0
+    acceleration: -0.5
+    weight: 0.5
+    handling: -0.5
+    traction: 0.5
+- model: comparison.bodies
+  pk: 5
+  fields:
+    name: Cat Cruiser
+    filename:
+    speed: 0
+    acceleration: 0
+    weight: 0
+    handling: 0
+    traction: 0
+- model: comparison.bodies
+  pk: 6
+  fields:
+    name: Circuit Special
+    filename:
+    speed: 0.5
+    acceleration: -0.25
+    weight: 0.25
+    handling: 0
+    traction: -1
+- model: comparison.bodies
+  pk: 7
+  fields:
+    name: Tri-Speeder
+    filename:
+    speed: 0
+    acceleration: -0.5
+    weight: 0.5
+    handling: -0.5
+    traction: 0.5
+- model: comparison.bodies
+  pk: 8
+  fields:
+    name: Badwagon
+    filename:
+    speed: 0
+    acceleration: -0.5
+    weight: 0.5
+    handling: -0.5
+    traction: 0.5
+- model: comparison.bodies
+  pk: 9
+  fields:
+    name: Prancer
+    filename:
+    speed: 0
+    acceleration: 0
+    weight: 0
+    handling: 0
+    traction: 0
+- model: comparison.bodies
+  pk: 10
+  fields:
+    name: Biddybuggy
+    filename:
+    speed: -0.75
+    acceleration: 1.25
+    weight: -0.5
+    handling: 0.5
+    traction: -0.25
+- model: comparison.bodies
+  pk: 11
+  fields:
+    name: Landship
+    filename:
+    speed: -0.75
+    acceleration: 1.25
+    weight: -0.5
+    handling: 0.5
+    traction: -0.25
+- model: comparison.bodies
+  pk: 12
+  fields:
+    name: Sneeker
+    filename:
+    speed: 0
+    acceleration: 0
+    weight: 0
+    handling: 0
+    traction: 0
+- model: comparison.bodies
+  pk: 13
+  fields:
+    name: Sports Coupe
+    filename:
+    speed: 0.5
+    acceleration: -0.25
+    weight: 0.25
+    handling: 0
+    traction: -1
+- model: comparison.bodies
+  pk: 14
+  fields:
+    name: Gold Standard
+    filename:
+    speed: 0.5
+    acceleration: -0.25
+    weight: 0.25
+    handling: 0
+    traction: -1
+- model: comparison.bodies
+  pk: 15
+  fields:
+    name: Standard Bike
+    filename:
+    speed: 0
+    acceleration: 0.25
+    weight: -0.25
+    handling: 0.5
+    traction: -0.5
+- model: comparison.bodies
+  pk: 16
+  fields:
+    name: Comet
+    filename:
+    speed: 0
+    acceleration: 0.75
+    weight: -0.25
+    handling: 0.75
+    traction: -1.25
+- model: comparison.bodies
+  pk: 17
+  fields:
+    name: Sport Bike
+    filename:
+    speed: 0
+    acceleration: 0.75
+    weight: -0.25
+    handling: 0.75
+    traction: -1.25
+- model: comparison.bodies
+  pk: 18
+  fields:
+    name: The Duke
+    filename:
+    speed: 0
+    acceleration: 0
+    weight: 0
+    handling: 0
+    traction: 0
+- model: comparison.bodies
+  pk: 19
+  fields:
+    name: Flame Rider
+    filename:
+    speed: 0
+    acceleration: 0.25
+    weight: -0.25
+    handling: 0.5
+    traction: -0.5
+- model: comparison.bodies
+  pk: 20
+  fields:
+    name: Varmint
+    filename:
+    speed: 0
+    acceleration: 0.25
+    weight: -0.25
+    handling: 0.5
+    traction: -0.5
+- model: comparison.bodies
+  pk: 21
+  fields:
+    name: Mr. Scooty
+    filename:
+    speed: -0.75
+    acceleration: 1.25
+    weight: -0.5
+    handling: 0.5
+    traction: -0.25
+- model: comparison.bodies
+  pk: 22
+  fields:
+    name: Jet Bike
+    filename:
+    speed: 0
+    acceleration: 0.75
+    weight: -0.25
+    handling: 0.75
+    traction: -1.25
+- model: comparison.bodies
+  pk: 23
+  fields:
+    name: Yoshi Bike
+    filename:
+    speed: 0
+    acceleration: 0.75
+    weight: -0.25
+    handling: 0.75
+    traction: -1.25
+- model: comparison.bodies
+  pk: 24
+  fields:
+    name: Standard ATV
+    filename:
+    speed: 0
+    acceleration: -0.5
+    weight: 0.5
+    handling: -0.5
+    traction: 0.5
+- model: comparison.bodies
+  pk: 25
+  fields:
+    name: Wild Wiggler
+    filename:
+    speed: 0
+    acceleration: 0.25
+    weight: -0.25
+    handling: 0.5
+    traction: -0.5
+- model: comparison.bodies
+  pk: 26
+  fields:
+    name: Teddy Buggy
+    filename:
+    speed: 0
+    acceleration: 0
+    weight: 0
+    handling: 0
+    traction: 0
