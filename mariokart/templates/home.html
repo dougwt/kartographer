@@ -29,50 +29,21 @@
                             <th class="text-center">Traction</th>
                         </thead>
 
-                        <!-- Row 1 -->
+                        {% for config in configurations %}
                         <tr>
                             <td class="text-center">
-                                <img src="{% static "mk8/racers/75px-MK8_ShyGuy.png" %}" height="57" width="75" alt="Shy Guy">
-                                <img src="{% static "mk8/bodies/100px-FlameRiderBodyMK8.png" %}" height="64" width="100" alt="Flame Rider">
-                                <img src="{% static "mk8/tires/100px-MonsterTiresMK8.png" %}" height="64" width="100" alt="Monster">
-                                <img src="{% static "mk8/gliders/100px-Cloud_Glider.png" %}" height="64" width="100" alt="Cloud">
+                                <img src="static/mk8/racers/{{ config.racer.file }}.png" height="57" width="75" alt="{{ config.racer.name }}">
+                                <img src="static/mk8/bodies/{{ config.body.file }}.png" height="64" width="100" alt="{{ config.body.name }}">
+                                <img src="static/mk8/tires/{{ config.tire.file }}.png" height="64" width="100" alt="{{ config.tire.name }}">
+                                <img src="static/mk8/gliders/{{ config.glider.file }}.png" height="64" width="100" alt="{{ config.glider.name }}">
                             </td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
+                            <td class="text-center">{{ config.speed }}</td>
+                            <td class="text-center">{{ config.acceleration }}</td>
+                            <td class="text-center">{{ config.weight }}</td>
+                            <td class="text-center">{{ config.handling }}</td>
+                            <td class="text-center">{{ config.traction }}</td>
                         </tr>
-
-                        <!-- Row 2 -->
-                        <tr>
-                            <td class="text-center">
-                                <img src="{% static "mk8/racers/75px-MK8_ShyGuy.png" %}" height="57" width="75" alt="Shy Guy">
-                                <img src="{% static "mk8/bodies/100px-FlameRiderBodyMK8.png" %}" height="64" width="100" alt="Flame Rider">
-                                <img src="{% static "mk8/tires/100px-MonsterTiresMK8.png" %}" height="64" width="100" alt="Monster">
-                                <img src="{% static "mk8/gliders/100px-Cloud_Glider.png" %}" height="64" width="100" alt="Cloud">
-                            </td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                        </tr>
-
-                        <!-- Row 3 -->
-                        <tr>
-                            <td class="text-center">
-                                <img src="{% static "mk8/racers/75px-MK8_ShyGuy.png" %}" height="57" width="75" alt="Shy Guy">
-                                <img src="{% static "mk8/bodies/100px-FlameRiderBodyMK8.png" %}" height="64" width="100" alt="Flame Rider">
-                                <img src="{% static "mk8/tires/100px-MonsterTiresMK8.png" %}" height="64" width="100" alt="Monster">
-                                <img src="{% static "mk8/gliders/100px-Cloud_Glider.png" %}" height="64" width="100" alt="Cloud">
-                            </td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                            <td class="text-center">X.XX</td>
-                        </tr>
+                        {% endfor %}
 
                     </table>
 
