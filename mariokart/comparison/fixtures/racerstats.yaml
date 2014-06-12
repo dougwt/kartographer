@@ -1,0 +1,63 @@
+- model: comparison.racer
+  pk: 1
+  fields:
+    name: Light 1
+    speed: 2.25
+    acceleration: 3.25
+    weight: 2.25
+    handling: 4.75
+    traction: 4.5
+- model: comparison.racer
+  pk: 2
+  fields:
+    name: Light 2
+    speed: 2.75
+    acceleration: 3
+    weight: 2.75
+    handling: 4.25
+    traction: 4.25
+- model: comparison.racer
+  pk: 3
+  fields:
+    name: Medium 1
+    speed: 3.25
+    acceleration: 2.75
+    weight: 3.25
+    handling: 3.75
+    traction: 4
+- model: comparison.racer
+  pk: 4
+  fields:
+    name: Medium 2
+    speed: 3.75
+    acceleration: 2.5
+    weight: 3.75
+    handling: 3.25
+    traction: 3.75
+- model: comparison.racer
+  pk: 5
+  fields:
+    name: Heavy 1
+    speed: 4.25
+    acceleration: 2.25
+    weight: 4.25
+    handling: 2.75
+    traction: 3.5
+- model: comparison.racer
+  pk: 6
+  fields:
+    name: Heavy 2
+    speed: 4.25
+    acceleration: 2
+    weight: 4.75
+    handling: 2.75
+    traction: 3.25
+- model: comparison.racer
+  pk: 7
+  fields:
+    name: Heavy 3
+    speed: 4.75
+    acceleration: 2
+    weight: 4.75
+    handling: 2.25
+    traction: 3.25

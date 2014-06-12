@@ -2,287 +2,158 @@
   pk: 1
   fields:
     name: Baby Mario
-    speed: 2.25
-    acceleration: 3.25
-    weight: 2.25
-    handling: 4.75
-    traction: 4.5
+    stats: 1
 - model: comparison.racer
   pk: 2
   fields:
     name: Baby Luigi
-    speed: 2.25
-    acceleration: 3.25
-    weight: 2.25
-    handling: 4.75
-    traction: 4.5
+    stats: 1
 - model: comparison.racer
   pk: 3
   fields:
     name: Baby Peach
-    speed: 2.25
-    acceleration: 3.25
-    weight: 2.25
-    handling: 4.75
-    traction: 4.5
+    stats: 1
 - model: comparison.racer
   pk: 4
   fields:
     name: Baby Daisy
-    speed: 2.25
-    acceleration: 3.25
-    weight: 2.25
-    handling: 4.75
-    traction: 4.5
+    stats: 1
 - model: comparison.racer
   pk: 5
   fields:
     name: Baby Rosalina
-    speed: 2.25
-    acceleration: 3.25
-    weight: 2.25
-    handling: 4.75
-    traction: 4.5
 - model: comparison.racer
   pk: 6
   fields:
     name: Lemmy Koopa
-    speed: 2.25
-    acceleration: 3.25
-    weight: 2.25
-    handling: 4.75
-    traction: 4.5
+    stats: 1
 - model: comparison.racer
   pk: 7
   fields:
     name: Mii (Light)
-    speed: 2.25
-    acceleration: 3.25
-    weight: 2.25
-    handling: 4.75
-    traction: 4.5
+    stats: 1
 - model: comparison.racer
   pk: 8
   fields:
     name: Toad
-    speed: 2.75
-    acceleration: 3
-    weight: 2.75
-    handling: 4.25
-    traction: 4.25
+    stats: 2
 - model: comparison.racer
   pk: 9
   fields:
     name: Koopa Troopa
-    speed: 2.75
-    acceleration: 3
-    weight: 2.75
-    handling: 4.25
-    traction: 4.25
+    stats: 2
 - model: comparison.racer
   pk: 10
   fields:
     name: Shy Guy
-    speed: 2.75
-    acceleration: 3
-    weight: 2.75
-    handling: 4.25
-    traction: 4.25
+    stats: 2
 - model: comparison.racer
   pk: 11
   fields:
     name: Lakitu
-    speed: 2.75
-    acceleration: 3
-    weight: 2.75
-    handling: 4.25
-    traction: 4.25
+    stats: 2
 - model: comparison.racer
   pk: 12
   fields:
     name: Toadette
-    speed: 2.75
-    acceleration: 3
-    weight: 2.75
-    handling: 4.25
-    traction: 4.25
+    stats: 2
 - model: comparison.racer
   pk: 13
   fields:
     name: Larry Koopa
-    speed: 2.75
-    acceleration: 3
-    weight: 2.75
-    handling: 4.25
-    traction: 4.25
+    stats: 2
 - model: comparison.racer
   pk: 14
   fields:
     name: Wendy O. Koopa
-    speed: 2.75
-    acceleration: 3
-    weight: 2.75
-    handling: 4.25
-    traction: 4.25
+    stats: 2
 - model: comparison.racer
   pk: 15
   fields:
     name: Peach
-    speed: 3.25
-    acceleration: 2.75
-    weight: 3.25
-    handling: 3.75
-    traction: 4
+    stats: 3
 - model: comparison.racer
   pk: 16
   fields:
     name: Daisy
-    speed: 3.25
-    acceleration: 2.75
-    weight: 3.25
-    handling: 3.75
-    traction: 4
+    stats: 3
 - model: comparison.racer
   pk: 17
   fields:
     name: Yoshi
-    speed: 3.25
-    acceleration: 2.75
-    weight: 3.25
-    handling: 3.75
-    traction: 4
+    stats: 3
 - model: comparison.racer
   pk: 18
   fields:
     name: Mario
-    speed: 3.75
-    acceleration: 2.5
-    weight: 3.75
-    handling: 3.25
-    traction: 3.75
+    stats: 4
 - model: comparison.racer
   pk: 19
   fields:
     name: Luigi
-    speed: 3.75
-    acceleration: 2.5
-    weight: 3.75
-    handling: 3.25
-    traction: 3.75
+    stats: 4
 - model: comparison.racer
   pk: 20
   fields:
     name: Iggy Koopa
-    speed: 3.75
-    acceleration: 2.5
-    weight: 3.75
-    handling: 3.25
-    traction: 3.75
+    stats: 4
 - model: comparison.racer
   pk: 21
   fields:
     name: Ludwig von Koopa
-    speed: 3.75
-    acceleration: 2.5
-    weight: 3.75
-    handling: 3.25
-    traction: 3.75
+    stats: 4
 - model: comparison.racer
   pk: 22
   fields:
     name: Mii (Medium)
-    speed: 3.75
-    acceleration: 2.5
-    weight: 3.75
-    handling: 3.25
-    traction: 3.75
+    stats: 4
 - model: comparison.racer
   pk: 23
   fields:
     name: Donkey Kong
-    speed: 4.25
-    acceleration: 2.25
-    weight: 4.25
-    handling: 2.75
-    traction: 3.5
+    stats: 5
 - model: comparison.racer
   pk: 24
   fields:
     name: Waluigi
-    speed: 4.25
-    acceleration: 2.25
-    weight: 4.25
-    handling: 2.75
-    traction: 3.5
+    stats: 5
 - model: comparison.racer
   pk: 25
   fields:
     name: Rosalina
-    speed: 4.25
-    acceleration: 2.25
-    weight: 4.25
-    handling: 2.75
-    traction: 3.5
+    stats: 5
 - model: comparison.racer
   pk: 26
   fields:
     name: Roy Koopa
-    speed: 4.25
-    acceleration: 2.25
-    weight: 4.25
-    handling: 2.75
-    traction: 3.5
+    stats: 5
 - model: comparison.racer
   pk: 27
   fields:
     name: Metal Mario
-    speed: 4.25
-    acceleration: 2
-    weight: 4.75
-    handling: 2.75
-    traction: 3.25
+    stats: 6
 - model: comparison.racer
   pk: 28
   fields:
-    name: Metal Peach
-    speed: 4.25
-    acceleration: 2
-    weight: 4.75
-    handling: 2.75
-    traction: 3.25
+    name: Pink Gold Peach
+    stats: 6
 - model: comparison.racer
   pk: 29
   fields:
     name: Bowser
-    speed: 4.75
-    acceleration: 2
-    weight: 4.75
-    handling: 2.75
-    traction: 3.25
+    stats: 7
 - model: comparison.racer
   pk: 29
   fields:
     name: Wario
-    speed: 4.75
-    acceleration: 2
-    weight: 4.75
-    handling: 2.75
-    traction: 3.25
+    stats: 7
 - model: comparison.racer
   pk: 29
   fields:
     name: Morton Koopa Jr.
-    speed: 4.75
-    acceleration: 2
-    weight: 4.75
-    handling: 2.75
-    traction: 3.25
+    stats: 7
 - model: comparison.racer
   pk: 29
   fields:
     name: Wii (Heavy)
-    speed: 4.75
-    acceleration: 2
-    weight: 4.75
-    handling: 2.75
-    traction: 3.25
+    stats: 7
