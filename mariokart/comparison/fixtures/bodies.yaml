@@ -2,7 +2,6 @@
   pk: 1
   fields:
     name: Standard Kart
-    filename:
     speed: 0
     acceleration: 0
     weight: 0
@@ -12,7 +11,6 @@
   pk: 2
   fields:
     name: Pipe Frame
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -22,7 +20,6 @@
   pk: 3
   fields:
     name: Mach 8
-    filename:
     speed: 0.5
     acceleration: -0.25
     weight: 0.25
@@ -32,7 +29,6 @@
   pk: 4
   fields:
     name: Steel Driver
-    filename:
     speed: 0
     acceleration: -0.5
     weight: 0.5
@@ -42,7 +38,6 @@
   pk: 5
   fields:
     name: Cat Cruiser
-    filename:
     speed: 0
     acceleration: 0
     weight: 0
@@ -52,7 +47,6 @@
   pk: 6
   fields:
     name: Circuit Special
-    filename:
     speed: 0.5
     acceleration: -0.25
     weight: 0.25
@@ -62,7 +56,6 @@
   pk: 7
   fields:
     name: Tri-Speeder
-    filename:
     speed: 0
     acceleration: -0.5
     weight: 0.5
@@ -72,7 +65,6 @@
   pk: 8
   fields:
     name: Badwagon
-    filename:
     speed: 0
     acceleration: -0.5
     weight: 0.5
@@ -82,7 +74,6 @@
   pk: 9
   fields:
     name: Prancer
-    filename:
     speed: 0
     acceleration: 0
     weight: 0
@@ -92,7 +83,6 @@
   pk: 10
   fields:
     name: Biddybuggy
-    filename:
     speed: -0.75
     acceleration: 1.25
     weight: -0.5
@@ -102,7 +92,6 @@
   pk: 11
   fields:
     name: Landship
-    filename:
     speed: -0.75
     acceleration: 1.25
     weight: -0.5
@@ -112,7 +101,6 @@
   pk: 12
   fields:
     name: Sneeker
-    filename:
     speed: 0
     acceleration: 0
     weight: 0
@@ -122,7 +110,6 @@
   pk: 13
   fields:
     name: Sports Coupe
-    filename:
     speed: 0.5
     acceleration: -0.25
     weight: 0.25
@@ -132,7 +119,6 @@
   pk: 14
   fields:
     name: Gold Standard
-    filename:
     speed: 0.5
     acceleration: -0.25
     weight: 0.25
@@ -142,7 +128,6 @@
   pk: 15
   fields:
     name: Standard Bike
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -152,7 +137,6 @@
   pk: 16
   fields:
     name: Comet
-    filename:
     speed: 0
     acceleration: 0.75
     weight: -0.25
@@ -162,7 +146,6 @@
   pk: 17
   fields:
     name: Sport Bike
-    filename:
     speed: 0
     acceleration: 0.75
     weight: -0.25
@@ -172,7 +155,6 @@
   pk: 18
   fields:
     name: The Duke
-    filename:
     speed: 0
     acceleration: 0
     weight: 0
@@ -182,7 +164,6 @@
   pk: 19
   fields:
     name: Flame Rider
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -192,7 +173,6 @@
   pk: 20
   fields:
     name: Varmint
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -202,7 +182,6 @@
   pk: 21
   fields:
     name: Mr. Scooty
-    filename:
     speed: -0.75
     acceleration: 1.25
     weight: -0.5
@@ -212,7 +191,6 @@
   pk: 22
   fields:
     name: Jet Bike
-    filename:
     speed: 0
     acceleration: 0.75
     weight: -0.25
@@ -222,7 +200,6 @@
   pk: 23
   fields:
     name: Yoshi Bike
-    filename:
     speed: 0
     acceleration: 0.75
     weight: -0.25
@@ -232,7 +209,6 @@
   pk: 24
   fields:
     name: Standard ATV
-    filename:
     speed: 0
     acceleration: -0.5
     weight: 0.5
@@ -242,7 +218,6 @@
   pk: 25
   fields:
     name: Wild Wiggler
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -252,7 +227,6 @@
   pk: 26
   fields:
     name: Teddy Buggy
-    filename:
     speed: 0
     acceleration: 0
     weight: 0

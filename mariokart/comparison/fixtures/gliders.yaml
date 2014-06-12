@@ -2,7 +2,6 @@
   pk: 1
   fields:
     name: Super Glider
-    filename:
     speed: 0
     acceleration: 0
     weight: 0
@@ -12,7 +11,6 @@
   pk: 2
   fields:
     name: Cloud Glider
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -22,7 +20,6 @@
   pk: 3
   fields:
     name: Wario Wing
-    filename:
     speed: 0
     acceleration: 0
     weight: 0
@@ -32,7 +29,6 @@
   pk: 4
   fields:
     name: Waddle Wing
-    filename:
     speed: 0
     acceleration: 0
     weight: 0
@@ -42,7 +38,6 @@
   pk: 5
   fields:
     name: Peach Parasol
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -52,7 +47,6 @@
   pk: 6
   fields:
     name: Parachute
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -62,7 +56,6 @@
   pk: 7
   fields:
     name: Parafoil
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -72,7 +65,6 @@
   pk: 8
   fields:
     name: Flower Glider
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -82,7 +74,6 @@
   pk: 9
   fields:
     name: Bowser Kite
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -92,7 +83,6 @@
   pk: 10
   fields:
     name: Plane Glider
-    filename:
     speed: 0
     acceleration: 0
     weight: 0
@@ -102,7 +92,6 @@
   pk: 11
   fields:
     name: MKTV Parafoil
-    filename:
     speed: 0
     acceleration: 0.25
     weight: -0.25
@@ -112,7 +101,6 @@
   pk: 12
   fields:
     name: Gold Glider
-    filename:
     speed: 0
     acceleration: 0
     weight: 0
