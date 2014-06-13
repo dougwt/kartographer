@@ -154,7 +154,7 @@
 - model: comparison.tire
   pk: 18
   fields:
-    name: Gold Tires
+    name: Gold
     speed: 0.25
     acceleration: -0.5
     weight: 0.5

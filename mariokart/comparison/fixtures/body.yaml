@@ -100,7 +100,7 @@
 - model: comparison.body
   pk: 12
   fields:
-    name: Sneeker
+    name: Sneaker
     speed: 0
     acceleration: 0
     weight: 0
