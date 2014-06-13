@@ -194,7 +194,7 @@ DJANGO_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    'comparison',
+    # 'comparison',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
