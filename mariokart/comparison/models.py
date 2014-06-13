@@ -1,4 +1,7 @@
 from django.db import models
+from django.templatetags.static import static
+
+import re
 
 # Create your models here.
 class BaseModel(models.Model):
@@ -7,9 +10,8 @@ class BaseModel(models.Model):
     def __unicode__(self):
         return self.name
 
-    def filename(self):
-        name = self.name.lower()
-        return name.translate(name.maketrans("",""), string.punctuation)
+    def file(self):
+        return re.sub(ur'[\W_]+', u'', self.name.lower(), flags=re.UNICODE)
 
     class Meta:
         abstract = True
@@ -27,14 +29,30 @@ class CommonStats(BaseModel):
 class RacerStats(CommonStats):
     pass
 
+    def file(self):
+        # return '%s.png' % super(RacerStats, self).file()
+        return ''
+
 class Body(CommonStats):
     pass
+
+    def file(self):
+        return static('mk8/bodies/%s.png' % super(Body, self).file())
 
 class Tire(CommonStats):
     pass
 
+    def file(self):
+        return static('mk8/tires/%s.png' % super(Tire, self).file())
+
 class Glider(CommonStats):
     pass
 
+    def file(self):
+        return static('mk8/gliders/%s.png' % super(Glider, self).file())
+
 class Racer(BaseModel):
     stats = models.ForeignKey(RacerStats)
+
+    def file(self):
+        return static('mk8/racers/%s.png' % super(Racer, self).file())

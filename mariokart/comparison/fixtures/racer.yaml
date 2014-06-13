@@ -156,5 +156,5 @@
 - model: comparison.racer
   pk: 32
   fields:
-    name: Wii (Heavy)
+    name: Mii (Heavy)
     stats: 7
