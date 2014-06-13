@@ -39,6 +39,9 @@ class Body(CommonStats):
     def file(self):
         return static('mk8/bodies/%s.png' % super(Body, self).file())
 
+    class Meta:
+        verbose_name_plural = "bodies"
+
 class Tire(CommonStats):
     pass
 
