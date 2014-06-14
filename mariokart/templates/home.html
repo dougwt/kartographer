@@ -16,14 +16,33 @@ input[type=radio] + img{
 input[type=radio]:checked + img{
     border:5px solid #d65352;
 }
+.logo {
+    padding: 20px;
+}
+.hide-text {
+    text-indent: 1000%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.nav {
+    min-height: 115px;
+    padding: 37px 20px 36px 0;
+}
 </style>
 {% endblock %}
 
 {% block content %}
         <!-- Page Header -->
         <div class="row">
-            <div class="page-header">
-                <h1>Mario Kart 8 <small>Kart Comparison Tool</small></h1>
+            <div class="col-xs-12 col-md-3">
+                <a href="/"><img src="{% static 'logo.png' %}" alt="Kart Comparison Tool" class="logo"></a>
+            </div>
+            <div class="col-xs-12 col-md-9">
+                <ul class="nav nav-pills navbar-right">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <!--<li><a href="http://github.com/dougwt/mk8">Source</a></li>-->
+                </ul>
             </div>
         </div>
 
@@ -79,7 +98,7 @@ input[type=radio]:checked + img{
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Step 1 of 4: Please choose a driver...</h4>
+                            <h4 class="modal-title" id="myModalLabel">Step 1 of 4: <span class="hidden-xs">Please choose a driver...</span><span class="visible-xs">Choose driver</span></h4>
                           </div>
                           <div class="modal-body">
                                 {% for item in racers %}<label class="fb fb-racer" for="fb-racer-{{ forloop.counter }}">
@@ -101,7 +120,7 @@ input[type=radio]:checked + img{
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Step 2 of 4: Please choose a kart...</h4>
+                            <h4 class="modal-title" id="myModalLabel">Step 2 of 4: <span class="hidden-xs">Please choose a kart...</span><span class="visible-xs">Choose kart</span></h4>
                           </div>
                           <div class="modal-body">
                                 {% for item in bodies %}<label class="fb fb-body" for="fb-body-{{ forloop.counter }}">
@@ -123,7 +142,7 @@ input[type=radio]:checked + img{
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Step 3 of 4: Please choose a tire...</h4>
+                            <h4 class="modal-title" id="myModalLabel">Step 3 of 4: <span class="hidden-xs">Please choose a tire...</span><span class="visible-xs">Choose tire</span></h4>
                           </div>
                           <div class="modal-body">
                                 {% for item in tires %}<label class="fb fb-tire" for="fb-tire-{{ forloop.counter }}">
@@ -145,7 +164,7 @@ input[type=radio]:checked + img{
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Step 4 of 4: Please choose a glider...</h4>
+                            <h4 class="modal-title" id="myModalLabel">Step 4 of 4: <span class="hidden-xs">Please choose a glider...</span><span class="visible-xs">Choose glider</span></h4>
                           </div>
                           <div class="modal-body">
                                 {% for item in gliders %}<label class="fb fb-glider" for="fb-glider-{{ forloop.counter }}">
