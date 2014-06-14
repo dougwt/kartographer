@@ -17,7 +17,8 @@ def add(request):
 def home(request):
     # return HttpResponse("Hello, world. You're at the comparison home.")
 
-    config = [
+    # Temporary data
+    request.session['configurations'] = [
         {
             'racer': {'file': "75px-MK8_ShyGuy", 'name': "Shy Guy"},
             'body': {'file': "100px-FlameRiderBodyMK8", 'name': "Flame Rider"},
@@ -29,16 +30,15 @@ def home(request):
             'handling': 4.75,
             'traction': 2.50,
         }
-    ]
+    ] * 4
 
     context = {
-        'configurations': config * 6,
         'racerstats': RacerStats.objects.all(),
         'racers': Racer.objects.select_related().all(),
         'bodies': Body.objects.all(),
         'tires': Tire.objects.all(),
         'gliders': Glider.objects.all(),
-
+        'configurations': request.session['configurations'],
     }
     return render(request, 'home.html', context)
 
