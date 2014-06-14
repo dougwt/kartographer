@@ -17,7 +17,7 @@ def add(request):
 def home(request):
     # return HttpResponse("Hello, world. You're at the comparison home.")
 
-    configurations = request.session['configurations']
+    configurations = request.session.get('configurations', [])
 
     # Temporary data
     test_data = {
