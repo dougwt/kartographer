@@ -7,7 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'comparison.views.home', name='home'),
-    url(r'^list/', 'comparison.views.list', name='list'),
+    url(r'^items/', 'comparison.views.items', name='items'),
     url(r'^add/', 'comparison.views.add', name='add'),
     # url(r'^blog/', include('blog.urls')),
 

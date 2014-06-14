@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,12 +15,34 @@
             th:after {
             content: "";
             }
+            .logo {
+                padding: 20px;
+            }
+            .nav {
+                min-height: 115px;
+                padding: 37px 20px 36px 0;
+            }
         </style>
         {% block head %}{% endblock %}
     </head>
     <body>
 
     <div class="container">
+
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <a href="/"><img src="{% static 'logo.png' %}" alt="Kart Comparison Tool" class="logo"></a>
+            </div>
+            <div class="hidden-xs col-md-9">
+                <ul class="nav nav-pills navbar-right">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/items/">Items</a></li>
+                  <li><a href="#">About</a></li>
+                  <!--<li><a href="http://github.com/dougwt/mk8">Source</a></li>-->
+                </ul>
+            </div>
+        </div>
 
         <!-- BEGIN PAGE CONTENT -->
 

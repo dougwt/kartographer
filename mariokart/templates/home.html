@@ -16,36 +16,11 @@ input[type=radio] + img{
 input[type=radio]:checked + img{
     border:5px solid #d65352;
 }
-.logo {
-    padding: 20px;
-}
-.hide-text {
-    text-indent: 1000%;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.nav {
-    min-height: 115px;
-    padding: 37px 20px 36px 0;
-}
+
 </style>
 {% endblock %}
 
 {% block content %}
-        <!-- Page Header -->
-        <div class="row">
-            <div class="col-xs-12 col-md-3">
-                <a href="/"><img src="{% static 'logo.png' %}" alt="Kart Comparison Tool" class="logo"></a>
-            </div>
-            <div class="hidden-xs col-md-9">
-                <ul class="nav nav-pills navbar-right">
-                  <li><a href="/">Home</a></li>
-                  <li><a href="#">About</a></li>
-                  <!--<li><a href="http://github.com/dougwt/mk8">Source</a></li>-->
-                </ul>
-            </div>
-        </div>
-
         <!-- Begin Loadouts -->
         <div class="row">
             <div class="panel panel-default">

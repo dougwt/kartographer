@@ -42,7 +42,7 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
-def list(request):
+def items(request):
     context = {
         'racerstats': RacerStats.objects.all(),
         'racers': Racer.objects.select_related().all(),
@@ -51,4 +51,4 @@ def list(request):
         'gliders': Glider.objects.all(),
 
     }
-    return render(request, 'list.html', context)
+    return render(request, 'items.html', context)
