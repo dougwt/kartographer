@@ -3,6 +3,17 @@ from django.shortcuts import render
 from .models import RacerStats, Racer, Body, Tire, Glider
 
 # Create your views here.
+def add(request):
+    context = {
+        'racerstats': RacerStats.objects.all(),
+        'racers': Racer.objects.select_related().all(),
+        'bodies': Body.objects.all(),
+        'tires': Tire.objects.all(),
+        'gliders': Glider.objects.all(),
+
+    }
+    return render(request, 'add.html', context)
+
 def home(request):
     # return HttpResponse("Hello, world. You're at the comparison home.")
 
@@ -26,7 +37,7 @@ def home(request):
 def list(request):
     context = {
         'racerstats': RacerStats.objects.all(),
-        'racers': Racer.objects.select_related('speed', 'acceleration', 'weight', 'handling', 'traction').all(),
+        'racers': Racer.objects.select_related().all(),
         'bodies': Body.objects.all(),
         'tires': Tire.objects.all(),
         'gliders': Glider.objects.all(),

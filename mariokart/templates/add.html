@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<style type="text/css">
+.fb > input[type=radio]{
+    display:none;
+}
+input[type=radio] + img{
+    cursor:pointer;
+    border:2px solid transparent;
+}
+input[type=radio]:checked + img{
+    border:2px solid #f00;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+        <!-- Page Header -->
+        <div class="row">
+            <div class="page-header">
+                <h1>Mario Kart 8 <small>Kart Comparison Tool</small></h1>
+            </div>
+        </div>
+
+        <!-- Choose Racer -->
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Driver</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form>
+                        {% for item in racers %}
+                        <label class="fb" for="fb-racer-{{ forloop.counter }}">
+                            <input id="fb-racer-{{ forloop.counter }}" type="radio" name="fb" value="big" />
+                            <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+                        </label>
+                        {% endfor %}
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Choose Kart -->
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Kart</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form>
+                        {% for item in bodies %}
+                        <label class="fb" for="fb-body-{{ forloop.counter }}">
+                            <input id="fb-body-{{ forloop.counter }}" type="radio" name="fb" value="big" />
+                            <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+                        </label>
+                        {% endfor %}
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Choose Tires -->
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Tires</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form>
+                        {% for item in tires %}
+                        <label class="fb" for="fb-tire-{{ forloop.counter }}">
+                            <input id="fb-tire-{{ forloop.counter }}" type="radio" name="fb" value="big" />
+                            <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+                        </label>
+                        {% endfor %}
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Choose Glider -->
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Glider</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form>
+                        {% for item in gliders %}
+                        <label class="fb" for="fb-glider-{{ forloop.counter }}">
+                            <input id="fb-glider-{{ forloop.counter }}" type="radio" name="fb" value="big" />
+                            <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+                        </label>
+                        {% endfor %}
+                    </form>
+
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block script %}
+<script>
+$( document ).ready(function() {
+
+    $( ".choice" ).click(function() {
+        $( this ).toggleClass( "chosen" );
+    });
+
+
+});
+</script>
+{% endblock %}
