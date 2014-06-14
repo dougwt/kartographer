@@ -17,20 +17,23 @@ def add(request):
 def home(request):
     # return HttpResponse("Hello, world. You're at the comparison home.")
 
-    # Temporary data
-    request.session['configurations'] += [
-        {
-            'racer': {'file': "75px-MK8_ShyGuy", 'name': "Shy Guy"},
-            'body': {'file': "100px-FlameRiderBodyMK8", 'name': "Flame Rider"},
-            'tire': {'file': "100px-MonsterTiresMK8", 'name': "Monster"},
-            'glider': {'file': "100px-Cloud_Glider", 'name': "Cloud"},
-            'speed': 2.75,
-            'acceleration': 1.75,
-            'weight': 3.25,
-            'handling': 4.75,
-            'traction': 2.50,
-        }
-    ] * 2
+     configurations = request.session['configurations']
+
+     # Temporary data
+     test_data = {
+        'racer': {'file': "75px-MK8_ShyGuy", 'name': "Shy Guy"},
+        'body': {'file': "100px-FlameRiderBodyMK8", 'name': "Flame Rider"},
+        'tire': {'file': "100px-MonsterTiresMK8", 'name': "Monster"},
+        'glider': {'file': "100px-Cloud_Glider", 'name': "Cloud"},
+        'speed': 2.75,
+        'acceleration': 1.75,
+        'weight': 3.25,
+        'handling': 4.75,
+        'traction': 2.50,
+    }
+
+    configurations.append(test_data)
+    request.session['configurations'] = configurations
 
     context = {
         'racerstats': RacerStats.objects.all(),
