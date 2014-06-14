@@ -17,10 +17,10 @@ def add(request):
 def home(request):
     # return HttpResponse("Hello, world. You're at the comparison home.")
 
-     configurations = request.session['configurations']
+    configurations = request.session['configurations']
 
-     # Temporary data
-     test_data = {
+    # Temporary data
+    test_data = {
         'racer': {'file': "75px-MK8_ShyGuy", 'name': "Shy Guy"},
         'body': {'file': "100px-FlameRiderBodyMK8", 'name': "Flame Rider"},
         'tire': {'file': "100px-MonsterTiresMK8", 'name': "Monster"},
