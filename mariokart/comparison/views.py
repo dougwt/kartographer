@@ -31,7 +31,15 @@ def home(request):
         }
     ]
 
-    context = { 'configurations': config * 6 }
+    context = {
+        'configurations': config * 6,
+        'racerstats': RacerStats.objects.all(),
+        'racers': Racer.objects.select_related().all(),
+        'bodies': Body.objects.all(),
+        'tires': Tire.objects.all(),
+        'gliders': Glider.objects.all(),
+
+    }
     return render(request, 'home.html', context)
 
 def list(request):

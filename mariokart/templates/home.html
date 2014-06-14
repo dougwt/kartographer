@@ -1,6 +1,24 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block head %}
+<style type="text/css">
+label.fb {
+    margin: 0;
+}
+.fb > input[type=radio]{
+    display:none;
+}
+input[type=radio] + img{
+    cursor:pointer;
+    border:5px solid transparent;
+}
+input[type=radio]:checked + img{
+    border:5px solid #d65352;
+}
+</style>
+{% endblock %}
+
 {% block content %}
         <!-- Page Header -->
         <div class="row">
@@ -48,13 +66,133 @@
                     </table>
 
                     <div class="text-right">
-                        <button class="btn btn-default">Add
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#addModalDriver">Add Configuration
                             <span class="glyphicon glyphicon-plus"></span>
                         </button>
                     </div>
+
+                    <form action="">
+
+                    <!-- Step 1: Driver Modal -->
+                    <div class="modal fade" id="addModalDriver" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Step 1 of 4: Please choose a driver...</h4>
+                          </div>
+                          <div class="modal-body">
+                                {% for item in racers %}<label class="fb fb-racer" for="fb-racer-{{ forloop.counter }}">
+                                    <input id="fb-racer-{{ forloop.counter }}" type="radio" name="add-racer" value="{{ item.id }}" />
+                                    <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+                                </label>{% endfor %}
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" id="racer-next" class="btn disabled" data-dismiss="modal" data-toggle="modal" data-target="#addModalKart">Next <span class="glyphicon glyphicon-arrow-right"></span></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Step 2: Kart Modal -->
+                    <div class="modal fade" id="addModalKart" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Step 2 of 4: Please choose a kart...</h4>
+                          </div>
+                          <div class="modal-body">
+                                {% for item in bodies %}<label class="fb fb-body" for="fb-body-{{ forloop.counter }}">
+                                    <input id="fb-body-{{ forloop.counter }}" type="radio" name="add-body" value="{{ item.id }}" />
+                                    <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+                                </label>{% endfor %}
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" id="body-next" class="btn disabled" data-dismiss="modal" data-toggle="modal" data-target="#addModalTire">Next <span class="glyphicon glyphicon-arrow-right"></span></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Step 3: Tire Modal -->
+                    <div class="modal fade" id="addModalTire" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Step 3 of 4: Please choose a tire...</h4>
+                          </div>
+                          <div class="modal-body">
+                                {% for item in tires %}<label class="fb fb-tire" for="fb-tire-{{ forloop.counter }}">
+                                    <input id="fb-tire-{{ forloop.counter }}" type="radio" name="add-tire" value="{{ item.id }}" />
+                                    <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+                                </label>{% endfor %}
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" id="tire-next" class="btn disabled" data-dismiss="modal" data-toggle="modal" data-target="#addModalGlider">Next <span class="glyphicon glyphicon-arrow-right"></span></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Step 4: Glider Modal -->
+                    <div class="modal fade" id="addModalGlider" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Step 4 of 4: Please choose a glider...</h4>
+                          </div>
+                          <div class="modal-body">
+                                {% for item in gliders %}<label class="fb fb-glider" for="fb-glider-{{ forloop.counter }}">
+                                    <input id="fb-glider-{{ forloop.counter }}" type="radio" name="add-glider" value="{{ item.id }}" />
+                                    <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+                                </label>{% endfor %}
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="submit" id="glider-next" class="btn disabled">Finish</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    </form>
 
                 </div>
             </div>
         </div>
         <!-- End Loadouts -->
+{% endblock %}
+
+{% block script %}
+<script>
+$( document ).ready(function() {
+
+    $( ".choice" ).click(function() {
+        $( this ).toggleClass( "chosen" );
+    });
+
+    $( "label.fb-racer" ).click(function() {
+        $( "#racer-next" ).removeClass( "disabled").addClass( "btn-danger" );
+    });
+
+    $( "label.fb-body" ).click(function() {
+        $( "#body-next" ).removeClass( "disabled").addClass( "btn-danger" );
+    });
+
+    $( "label.fb-tire" ).click(function() {
+        $( "#tire-next" ).removeClass( "disabled").addClass( "btn-danger" );
+    });
+
+    $( "label.fb-glider" ).click(function() {
+        $( "#glider-next" ).removeClass( "disabled").addClass( "btn-danger" );
+    });
+
+});
+</script>
 {% endblock %}
