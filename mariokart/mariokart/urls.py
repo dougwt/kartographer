@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'comparison.views.home', name='home'),
     url(r'^items/', 'comparison.views.items', name='items'),
     url(r'^add/', 'comparison.views.add', name='add'),
+    url(r'^reset/', 'comparison.views.reset', name='reset'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),

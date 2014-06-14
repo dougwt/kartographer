@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import RacerStats, Racer, Body, Tire, Glider
 
@@ -18,7 +18,7 @@ def home(request):
     # return HttpResponse("Hello, world. You're at the comparison home.")
 
     # Temporary data
-    request.session['configurations'] = [
+    request.session['configurations'] += [
         {
             'racer': {'file': "75px-MK8_ShyGuy", 'name': "Shy Guy"},
             'body': {'file': "100px-FlameRiderBodyMK8", 'name': "Flame Rider"},
@@ -30,7 +30,7 @@ def home(request):
             'handling': 4.75,
             'traction': 2.50,
         }
-    ] * 4
+    ] * 2
 
     context = {
         'racerstats': RacerStats.objects.all(),
@@ -52,3 +52,7 @@ def items(request):
 
     }
     return render(request, 'items.html', context)
+
+def reset(request):
+    request.session['configurations'] = []
+    return redirect('home')
