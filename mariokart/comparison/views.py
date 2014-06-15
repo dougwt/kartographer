@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .models import RacerStats, Racer, Body, Tire, Glider
+from .models import RacerStats, Racer, Body, Tire, Glider, KartConfig
 
 # Create your views here.
 def add(request):
@@ -17,23 +17,18 @@ def add(request):
 def home(request):
     # return HttpResponse("Hello, world. You're at the comparison home.")
 
-    configurations = request.session.get('configurations', [])
+    # Insert any potential new configuration
+    test_data = (10, 19, 2, 2)
+    if KartConfig(test_data).valid:
+        config_list = request.session.get('config_list', [])
+        config_list.append((10, 19, 2, 2))
+        request.session['config_list'] = config_list
 
-    # Temporary data
-    test_data = {
-        'racer': {'file': "shyguy", 'name': "Shy Guy"},
-        'body': {'file': "flamerider", 'name': "Flame Rider"},
-        'tire': {'file': "monster", 'name': "Monster"},
-        'glider': {'file': "cloudglider", 'name': "Cloud"},
-        'speed': 2.75,
-        'acceleration': 1.75,
-        'weight': 3.25,
-        'handling': 4.75,
-        'traction': 2.50,
-    }
-
-    configurations.append(test_data)
-    request.session['configurations'] = configurations
+    configurations = []
+    for config_data in request.session['config_list']:
+        config = KartConfig(config_data)
+        if config.valid:
+            configurations.append(config)
 
     context = {
         'racerstats': RacerStats.objects.all(),
@@ -41,7 +36,7 @@ def home(request):
         'bodies': Body.objects.all(),
         'tires': Tire.objects.all(),
         'gliders': Glider.objects.all(),
-        'configurations': request.session['configurations'],
+        'configurations': configurations,
     }
     return render(request, 'home.html', context)
 
@@ -57,5 +52,5 @@ def items(request):
     return render(request, 'items.html', context)
 
 def reset(request):
-    request.session['configurations'] = []
+    request.session['config_list'] = []
     return redirect('home')
