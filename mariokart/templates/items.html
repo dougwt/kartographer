@@ -25,7 +25,7 @@
                         {% for item in racers %}
                         <tr>
                             <td class="text-center">{{ item.name }}</td>
-                            <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
+                            <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}" width="64" height="64"></td>
                             <td class="text-center">{{ item.stats.speed }}</td>
                             <td class="text-center">{{ item.stats.acceleration }}</td>
                             <td class="text-center">{{ item.stats.weight }}</td>
