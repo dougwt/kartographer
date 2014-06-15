@@ -21,10 +21,10 @@ def home(request):
 
     # Temporary data
     test_data = {
-        'racer': {'file': "75px-MK8_ShyGuy", 'name': "Shy Guy"},
-        'body': {'file': "100px-FlameRiderBodyMK8", 'name': "Flame Rider"},
-        'tire': {'file': "100px-MonsterTiresMK8", 'name': "Monster"},
-        'glider': {'file': "100px-Cloud_Glider", 'name': "Cloud"},
+        'racer': {'file': "shyguy", 'name': "Shy Guy"},
+        'body': {'file': "flamerider", 'name': "Flame Rider"},
+        'tire': {'file': "monster", 'name': "Monster"},
+        'glider': {'file': "cloudglider", 'name': "Cloud"},
         'speed': 2.75,
         'acceleration': 1.75,
         'weight': 3.25,
