@@ -20,6 +20,40 @@ input[type=radio]:checked + img{
     line-height: 6em;
     color: #aaa;
 }
+
+#configurations {
+}
+#configurations thead {
+  cursor: pointer;
+}
+#configurations thead tr th {
+}
+#configurations thead tr th span {
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+#configurations thead tr th.headerSortUp, #configurations thead tr th.headerSortDown {
+}
+#configurations thead tr th.headerSortUp span {
+  background-image: url('{% static 'tablesorter/themes/blue/asc.gif' %}');
+}
+#configurations thead tr th.headerSortDown span {
+  background-image: url('{% static 'tablesorter/themes/blue/desc.gif' %}');
+}
+#configurations thead tr th span.unsortable {
+  background: none;
+}
+#configurations tbody tr {
+  color: #555;
+}
+#configurations tbody tr td {
+  text-align: center;
+  padding: 15px 10px;
+}
+#configurations tbody tr td.lalign {
+  text-align: left;
+}
 </style>
 {% endblock %}
 
@@ -33,18 +67,21 @@ input[type=radio]:checked + img{
                 <div class="panel-body">
 
                     <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table id="configurations" class="table table-hover">
 
                         <!-- Header -->
                         <thead>
-                            <th class="text-center">Configuration</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Acceleration</th>
-                            <th class="text-center">Weight</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Traction</th>
+                        <tr>
+                            <th class="text-center"><span class="unsortable">Configuration</span></th>
+                            <th class="text-center"><span>Speed</span></th>
+                            <th class="text-center"><span>Acceleration</span></th>
+                            <th class="text-center"><span>Weight</span></th>
+                            <th class="text-center"><span>Handling</span></th>
+                            <th class="text-center"><span>Traction</span></th>
+                        </tr>
                         </thead>
 
+                        <tbody>
                         {% for config in configurations %}
                         <tr>
                             <td class="text-center">
@@ -62,7 +99,7 @@ input[type=radio]:checked + img{
                         {% empty %}
                         <tr><td colspan="6" class="text-center"><em><span class="empty-alert">Your list is empty. Add a kart configuration by clicking the button below.</span></em></td></tr>
                         {% endfor %}
-
+                        </tbody>
 
                     </table>
                     </div>
@@ -176,6 +213,7 @@ input[type=radio]:checked + img{
 {% block script %}
 <script src="{% static 'js/ion.sound.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.contra.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'tablesorter/jquery.tablesorter.min.js' %}"></script>
 <script>
 $( document ).ready(function() {
 
@@ -204,6 +242,8 @@ $( document ).ready(function() {
             window.location = "{% url 'reset' %}";
         }
     });
+
+    $('#configurations').tablesorter();
 
     $.ionSound({
         sounds: [
