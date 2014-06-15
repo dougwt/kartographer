@@ -24,6 +24,7 @@ def home(request):
         config_list.append((10, 19, 2, 2))
         request.session['config_list'] = config_list
 
+    # Convert config_list tuples into KartConfig objects
     configurations = []
     for config_data in request.session['config_list']:
         config = KartConfig(config_data)
