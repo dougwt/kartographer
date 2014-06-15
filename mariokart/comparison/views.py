@@ -32,7 +32,7 @@ def home(request):
 
     # Convert config_list tuples into KartConfig objects
     configurations = []
-    for config_data in request.session['config_list']:
+    for config_data in request.session.get('config_list', []):
         config = KartConfig(config_data)
         if config.valid:
             configurations.append(config)
