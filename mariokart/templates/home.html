@@ -54,6 +54,16 @@ input[type=radio]:checked + img{
 #configurations tbody tr td.lalign {
   text-align: left;
 }
+@media (max-width: 991px) {
+    #configurations tbody tr td img {
+        width: 50px;
+        height: 32px;
+    }
+    #configurations tbody tr td img.racer {
+        width: 32px;
+        height: 32px;
+    }
+}
 </style>
 {% endblock %}
 
@@ -65,27 +75,42 @@ input[type=radio]:checked + img{
                     <h3 class="panel-title">Your kart configurations:</h3>
                 </div>
                 <div class="panel-body">
-
-                    <div class="table-responsive">
                     <table id="configurations" class="table table-hover">
 
                         <!-- Header -->
                         <thead>
                         <tr>
-                            <th class="text-center"><span class="unsortable">Configuration</span></th>
-                            <th class="text-center"><span>Speed</span></th>
-                            <th class="text-center"><span>Acceleration</span></th>
-                            <th class="text-center"><span>Weight</span></th>
-                            <th class="text-center"><span>Handling</span></th>
-                            <th class="text-center"><span>Traction</span></th>
+                            <th class="text-center hidden-xs">
+                                <span class="unsortable">Configuration</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Speed</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Spd</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Acceleration</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Accl</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Weight</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Handling</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Hndl</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Traction</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Trct</span>
+                            </th>
                         </tr>
                         </thead>
 
                         <tbody>
                         {% for config in configurations %}
-                        <tr>
+                        <tr class="hidden-xs">
                             <td class="text-center">
-                                <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}">
+                                <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
                                 <img src="{{ config.body.file }}" height="64" width="100" alt="{{ config.body.name }}">
                                 <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
                                 <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
@@ -96,13 +121,37 @@ input[type=radio]:checked + img{
                             <td class="text-center">{{ config.handling }}</td>
                             <td class="text-center">{{ config.traction }}</td>
                         </tr>
+
+                        <tr class="hidden-sm hidden-md hidden-lg">
+                            <td class="text-center" colspan="5">
+                                <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
+                                <img src="{{ config.body.file }}" height="64" width="100" alt="{{ config.body.name }}">
+                                <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
+                                <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
+                            </td>
+                            <td class="text-center hidden-xs">{{ config.speed }}</td>
+                            <td class="text-center hidden-xs">{{ config.acceleration }}</td>
+                            <td class="text-center hidden-xs">{{ config.weight }}</td>
+                            <td class="text-center hidden-xs">{{ config.handling }}</td>
+                            <td class="text-center hidden-xs">{{ config.traction }}</td>
+                        </tr>
+                        <tr class="hidden-sm hidden-md hidden-lg">
+                            <td class="text-center hidden-xs"></td>
+                            <td class="text-center">{{ config.speed }}</td>
+                            <td class="text-center">{{ config.acceleration }}</td>
+                            <td class="text-center">{{ config.weight }}</td>
+                            <td class="text-center">{{ config.handling }}</td>
+                            <td class="text-center">{{ config.traction }}</td>
+                        </tr>
                         {% empty %}
-                        <tr><td colspan="6" class="text-center"><em><span class="empty-alert">Your list is empty. Add a kart configuration by clicking the button below.</span></em></td></tr>
+                        <tr><td colspan="6" class="text-center"><em>
+                            <span class="empty-alert hidden-xs">Your list is empty. Add a kart configuration by clicking the button below.</span>
+                            <span class="empty-alert hidden-sm hidden-md hidden-ms">Your list is empty. Add a configuration below.</span>
+                        </em></td></tr>
                         {% endfor %}
                         </tbody>
 
                     </table>
-                    </div>
 
                     <div class="text-right">
                         <button id="reset-btn" class="btn btn-default">Reset <span class="glyphicon glyphicon-trash"></span></button>
