@@ -68,7 +68,8 @@ input[type=radio]:checked + img{
                         </button>
                     </div>
 
-                    <form action="">
+                    <form action="{% url 'home' %}" method="post">
+                    {% csrf_token %}
 
                     <!-- Step 1: Driver Modal -->
                     <div class="modal fade" id="addModalDriver" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">

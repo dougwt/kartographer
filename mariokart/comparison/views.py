@@ -18,11 +18,17 @@ def home(request):
     # return HttpResponse("Hello, world. You're at the comparison home.")
 
     # Insert any potential new configuration
-    test_data = (10, 19, 2, 2)
-    if KartConfig(test_data).valid:
-        config_list = request.session.get('config_list', [])
-        config_list.append((10, 19, 2, 2))
-        request.session['config_list'] = config_list
+    if request.method == "POST":
+        potential_config = (
+            request.POST['add-racer'],
+            request.POST['add-body'],
+            request.POST['add-tire'],
+            request.POST['add-glider']
+        )
+        if KartConfig(potential_config).valid:
+            config_list = request.session.get('config_list', [])
+            config_list.append(potential_config)
+            request.session['config_list'] = config_list
 
     # Convert config_list tuples into KartConfig objects
     configurations = []
