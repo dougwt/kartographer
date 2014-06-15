@@ -16,7 +16,10 @@ input[type=radio] + img{
 input[type=radio]:checked + img{
     border:5px solid #d65352;
 }
-
+.empty-alert {
+    line-height: 6em;
+    color: #aaa;
+}
 </style>
 {% endblock %}
 
@@ -56,7 +59,10 @@ input[type=radio]:checked + img{
                             <td class="text-center">{{ config.handling }}</td>
                             <td class="text-center">{{ config.traction }}</td>
                         </tr>
+                        {% empty %}
+                        <tr><td colspan="6" class="text-center"><em><span class="empty-alert">Your list is empty. Add a kart configuration by clicking the button below.</span></em></td></tr>
                         {% endfor %}
+
 
                     </table>
                     </div>
