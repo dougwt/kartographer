@@ -3,6 +3,7 @@ from django.templatetags.static import static
 from django.core.exceptions import ObjectDoesNotExist
 
 import re
+import uuid
 
 # Create your models here.
 class BaseModel(models.Model):
@@ -79,4 +80,35 @@ class KartConfig():
         except ObjectDoesNotExist:
             self.valid = False
 
+class ConfigList(BaseModel):
+    URL_LENGTH = 5
+    url =  = models.CharField(max_length=URL_LENGTH)
+    create_date = models.DateField(auto_now_add=True)
 
+    def __init__(self):
+        self.url = generate_url(self.URL_LENGTH)
+
+    def __init__(config_list):
+        pass
+
+    def generate_url(self, length):
+        while True:
+            url_hash = uuid.uuid4()[0:length]
+            try:
+                ConfigList.objects.get(url=url_hash):
+                break
+            except ObjectDoesNotExist:
+                return url_hash
+
+class ConfigListItem(BaseModel):
+    list = models.ForeignKey(ConfigList)
+    racer = models.ForeignKey(Racer)
+    body = models.ForeignKey(Body)
+    tire = models.ForeignKey(Tire)
+    glider = models.ForeignKey(Glider)
+
+    def __init__(self, racer, body, tire, glider):
+        self.racer = racer
+        self.body = body
+        self.tire = tire
+        self.glider = glider
