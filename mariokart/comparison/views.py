@@ -28,7 +28,10 @@ def home(request):
             request.POST['add-tire'],
             request.POST['add-glider']
         )
-        if KartConfig(potential_config).valid:
+        potential_config = [unicode(item) for item in potential_config]
+        if potential_config in request.session['config_list']:
+            messages.add_message(request, messages.WARNING, 'The configuration you added already exists in your list.')
+        elif KartConfig(potential_config).valid:
             config_list = request.session.get('config_list', [])
             config_list.append(potential_config)
             request.session['config_list'] = config_list
