@@ -104,3 +104,9 @@
 
 </form>
 {% endblock %}
+
+{% block script_extra %}
+{% if configurations %}
+$( "#share_link" ).removeClass("disabled");
+{% endif %}
+{% endblock %}
