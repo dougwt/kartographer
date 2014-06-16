@@ -7,7 +7,7 @@ import uuid
 
 # Create your models here.
 class BaseModel(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, blank=True)
 
     def __unicode__(self):
         return self.name
@@ -80,35 +80,37 @@ class KartConfig():
         except ObjectDoesNotExist:
             self.valid = False
 
-class ConfigList(BaseModel):
+class ConfigList(models.Model):
     URL_LENGTH = 5
-    url =  = models.CharField(max_length=URL_LENGTH)
+    url = models.CharField(max_length=URL_LENGTH)
     create_date = models.DateField(auto_now_add=True)
 
-    def __init__(self):
-        self.url = generate_url(self.URL_LENGTH)
+    @classmethod
+    def create(cls):
+        url = cls.generate_url(cls.URL_LENGTH)
+        list = cls(url=url)
+        return list
 
-    def __init__(config_list):
-        pass
-
-    def generate_url(self, length):
+    @staticmethod
+    def generate_url(length):
         while True:
-            url_hash = uuid.uuid4()[0:length]
+            url_hash = uuid.uuid4().hex[0:length]
             try:
-                ConfigList.objects.get(url=url_hash):
+                ConfigList.objects.get(url=url_hash)
                 break
             except ObjectDoesNotExist:
                 return url_hash
 
-class ConfigListItem(BaseModel):
+    def __unicode__(self):
+        return '[\'%s\' -> %s]' % (self.url, self.id)
+
+class ConfigListItem(models.Model):
     list = models.ForeignKey(ConfigList)
     racer = models.ForeignKey(Racer)
     body = models.ForeignKey(Body)
     tire = models.ForeignKey(Tire)
     glider = models.ForeignKey(Glider)
 
-    def __init__(self, racer, body, tire, glider):
-        self.racer = racer
-        self.body = body
-        self.tire = tire
-        self.glider = glider
+    @classmethod
+    def create(cls, list, racer, body, tire, glider):
+        return cls(list=list, racer=racer, body=body, tire=tire, glider=glider)

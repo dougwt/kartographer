@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from django.core.exceptions import ObjectDoesNotExist
 
-from .models import RacerStats, Racer, Body, Tire, Glider, KartConfig, ConfigList, ConfigListLitem
+from .models import RacerStats, Racer, Body, Tire, Glider, KartConfig, ConfigList, ConfigListItem
 
 # Create your views here.
 def add(request):
@@ -72,24 +72,23 @@ def save(request):
             configurations.append(config)
 
     # Create a ConfigList record for the new list
-    config_list = ConfigList()
+    config_list = ConfigList.create()
     config_list.save()
-
     # Create ConfigListItem records for each configuration in this list
     for config in configurations:
-        item = ConfigListItem(config_list, config.racer, config.body, config.tire, config.glider)
+        item = ConfigListItem.create(config_list, config.racer, config.body, config.tire, config.glider)
         item.save()
 
     return redirect('list', url_hash=config_list.url)
 
 def list(request, url_hash):
-    config_list = get_object_or_404(ConfigList, url=url_hash)
-    config_list = get_list_or_404(ConfigListItem, id=config_list.id)
+    config_list_obj = get_object_or_404(ConfigList, url=url_hash)
+    config_list = get_list_or_404(ConfigListItem, list_id=config_list_obj.id)
 
     # Convert config_list tuples into KartConfig objects
     configurations = []
-    for config_data in config_list., []):
-        config = KartConfig(config_data)
+    for config_data in config_list:
+        config = KartConfig((config_data.racer.id, config_data.body.id, config_data.tire.id, config_data.glider.id))
         if config.valid:
             configurations.append(config)
 
@@ -101,4 +100,4 @@ def list(request, url_hash):
         'gliders': Glider.objects.all(),
         'configurations': configurations,
     }
-    return render(request, 'home.html', context)
+    return render(request, 'list.html', context)

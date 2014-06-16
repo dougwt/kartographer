@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<style type="text/css">
+label.fb {
+    margin: 0;
+}
+.fb > input[type=radio]{
+    display:none;
+}
+input[type=radio] + img{
+    cursor:pointer;
+    border:5px solid transparent;
+}
+input[type=radio]:checked + img{
+    border:5px solid #d65352;
+}
+.empty-alert {
+    line-height: 6em;
+    color: #aaa;
+}
+
+#configurations {
+}
+#configurations thead {
+  cursor: pointer;
+}
+#configurations thead tr th {
+}
+#configurations thead tr th span {
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+#configurations thead tr th.headerSortUp, #configurations thead tr th.headerSortDown {
+}
+#configurations thead tr th.headerSortUp span {
+  background-image: url('{% static 'tablesorter/themes/blue/asc.gif' %}');
+}
+#configurations thead tr th.headerSortDown span {
+  background-image: url('{% static 'tablesorter/themes/blue/desc.gif' %}');
+}
+#configurations thead tr th span.unsortable {
+  background: none;
+}
+#configurations tbody tr {
+  color: #555;
+}
+#configurations tbody tr td {
+  text-align: center;
+  padding: 15px 10px;
+}
+#configurations tbody tr td.lalign {
+  text-align: left;
+}
+@media (max-width: 991px) {
+    #configurations tbody tr td img {
+        width: 50px;
+        height: 32px;
+    }
+    #configurations tbody tr td img.racer {
+        width: 32px;
+        height: 32px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+        <!-- Begin Loadouts -->
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{% block panel_title %}&nbsp;{% endblock %}</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="configurations" class="table table-hover">
+
+                        <!-- Header -->
+                        <thead>
+                        <tr>
+                            <th class="text-center hidden-xs">
+                                <span class="unsortable">Configuration</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Speed</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Spd</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Acceleration</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Accl</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Weight</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Handling</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Hndl</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Traction</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Trct</span>
+                            </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for config in configurations %}
+                        <tr class="hidden-xs">
+                            <td class="text-center">
+                                <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
+                                <img src="{{ config.body.file }}" height="64" width="100" alt="{{ config.body.name }}">
+                                <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
+                                <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
+                            </td>
+                            <td class="text-center">{{ config.speed }}</td>
+                            <td class="text-center">{{ config.acceleration }}</td>
+                            <td class="text-center">{{ config.weight }}</td>
+                            <td class="text-center">{{ config.handling }}</td>
+                            <td class="text-center">{{ config.traction }}</td>
+                        </tr>
+
+                        <tr class="hidden-sm hidden-md hidden-lg">
+                            <td class="text-center" colspan="5">
+                                <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
+                                <img src="{{ config.body.file }}" height="64" width="100" alt="{{ config.body.name }}">
+                                <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
+                                <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
+                            </td>
+                            <td class="text-center hidden-xs">{{ config.speed }}</td>
+                            <td class="text-center hidden-xs">{{ config.acceleration }}</td>
+                            <td class="text-center hidden-xs">{{ config.weight }}</td>
+                            <td class="text-center hidden-xs">{{ config.handling }}</td>
+                            <td class="text-center hidden-xs">{{ config.traction }}</td>
+                        </tr>
+                        <tr class="hidden-sm hidden-md hidden-lg">
+                            <td class="text-center hidden-xs"></td>
+                            <td class="text-center">{{ config.speed }}</td>
+                            <td class="text-center">{{ config.acceleration }}</td>
+                            <td class="text-center">{{ config.weight }}</td>
+                            <td class="text-center">{{ config.handling }}</td>
+                            <td class="text-center">{{ config.traction }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="6" class="text-center"><em>
+                            <span class="empty-alert hidden-xs">Your list is empty. Add a kart configuration by clicking the button below.</span>
+                            <span class="empty-alert hidden-sm hidden-md hidden-ms">Your list is empty. Add a configuration below.</span>
+                        </em></td></tr>
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+
+                    {% block add_configform %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        <!-- End Loadouts -->
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/ion.sound.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.contra.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'tablesorter/jquery.tablesorter.min.js' %}"></script>
+<script>
+$( document ).ready(function() {
+
+    $( ".choice" ).click(function() {
+        $( this ).toggleClass( "chosen" );
+    });
+
+    $( "label.fb-racer" ).click(function() {
+        $( "#racer-next" ).removeClass( "disabled").addClass( "btn-danger" );
+    });
+
+    $( "label.fb-body" ).click(function() {
+        $( "#body-next" ).removeClass( "disabled").addClass( "btn-danger" );
+    });
+
+    $( "label.fb-tire" ).click(function() {
+        $( "#tire-next" ).removeClass( "disabled").addClass( "btn-danger" );
+    });
+
+    $( "label.fb-glider" ).click(function() {
+        $( "#glider-next" ).removeClass( "disabled").addClass( "btn-danger" );
+    });
+
+    $( "#reset-btn" ).click(function() {
+        if (confirm('Are you sure you want to clear all your configurations?')) {
+            window.location = "{% url 'reset' %}";
+        }
+    });
+
+    $('#configurations').tablesorter();
+
+    $.ionSound({
+        sounds: [
+            "mk64_mario08",
+        ],
+        path: "{% static 'sounds/' %}",
+        multiPlay: true,
+        volume: "1.0"
+    });
+
+    $.contra( function() {
+        $.ionSound.play("mk64_mario08");
+    } );
+
+});
+</script>
+{% endblock %}
