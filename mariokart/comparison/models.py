@@ -114,3 +114,6 @@ class ConfigListItem(models.Model):
     @classmethod
     def create(cls, list, racer, body, tire, glider):
         return cls(list=list, racer=racer, body=body, tire=tire, glider=glider)
+
+    class Meta:
+        unique_together = ("list", "racer", "body", "tire", "glider")

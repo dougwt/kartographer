@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, get_list_or_40
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.contrib import messages
+from django.db import IntegrityError
 
 from .models import RacerStats, Racer, Body, Tire, Glider, KartConfig, ConfigList, ConfigListItem
 
@@ -82,7 +83,10 @@ def save(request):
     # Create ConfigListItem records for each configuration in this list
     for config in configurations:
         item = ConfigListItem.create(config_list, config.racer, config.body, config.tire, config.glider)
-        item.save()
+        try:
+            item.save()
+        except IntegrityError:
+            pass
 
     location = reverse('list', args=[config_list.url])
     full_url = request.build_absolute_uri(location)
