@@ -108,5 +108,6 @@
 {% block script_extra %}
 {% if configurations %}
 $( "#share_link" ).removeClass("disabled");
+$('#share_link > a').unbind('click');
 {% endif %}
 {% endblock %}
