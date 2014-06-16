@@ -83,7 +83,7 @@ def save(request):
 
     location = reverse('list', args=[config_list.url])
     full_url = request.build_absolute_uri(location)
-    messages.add_message(request, messages.SUCCESS, 'Your list has been saved to <a href="%s" class="alert-link">%s</a>. Share it with friends!' % (full_url, full_url), extra_tags='safe')
+    messages.add_message(request, messages.SUCCESS, 'Your current list has been saved to <a href="%s" class="alert-link">%s</a>. Any additional changes you make will need to be re-shared.' % (full_url, full_url), extra_tags='safe')
     return redirect('list', url_hash=config_list.url)
 
 def list(request, url_hash):
