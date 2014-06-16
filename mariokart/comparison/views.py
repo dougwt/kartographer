@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.urlresolvers import reverse
+from django.contrib import messages
 
 from .models import RacerStats, Racer, Body, Tire, Glider, KartConfig, ConfigList, ConfigListItem
 
@@ -79,6 +81,9 @@ def save(request):
         item = ConfigListItem.create(config_list, config.racer, config.body, config.tire, config.glider)
         item.save()
 
+    location = reverse('list', args=[config_list.url])
+    full_url = request.build_absolute_uri(location)
+    messages.add_message(request, messages.SUCCESS, 'Your list has been saved to <a href="%s" class="alert-link">%s</a>. Share it with friends!' % (full_url, full_url), extra_tags='safe')
     return redirect('list', url_hash=config_list.url)
 
 def list(request, url_hash):

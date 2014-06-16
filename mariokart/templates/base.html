@@ -43,10 +43,26 @@
                 <ul class="nav nav-pills navbar-right">
                   <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                   <li><a href="/items/"><span class="glyphicon glyphicon-th-list"></span> Items</a></li>
-                  <li class="disabled"><a href="#"><span class="glyphicon glyphicon-share"></span> Share List</a></li>
+                  <li><a href="/save/"><span class="glyphicon glyphicon-share"></span> Share List</a></li>
                 </ul>
             </div>
         </div>
+
+        {% if messages %}
+            {% for message in messages %}
+
+            <div class="alert
+            {% if 'debug' in message.tags %}alert-debug{% endif %}
+            {% if 'info' in message.tags %}alert-info{% endif %}
+            {% if 'success' in message.tags %}alert-success{% endif %}
+            {% if 'warning' in message.tags %}alert-warning{% endif %}
+            {% if 'error' in message.tags %}alert-error{% endif %}
+            ">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+            </div>
+            {% endfor %}
+        {% endif %}
 
         <!-- BEGIN PAGE CONTENT -->
 
