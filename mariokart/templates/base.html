@@ -30,9 +30,9 @@
             }
             .footer-graphic {
                 color: #e7e7e7;
-                line-height: 64px;
+                line-height: 40px;
             }
-            .footer {
+            ul.footer {
                 list-style-type: none;
                 margin: 0;
                 padding: 0;
@@ -40,7 +40,10 @@
             .footer li {
                 display: inline;
                 float: right;
-                padding-left: 10px;
+                padding: 0 0 0 20px;
+            }
+            .footer h6 {
+                margin-top: 0;
             }
         </style>
         {% block head %}{% endblock %}
@@ -87,8 +90,8 @@
 
         <!-- Footer -->
         <div class="row">
-            <div class="col-sm-8 col-xs-12 ">
-                <h6 class="row text-small"><small>The Mario Kart name, characters, and images are the property of Nintendo. They are used here in the spirit of community enrichment.<br>
+            <div class="col-sm-8 col-xs-12 footer">
+                <h6 class="row text-small"><small>The Mario Kart name, characters, and images are property of Nintendo<br>
                     Created by <a href="http://mycodebytes.com">Doug Tyler</a>
                     &nbsp;<span class="glyphicon glyphicon-road"></span>&nbsp;
                     Currently serving {{ total_list_count }} lists containing {{ total_config_count }} configurations
@@ -96,7 +99,7 @@
             </div>
             <ul class="col-sm-4 hidden-xs footer">
                 <!--<h4 class="text-right"><small><em>"I'm-a gonna win!"</em></small></h4>-->
-                <li><a href="http://www.djangoproject.com/"><img src="{% static 'django.png' %}" border="0" alt="Powered by Django." width="126" height="54" title="Powered by Django." /></a></li>
+                <li><a href="http://www.djangoproject.com/"><img src="{% static 'django.png' %}" border="0" alt="Powered by Django." width="96" height="37" title="Powered by Django." /></a></li>
                 <li><a href="http://github.com/dougwt/mk8" title="The source code of this website is available on GitHub"><span class="mega-octicon octicon-logo-github footer-graphic"></span></a></li>
             </ul>
         </div>
