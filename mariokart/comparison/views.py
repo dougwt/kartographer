@@ -31,7 +31,7 @@ def home(request):
             request.POST['add-glider']
         )
         potential_config = [unicode(item) for item in potential_config]
-        if potential_config in request.session['config_list']:
+        if potential_config in request.session.get('config_list', []):
             messages.add_message(request, messages.WARNING, 'The configuration you added already exists in your list.')
         elif KartConfig(potential_config).valid:
             config_list = request.session.get('config_list', [])
