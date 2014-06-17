@@ -14,7 +14,8 @@ def add(request):
         'bodies': Body.objects.all(),
         'tires': Tire.objects.all(),
         'gliders': Glider.objects.all(),
-
+        'total_list_count': len(ConfigList.objects.all()),
+        'total_config_count': len(ConfigListItem.objects.all()),
     }
     return render(request, 'add.html', context)
 
@@ -51,6 +52,8 @@ def home(request):
         'tires': Tire.objects.all(),
         'gliders': Glider.objects.all(),
         'configurations': configurations,
+        'total_list_count': len(ConfigList.objects.all()),
+        'total_config_count': len(ConfigListItem.objects.all()),
     }
     return render(request, 'home.html', context)
 
@@ -61,7 +64,8 @@ def items(request):
         'bodies': Body.objects.all(),
         'tires': Tire.objects.all(),
         'gliders': Glider.objects.all(),
-
+        'total_list_count': len(ConfigList.objects.all()),
+        'total_config_count': len(ConfigListItem.objects.all()),
     }
     return render(request, 'items.html', context)
 
@@ -111,5 +115,7 @@ def list(request, url_hash):
         'tires': Tire.objects.all(),
         'gliders': Glider.objects.all(),
         'configurations': configurations,
+        'total_list_count': len(ConfigList.objects.all()),
+        'total_config_count': len(ConfigListItem.objects.all()),
     }
     return render(request, 'list.html', context)
