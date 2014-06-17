@@ -83,7 +83,7 @@ class KartConfig():
 class ConfigList(models.Model):
     URL_LENGTH = 5
     url = models.CharField(max_length=URL_LENGTH)
-    create_date = models.DateField(auto_now_add=True)
+    create_date = models.DateTimeField(auto_now_add=True)
 
     @classmethod
     def create(cls):
