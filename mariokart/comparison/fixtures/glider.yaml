@@ -2,107 +2,191 @@
   pk: 1
   fields:
     name: Super Glider
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: 0
+    speed_antigravity: 0
     acceleration: 0
     weight: 0
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0
 - model: comparison.glider
   pk: 2
   fields:
     name: Cloud Glider
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: -0.25
+    speed_antigravity: 0
     acceleration: 0.25
     weight: -0.25
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0.25
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0.25
 - model: comparison.glider
   pk: 3
   fields:
     name: Wario Wing
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: 0
+    speed_antigravity: 0
     acceleration: 0
     weight: 0
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0
 - model: comparison.glider
   pk: 4
   fields:
     name: Waddle Wing
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: 0
+    speed_antigravity: 0
     acceleration: 0
     weight: 0
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0
 - model: comparison.glider
   pk: 5
   fields:
     name: Peach Parasol
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: -0.25
+    speed_antigravity: 0
     acceleration: 0.25
     weight: -0.25
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0.25
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0.25
 - model: comparison.glider
   pk: 6
   fields:
     name: Parachute
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: -0.25
+    speed_antigravity: 0
     acceleration: 0.25
     weight: -0.25
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0.25
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0.25
 - model: comparison.glider
   pk: 7
   fields:
     name: Parafoil
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: -0.25
+    speed_antigravity: 0
     acceleration: 0.25
     weight: -0.25
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0.25
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0.25
 - model: comparison.glider
   pk: 8
   fields:
     name: Flower Glider
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: -0.25
+    speed_antigravity: 0
     acceleration: 0.25
     weight: -0.25
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0.25
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0.25
 - model: comparison.glider
   pk: 9
   fields:
     name: Bowser Kite
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: -0.25
+    speed_antigravity: 0
     acceleration: 0.25
     weight: -0.25
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0.25
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0.25
 - model: comparison.glider
   pk: 10
   fields:
     name: Plane Glider
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: 0
+    speed_antigravity: 0
     acceleration: 0
     weight: 0
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0
 - model: comparison.glider
   pk: 11
   fields:
     name: MKTV Parafoil
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: -0.25
+    speed_antigravity: 0
     acceleration: 0.25
     weight: -0.25
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0.25
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0.25
 - model: comparison.glider
   pk: 12
   fields:
     name: Gold Glider
-    speed: 0
+    speed_ground: 0
+    speed_water: 0
+    speed_air: 0
+    speed_antigravity: 0
     acceleration: 0
     weight: 0
-    handling: 0
+    handling_ground: 0
+    handling_water: 0
+    handling_air: 0
+    handling_antigravity: 0
     traction: 0
+    miniturbo: 0
