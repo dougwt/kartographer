@@ -115,10 +115,10 @@ input[type=radio]:checked + img{
                                 <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
                                 <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
                             </td>
-                            <td class="text-center">{{ config.speed }}</td>
+                            <td class="text-center">{{ config.speed_ground }}</td>
                             <td class="text-center">{{ config.acceleration }}</td>
                             <td class="text-center">{{ config.weight }}</td>
-                            <td class="text-center">{{ config.handling }}</td>
+                            <td class="text-center">{{ config.handling_ground }}</td>
                             <td class="text-center">{{ config.traction }}</td>
                         </tr>
 
@@ -129,18 +129,18 @@ input[type=radio]:checked + img{
                                 <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
                                 <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
                             </td>
-                            <td class="text-center hidden-xs">{{ config.speed }}</td>
+                            <td class="text-center hidden-xs">{{ config.speed_ground }}</td>
                             <td class="text-center hidden-xs">{{ config.acceleration }}</td>
                             <td class="text-center hidden-xs">{{ config.weight }}</td>
-                            <td class="text-center hidden-xs">{{ config.handling }}</td>
+                            <td class="text-center hidden-xs">{{ config.handling_ground }}</td>
                             <td class="text-center hidden-xs">{{ config.traction }}</td>
                         </tr>
                         <tr class="hidden-sm hidden-md hidden-lg">
                             <td class="text-center hidden-xs"></td>
-                            <td class="text-center">{{ config.speed }}</td>
+                            <td class="text-center">{{ config.speed_ground }}</td>
                             <td class="text-center">{{ config.acceleration }}</td>
                             <td class="text-center">{{ config.weight }}</td>
-                            <td class="text-center">{{ config.handling }}</td>
+                            <td class="text-center">{{ config.handling_ground }}</td>
                             <td class="text-center">{{ config.traction }}</td>
                         </tr>
                         {% empty %}
