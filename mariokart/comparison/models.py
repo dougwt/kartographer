@@ -19,11 +19,18 @@ class BaseModel(models.Model):
         abstract = True
 
 class CommonStats(BaseModel):
-    speed = models.DecimalField(max_digits=3, decimal_places=2)
+    speed_ground = models.DecimalField(max_digits=3, decimal_places=2)
+    speed_water =  = models.DecimalField(max_digits=3, decimal_places=2)
+    speed_air =  = models.DecimalField(max_digits=3, decimal_places=2)
+    speed_antigravity = models.DecimalField(max_digits=3, decimal_places=2)
     acceleration = models.DecimalField(max_digits=3, decimal_places=2)
     weight = models.DecimalField(max_digits=3, decimal_places=2)
-    handling = models.DecimalField(max_digits=3, decimal_places=2)
+    handling_ground = models.DecimalField(max_digits=3, decimal_places=2)
+    handling_water = models.DecimalField(max_digits=3, decimal_places=2)
+    handling_air = models.DecimalField(max_digits=3, decimal_places=2)
+    handling_antigravity = models.DecimalField(max_digits=3, decimal_places=2)
     traction = models.DecimalField(max_digits=3, decimal_places=2)
+    miniturbo = models.DecimalField(max_digits=3, decimal_places=2)
 
     class Meta:
         abstract = True
