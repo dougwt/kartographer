@@ -161,7 +161,7 @@
 - model: comparison.body
   pk: 11
   fields:
-    name: Landshark
+    name: Landship
     speed_ground: -0.75
     speed_water: 0.5
     speed_air: 0.5
