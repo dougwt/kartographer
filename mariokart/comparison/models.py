@@ -20,8 +20,8 @@ class BaseModel(models.Model):
 
 class CommonStats(BaseModel):
     speed_ground = models.DecimalField(max_digits=3, decimal_places=2)
-    speed_water =  = models.DecimalField(max_digits=3, decimal_places=2)
-    speed_air =  = models.DecimalField(max_digits=3, decimal_places=2)
+    speed_water = models.DecimalField(max_digits=3, decimal_places=2)
+    speed_air = models.DecimalField(max_digits=3, decimal_places=2)
     speed_antigravity = models.DecimalField(max_digits=3, decimal_places=2)
     acceleration = models.DecimalField(max_digits=3, decimal_places=2)
     weight = models.DecimalField(max_digits=3, decimal_places=2)
