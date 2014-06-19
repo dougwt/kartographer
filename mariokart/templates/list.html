@@ -88,12 +88,36 @@ input[type=radio]:checked + img{
                                 <span class="hidden-sm hidden-md hidden-lg">Spd</span>
                             </th>
                             <th class="text-center">
+                                <span class="hidden-xs">Speed</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Spd</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Speed</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Spd</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Speed</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Spd</span>
+                            </th>
+                            <th class="text-center">
                                 <span class="hidden-xs">Acceleration</span>
                                 <span class="hidden-sm hidden-md hidden-lg">Accl</span>
                             </th>
                             <th class="text-center">
                                 <span class="hidden-xs">Weight</span>
                                 <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Handling</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Hndl</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Handling</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Hndl</span>
+                            </th>
+                            <th class="text-center">
+                                <span class="hidden-xs">Handling</span>
+                                <span class="hidden-sm hidden-md hidden-lg">Hndl</span>
                             </th>
                             <th class="text-center">
                                 <span class="hidden-xs">Handling</span>
@@ -116,9 +140,15 @@ input[type=radio]:checked + img{
                                 <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
                             </td>
                             <td class="text-center">{{ config.speed_ground }}</td>
+                            <td class="text-center">{{ config.speed_water }}</td>
+                            <td class="text-center">{{ config.speed_air }}</td>
+                            <td class="text-center">{{ config.speed_antigravity }}</td>
                             <td class="text-center">{{ config.acceleration }}</td>
                             <td class="text-center">{{ config.weight }}</td>
                             <td class="text-center">{{ config.handling_ground }}</td>
+                            <td class="text-center">{{ config.handling_water }}</td>
+                            <td class="text-center">{{ config.handling_air }}</td>
+                            <td class="text-center">{{ config.handling_antigravity }}</td>
                             <td class="text-center">{{ config.traction }}</td>
                         </tr>
 
@@ -132,7 +162,7 @@ input[type=radio]:checked + img{
                             <td class="text-center hidden-xs">{{ config.speed_ground }}</td>
                             <td class="text-center hidden-xs">{{ config.acceleration }}</td>
                             <td class="text-center hidden-xs">{{ config.weight }}</td>
-                            <td class="text-center hidden-xs">{{ config.handling_ground }}</td>
+                            <td class="text-center hidden-xs">{{ config.handling_ground
                             <td class="text-center hidden-xs">{{ config.traction }}</td>
                         </tr>
                         <tr class="hidden-sm hidden-md hidden-lg">

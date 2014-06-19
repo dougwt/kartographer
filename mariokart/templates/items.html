@@ -16,8 +16,14 @@
                             <th class="text-center">Name</th>
                             <th class="text-center">Image</th>
                             <th class="text-center">Speed</th>
+                            <th class="text-center">Speed</th>
+                            <th class="text-center">Speed</th>
+                            <th class="text-center">Speed</th>
                             <th class="text-center">Acceleration</th>
                             <th class="text-center">Weight</th>
+                            <th class="text-center">Handling</th>
+                            <th class="text-center">Handling</th>
+                            <th class="text-center">Handling</th>
                             <th class="text-center">Handling</th>
                             <th class="text-center">Traction</th>
                         </thead>
@@ -26,10 +32,17 @@
                         <tr>
                             <td class="text-center">{{ item.name }}</td>
                             <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}" width="64" height="64"></td>
-                            <td class="text-center">{{ item.stats.speed }}</td>
+                            <td class="text-center">{{ item.stats.speed_ground }}</td>
+                            <td class="text-center">{{ item.stats.speed_water }}</td>
+                            <td class="text-center">{{ item.stats.speed_air }}</td>
+                            <td class="text-center">{{ item.stats.speed_antigravity }}</td>
+
                             <td class="text-center">{{ item.stats.acceleration }}</td>
                             <td class="text-center">{{ item.stats.weight }}</td>
-                            <td class="text-center">{{ item.stats.handling }}</td>
+                            <td class="text-center">{{ item.stats.handling_ground }}</td>
+                            <td class="text-center">{{ item.stats.handling_water }}</td>
+                            <td class="text-center">{{ item.stats.handling_air }}</td>
+                            <td class="text-center">{{ item.stats.handling_antigravity }}</td>
                             <td class="text-center">{{ item.stats.traction }}</td>
                         </tr>
                         {% endfor %}
@@ -52,8 +65,14 @@
                             <th class="text-center">Name</th>
                             <th class="text-center">Image</th>
                             <th class="text-center">Speed</th>
+                            <th class="text-center">Speed</th>
+                            <th class="text-center">Speed</th>
+                            <th class="text-center">Speed</th>
                             <th class="text-center">Acceleration</th>
                             <th class="text-center">Weight</th>
+                            <th class="text-center">Handling</th>
+                            <th class="text-center">Handling</th>
+                            <th class="text-center">Handling</th>
                             <th class="text-center">Handling</th>
                             <th class="text-center">Traction</th>
                         </thead>
@@ -62,10 +81,16 @@
                         <tr>
                             <td class="text-center">{{ item.name }}</td>
                             <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
-                            <td class="text-center">{{ item.speed }}</td>
+                            <td class="text-center">{{ item.speed_ground }}</td>
+                            <td class="text-center">{{ item.speed_water }}</td>
+                            <td class="text-center">{{ item.speed_air }}</td>
+                            <td class="text-center">{{ item.speed_antigravity }}</td>
                             <td class="text-center">{{ item.acceleration }}</td>
                             <td class="text-center">{{ item.weight }}</td>
-                            <td class="text-center">{{ item.handling }}</td>
+                            <td class="text-center">{{ item.handling_ground }}</td>
+                            <td class="text-center">{{ item.handling_water }}</td>
+                            <td class="text-center">{{ item.handling_air }}</td>
+                            <td class="text-center">{{ item.handling_antigravity }}</td>
                             <td class="text-center">{{ item.traction }}</td>
                         </tr>
                         {% endfor %}
@@ -88,8 +113,14 @@
                             <th class="text-center">Name</th>
                             <th class="text-center">Image</th>
                             <th class="text-center">Speed</th>
+                            <th class="text-center">Speed</th>
+                            <th class="text-center">Speed</th>
+                            <th class="text-center">Speed</th>
                             <th class="text-center">Acceleration</th>
                             <th class="text-center">Weight</th>
+                            <th class="text-center">Handling</th>
+                            <th class="text-center">Handling</th>
+                            <th class="text-center">Handling</th>
                             <th class="text-center">Handling</th>
                             <th class="text-center">Traction</th>
                         </thead>
@@ -98,10 +129,16 @@
                         <tr>
                             <td class="text-center">{{ item.name }}</td>
                             <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
-                            <td class="text-center">{{ item.speed }}</td>
+                            <td class="text-center">{{ item.speed_ground }}</td>
+                            <td class="text-center">{{ item.speed_water }}</td>
+                            <td class="text-center">{{ item.speed_air }}</td>
+                            <td class="text-center">{{ item.speed_antigravity }}</td>
                             <td class="text-center">{{ item.acceleration }}</td>
                             <td class="text-center">{{ item.weight }}</td>
-                            <td class="text-center">{{ item.handling }}</td>
+                            <td class="text-center">{{ item.handling_ground }}</td>
+                            <td class="text-center">{{ item.handling_water }}</td>
+                            <td class="text-center">{{ item.handling_air }}</td>
+                            <td class="text-center">{{ item.handling_antigravity }}</td>
                             <td class="text-center">{{ item.traction }}</td>
                         </tr>
                         {% endfor %}
@@ -134,10 +171,16 @@
                         <tr>
                             <td class="text-center">{{ item.name }}</td>
                             <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
-                            <td class="text-center">{{ item.speed }}</td>
+                            <td class="text-center">{{ item.speed_ground }}</td>
+                            <td class="text-center">{{ item.speed_water }}</td>
+                            <td class="text-center">{{ item.speed_air }}</td>
+                            <td class="text-center">{{ item.speed_antigravity }}</td>
                             <td class="text-center">{{ item.acceleration }}</td>
                             <td class="text-center">{{ item.weight }}</td>
-                            <td class="text-center">{{ item.handling }}</td>
+                            <td class="text-center">{{ item.handling_ground }}</td>
+                            <td class="text-center">{{ item.handling_water }}</td>
+                            <td class="text-center">{{ item.handling_air }}</td>
+                            <td class="text-center">{{ item.handling_antigravity }}</td>
                             <td class="text-center">{{ item.traction }}</td>
                         </tr>
                         {% endfor %}
