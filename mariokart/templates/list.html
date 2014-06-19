@@ -21,23 +21,24 @@ input[type=radio]:checked + img{
     color: #aaa;
 }
 
-#configurations {
+#configurations thead span.unsortable {
+    background-image: none !important;
 }
 #configurations thead {
   cursor: pointer;
 }
 #configurations thead tr th span {
-    background-image: url('{% static 'tablesorter/themes/red/bg.gif' %}');
+    background-image: url('{% static 'tablesorter/themes/blue/bg.gif' %}');
     background-repeat: no-repeat;
     background-position: center right;
     padding-right: 20px;
 }
 #configurations thead tr th.headerSortUp span {
-  background-image: url('{% static 'tablesorter/themes/red/asc.gif' %}');
+  background-image: url('{% static 'tablesorter/themes/blue/asc.gif' %}');
   background-repeat: no-repeat;
 }
 #configurations thead tr th.headerSortDown span {
-  background-image: url('{% static 'tablesorter/themes/red/desc.gif' %}');
+  background-image: url('{% static 'tablesorter/themes/blue/desc.gif' %}');
   background-repeat: no-repeat;
 }
 #configurations tbody tr {
@@ -50,11 +51,8 @@ input[type=radio]:checked + img{
 #configurations tbody tr td.lalign {
   text-align: left;
 }
-#configurations thead th {
-    color: #d65352;
-}
 #configurations thead th:hover {
-    color: #2a6496;
+    color: #d65352
 }
 @media (max-width: 991px) {
     #configurations tbody tr td img {
