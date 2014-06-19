@@ -26,23 +26,19 @@ input[type=radio]:checked + img{
 #configurations thead {
   cursor: pointer;
 }
-#configurations thead tr th {
-}
 #configurations thead tr th span {
-  padding-right: 20px;
-  background-repeat: no-repeat;
-  background-position: 100% 50%;
-}
-#configurations thead tr th.headerSortUp, #configurations thead tr th.headerSortDown {
+    background-image: url('{% static 'tablesorter/themes/blue/bg.gif' %}');
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-right: 20px;
 }
 #configurations thead tr th.headerSortUp span {
   background-image: url('{% static 'tablesorter/themes/blue/asc.gif' %}');
+  background-repeat: no-repeat;
 }
 #configurations thead tr th.headerSortDown span {
   background-image: url('{% static 'tablesorter/themes/blue/desc.gif' %}');
-}
-#configurations thead tr th span.unsortable {
-  background: none;
+  background-repeat: no-repeat;
 }
 #configurations tbody tr {
   color: #555;
@@ -53,6 +49,9 @@ input[type=radio]:checked + img{
 }
 #configurations tbody tr td.lalign {
   text-align: left;
+}
+#configurations thead th {
+    color: #d65352;
 }
 #configurations thead th:hover {
     color: #2a6496;
