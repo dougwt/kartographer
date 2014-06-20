@@ -5,6 +5,8 @@ from django.core.exceptions import ObjectDoesNotExist
 import re
 import uuid
 
+from ipware.ip import get_real_ip, get_ip
+
 # Create your models here.
 class BaseModel(models.Model):
     name = models.CharField(max_length=30, blank=True)
@@ -144,12 +146,20 @@ class KartConfig():
 class ConfigList(models.Model):
     URL_LENGTH = 5
     url = models.CharField(max_length=URL_LENGTH)
+    create_ip = models.GenericIPAddressField(default='0.0.0.0')
     create_date = models.DateTimeField(auto_now_add=True)
+    view_count = models.PositiveIntegerField(default=0)
 
     @classmethod
-    def create(cls):
+    def create(cls, request):
+        ip = get_real_ip(request)
+        if ip is None:
+            ip = get_ip(request)
+            if ip is None:
+                ip = '111.111.111.111'
+
         url = cls.generate_url(cls.URL_LENGTH)
-        list = cls(url=url)
+        list = cls(url=url, create_ip=ip)
         return list
 
     @staticmethod

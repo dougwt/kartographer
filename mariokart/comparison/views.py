@@ -84,7 +84,7 @@ def save(request):
             configurations.append(config)
 
     # Create a ConfigList record for the new list
-    config_list = ConfigList.create()
+    config_list = ConfigList.create(request)
     config_list.save()
     # Create ConfigListItem records for each configuration in this list
     for config in configurations:
