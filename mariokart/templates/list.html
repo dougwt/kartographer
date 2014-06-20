@@ -119,13 +119,13 @@ input[type=radio]:checked + img{
                                 <span class="hidden-md hidden-lg">Spd</span>
                             </th>
                             <th class="text-center hidden-xs hidden-sm">
-                                <span class="hidden-xs hidden-sm">Water</span>
+                                <span>Water</span>
                             </th>
                             <th class="text-center hidden-xs hidden-sm">
-                                <span class="hidden-xs hidden-sm">Air</span>
+                                <span>Air</span>
                             </th>
                             <th class="text-center hidden-xs hidden-sm">
-                                <span class="hidden-xs hidden-sm">Antigrav</span>
+                                <span>Antigrav</span>
                             </th>
                             <th class="text-center">
                                 <span>Accel</span>
@@ -139,26 +139,27 @@ input[type=radio]:checked + img{
                                 <span class="hidden-md hidden-lg">Hdlg</span>
                             </th>
                             <th class="text-center hidden-xs hidden-sm">
-                                <span class="hidden-xs hidden-sm">Water</span>
+                                <span>Water</span>
                             </th>
                             <th class="text-center hidden-xs hidden-sm">
-                                <span class="hidden-xs hidden-sm">Air</span>
+                                <span>Air</span>
                             </th>
                             <th class="text-center hidden-xs hidden-sm">
-                                <span class="hidden-xs hidden-sm">Antigrav</span>
+                                <span>Antigrav</span>
                             </th>
                             <th class="text-center">
                                 <span class="hidden-xs">Traction</span>
                                 <span class="hidden-sm hidden-md hidden-lg">Trct</span>
                             </th>
                             <th class="text-center hidden-xs hidden-sm">
-                                <span class="hidden-xs hidden-sm">Miniturbo</span>
+                                <span>Miniturbo</span>
                             </th>
                         </tr>
                         </thead>
 
                         <tbody>
                         {% for config in configurations %}
+                        <!-- Visible: sm, md, lg -->
                         <tr class="hidden-xs">
                             <td class="text-center">
                                 <img src="{{ config.racer.file }}" height="32" width="32" alt="{{ config.racer.name }}" class="racer"><img src="{{ config.body.file }}" height="32" width="50" alt="{{ config.body.name }}"><img src="{{ config.tire.file }}" height="32" width="50" alt="{{ config.tire.name }}"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
@@ -176,7 +177,7 @@ input[type=radio]:checked + img{
                             <td class="text-center">{{ config.traction }}</td>
                             <td class="text-center hidden-xs hidden-sm">{{ config.miniturbo }}</td>
                         </tr>
-
+                        <!-- Visible: xs -->
                         <tr class="hidden-sm hidden-md hidden-lg">
                             <td class="text-center" colspan="5">
                                 <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
@@ -185,17 +186,29 @@ input[type=radio]:checked + img{
                                 <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
                             </td>
                             <td class="text-center hidden-xs">{{ config.speed_ground }}</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
                             <td class="text-center hidden-xs">{{ config.acceleration }}</td>
                             <td class="text-center hidden-xs">{{ config.weight }}</td>
                             <td class="text-center hidden-xs">{{ config.handling_ground }}</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
                             <td class="text-center hidden-xs">{{ config.traction }}</td>
                         </tr>
                         <tr class="hidden-sm hidden-md hidden-lg">
                             <td class="text-center hidden-xs"></td>
                             <td class="text-center">{{ config.speed_ground }}</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
                             <td class="text-center">{{ config.acceleration }}</td>
                             <td class="text-center">{{ config.weight }}</td>
                             <td class="text-center">{{ config.handling_ground }}</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
                             <td class="text-center">{{ config.traction }}</td>
                         </tr>
                         {% empty %}
