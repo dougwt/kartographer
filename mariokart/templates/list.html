@@ -4,228 +4,228 @@
 {% block head %}
 <style type="text/css">
 label.fb {
-    margin: 0;
+  margin: 0;
 }
 .fb > input[type=radio]{
-    display:none;
+  display:none;
 }
 input[type=radio] + img{
-    cursor:pointer;
-    border:5px solid transparent;
+  cursor:pointer;
+  border:5px solid transparent;
 }
 input[type=radio]:checked + img{
-    border:5px solid #d65352;
+  border:5px solid #d65352;
 }
 .empty-alert {
-    line-height: 6em;
-    color: #aaa;
+  line-height: 6em;
+  color: #aaa;
 }
 
 #configurations thead span.unsortable {
-    background-image: none !important;
+  background-image: none !important;
 }
 #configurations thead {
-    cursor: pointer;
+  cursor: pointer;
 }
 #configurations thead tr {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 #configurations thead tr th span {
-    background-image: url('{% static 'tablesorter/themes/blue/bg.gif' %}');
-    background-repeat: no-repeat;
-    background-position: center right;
-    padding-right: 18px;
+  background-image: url('{% static 'tablesorter/themes/blue/bg.gif' %}');
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right: 18px;
 }
 #configurations thead tr th.headerSortUp span {
-    background-image: url('{% static 'tablesorter/themes/blue/asc.gif' %}');
-    background-repeat: no-repeat;
+  background-image: url('{% static 'tablesorter/themes/blue/asc.gif' %}');
+  background-repeat: no-repeat;
 }
 #configurations thead tr th.headerSortDown span {
-    background-image: url('{% static 'tablesorter/themes/blue/desc.gif' %}');
-    background-repeat: no-repeat;
+  background-image: url('{% static 'tablesorter/themes/blue/desc.gif' %}');
+  background-repeat: no-repeat;
 }
 #configurations thead tr th {
-    text-align: center;
+  text-align: center;
 }
 #configurations tbody tr {
-    color: #555;
-    font-size: 0.8em;
+  color: #555;
+  font-size: 0.8em;
 }
 #configurations tbody tr td {
-    text-align: center;
-    padding: 15px 10px;
-    vertical-align: middle;
+  text-align: center;
+  padding: 15px 10px;
+  vertical-align: middle;
 }
 #configurations tbody tr td.lalign {
-    text-align: left;
+  text-align: left;
 }
 #configurations thead th:hover {
-    color: #d65352
+  color: #d65352
 }
 #configurations .speed {
-    background-color: #dfefd8;
+  background-color: #dfefd8;
 }
 #configurations .handling {
-    background-color: #fcf7e3;
+  background-color: #fcf7e3;
 }
 @media (max-width: 991px) {
-    #configurations tbody tr td img {
-        width: 50px;
-        height: 32px;
-    }
-    #configurations tbody tr td img.racer {
-        width: 32px;
-        height: 32px;
-    }
-    #configurations thead tr {
-        font-size: 1em;
-    }
-    #configurations tbody tr {
-        color: #555;
-        font-size: 1em;
-    }
+  #configurations tbody tr td img {
+    width: 50px;
+    height: 32px;
+  }
+  #configurations tbody tr td img.racer {
+    width: 32px;
+    height: 32px;
+  }
+  #configurations thead tr {
+    font-size: 1em;
+  }
+  #configurations tbody tr {
+    color: #555;
+    font-size: 1em;
+  }
 
 }
 </style>
 {% endblock %}
 
 {% block content %}
-        <!-- Begin Loadouts -->
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{% block panel_title %}&nbsp;{% endblock %}</h3>
-                </div>
-                <div class="panel-body">
-                    <table id="configurations" class="table table-condensed table-hover">
-
-                        <!-- Header -->
-                        <thead>
-                        <tr class="spanned-titles hidden-xs hidden-sm">
-                            <th>&nbsp;</th>
-                            <th class="speed" colspan="4">Speed</th>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                            <th class="handling" colspan="4">Handling</th>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                        <tr>
-                            <th class="text-center hidden-xs">
-                                <span class="unsortable">Configuration</span>
-                            </th>
-                            <th class="text-center">
-                                <span class="hidden-xs hidden-sm">Grnd</span>
-                                <span class="hidden-md hidden-lg">Spd</span>
-                            </th>
-                            <th class="text-center hidden-xs hidden-sm">
-                                <span>Water</span>
-                            </th>
-                            <th class="text-center hidden-xs hidden-sm">
-                                <span>Air</span>
-                            </th>
-                            <th class="text-center hidden-xs hidden-sm">
-                                <span>Antigrav</span>
-                            </th>
-                            <th class="text-center">
-                                <span>Accel</span>
-                            </th>
-                            <th class="text-center">
-                                <span class="hidden-xs">Weight</span>
-                                <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
-                            </th>
-                            <th class="text-center">
-                                <span class="hidden-xs hidden-sm">Grnd</span>
-                                <span class="hidden-md hidden-lg">Hdlg</span>
-                            </th>
-                            <th class="text-center hidden-xs hidden-sm">
-                                <span>Water</span>
-                            </th>
-                            <th class="text-center hidden-xs hidden-sm">
-                                <span>Air</span>
-                            </th>
-                            <th class="text-center hidden-xs hidden-sm">
-                                <span>Antigrav</span>
-                            </th>
-                            <th class="text-center">
-                                <span class="hidden-xs">Traction</span>
-                                <span class="hidden-sm hidden-md hidden-lg">Trct</span>
-                            </th>
-                            <th class="text-center hidden-xs hidden-sm">
-                                <span>Miniturbo</span>
-                            </th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        {% for config in configurations %}
-                        <!-- Visible: sm, md, lg -->
-                        <tr class="hidden-xs">
-                            <td class="text-center">
-                                <img src="{{ config.racer.file }}" height="32" width="32" alt="{{ config.racer.name }}" class="racer"><img src="{{ config.body.file }}" height="32" width="50" alt="{{ config.body.name }}"><img src="{{ config.tire.file }}" height="32" width="50" alt="{{ config.tire.name }}"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
-                            </td>
-                            <td class="text-center speed">{{ config.speed_ground }}</td>
-                            <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_water }}</td>
-                            <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_air }}</td>
-                            <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_antigravity }}</td>
-                            <td class="text-center">{{ config.acceleration }}</td>
-                            <td class="text-center">{{ config.weight }}</td>
-                            <td class="text-center handling">{{ config.handling_ground }}</td>
-                            <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_water }}</td>
-                            <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_air }}</td>
-                            <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_antigravity }}</td>
-                            <td class="text-center">{{ config.traction }}</td>
-                            <td class="text-center hidden-xs hidden-sm">{{ config.miniturbo }}</td>
-                        </tr>
-                        <!-- Visible: xs -->
-                        <tr class="hidden-sm hidden-md hidden-lg">
-                            <td class="text-center" colspan="5">
-                                <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
-                                <img src="{{ config.body.file }}" height="64" width="100" alt="{{ config.body.name }}">
-                                <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
-                                <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
-                            </td>
-                            <td class="text-center hidden-xs">{{ config.speed_ground }}</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center hidden-xs">{{ config.acceleration }}</td>
-                            <td class="text-center hidden-xs">{{ config.weight }}</td>
-                            <td class="text-center hidden-xs">{{ config.handling_ground }}</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center hidden-xs">{{ config.traction }}</td>
-                        </tr>
-                        <tr class="hidden-sm hidden-md hidden-lg">
-                            <td class="text-center hidden-xs"></td>
-                            <td class="text-center">{{ config.speed_ground }}</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center">{{ config.acceleration }}</td>
-                            <td class="text-center">{{ config.weight }}</td>
-                            <td class="text-center">{{ config.handling_ground }}</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-                            <td class="text-center">{{ config.traction }}</td>
-                        </tr>
-                        {% empty %}
-                        <tr><td colspan="13" class="text-center"><em>
-                            <span class="empty-alert hidden-xs">Your list is empty. Add a kart configuration by clicking the button below.</span>
-                            <span class="empty-alert hidden-sm hidden-md hidden-ms">Your list is empty. Add a configuration below.</span>
-                        </em></td></tr>
-                        {% endfor %}
-                        </tbody>
-
-                    </table>
-
-                    {% block add_configform %}{% endblock %}
-                </div>
-            </div>
+    <!-- Begin Loadouts -->
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{% block panel_title %}&nbsp;{% endblock %}</h3>
         </div>
-        <!-- End Loadouts -->
+        <div class="panel-body">
+          <table id="configurations" class="table table-condensed table-hover">
+
+            <!-- Header -->
+            <thead>
+            <tr class="spanned-titles hidden-xs hidden-sm">
+              <th>&nbsp;</th>
+              <th class="speed" colspan="4">Speed</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th class="handling" colspan="4">Handling</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+            </tr>
+            <tr>
+              <th class="text-center hidden-xs">
+                <span class="unsortable">Configuration</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs hidden-sm">Grnd</span>
+                <span class="hidden-md hidden-lg">Spd</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Water</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Air</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Antigrav</span>
+              </th>
+              <th class="text-center">
+                <span>Accel</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs">Weight</span>
+                <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs hidden-sm">Grnd</span>
+                <span class="hidden-md hidden-lg">Hdlg</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Water</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Air</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Antigrav</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs">Traction</span>
+                <span class="hidden-sm hidden-md hidden-lg">Trct</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Miniturbo</span>
+              </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for config in configurations %}
+            <!-- Visible: sm, md, lg -->
+            <tr class="hidden-xs">
+              <td class="text-center">
+                <img src="{{ config.racer.file }}" height="32" width="32" alt="{{ config.racer.name }}" class="racer"><img src="{{ config.body.file }}" height="32" width="50" alt="{{ config.body.name }}"><img src="{{ config.tire.file }}" height="32" width="50" alt="{{ config.tire.name }}"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
+              </td>
+              <td class="text-center speed">{{ config.speed_ground }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_water }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_air }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_antigravity }}</td>
+              <td class="text-center">{{ config.acceleration }}</td>
+              <td class="text-center">{{ config.weight }}</td>
+              <td class="text-center handling">{{ config.handling_ground }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_water }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_air }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_antigravity }}</td>
+              <td class="text-center">{{ config.traction }}</td>
+              <td class="text-center hidden-xs hidden-sm">{{ config.miniturbo }}</td>
+            </tr>
+            <!-- Visible: xs -->
+            <tr class="hidden-sm hidden-md hidden-lg">
+              <td class="text-center" colspan="5">
+                <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
+                <img src="{{ config.body.file }}" height="64" width="100" alt="{{ config.body.name }}">
+                <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
+                <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
+              </td>
+              <td class="text-center hidden-xs">{{ config.speed_ground }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs">{{ config.acceleration }}</td>
+              <td class="text-center hidden-xs">{{ config.weight }}</td>
+              <td class="text-center hidden-xs">{{ config.handling_ground }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs">{{ config.traction }}</td>
+            </tr>
+            <tr class="hidden-sm hidden-md hidden-lg">
+              <td class="text-center hidden-xs"></td>
+              <td class="text-center">{{ config.speed_ground }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center">{{ config.acceleration }}</td>
+              <td class="text-center">{{ config.weight }}</td>
+              <td class="text-center">{{ config.handling_ground }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center">{{ config.traction }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="13" class="text-center"><em>
+              <span class="empty-alert hidden-xs">Your list is empty. Add a kart configuration by clicking the button below.</span>
+              <span class="empty-alert hidden-sm hidden-md hidden-ms">Your list is empty. Add a configuration below.</span>
+            </em></td></tr>
+            {% endfor %}
+            </tbody>
+
+          </table>
+
+          {% block add_configform %}{% endblock %}
+        </div>
+      </div>
+    </div>
+    <!-- End Loadouts -->
 {% endblock %}
 
 {% block script %}
@@ -234,48 +234,48 @@ input[type=radio]:checked + img{
 <script type="text/javascript" src="{% static 'tablesorter/jquery.tablesorter.min.js' %}"></script>
 <script>
 $( document ).ready(function() {
-    $( ".choice" ).click(function() {
-        $( this ).toggleClass( "chosen" );
-    });
+  $( ".choice" ).click(function() {
+    $( this ).toggleClass( "chosen" );
+  });
 
-    $( "label.fb-racer" ).click(function() {
-        $( "#racer-next" ).removeClass( "disabled").addClass( "btn-danger" );
-    });
+  $( "label.fb-racer" ).click(function() {
+    $( "#racer-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
 
-    $( "label.fb-body" ).click(function() {
-        $( "#body-next" ).removeClass( "disabled").addClass( "btn-danger" );
-    });
+  $( "label.fb-body" ).click(function() {
+    $( "#body-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
 
-    $( "label.fb-tire" ).click(function() {
-        $( "#tire-next" ).removeClass( "disabled").addClass( "btn-danger" );
-    });
+  $( "label.fb-tire" ).click(function() {
+    $( "#tire-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
 
-    $( "label.fb-glider" ).click(function() {
-        $( "#glider-next" ).removeClass( "disabled").addClass( "btn-danger" );
-    });
+  $( "label.fb-glider" ).click(function() {
+    $( "#glider-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
 
-    $( "#reset-btn" ).click(function() {
-        if (confirm('Are you sure you want to clear all your configurations?')) {
-            window.location = "{% url 'reset' %}";
-        }
-    });
+  $( "#reset-btn" ).click(function() {
+    if (confirm('Are you sure you want to clear all your configurations?')) {
+      window.location = "{% url 'reset' %}";
+    }
+  });
 
-    $('#configurations').tablesorter();
+  $('#configurations').tablesorter();
 
-    $.ionSound({
-        sounds: [
-            "mk64_mario08",
-        ],
-        path: "{% static 'sounds/' %}",
-        multiPlay: true,
-        volume: "1.0"
-    });
+  $.ionSound({
+    sounds: [
+      "mk64_mario08",
+    ],
+    path: "{% static 'sounds/' %}",
+    multiPlay: true,
+    volume: "1.0"
+  });
 
-    $.contra( function() {
-        $.ionSound.play("mk64_mario08");
-    } );
+  $.contra( function() {
+    $.ionSound.play("mk64_mario08");
+  } );
 
-    {% block script_extra %}{% endblock %}
+  {% block script_extra %}{% endblock %}
 
 });
 </script>

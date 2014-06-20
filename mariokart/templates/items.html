@@ -2,193 +2,193 @@
 
 {% block content %}
 
-        <!-- Begin Loadouts -->
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Racers</h3>
-                </div>
-                <div class="panel-body">
-
-                    <table class="table table-hover">
-
-                        <thead>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">Image</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Acceleration</th>
-                            <th class="text-center">Weight</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Traction</th>
-                        </thead>
-
-                        {% for item in racers %}
-                        <tr>
-                            <td class="text-center">{{ item.name }}</td>
-                            <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}" width="64" height="64"></td>
-                            <td class="text-center">{{ item.stats.speed_ground }}</td>
-                            <td class="text-center">{{ item.stats.speed_water }}</td>
-                            <td class="text-center">{{ item.stats.speed_air }}</td>
-                            <td class="text-center">{{ item.stats.speed_antigravity }}</td>
-
-                            <td class="text-center">{{ item.stats.acceleration }}</td>
-                            <td class="text-center">{{ item.stats.weight }}</td>
-                            <td class="text-center">{{ item.stats.handling_ground }}</td>
-                            <td class="text-center">{{ item.stats.handling_water }}</td>
-                            <td class="text-center">{{ item.stats.handling_air }}</td>
-                            <td class="text-center">{{ item.stats.handling_antigravity }}</td>
-                            <td class="text-center">{{ item.stats.traction }}</td>
-                        </tr>
-                        {% endfor %}
-                    </table>
-
-                </div>
-            </div>
+    <!-- Begin Loadouts -->
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Racers</h3>
         </div>
+        <div class="panel-body">
 
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Bodies</h3>
-                </div>
-                <div class="panel-body">
+          <table class="table table-hover">
 
-                    <table class="table table-hover">
+            <thead>
+              <th class="text-center">Name</th>
+              <th class="text-center">Image</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Acceleration</th>
+              <th class="text-center">Weight</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Traction</th>
+            </thead>
 
-                        <thead>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">Image</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Acceleration</th>
-                            <th class="text-center">Weight</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Traction</th>
-                        </thead>
+            {% for item in racers %}
+            <tr>
+              <td class="text-center">{{ item.name }}</td>
+              <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}" width="64" height="64"></td>
+              <td class="text-center">{{ item.stats.speed_ground }}</td>
+              <td class="text-center">{{ item.stats.speed_water }}</td>
+              <td class="text-center">{{ item.stats.speed_air }}</td>
+              <td class="text-center">{{ item.stats.speed_antigravity }}</td>
 
-                        {% for item in bodies %}
-                        <tr>
-                            <td class="text-center">{{ item.name }}</td>
-                            <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
-                            <td class="text-center">{{ item.speed_ground }}</td>
-                            <td class="text-center">{{ item.speed_water }}</td>
-                            <td class="text-center">{{ item.speed_air }}</td>
-                            <td class="text-center">{{ item.speed_antigravity }}</td>
-                            <td class="text-center">{{ item.acceleration }}</td>
-                            <td class="text-center">{{ item.weight }}</td>
-                            <td class="text-center">{{ item.handling_ground }}</td>
-                            <td class="text-center">{{ item.handling_water }}</td>
-                            <td class="text-center">{{ item.handling_air }}</td>
-                            <td class="text-center">{{ item.handling_antigravity }}</td>
-                            <td class="text-center">{{ item.traction }}</td>
-                        </tr>
-                        {% endfor %}
-                    </table>
+              <td class="text-center">{{ item.stats.acceleration }}</td>
+              <td class="text-center">{{ item.stats.weight }}</td>
+              <td class="text-center">{{ item.stats.handling_ground }}</td>
+              <td class="text-center">{{ item.stats.handling_water }}</td>
+              <td class="text-center">{{ item.stats.handling_air }}</td>
+              <td class="text-center">{{ item.stats.handling_antigravity }}</td>
+              <td class="text-center">{{ item.stats.traction }}</td>
+            </tr>
+            {% endfor %}
+          </table>
 
-                </div>
-            </div>
         </div>
+      </div>
+    </div>
 
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Tires</h3>
-                </div>
-                <div class="panel-body">
-
-                    <table class="table table-hover">
-
-                        <thead>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">Image</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Acceleration</th>
-                            <th class="text-center">Weight</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Traction</th>
-                        </thead>
-
-                        {% for item in tires %}
-                        <tr>
-                            <td class="text-center">{{ item.name }}</td>
-                            <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
-                            <td class="text-center">{{ item.speed_ground }}</td>
-                            <td class="text-center">{{ item.speed_water }}</td>
-                            <td class="text-center">{{ item.speed_air }}</td>
-                            <td class="text-center">{{ item.speed_antigravity }}</td>
-                            <td class="text-center">{{ item.acceleration }}</td>
-                            <td class="text-center">{{ item.weight }}</td>
-                            <td class="text-center">{{ item.handling_ground }}</td>
-                            <td class="text-center">{{ item.handling_water }}</td>
-                            <td class="text-center">{{ item.handling_air }}</td>
-                            <td class="text-center">{{ item.handling_antigravity }}</td>
-                            <td class="text-center">{{ item.traction }}</td>
-                        </tr>
-                        {% endfor %}
-                    </table>
-
-                </div>
-            </div>
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Bodies</h3>
         </div>
+        <div class="panel-body">
 
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Gliders</h3>
-                </div>
-                <div class="panel-body">
+          <table class="table table-hover">
 
-                    <table class="table table-hover">
+            <thead>
+              <th class="text-center">Name</th>
+              <th class="text-center">Image</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Acceleration</th>
+              <th class="text-center">Weight</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Traction</th>
+            </thead>
 
-                        <thead>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">Image</th>
-                            <th class="text-center">Speed</th>
-                            <th class="text-center">Acceleration</th>
-                            <th class="text-center">Weight</th>
-                            <th class="text-center">Handling</th>
-                            <th class="text-center">Traction</th>
-                        </thead>
+            {% for item in bodies %}
+            <tr>
+              <td class="text-center">{{ item.name }}</td>
+              <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
+              <td class="text-center">{{ item.speed_ground }}</td>
+              <td class="text-center">{{ item.speed_water }}</td>
+              <td class="text-center">{{ item.speed_air }}</td>
+              <td class="text-center">{{ item.speed_antigravity }}</td>
+              <td class="text-center">{{ item.acceleration }}</td>
+              <td class="text-center">{{ item.weight }}</td>
+              <td class="text-center">{{ item.handling_ground }}</td>
+              <td class="text-center">{{ item.handling_water }}</td>
+              <td class="text-center">{{ item.handling_air }}</td>
+              <td class="text-center">{{ item.handling_antigravity }}</td>
+              <td class="text-center">{{ item.traction }}</td>
+            </tr>
+            {% endfor %}
+          </table>
 
-                        {% for item in gliders %}
-                        <tr>
-                            <td class="text-center">{{ item.name }}</td>
-                            <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
-                            <td class="text-center">{{ item.speed_ground }}</td>
-                            <td class="text-center">{{ item.speed_water }}</td>
-                            <td class="text-center">{{ item.speed_air }}</td>
-                            <td class="text-center">{{ item.speed_antigravity }}</td>
-                            <td class="text-center">{{ item.acceleration }}</td>
-                            <td class="text-center">{{ item.weight }}</td>
-                            <td class="text-center">{{ item.handling_ground }}</td>
-                            <td class="text-center">{{ item.handling_water }}</td>
-                            <td class="text-center">{{ item.handling_air }}</td>
-                            <td class="text-center">{{ item.handling_antigravity }}</td>
-                            <td class="text-center">{{ item.traction }}</td>
-                        </tr>
-                        {% endfor %}
-
-                    </table>
-
-                </div>
-            </div>
         </div>
-        <!-- End Loadouts -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Tires</h3>
+        </div>
+        <div class="panel-body">
+
+          <table class="table table-hover">
+
+            <thead>
+              <th class="text-center">Name</th>
+              <th class="text-center">Image</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Acceleration</th>
+              <th class="text-center">Weight</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Traction</th>
+            </thead>
+
+            {% for item in tires %}
+            <tr>
+              <td class="text-center">{{ item.name }}</td>
+              <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
+              <td class="text-center">{{ item.speed_ground }}</td>
+              <td class="text-center">{{ item.speed_water }}</td>
+              <td class="text-center">{{ item.speed_air }}</td>
+              <td class="text-center">{{ item.speed_antigravity }}</td>
+              <td class="text-center">{{ item.acceleration }}</td>
+              <td class="text-center">{{ item.weight }}</td>
+              <td class="text-center">{{ item.handling_ground }}</td>
+              <td class="text-center">{{ item.handling_water }}</td>
+              <td class="text-center">{{ item.handling_air }}</td>
+              <td class="text-center">{{ item.handling_antigravity }}</td>
+              <td class="text-center">{{ item.traction }}</td>
+            </tr>
+            {% endfor %}
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Gliders</h3>
+        </div>
+        <div class="panel-body">
+
+          <table class="table table-hover">
+
+            <thead>
+              <th class="text-center">Name</th>
+              <th class="text-center">Image</th>
+              <th class="text-center">Speed</th>
+              <th class="text-center">Acceleration</th>
+              <th class="text-center">Weight</th>
+              <th class="text-center">Handling</th>
+              <th class="text-center">Traction</th>
+            </thead>
+
+            {% for item in gliders %}
+            <tr>
+              <td class="text-center">{{ item.name }}</td>
+              <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
+              <td class="text-center">{{ item.speed_ground }}</td>
+              <td class="text-center">{{ item.speed_water }}</td>
+              <td class="text-center">{{ item.speed_air }}</td>
+              <td class="text-center">{{ item.speed_antigravity }}</td>
+              <td class="text-center">{{ item.acceleration }}</td>
+              <td class="text-center">{{ item.weight }}</td>
+              <td class="text-center">{{ item.handling_ground }}</td>
+              <td class="text-center">{{ item.handling_water }}</td>
+              <td class="text-center">{{ item.handling_air }}</td>
+              <td class="text-center">{{ item.handling_antigravity }}</td>
+              <td class="text-center">{{ item.traction }}</td>
+            </tr>
+            {% endfor %}
+
+          </table>
+
+        </div>
+      </div>
+    </div>
+    <!-- End Loadouts -->
 {% endblock %}

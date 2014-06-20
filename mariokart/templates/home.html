@@ -5,11 +5,11 @@
 
 {% block add_configform %}
 <div class="text-right">
-    <a class="btn btn-default" href="/save/">Share <span class="glyphicon glyphicon-share"></span></a>
-    <button id="reset-btn" class="btn btn-default">Reset <span class="glyphicon glyphicon-trash"></span></button>
-    <button class="btn btn-danger" data-toggle="modal" data-target="#addModalDriver">Add Config
-        <span class="glyphicon glyphicon-plus"></span>
-    </button>
+  <a class="btn btn-default" href="/save/">Share <span class="glyphicon glyphicon-share"></span></a>
+  <button id="reset-btn" class="btn btn-default">Reset <span class="glyphicon glyphicon-trash"></span></button>
+  <button class="btn btn-danger" data-toggle="modal" data-target="#addModalDriver">Add Config
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
 </div>
 
 <form action="{% url 'home' %}" method="post">
@@ -18,88 +18,88 @@
 <!-- Step 1: Driver Modal -->
 <div class="modal fade" id="addModalDriver" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Step 1 of 4: <span class="hidden-xs">Please choose a driver...</span><span class="visible-xs">Driver</span></h4>
-      </div>
-      <div class="modal-body">
-            {% for item in racers %}<label class="fb fb-racer" for="fb-racer-{{ forloop.counter }}">
-                <input id="fb-racer-{{ forloop.counter }}" type="radio" name="add-racer" value="{{ item.id }}" />
-                <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
-            </label>{% endfor %}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" id="racer-next" class="btn disabled" data-dismiss="modal" data-toggle="modal" data-target="#addModalKart">Next <span class="glyphicon glyphicon-arrow-right"></span></button>
-      </div>
+  <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Step 1 of 4: <span class="hidden-xs">Please choose a driver...</span><span class="visible-xs">Driver</span></h4>
     </div>
+    <div class="modal-body">
+      {% for item in racers %}<label class="fb fb-racer" for="fb-racer-{{ forloop.counter }}">
+        <input id="fb-racer-{{ forloop.counter }}" type="radio" name="add-racer" value="{{ item.id }}" />
+        <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+      </label>{% endfor %}
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+    <button type="button" id="racer-next" class="btn disabled" data-dismiss="modal" data-toggle="modal" data-target="#addModalKart">Next <span class="glyphicon glyphicon-arrow-right"></span></button>
+    </div>
+  </div>
   </div>
 </div>
 
 <!-- Step 2: Kart Modal -->
 <div class="modal fade" id="addModalKart" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Step 2 of 4: <span class="hidden-xs">Please choose a kart...</span><span class="visible-xs">Kart</span></h4>
-      </div>
-      <div class="modal-body">
-            {% for item in bodies %}<label class="fb fb-body" for="fb-body-{{ forloop.counter }}">
-                <input id="fb-body-{{ forloop.counter }}" type="radio" name="add-body" value="{{ item.id }}" />
-                <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
-            </label>{% endfor %}
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="body-back" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#addModalDriver"> <span class="glyphicon glyphicon-arrow-left"></span> Back</button>
-        <button type="button" id="body-next" class="btn disabled" data-dismiss="modal" data-toggle="modal" data-target="#addModalTire">Next <span class="glyphicon glyphicon-arrow-right"></span></button>
-      </div>
+  <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Step 2 of 4: <span class="hidden-xs">Please choose a kart...</span><span class="visible-xs">Kart</span></h4>
     </div>
+    <div class="modal-body">
+      {% for item in bodies %}<label class="fb fb-body" for="fb-body-{{ forloop.counter }}">
+        <input id="fb-body-{{ forloop.counter }}" type="radio" name="add-body" value="{{ item.id }}" />
+        <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+      </label>{% endfor %}
+    </div>
+    <div class="modal-footer">
+    <button type="button" id="body-back" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#addModalDriver"> <span class="glyphicon glyphicon-arrow-left"></span> Back</button>
+    <button type="button" id="body-next" class="btn disabled" data-dismiss="modal" data-toggle="modal" data-target="#addModalTire">Next <span class="glyphicon glyphicon-arrow-right"></span></button>
+    </div>
+  </div>
   </div>
 </div>
 
 <!-- Step 3: Tire Modal -->
 <div class="modal fade" id="addModalTire" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Step 3 of 4: <span class="hidden-xs">Please choose a tire...</span><span class="visible-xs">Tire</span></h4>
-      </div>
-      <div class="modal-body">
-            {% for item in tires %}<label class="fb fb-tire" for="fb-tire-{{ forloop.counter }}">
-                <input id="fb-tire-{{ forloop.counter }}" type="radio" name="add-tire" value="{{ item.id }}" />
-                <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
-            </label>{% endfor %}
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="body-back" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#addModalKart"> <span class="glyphicon glyphicon-arrow-left"></span> Back</button>
-        <button type="button" id="tire-next" class="btn disabled" data-dismiss="modal" data-toggle="modal" data-target="#addModalGlider">Next <span class="glyphicon glyphicon-arrow-right"></span></button>
-      </div>
+  <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Step 3 of 4: <span class="hidden-xs">Please choose a tire...</span><span class="visible-xs">Tire</span></h4>
     </div>
+    <div class="modal-body">
+      {% for item in tires %}<label class="fb fb-tire" for="fb-tire-{{ forloop.counter }}">
+        <input id="fb-tire-{{ forloop.counter }}" type="radio" name="add-tire" value="{{ item.id }}" />
+        <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+      </label>{% endfor %}
+    </div>
+    <div class="modal-footer">
+    <button type="button" id="body-back" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#addModalKart"> <span class="glyphicon glyphicon-arrow-left"></span> Back</button>
+    <button type="button" id="tire-next" class="btn disabled" data-dismiss="modal" data-toggle="modal" data-target="#addModalGlider">Next <span class="glyphicon glyphicon-arrow-right"></span></button>
+    </div>
+  </div>
   </div>
 </div>
 
 <!-- Step 4: Glider Modal -->
 <div class="modal fade" id="addModalGlider" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Step 4 of 4: <span class="hidden-xs">Please choose a glider...</span><span class="visible-xs">Glider</span></h4>
-      </div>
-      <div class="modal-body">
-            {% for item in gliders %}<label class="fb fb-glider" for="fb-glider-{{ forloop.counter }}">
-                <input id="fb-glider-{{ forloop.counter }}" type="radio" name="add-glider" value="{{ item.id }}" />
-                <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
-            </label>{% endfor %}
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="body-back" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#addModalTire"> <span class="glyphicon glyphicon-arrow-left"></span> Back</button>
-        <button type="submit" id="glider-next" class="btn disabled">Finish <span class="glyphicon glyphicon-flag"></span></button>
-      </div>
+  <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Step 4 of 4: <span class="hidden-xs">Please choose a glider...</span><span class="visible-xs">Glider</span></h4>
     </div>
+    <div class="modal-body">
+      {% for item in gliders %}<label class="fb fb-glider" for="fb-glider-{{ forloop.counter }}">
+        <input id="fb-glider-{{ forloop.counter }}" type="radio" name="add-glider" value="{{ item.id }}" />
+        <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+      </label>{% endfor %}
+    </div>
+    <div class="modal-footer">
+    <button type="button" id="body-back" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#addModalTire"> <span class="glyphicon glyphicon-arrow-left"></span> Back</button>
+    <button type="submit" id="glider-next" class="btn disabled">Finish <span class="glyphicon glyphicon-flag"></span></button>
+    </div>
+  </div>
   </div>
 </div>
 

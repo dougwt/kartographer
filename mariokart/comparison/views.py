@@ -4,7 +4,8 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.db import IntegrityError
 
-from .models import RacerStats, Racer, Body, Tire, Glider, KartConfig, ConfigList, ConfigListItem
+from .models import RacerStats, Racer, Body, Tire, Glider, KartConfig
+from .models import ConfigList, ConfigListItem
 
 # Create your views here.
 def add(request):
@@ -32,7 +33,8 @@ def home(request):
         )
         potential_config = [unicode(item) for item in potential_config]
         if potential_config in request.session.get('config_list', []):
-            messages.add_message(request, messages.WARNING, 'The configuration you added already exists in your list.')
+            messages.add_message(request, messages.WARNING,
+                'The configuration you added already exists in your list.')
         elif KartConfig(potential_config).valid:
             config_list = request.session.get('config_list', [])
             config_list.append(potential_config)
@@ -86,7 +88,8 @@ def save(request):
     config_list.save()
     # Create ConfigListItem records for each configuration in this list
     for config in configurations:
-        item = ConfigListItem.create(config_list, config.racer, config.body, config.tire, config.glider)
+        item = ConfigListItem.create(config_list, config.racer, config.body,
+               config.tire, config.glider)
         try:
             item.save()
         except IntegrityError:
@@ -94,7 +97,10 @@ def save(request):
 
     location = reverse('list', args=[config_list.url])
     full_url = request.build_absolute_uri(location)
-    messages.add_message(request, messages.SUCCESS, 'Your current list has been saved to <a href="%s" class="alert-link">%s</a>. Any additional changes you make will need to be re-shared.' % (full_url, full_url), extra_tags='safe')
+    messages.add_message(request, messages.SUCCESS, 'Your current list has '\
+        'been saved to <a href="%s" class="alert-link">%s</a>. Any additional '\
+        'changes you make will need to be re-shared.' % (full_url, full_url),
+        extra_tags='safe')
     return redirect('list', url_hash=config_list.url)
 
 def list(request, url_hash):
@@ -104,7 +110,10 @@ def list(request, url_hash):
     # Convert config_list tuples into KartConfig objects
     configurations = []
     for config_data in config_list:
-        config = KartConfig((config_data.racer.id, config_data.body.id, config_data.tire.id, config_data.glider.id))
+        config = KartConfig((config_data.racer.id,
+                             config_data.body.id,
+                             config_data.tire.id,
+                             config_data.glider.id))
         if config.valid:
             configurations.append(config)
 

@@ -1,116 +1,115 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Kart Comparison Tool</title>
-        <meta name="description" content="Create side-by-side stat comparisons for different Mario Kart 8 kart configurations.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kart Comparison Tool</title>
+    <meta name="description" content="Create side-by-side stat comparisons for different Mario Kart 8 kart configurations.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Twitter Bootstrap CSS  -->
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/octicons/octicons.css' %}">
-        <style>
-            th:after {
-            content: "";
-            }
-            .logo {
-                padding: 20px;
-            }
-            .nav {
-                min-height: 115px;
-                padding: 37px 20px 36px 0;
-            }
-            body {
-                background-image: url({% static 'mario-bg.jpg' %});
-                background-size: 379px 458px;
-                background-repeat: no-repeat;
-                background-position: right top;
-            }
-            .footer-graphic {
-                color: #e7e7e7;
-                line-height: 40px;
-            }
-            ul.footer {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-            .footer li {
-                display: inline;
-                float: right;
-                padding: 0 0 0 20px;
-            }
-            .footer h6 {
-                margin-top: 0;
-            }
-        </style>
-        {% block head %}{% endblock %}
-    </head>
-    <body>
+    <!-- Twitter Bootstrap CSS  -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/octicons/octicons.css' %}">
+    <style>
+      th:after {
+      content: "";
+      }
+      .logo {
+        padding: 20px;
+      }
+      .nav {
+        min-height: 115px;
+        padding: 37px 20px 36px 0;
+      }
+      body {
+        background-image: url({% static 'mario-bg.jpg' %});
+        background-size: 379px 458px;
+        background-repeat: no-repeat;
+        background-position: right top;
+      }
+      .footer-graphic {
+        color: #e7e7e7;
+        line-height: 40px;
+      }
+      ul.footer {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      .footer li {
+        display: inline;
+        float: right;
+        padding: 0 0 0 20px;
+      }
+      .footer h6 {
+        margin-top: 0;
+      }
+    </style>
+    {% block head %}{% endblock %}
+  </head>
+  <body>
 
-    <div class="container">
+  <div class="container">
 
-        <!-- Page Header -->
-        <div class="row">
-            <div class="col-xs-12 col-sm-2 text-center">
-                <a href="/"><img src="{% static 'logo.png' %}" alt="Kart Comparison Tool" class="logo" width="259" height="117"></a>
-            </div>
-            <div class="hidden-xs col-sm-10">
-                <ul class="nav nav-pills navbar-right">
-                  <li><a href="/"><span class="glyphicon glyphicon-home"></span> My List</a></li>
-                  <li><a href="/items/"><span class="glyphicon glyphicon-th-list"></span> Items</a></li>
-                </ul>
-            </div>
-        </div>
-
-        {% if messages %}
-            {% for message in messages %}
-
-            <div class="alert
-            {% if 'debug' in message.tags %}alert-debug{% endif %}
-            {% if 'info' in message.tags %}alert-info{% endif %}
-            {% if 'success' in message.tags %}alert-success{% endif %}
-            {% if 'warning' in message.tags %}alert-warning{% endif %}
-            {% if 'error' in message.tags %}alert-error{% endif %}
-            ">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
-            </div>
-            {% endfor %}
-        {% endif %}
-
-        <!-- BEGIN PAGE CONTENT -->
-
-        {% block content %}{% endblock %}
-
-        <!-- END PAGE CONTENT -->
-
-        <!-- Footer -->
-        <div class="row">
-            <div class="col-sm-8 col-xs-12 footer">
-                <h6 class="row text-small"><small>The Mario Kart name, characters, and images are property of Nintendo<br>
-                    Created by <a href="http://mycodebytes.com">Doug Tyler</a>
-                    &nbsp;<span class="glyphicon glyphicon-road"></span>&nbsp;
-                    Currently serving {{ total_list_count }} lists containing {{ total_config_count }} configurations
-                </small></h6>
-            </div>
-            <ul class="col-sm-4 hidden-xs footer">
-                <!--<h4 class="text-right"><small><em>"I'm-a gonna win!"</em></small></h4>-->
-                <li><a href="http://www.djangoproject.com/"><img src="{% static 'django.png' %}" border="0" alt="Powered by Django." width="96" height="37" title="Powered by Django." /></a></li>
-                <li><a href="http://github.com/dougwt/mk8" title="The source code of this website is available on GitHub"><span class="mega-octicon octicon-logo-github footer-graphic"></span></a></li>
-            </ul>
-        </div>
-
+    <!-- Page Header -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-2 text-center">
+        <a href="/"><img src="{% static 'logo.png' %}" alt="Kart Comparison Tool" class="logo" width="259" height="117"></a>
+      </div>
+      <div class="hidden-xs col-sm-10">
+        <ul class="nav nav-pills navbar-right">
+          <li><a href="/"><span class="glyphicon glyphicon-home"></span> My List</a></li>
+          <li><a href="/items/"><span class="glyphicon glyphicon-th-list"></span> Items</a></li>
+        </ul>
+      </div>
     </div>
 
+    {% if messages %}
+      {% for message in messages %}
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <!-- Twitter Bootstrap JavaScript -->
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        {% block script %}{% endblock %}
-    </body>
+      <div class="alert
+      {% if 'debug' in message.tags %}alert-debug{% endif %}
+      {% if 'info' in message.tags %}alert-info{% endif %}
+      {% if 'success' in message.tags %}alert-success{% endif %}
+      {% if 'warning' in message.tags %}alert-warning{% endif %}
+      {% if 'error' in message.tags %}alert-error{% endif %}
+      ">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+      </div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- BEGIN PAGE CONTENT -->
+
+    {% block content %}{% endblock %}
+
+    <!-- END PAGE CONTENT -->
+
+    <!-- Footer -->
+    <div class="row">
+      <div class="col-sm-8 col-xs-12 footer">
+        <h6 class="row text-small"><small>The Mario Kart name, characters, and images are property of Nintendo<br>
+          Created by <a href="http://mycodebytes.com">Doug Tyler</a>
+          &nbsp;<span class="glyphicon glyphicon-road"></span>&nbsp;
+          Currently serving {{ total_list_count }} lists containing {{ total_config_count }} configurations
+        </small></h6>
+      </div>
+      <ul class="col-sm-4 hidden-xs footer">
+        <!--<h4 class="text-right"><small><em>"I'm-a gonna win!"</em></small></h4>-->
+        <li><a href="http://www.djangoproject.com/"><img src="{% static 'django.png' %}" border="0" alt="Powered by Django." width="96" height="37" title="Powered by Django." /></a></li>
+        <li><a href="http://github.com/dougwt/mk8" title="The source code of this website is available on GitHub"><span class="mega-octicon octicon-logo-github footer-graphic"></span></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Twitter Bootstrap JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    {% block script %}{% endblock %}
+  </body>
 </html>
