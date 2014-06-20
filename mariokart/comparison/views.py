@@ -3,6 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.db import IntegrityError
+from django.db.models import F
 
 from .models import RacerStats, Racer, Body, Tire, Glider, KartConfig
 from .models import ConfigList, ConfigListItem
@@ -106,6 +107,9 @@ def save(request):
 def list(request, url_hash):
     config_list_obj = get_object_or_404(ConfigList, url=url_hash)
     config_list = get_list_or_404(ConfigListItem, list_id=config_list_obj.id)
+
+    # Update view counter for this ConfigList
+    ConfigList.objects.filter(url=url_hash).update(view_count=F('view_count')+1)
 
     # Convert config_list tuples into KartConfig objects
     configurations = []
