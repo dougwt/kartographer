@@ -19,7 +19,7 @@
       .logo {
         padding: 20px;
       }
-      .nav {
+      #main-nav {
         min-height: 115px;
         padding: 37px 20px 36px 0;
       }
@@ -59,20 +59,9 @@
         <a href="/"><img src="{% static 'logo.png' %}" alt="Kart Comparison Tool" class="logo" width="259" height="117"></a>
       </div>
       <div class="hidden-xs col-sm-10">
-        <ul class="nav nav-pills navbar-right">
+        <ul id="main-nav" class="nav nav-pills navbar-right">
           <li><a href="/"><span class="glyphicon glyphicon-home"></span> My List</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <span class="glyphicon glyphicon-th-list"></span> Kart Components <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="/kart-components/#racers">Racers</a></li>
-              <li><a href="/kart-components/#bodies">Bodies</a></li>
-              <li><a href="/kart-components/#tires">Tires</a></li>
-              <li><a href="/kart-components/#gliders">Gliders</a></li>
-            </ul>
-          </li>
-
+          <li><a href="/kart-components/"><span class="glyphicon glyphicon-th-list"></span> Components</a></li>
         </ul>
       </div>
     </div>

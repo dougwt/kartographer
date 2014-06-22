@@ -95,75 +95,82 @@ table.tablesorter .handling {
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"><a id="racers">Racers</a></h3>
-        </div>
-        <div class="panel-body">
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Kart Components</h3>
+    </div>
+    <div class="panel-body">
 
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#racers" data-toggle="tab">Racers</a></li>
+        <li><a href="#bodies" data-toggle="tab">Bodies</a></li>
+        <li><a href="#tires" data-toggle="tab">Tires</a></li>
+        <li><a href="#gliders" data-toggle="tab">Gliders</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="racers">
           <table id="kart-racer" class="table table-hover tablesorter">
             <thead>
-            <tr class="spanned-titles hidden-xs hidden-sm">
-              <th>&nbsp;</th>
-              <th>&nbsp;</th>
-              <th class="speed" colspan="4">Speed</th>
-              <th>&nbsp;</th>
-              <th>&nbsp;</th>
-              <th class="handling" colspan="4">Handling</th>
-              <th>&nbsp;</th>
-              <th>&nbsp;</th>
-            </tr>
-            <tr>
-              <th class="text-center">
-                <span class="unsortable">Icon</span>
-              </th>
-              <th class="text-center hidden-xs">
-                <span>Name</span>
-              </th>
-              <th class="text-center">
-                <span class="hidden-xs hidden-sm">Grnd</span>
-                <span class="hidden-md hidden-lg">Spd</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Water</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Air</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Antigrav</span>
-              </th>
-              <th class="text-center">
-                <span>Accel</span>
-              </th>
-              <th class="text-center">
-                <span class="hidden-xs">Weight</span>
-                <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
-              </th>
-              <th class="text-center">
-                <span class="hidden-xs hidden-sm">Grnd</span>
-                <span class="hidden-md hidden-lg">Hdlg</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Water</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Air</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Antigrav</span>
-              </th>
-              <th class="text-center">
-                <span class="hidden-xs">Traction</span>
-                <span class="hidden-sm hidden-md hidden-lg">Trct</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Miniturbo</span>
-              </th>
-            </tr>
+              <tr class="spanned-titles hidden-xs hidden-sm">
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th class="speed" colspan="4">Speed</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th class="handling" colspan="4">Handling</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+              </tr>
+              <tr>
+                <th class="text-center">
+                  <span class="unsortable">Icon</span>
+                </th>
+                <th class="text-center hidden-xs">
+                  <span>Name</span>
+                </th>
+                <th class="text-center">
+                  <span class="hidden-xs hidden-sm">Grnd</span>
+                  <span class="hidden-md hidden-lg">Spd</span>
+                </th>
+                <th class="text-center hidden-xs hidden-sm">
+                  <span>Water</span>
+                </th>
+                <th class="text-center hidden-xs hidden-sm">
+                  <span>Air</span>
+                </th>
+                <th class="text-center hidden-xs hidden-sm">
+                  <span>Antigrav</span>
+                </th>
+                <th class="text-center">
+                  <span>Accel</span>
+                </th>
+                <th class="text-center">
+                  <span class="hidden-xs">Weight</span>
+                  <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
+                </th>
+                <th class="text-center">
+                  <span class="hidden-xs hidden-sm">Grnd</span>
+                  <span class="hidden-md hidden-lg">Hdlg</span>
+                </th>
+                <th class="text-center hidden-xs hidden-sm">
+                  <span>Water</span>
+                </th>
+                <th class="text-center hidden-xs hidden-sm">
+                  <span>Air</span>
+                </th>
+                <th class="text-center hidden-xs hidden-sm">
+                  <span>Antigrav</span>
+                </th>
+                <th class="text-center">
+                  <span class="hidden-xs">Traction</span>
+                  <span class="hidden-sm hidden-md hidden-lg">Trct</span>
+                </th>
+                <th class="text-center hidden-xs hidden-sm">
+                  <span>Miniturbo</span>
+                </th>
+              </tr>
             </thead>
-
             <tbody>
             {% for item in racers %}
             <!-- Visible: sm, md, lg -->
@@ -206,18 +213,8 @@ table.tablesorter .handling {
             {% endfor %}
             </tbody>
           </table>
-
         </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"><a id="bodies">Bodies</a></h3>
-        </div>
-        <div class="panel-body">
-
+        <div class="tab-pane" id="bodies">
           <table id="kart-body" class="table table-hover tablesorter">
             <thead>
             <tr class="spanned-titles hidden-xs hidden-sm">
@@ -279,7 +276,6 @@ table.tablesorter .handling {
               </th>
             </tr>
             </thead>
-
             <tbody>
             {% for item in bodies %}
             <!-- Visible: sm, md, lg -->
@@ -322,19 +318,9 @@ table.tablesorter .handling {
             {% endfor %}
             </tbody>
           </table>
-
         </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"><a id="tires">Tires</a></h3>
-        </div>
-        <div class="panel-body">
-
-          <table id="kart-tire" class="table table-hover tablesorter">
+        <div class="tab-pane" id="tires">
+        <table id="kart-tire" class="table table-hover tablesorter">
             <thead>
             <tr class="spanned-titles hidden-xs hidden-sm">
               <th>&nbsp;</th>
@@ -395,7 +381,6 @@ table.tablesorter .handling {
               </th>
             </tr>
             </thead>
-
             <tbody>
             {% for item in tires %}
             <!-- Visible: sm, md, lg -->
@@ -438,18 +423,8 @@ table.tablesorter .handling {
             {% endfor %}
             </tbody>
           </table>
-
         </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"><a id="gliders">Gliders</a></h3>
-        </div>
-        <div class="panel-body">
-
+        <div class="tab-pane" id="gliders">
           <table id="kart-glider" class="table table-hover tablesorter">
             <thead>
             <tr class="spanned-titles hidden-xs hidden-sm">
@@ -511,7 +486,6 @@ table.tablesorter .handling {
               </th>
             </tr>
             </thead>
-
             <tbody>
             {% for item in gliders %}
             <!-- Visible: sm, md, lg -->
@@ -554,11 +528,12 @@ table.tablesorter .handling {
             {% endfor %}
             </tbody>
           </table>
-
         </div>
       </div>
     </div>
-    <!-- End Loadouts -->
+  </div>
+</div>
+<!-- End Loadouts -->
 {% endblock %}
 
 {% block script %}
