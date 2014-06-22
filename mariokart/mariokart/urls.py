@@ -8,7 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'comparison.views.home', name='home'),
-    url(r'^items/', 'comparison.views.items', name='items'),
+    url(r'^kart-components/', 'comparison.views.components', name='components'),
     url(r'^reset/', 'comparison.views.reset', name='reset'),
     url(r'^save/', 'comparison.views.save', name='save'),
     url(r'^l/(?P<url_hash>[0-9a-f]{5})', 'comparison.views.list', name='list'),

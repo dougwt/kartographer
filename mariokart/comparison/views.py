@@ -50,8 +50,8 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-def items(request):
-    """List all kart items and their stats."""
+def components(request):
+    """List all kart components and their stats."""
     context = {
         'racerstats':           RacerStats.objects.all(),
         'racers':               Racer.objects.select_related().all(),
@@ -61,7 +61,7 @@ def items(request):
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
     }
-    return render(request, 'items.html', context)
+    return render(request, 'components.html', context)
 
 
 def reset(request):
