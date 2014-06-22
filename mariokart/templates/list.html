@@ -95,143 +95,132 @@ input[type=radio]:checked + img{
 </style>
 {% endblock %}
 
+{% block panel_title %}Saved Configuration List{% endblock %}
+
 {% block content %}
-    <!-- Begin Loadouts -->
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">{% block panel_title %}&nbsp;{% endblock %}</h3>
-        </div>
-        <div class="panel-body">
-          <table id="configurations" class="table table-condensed table-hover">
+<table id="configurations" class="table table-condensed table-hover">
+  <!-- Header -->
+  <thead>
+  <tr class="spanned-titles hidden-xs hidden-sm">
+    <th>&nbsp;</th>
+    <th class="speed" colspan="4">Speed</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th class="handling" colspan="4">Handling</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <th class="text-center hidden-xs">
+      <span class="unsortable">Configuration</span>
+    </th>
+    <th class="text-center">
+      <span class="hidden-xs hidden-sm">Grnd</span>
+      <span class="hidden-md hidden-lg">Spd</span>
+    </th>
+    <th class="text-center hidden-xs hidden-sm">
+      <span>Water</span>
+    </th>
+    <th class="text-center hidden-xs hidden-sm">
+      <span>Air</span>
+    </th>
+    <th class="text-center hidden-xs hidden-sm">
+      <span>Antigrav</span>
+    </th>
+    <th class="text-center">
+      <span>Accel</span>
+    </th>
+    <th class="text-center">
+      <span class="hidden-xs">Weight</span>
+      <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
+    </th>
+    <th class="text-center">
+      <span class="hidden-xs hidden-sm">Grnd</span>
+      <span class="hidden-md hidden-lg">Hdlg</span>
+    </th>
+    <th class="text-center hidden-xs hidden-sm">
+      <span>Water</span>
+    </th>
+    <th class="text-center hidden-xs hidden-sm">
+      <span>Air</span>
+    </th>
+    <th class="text-center hidden-xs hidden-sm">
+      <span>Antigrav</span>
+    </th>
+    <th class="text-center">
+      <span class="hidden-xs">Traction</span>
+      <span class="hidden-sm hidden-md hidden-lg">Trct</span>
+    </th>
+    <th class="text-center hidden-xs hidden-sm">
+      <span>Miniturbo</span>
+    </th>
+  </tr>
+  </thead>
 
-            <!-- Header -->
-            <thead>
-            <tr class="spanned-titles hidden-xs hidden-sm">
-              <th>&nbsp;</th>
-              <th class="speed" colspan="4">Speed</th>
-              <th>&nbsp;</th>
-              <th>&nbsp;</th>
-              <th class="handling" colspan="4">Handling</th>
-              <th>&nbsp;</th>
-              <th>&nbsp;</th>
-            </tr>
-            <tr>
-              <th class="text-center hidden-xs">
-                <span class="unsortable">Configuration</span>
-              </th>
-              <th class="text-center">
-                <span class="hidden-xs hidden-sm">Grnd</span>
-                <span class="hidden-md hidden-lg">Spd</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Water</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Air</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Antigrav</span>
-              </th>
-              <th class="text-center">
-                <span>Accel</span>
-              </th>
-              <th class="text-center">
-                <span class="hidden-xs">Weight</span>
-                <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
-              </th>
-              <th class="text-center">
-                <span class="hidden-xs hidden-sm">Grnd</span>
-                <span class="hidden-md hidden-lg">Hdlg</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Water</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Air</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Antigrav</span>
-              </th>
-              <th class="text-center">
-                <span class="hidden-xs">Traction</span>
-                <span class="hidden-sm hidden-md hidden-lg">Trct</span>
-              </th>
-              <th class="text-center hidden-xs hidden-sm">
-                <span>Miniturbo</span>
-              </th>
-            </tr>
-            </thead>
+  <tbody>
+  {% for config in configurations %}
+  <!-- Visible: sm, md, lg -->
+  <tr class="hidden-xs">
+    <td class="text-center">
+      <img src="{{ config.racer.file }}" height="32" width="32" alt="{{ config.racer.name }}" class="racer"><img src="{{ config.body.file }}" height="32" width="50" alt="{{ config.body.name }}"><img src="{{ config.tire.file }}" height="32" width="50" alt="{{ config.tire.name }}"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
+    </td>
+    <td class="text-center speed">{{ config.speed_ground }}</td>
+    <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_water }}</td>
+    <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_air }}</td>
+    <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_antigravity }}</td>
+    <td class="text-center">{{ config.acceleration }}</td>
+    <td class="text-center">{{ config.weight }}</td>
+    <td class="text-center handling">{{ config.handling_ground }}</td>
+    <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_water }}</td>
+    <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_air }}</td>
+    <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_antigravity }}</td>
+    <td class="text-center">{{ config.traction }}</td>
+    <td class="text-center hidden-xs hidden-sm">{{ config.miniturbo }}</td>
+  </tr>
+  <!-- Visible: xs -->
+  <tr class="hidden-sm hidden-md hidden-lg">
+    <td class="text-center" colspan="5">
+      <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
+      <img src="{{ config.body.file }}" height="64" width="100" alt="{{ config.body.name }}">
+      <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
+      <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
+    </td>
+    <td class="text-center hidden-xs">{{ config.speed_ground }}</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center hidden-xs">{{ config.acceleration }}</td>
+    <td class="text-center hidden-xs">{{ config.weight }}</td>
+    <td class="text-center hidden-xs">{{ config.handling_ground }}</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center hidden-xs">{{ config.traction }}</td>
+  </tr>
+  <tr class="hidden-sm hidden-md hidden-lg">
+    <td class="text-center hidden-xs"></td>
+    <td class="text-center">{{ config.speed_ground }}</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center">{{ config.acceleration }}</td>
+    <td class="text-center">{{ config.weight }}</td>
+    <td class="text-center">{{ config.handling_ground }}</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+    <td class="text-center">{{ config.traction }}</td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="13" class="text-center"><em>
+    <span class="empty-alert hidden-xs">Your list is empty. Add a kart configuration by clicking the button below.</span>
+    <span class="empty-alert hidden-sm hidden-md hidden-ms">Your list is empty. Add a configuration below.</span>
+  </em></td></tr>
+  {% endfor %}
+  </tbody>
 
-            <tbody>
-            {% for config in configurations %}
-            <!-- Visible: sm, md, lg -->
-            <tr class="hidden-xs">
-              <td class="text-center">
-                <img src="{{ config.racer.file }}" height="32" width="32" alt="{{ config.racer.name }}" class="racer"><img src="{{ config.body.file }}" height="32" width="50" alt="{{ config.body.name }}"><img src="{{ config.tire.file }}" height="32" width="50" alt="{{ config.tire.name }}"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
-              </td>
-              <td class="text-center speed">{{ config.speed_ground }}</td>
-              <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_water }}</td>
-              <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_air }}</td>
-              <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_antigravity }}</td>
-              <td class="text-center">{{ config.acceleration }}</td>
-              <td class="text-center">{{ config.weight }}</td>
-              <td class="text-center handling">{{ config.handling_ground }}</td>
-              <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_water }}</td>
-              <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_air }}</td>
-              <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_antigravity }}</td>
-              <td class="text-center">{{ config.traction }}</td>
-              <td class="text-center hidden-xs hidden-sm">{{ config.miniturbo }}</td>
-            </tr>
-            <!-- Visible: xs -->
-            <tr class="hidden-sm hidden-md hidden-lg">
-              <td class="text-center" colspan="5">
-                <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
-                <img src="{{ config.body.file }}" height="64" width="100" alt="{{ config.body.name }}">
-                <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
-                <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
-              </td>
-              <td class="text-center hidden-xs">{{ config.speed_ground }}</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center hidden-xs">{{ config.acceleration }}</td>
-              <td class="text-center hidden-xs">{{ config.weight }}</td>
-              <td class="text-center hidden-xs">{{ config.handling_ground }}</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center hidden-xs">{{ config.traction }}</td>
-            </tr>
-            <tr class="hidden-sm hidden-md hidden-lg">
-              <td class="text-center hidden-xs"></td>
-              <td class="text-center">{{ config.speed_ground }}</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center">{{ config.acceleration }}</td>
-              <td class="text-center">{{ config.weight }}</td>
-              <td class="text-center">{{ config.handling_ground }}</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-              <td class="text-center">{{ config.traction }}</td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="13" class="text-center"><em>
-              <span class="empty-alert hidden-xs">Your list is empty. Add a kart configuration by clicking the button below.</span>
-              <span class="empty-alert hidden-sm hidden-md hidden-ms">Your list is empty. Add a configuration below.</span>
-            </em></td></tr>
-            {% endfor %}
-            </tbody>
-
-          </table>
-
-          {% block add_configform %}{% endblock %}
-        </div>
-      </div>
-    </div>
-    <!-- End Loadouts -->
+</table>
+{% block add_configform %}{% endblock %}
 {% endblock %}
 
 {% block script %}

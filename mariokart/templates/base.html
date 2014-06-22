@@ -82,12 +82,20 @@
       {% endfor %}
     {% endif %}
 
-    <!-- BEGIN PAGE CONTENT -->
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{% block panel_title %}&nbsp;{% endblock %}</h3>
+        </div>
+        <div class="panel-body">
 
-    {% block content %}{% endblock %}
+        <!-- BEGIN PAGE CONTENT -->
+        {% block content %}{% endblock %}
+        <!-- END PAGE CONTENT -->
 
-    <!-- END PAGE CONTENT -->
-
+        </div>
+      </div>
+    </div>
     <!-- Footer -->
     <div class="row">
       <div class="col-sm-8 col-xs-12 footer">

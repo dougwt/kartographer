@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block panel_title %}Popular Lists{% endblock %}
+
+{% block content %}
+<ul>
+  {% for item in popular_lists %}
+  <li><a href="/l/{{ item.url }}">{{ item.url }} ({{ item.view_count }})</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -142,3 +142,11 @@ def list(request, url_hash):
         'total_config_count':   len(ConfigListItem.objects.all()),
     }
     return render(request, 'list.html', context)
+
+
+def top(request):
+    popular_lists = ConfigList.objects.order_by('-view_count')[0:10]
+    context = {
+        'popular_lists': popular_lists,
+    }
+    return render(request, 'top.html', context)
