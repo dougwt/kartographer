@@ -61,7 +61,18 @@
       <div class="hidden-xs col-sm-10">
         <ul class="nav nav-pills navbar-right">
           <li><a href="/"><span class="glyphicon glyphicon-home"></span> My List</a></li>
-          <li><a href="/items/"><span class="glyphicon glyphicon-th-list"></span> Items</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <span class="glyphicon glyphicon-th-list"></span> Items <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/items/#racers">Racers</a></li>
+              <li><a href="/items/#bodies">Bodies</a></li>
+              <li><a href="/items/#tires">Tires</a></li>
+              <li><a href="/items/#gliders">Gliders</a></li>
+            </ul>
+          </li>
+
         </ul>
       </div>
     </div>
