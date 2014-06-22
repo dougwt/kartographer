@@ -113,7 +113,7 @@ def list(request, url_hash):
     config_list = get_list_or_404(ConfigListItem, list_id=config_list_obj.id)
 
     # If this session hasn't previously visisted this list, increase its view
-    # counter and add its hash to the 'visisted_lists' session variable.
+    # counter and add its hash to the 'visited_lists' session variable.
     visited_lists = request.session.get('visited_lists', [])
     if url_hash not in visited_lists:
         visited_lists.append(url_hash)
