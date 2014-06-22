@@ -1,8 +1,100 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<style type="text/css">
+label.fb {
+  margin: 0;
+}
+.fb > input[type=radio]{
+  display:none;
+}
+input[type=radio] + img{
+  cursor:pointer;
+  border:5px solid transparent;
+}
+input[type=radio]:checked + img{
+  border:5px solid #d65352;
+}
+.empty-alert {
+  line-height: 6em;
+  color: #aaa;
+}
+table.tablesorter thead span.unsortable {
+  background-image: none !important;
+}
+table.tablesorter thead {
+  cursor: pointer;
+}
+table.tablesorter thead tr {
+  font-size: 0.8em;
+}
+table.tablesorter thead tr th span {
+  background-image: url('{% static 'tablesorter/themes/black/bg.gif' %}');
+  background-size: 21px 9px;
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right: 18px;
+}
+table.tablesorter thead tr th.headerSortUp span {
+  background-image: url('{% static 'tablesorter/themes/black/asc.gif' %}');
+  background-size: 21px 4px;
+  background-repeat: no-repeat;
+}
+table.tablesorter thead tr th.headerSortDown span {
+  background-image: url('{% static 'tablesorter/themes/black/desc.gif' %}');
+  background-size: 21px 4px;
+  background-repeat: no-repeat;
+}
+table.tablesorter thead tr th {
+  text-align: center;
+}
+table.tablesorter tbody tr {
+  color: #555;
+  font-size: 0.8em;
+}
+table.tablesorter tbody tr td {
+  text-align: center;
+  padding: 15px 10px;
+  vertical-align: middle;
+}
+table.tablesorter tbody tr td.lalign {
+  text-align: left;
+}
+table.tablesorter thead th:hover {
+  color: #d65352
+}
+table.tablesorter .speed {
+  background-color: #dfefd8;
+}
+table.tablesorter .handling {
+  background-color: #fcf7e3;
+}
+@media (max-width: 991px) {
+  table.tablesorter tbody tr td img {
+    width: 50px;
+    height: 32px;
+  }
+  table.tablesorter tbody tr td img.racer {
+    width: 32px;
+    height: 32px;
+  }
+  table.tablesorter thead tr {
+    font-size: 1em;
+  }
+  table.tablesorter tbody tr {
+    color: #555;
+    font-size: 1em;
+  }
+  table.tablesorter .speed,
+  table.tablesorter .handling {
+    background: none;
+  }
+}
+</style>
+{% endblock %}
 
 {% block content %}
-
-    <!-- Begin Loadouts -->
     <div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -10,42 +102,109 @@
         </div>
         <div class="panel-body">
 
-          <table class="table table-hover">
-
+          <table id="kart-racer" class="table table-hover tablesorter">
             <thead>
-              <th class="text-center">Name</th>
-              <th class="text-center">Image</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Acceleration</th>
-              <th class="text-center">Weight</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Traction</th>
+            <tr class="spanned-titles hidden-xs hidden-sm">
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th class="speed" colspan="4">Speed</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th class="handling" colspan="4">Handling</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+            </tr>
+            <tr>
+              <th class="text-center">
+                <span class="unsortable">Icon</span>
+              </th>
+              <th class="text-center hidden-xs">
+                <span>Name</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs hidden-sm">Grnd</span>
+                <span class="hidden-md hidden-lg">Spd</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Water</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Air</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Antigrav</span>
+              </th>
+              <th class="text-center">
+                <span>Accel</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs">Weight</span>
+                <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs hidden-sm">Grnd</span>
+                <span class="hidden-md hidden-lg">Hdlg</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Water</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Air</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Antigrav</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs">Traction</span>
+                <span class="hidden-sm hidden-md hidden-lg">Trct</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Miniturbo</span>
+              </th>
+            </tr>
             </thead>
 
+            <tbody>
             {% for item in racers %}
-            <tr>
+            <!-- Visible: sm, md, lg -->
+            <tr class="hidden-xs">
+              <td class="text-center"><img src="{{ item.file }}" height="32" width="32" alt="{{ item.name }}" class="racer"></td>
               <td class="text-center">{{ item.name }}</td>
-              <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}" width="64" height="64"></td>
+              <td class="text-center speed">{{ item.stats.speed_ground }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.stats.speed_water }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.stats.speed_air }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.stats.speed_antigravity }}</td>
+              <td class="text-center">{{ item.stats.acceleration }}</td>
+              <td class="text-center">{{ item.stats.weight }}</td>
+              <td class="text-center handling">{{ item.stats.handling_ground }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.stats.handling_water }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.stats.handling_air }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.stats.handling_antigravity }}</td>
+              <td class="text-center">{{ item.stats.traction }}</td>
+              <td class="text-center hidden-xs hidden-sm">{{ item.stats.miniturbo }}</td>
+            </tr>
+            <!-- Visible: xs -->
+            <tr class="hidden-sm hidden-md hidden-lg">
+              <td class="text-center"><img src="{{ item.file }}" height="32" width="32" alt="{{ item.name }}" class="racer"></td>
+              <td class="text-center hidden-xs">{{ item.name }}</td>
               <td class="text-center">{{ item.stats.speed_ground }}</td>
-              <td class="text-center">{{ item.stats.speed_water }}</td>
-              <td class="text-center">{{ item.stats.speed_air }}</td>
-              <td class="text-center">{{ item.stats.speed_antigravity }}</td>
-
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
               <td class="text-center">{{ item.stats.acceleration }}</td>
               <td class="text-center">{{ item.stats.weight }}</td>
               <td class="text-center">{{ item.stats.handling_ground }}</td>
-              <td class="text-center">{{ item.stats.handling_water }}</td>
-              <td class="text-center">{{ item.stats.handling_air }}</td>
-              <td class="text-center">{{ item.stats.handling_antigravity }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
               <td class="text-center">{{ item.stats.traction }}</td>
             </tr>
+            {% empty %}
+            <tr><td colspan="13" class="text-center"><em>
+              <span class="empty-alert">No items in database.</span>
+            </em></td></tr>
             {% endfor %}
+            </tbody>
           </table>
 
         </div>
@@ -59,41 +218,109 @@
         </div>
         <div class="panel-body">
 
-          <table class="table table-hover">
-
+          <table id="kart-body" class="table table-hover tablesorter">
             <thead>
-              <th class="text-center">Name</th>
-              <th class="text-center">Image</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Acceleration</th>
-              <th class="text-center">Weight</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Traction</th>
+            <tr class="spanned-titles hidden-xs hidden-sm">
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th class="speed" colspan="4">Speed</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th class="handling" colspan="4">Handling</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+            </tr>
+            <tr>
+              <th class="text-center hidden-xs">
+                <span class="unsortable">Icon</span>
+              </th>
+              <th class="text-center hidden-xs">
+                <span class="unsortable">Name</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs hidden-sm">Grnd</span>
+                <span class="hidden-md hidden-lg">Spd</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Water</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Air</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Antigrav</span>
+              </th>
+              <th class="text-center">
+                <span>Accel</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs">Weight</span>
+                <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs hidden-sm">Grnd</span>
+                <span class="hidden-md hidden-lg">Hdlg</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Water</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Air</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Antigrav</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs">Traction</span>
+                <span class="hidden-sm hidden-md hidden-lg">Trct</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Miniturbo</span>
+              </th>
+            </tr>
             </thead>
 
+            <tbody>
             {% for item in bodies %}
-            <tr>
+            <!-- Visible: sm, md, lg -->
+            <tr class="hidden-xs">
+              <td class="text-center"><img src="{{ item.file }}" height="32" width="50" alt="{{ item.name }}" class="racer"></td>
               <td class="text-center">{{ item.name }}</td>
-              <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
+              <td class="text-center speed">{{ item.speed_ground }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_water }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_air }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_antigravity }}</td>
+              <td class="text-center">{{ item.acceleration }}</td>
+              <td class="text-center">{{ item.weight }}</td>
+              <td class="text-center handling">{{ item.handling_ground }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_water }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_air }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_antigravity }}</td>
+              <td class="text-center">{{ item.traction }}</td>
+              <td class="text-center hidden-xs hidden-sm">{{ item.miniturbo }}</td>
+            </tr>
+            <!-- Visible: xs -->
+            <tr class="hidden-sm hidden-md hidden-lg">
+              <td class="text-center"><img src="{{ item.file }}" height="32" width="32" alt="{{ item.name }}" class="racer"></td>
+              <td class="text-center hidden-xs">{{ item.name }}</td>
               <td class="text-center">{{ item.speed_ground }}</td>
-              <td class="text-center">{{ item.speed_water }}</td>
-              <td class="text-center">{{ item.speed_air }}</td>
-              <td class="text-center">{{ item.speed_antigravity }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
               <td class="text-center">{{ item.acceleration }}</td>
               <td class="text-center">{{ item.weight }}</td>
               <td class="text-center">{{ item.handling_ground }}</td>
-              <td class="text-center">{{ item.handling_water }}</td>
-              <td class="text-center">{{ item.handling_air }}</td>
-              <td class="text-center">{{ item.handling_antigravity }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
               <td class="text-center">{{ item.traction }}</td>
             </tr>
+            {% empty %}
+            <tr><td colspan="13" class="text-center"><em>
+              <span class="empty-alert">No items in database.</span>
+            </em></td></tr>
             {% endfor %}
+            </tbody>
           </table>
 
         </div>
@@ -107,41 +334,109 @@
         </div>
         <div class="panel-body">
 
-          <table class="table table-hover">
-
+          <table id="kart-tire" class="table table-hover tablesorter">
             <thead>
-              <th class="text-center">Name</th>
-              <th class="text-center">Image</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Acceleration</th>
-              <th class="text-center">Weight</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Traction</th>
+            <tr class="spanned-titles hidden-xs hidden-sm">
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th class="speed" colspan="4">Speed</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th class="handling" colspan="4">Handling</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+            </tr>
+            <tr>
+              <th class="text-center hidden-xs">
+                <span class="unsortable">Icon</span>
+              </th>
+              <th class="text-center hidden-xs">
+                <span class="unsortable">Name</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs hidden-sm">Grnd</span>
+                <span class="hidden-md hidden-lg">Spd</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Water</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Air</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Antigrav</span>
+              </th>
+              <th class="text-center">
+                <span>Accel</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs">Weight</span>
+                <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs hidden-sm">Grnd</span>
+                <span class="hidden-md hidden-lg">Hdlg</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Water</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Air</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Antigrav</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs">Traction</span>
+                <span class="hidden-sm hidden-md hidden-lg">Trct</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Miniturbo</span>
+              </th>
+            </tr>
             </thead>
 
+            <tbody>
             {% for item in tires %}
-            <tr>
+            <!-- Visible: sm, md, lg -->
+            <tr class="hidden-xs">
+              <td class="text-center"><img src="{{ item.file }}" height="32" width="50" alt="{{ item.name }}" class="racer"></td>
               <td class="text-center">{{ item.name }}</td>
-              <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
+              <td class="text-center speed">{{ item.speed_ground }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_water }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_air }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_antigravity }}</td>
+              <td class="text-center">{{ item.acceleration }}</td>
+              <td class="text-center">{{ item.weight }}</td>
+              <td class="text-center handling">{{ item.handling_ground }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_water }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_air }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_antigravity }}</td>
+              <td class="text-center">{{ item.traction }}</td>
+              <td class="text-center hidden-xs hidden-sm">{{ item.miniturbo }}</td>
+            </tr>
+            <!-- Visible: xs -->
+            <tr class="hidden-sm hidden-md hidden-lg">
+              <td class="text-center"><img src="{{ item.file }}" height="32" width="32" alt="{{ item.name }}" class="racer"></td>
+              <td class="text-center hidden-xs">{{ item.name }}</td>
               <td class="text-center">{{ item.speed_ground }}</td>
-              <td class="text-center">{{ item.speed_water }}</td>
-              <td class="text-center">{{ item.speed_air }}</td>
-              <td class="text-center">{{ item.speed_antigravity }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
               <td class="text-center">{{ item.acceleration }}</td>
               <td class="text-center">{{ item.weight }}</td>
               <td class="text-center">{{ item.handling_ground }}</td>
-              <td class="text-center">{{ item.handling_water }}</td>
-              <td class="text-center">{{ item.handling_air }}</td>
-              <td class="text-center">{{ item.handling_antigravity }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
               <td class="text-center">{{ item.traction }}</td>
             </tr>
+            {% empty %}
+            <tr><td colspan="13" class="text-center"><em>
+              <span class="empty-alert">No items in database.</span>
+            </em></td></tr>
             {% endfor %}
+            </tbody>
           </table>
 
         </div>
@@ -155,40 +450,126 @@
         </div>
         <div class="panel-body">
 
-          <table class="table table-hover">
-
+          <table id="kart-glider" class="table table-hover tablesorter">
             <thead>
-              <th class="text-center">Name</th>
-              <th class="text-center">Image</th>
-              <th class="text-center">Speed</th>
-              <th class="text-center">Acceleration</th>
-              <th class="text-center">Weight</th>
-              <th class="text-center">Handling</th>
-              <th class="text-center">Traction</th>
+            <tr class="spanned-titles hidden-xs hidden-sm">
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th class="speed" colspan="4">Speed</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th class="handling" colspan="4">Handling</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+            </tr>
+            <tr>
+              <th class="text-center hidden-xs">
+                <span class="unsortable">Icon</span>
+              </th>
+              <th class="text-center hidden-xs">
+                <span class="unsortable">Name</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs hidden-sm">Grnd</span>
+                <span class="hidden-md hidden-lg">Spd</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Water</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Air</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Antigrav</span>
+              </th>
+              <th class="text-center">
+                <span>Accel</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs">Weight</span>
+                <span class="hidden-sm hidden-md hidden-lg">Wgt</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs hidden-sm">Grnd</span>
+                <span class="hidden-md hidden-lg">Hdlg</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Water</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Air</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Antigrav</span>
+              </th>
+              <th class="text-center">
+                <span class="hidden-xs">Traction</span>
+                <span class="hidden-sm hidden-md hidden-lg">Trct</span>
+              </th>
+              <th class="text-center hidden-xs hidden-sm">
+                <span>Miniturbo</span>
+              </th>
+            </tr>
             </thead>
 
+            <tbody>
             {% for item in gliders %}
-            <tr>
+            <!-- Visible: sm, md, lg -->
+            <tr class="hidden-xs">
+              <td class="text-center"><img src="{{ item.file }}" height="32" width="50" alt="{{ item.name }}" class="racer"></td>
               <td class="text-center">{{ item.name }}</td>
-              <td class="text-center"><img src="{{ item.file }}" alt="{{ item.name }}"></td>
+              <td class="text-center speed">{{ item.speed_ground }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_water }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_air }}</td>
+              <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_antigravity }}</td>
+              <td class="text-center">{{ item.acceleration }}</td>
+              <td class="text-center">{{ item.weight }}</td>
+              <td class="text-center handling">{{ item.handling_ground }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_water }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_air }}</td>
+              <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_antigravity }}</td>
+              <td class="text-center">{{ item.traction }}</td>
+              <td class="text-center hidden-xs hidden-sm">{{ item.miniturbo }}</td>
+            </tr>
+            <!-- Visible: xs -->
+            <tr class="hidden-sm hidden-md hidden-lg">
+              <td class="text-center"><img src="{{ item.file }}" height="32" width="32" alt="{{ item.name }}" class="racer"></td>
+              <td class="text-center hidden-xs">{{ item.name }}</td>
               <td class="text-center">{{ item.speed_ground }}</td>
-              <td class="text-center">{{ item.speed_water }}</td>
-              <td class="text-center">{{ item.speed_air }}</td>
-              <td class="text-center">{{ item.speed_antigravity }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
               <td class="text-center">{{ item.acceleration }}</td>
               <td class="text-center">{{ item.weight }}</td>
               <td class="text-center">{{ item.handling_ground }}</td>
-              <td class="text-center">{{ item.handling_water }}</td>
-              <td class="text-center">{{ item.handling_air }}</td>
-              <td class="text-center">{{ item.handling_antigravity }}</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
+              <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
               <td class="text-center">{{ item.traction }}</td>
             </tr>
+            {% empty %}
+            <tr><td colspan="13" class="text-center"><em>
+              <span class="empty-alert">No items in database.</span>
+            </em></td></tr>
             {% endfor %}
-
+            </tbody>
           </table>
 
         </div>
       </div>
     </div>
     <!-- End Loadouts -->
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{% static 'tablesorter/jquery.tablesorter.min.js' %}"></script>
+<script>
+$( document ).ready(function() {
+  $('#kart-racer').tablesorter();
+  $('#kart-body').tablesorter();
+  $('#kart-tire').tablesorter();
+  $('#kart-glider').tablesorter();
+  {% block script_extra %}{% endblock %}
+});
+</script>
 {% endblock %}
