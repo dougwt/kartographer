@@ -15,6 +15,7 @@ class KartComponent(models.Model):
     name = models.CharField(max_length=30, blank=True)
 
     def __unicode__(self):
+        """Return the component name."""
         return self.name
 
     def file(self):
@@ -45,9 +46,8 @@ class CommonStats(KartComponent):
 
 
 class RacerStats(CommonStats):
-    def file(self):
-        # return '%s.png' % super(RacerStats, self).file()
-        return ''
+    """Maps racers to the stats belonging to the 7 weight subclasses."""
+    pass
 
 
 class Body(CommonStats):
@@ -70,6 +70,7 @@ class Tire(CommonStats):
 
 
 class Glider(CommonStats):
+
     """Stats for a kart glider."""
 
     def file(self):
@@ -90,6 +91,7 @@ class KartConfig():
     """Stats for a complete kart configuration."""
 
     def __init__(self, (racer_id, body_id, tire_id, glider_id)):
+        """Create a config with the supplied component ids."""
         try:
             self.racer = Racer.objects.get(pk=racer_id)
             self.body = Body.objects.get(pk=body_id)
@@ -97,65 +99,77 @@ class KartConfig():
             self.glider = Glider.objects.get(pk=glider_id)
             self.valid = True
 
-            self.speed_ground =         self.racer.stats.speed_ground +\
-                                        self.body.speed_ground +\
-                                        self.tire.speed_ground +\
-                                        self.glider.speed_ground
+            self.speed_ground = \
+                self.racer.stats.speed_ground + \
+                self.body.speed_ground + \
+                self.tire.speed_ground + \
+                self.glider.speed_ground
 
-            self.speed_water =          self.racer.stats.speed_water +\
-                                        self.body.speed_water +\
-                                        self.tire.speed_water +\
-                                        self.glider.speed_water
+            self.speed_water = \
+                self.racer.stats.speed_water + \
+                self.body.speed_water + \
+                self.tire.speed_water + \
+                self.glider.speed_water
 
-            self.speed_air =            self.racer.stats.speed_air +\
-                                        self.body.speed_air +\
-                                        self.tire.speed_air +\
-                                        self.glider.speed_air
+            self.speed_air = \
+                self.racer.stats.speed_air + \
+                self.body.speed_air + \
+                self.tire.speed_air + \
+                self.glider.speed_air
 
-            self.speed_antigravity =    self.racer.stats.speed_antigravity +\
-                                        self.body.speed_antigravity +\
-                                        self.tire.speed_antigravity +\
-                                        self.glider.speed_antigravity
+            self.speed_antigravity = \
+                self.racer.stats.speed_antigravity + \
+                self.body.speed_antigravity + \
+                self.tire.speed_antigravity + \
+                self.glider.speed_antigravity
 
-            self.acceleration =         self.racer.stats.acceleration +\
-                                        self.body.acceleration +\
-                                        self.tire.acceleration +\
-                                        self.glider.acceleration
+            self.acceleration = \
+                self.racer.stats.acceleration + \
+                self.body.acceleration + \
+                self.tire.acceleration + \
+                self.glider.acceleration
 
-            self.weight =               self.racer.stats.weight +\
-                                        self.body.weight +\
-                                        self.tire.weight +\
-                                        self.glider.weight
+            self.weight = \
+                self.racer.stats.weight + \
+                self.body.weight + \
+                self.tire.weight + \
+                self.glider.weight
 
-            self.handling_ground =      self.racer.stats.handling_ground +\
-                                        self.body.handling_ground +\
-                                        self.tire.handling_ground +\
-                                        self.glider.handling_ground
+            self.handling_ground = \
+                self.racer.stats.handling_ground + \
+                self.body.handling_ground + \
+                self.tire.handling_ground + \
+                self.glider.handling_ground
 
-            self.handling_water =       self.racer.stats.handling_water +\
-                                        self.body.handling_water +\
-                                        self.tire.handling_water +\
-                                        self.glider.handling_water
+            self.handling_water = \
+                self.racer.stats.handling_water + \
+                self.body.handling_water + \
+                self.tire.handling_water + \
+                self.glider.handling_water
 
-            self.handling_air =         self.racer.stats.handling_air +\
-                                        self.body.handling_air +\
-                                        self.tire.handling_air +\
-                                        self.glider.handling_air
+            self.handling_air = \
+                self.racer.stats.handling_air + \
+                self.body.handling_air + \
+                self.tire.handling_air + \
+                self.glider.handling_air
 
-            self.handling_antigravity = self.racer.stats.handling_antigravity +\
-                                        self.body.handling_antigravity +\
-                                        self.tire.handling_antigravity +\
-                                        self.glider.handling_antigravity
+            self.handling_antigravity = \
+                self.racer.stats.handling_antigravity + \
+                self.body.handling_antigravity + \
+                self.tire.handling_antigravity + \
+                self.glider.handling_antigravity
 
-            self.traction =             self.racer.stats.traction +\
-                                        self.body.traction +\
-                                        self.tire.traction +\
-                                        self.glider.traction
+            self.traction = \
+                self.racer.stats.traction + \
+                self.body.traction + \
+                self.tire.traction + \
+                self.glider.traction
 
-            self.miniturbo =            self.racer.stats.miniturbo +\
-                                        self.body.miniturbo +\
-                                        self.tire.miniturbo +\
-                                        self.glider.miniturbo
+            self.miniturbo = \
+                self.racer.stats.miniturbo + \
+                self.body.miniturbo + \
+                self.tire.miniturbo + \
+                self.glider.miniturbo
 
         except ObjectDoesNotExist:
             self.valid = False
