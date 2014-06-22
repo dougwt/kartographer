@@ -21,74 +21,75 @@ input[type=radio]:checked + img{
   color: #aaa;
 }
 
-#configurations thead span.unsortable {
+table.tablesorter thead span.unsortable {
   background-image: none !important;
 }
-#configurations thead {
+table.tablesorter thead {
   cursor: pointer;
+  background-color: #fff;
 }
-#configurations thead tr {
+table.tablesorter thead tr {
   font-size: 0.8em;
 }
-#configurations thead tr th span {
+table.tablesorter thead tr th span {
   background-image: url('{% static 'tablesorter/themes/black/bg.gif' %}');
   background-size: 21px 9px;
   background-repeat: no-repeat;
   background-position: center right;
   padding-right: 18px;
 }
-#configurations thead tr th.headerSortUp span {
+table.tablesorter thead tr th.headerSortUp span {
   background-image: url('{% static 'tablesorter/themes/black/asc.gif' %}');
   background-size: 21px 4px;
   background-repeat: no-repeat;
 }
-#configurations thead tr th.headerSortDown span {
+table.tablesorter thead tr th.headerSortDown span {
   background-image: url('{% static 'tablesorter/themes/black/desc.gif' %}');
   background-size: 21px 4px;
   background-repeat: no-repeat;
 }
-#configurations thead tr th {
+table.tablesorter thead tr th {
   text-align: center;
 }
-#configurations tbody tr {
+table.tablesorter tbody tr {
   color: #555;
   font-size: 0.8em;
 }
-#configurations tbody tr td {
+table.tablesorter tbody tr td {
   text-align: center;
   padding: 15px 10px;
   vertical-align: middle;
 }
-#configurations tbody tr td.lalign {
+table.tablesorter tbody tr td.lalign {
   text-align: left;
 }
-#configurations thead th:hover {
+table.tablesorter thead th:hover {
   color: #d65352
 }
-#configurations .speed {
+table.tablesorter .speed {
   background-color: #dfefd8;
 }
-#configurations .handling {
+table.tablesorter .handling {
   background-color: #fcf7e3;
 }
 @media (max-width: 991px) {
-  #configurations tbody tr td img {
+  table.tablesorter tbody tr td img {
     width: 50px;
     height: 32px;
   }
-  #configurations tbody tr td img.racer {
+  table.tablesorter tbody tr td img.racer {
     width: 32px;
     height: 32px;
   }
-  #configurations thead tr {
+  table.tablesorter thead tr {
     font-size: 1em;
   }
-  #configurations tbody tr {
+  table.tablesorter tbody tr {
     color: #555;
     font-size: 1em;
   }
-  #configurations .speed,
-  #configurations .handling {
+  table.tablesorter .speed,
+  table.tablesorter .handling {
     background: none;
   }
 }
@@ -98,7 +99,7 @@ input[type=radio]:checked + img{
 {% block panel_title %}Saved Configuration List{% endblock %}
 
 {% block content %}
-<table id="configurations" class="table table-condensed table-hover">
+<table class="table table-condensed table-hover tablesorter">
   <!-- Header -->
   <thead>
   <tr class="spanned-titles hidden-xs hidden-sm">
@@ -227,6 +228,7 @@ input[type=radio]:checked + img{
 <script src="{% static 'js/ion.sound.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.contra.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'tablesorter/jquery.tablesorter.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.stickytableheaders.min.js' %}"></script>
 <script>
 $( document ).ready(function() {
   $( ".choice" ).click(function() {
@@ -255,7 +257,8 @@ $( document ).ready(function() {
     }
   });
 
-  $('#configurations').tablesorter();
+  $('table').tablesorter();
+  $('table').stickyTableHeaders();
 
   $.ionSound({
     sounds: [

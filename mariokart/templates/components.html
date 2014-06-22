@@ -25,6 +25,7 @@ table.tablesorter thead span.unsortable {
 }
 table.tablesorter thead {
   cursor: pointer;
+  background-color: #fff;
 }
 table.tablesorter thead tr {
   font-size: 0.8em;
@@ -530,12 +531,14 @@ table.tablesorter .handling {
 
 {% block script %}
 <script type="text/javascript" src="{% static 'tablesorter/jquery.tablesorter.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.stickytableheaders.min.js' %}"></script>
 <script>
 $( document ).ready(function() {
   $('#kart-racer').tablesorter();
   $('#kart-body').tablesorter();
   $('#kart-tire').tablesorter();
   $('#kart-glider').tablesorter();
+  $('table').stickyTableHeaders();
   {% block script_extra %}{% endblock %}
 });
 </script>
