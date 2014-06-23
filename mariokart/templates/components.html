@@ -65,14 +65,6 @@ table.tablesorter tbody tr td.lalign {
 table.tablesorter thead th:hover {
   color: #d65352
 }
-table.tablesorter thead tr th,
-table.tablesorter tbody tr th,
-table.tablesorter tfoot tr th,
-table.tablesorter thead tr td,
-table.tablesorter tbody tr td,
-table.tablesorter tfoot tr td {
-  padding: 8px 4px;
-}
 table.tablesorter .speed {
   background-color: #dfefd8;
 }
@@ -97,6 +89,16 @@ table.tablesorter .handling {
   table.tablesorter .speed,
   table.tablesorter .handling {
     background: none;
+  }
+}
+@media (max-width: 1199px) {
+  table.tablesorter thead tr th,
+  table.tablesorter tbody tr th,
+  table.tablesorter tfoot tr th,
+  table.tablesorter thead tr td,
+  table.tablesorter tbody tr td,
+  table.tablesorter tfoot tr td {
+    padding: 8px 4px;
   }
 }
 </style>
