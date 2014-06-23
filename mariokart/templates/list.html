@@ -252,7 +252,9 @@ $( document ).ready(function() {
     }
   });
 
-  $('table').tablesorter();
+  $('table').tablesorter({
+            sortInitialOrder: 'desc',
+  });
   $('table').stickyTableHeaders();
 
   $.ionSound({

@@ -465,10 +465,18 @@ table.tablesorter .handling {
 <script type="text/javascript" src="{% static 'js/jquery.stickytableheaders.min.js' %}"></script>
 <script>
 $( document ).ready(function() {
-  $('#kart-racer').tablesorter();
-  $('#kart-body').tablesorter();
-  $('#kart-tire').tablesorter();
-  $('#kart-glider').tablesorter();
+  $('#kart-racer').tablesorter({
+            sortInitialOrder: 'desc',
+  });
+  $('#kart-body').tablesorter({
+            sortInitialOrder: 'desc',
+  });
+  $('#kart-tire').tablesorter({
+            sortInitialOrder: 'desc',
+  });
+  $('#kart-glider').tablesorter({
+            sortInitialOrder: 'desc',
+  });
   $('table').stickyTableHeaders();
   {% block script_extra %}{% endblock %}
 });
