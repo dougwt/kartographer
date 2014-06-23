@@ -80,12 +80,8 @@ table.tablesorter .handling {
     width: 32px;
     height: 32px;
   }
-  table.tablesorter thead tr {
-    font-size: 1em;
-  }
   table.tablesorter tbody tr {
     color: #555;
-    font-size: 1em;
   }
   table.tablesorter .speed,
   table.tablesorter .handling {
@@ -169,10 +165,9 @@ table.tablesorter .handling {
       </thead>
       <tbody>
       {% for item in racers %}
-      <!-- Visible: sm, md, lg -->
-      <tr class="hidden-xs">
+      <tr>
         <td class="text-center"><img src="{{ item.file }}" height="32" width="32" alt="{{ item.name }}" class="racer"></td>
-        <td class="text-center">{{ item.name }}</td>
+        <td class="text-center hidden-xs">{{ item.name }}</td>
         <td class="text-center speed">{{ item.stats.speed_ground }}</td>
         <td class="text-center speed hidden-xs hidden-sm">{{ item.stats.speed_water }}</td>
         <td class="text-center speed hidden-xs hidden-sm">{{ item.stats.speed_air }}</td>
@@ -185,22 +180,6 @@ table.tablesorter .handling {
         <td class="text-center handling hidden-xs hidden-sm">{{ item.stats.handling_antigravity }}</td>
         <td class="text-center">{{ item.stats.traction }}</td>
         <td class="text-center hidden-xs hidden-sm">{{ item.stats.miniturbo }}</td>
-      </tr>
-      <!-- Visible: xs -->
-      <tr class="hidden-sm hidden-md hidden-lg">
-        <td class="text-center"><img src="{{ item.file }}" height="32" width="32" alt="{{ item.name }}" class="racer"></td>
-        <td class="text-center hidden-xs">{{ item.name }}</td>
-        <td class="text-center">{{ item.stats.speed_ground }}</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center">{{ item.stats.acceleration }}</td>
-        <td class="text-center">{{ item.stats.weight }}</td>
-        <td class="text-center">{{ item.stats.handling_ground }}</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center">{{ item.stats.traction }}</td>
       </tr>
       {% empty %}
       <tr><td colspan="13" class="text-center"><em>
@@ -274,10 +253,9 @@ table.tablesorter .handling {
       </thead>
       <tbody>
       {% for item in bodies %}
-      <!-- Visible: sm, md, lg -->
-      <tr class="hidden-xs">
+      <tr>
         <td class="text-center"><img src="{{ item.file }}" height="32" width="50" alt="{{ item.name }}"></td>
-        <td class="text-center">{{ item.name }}</td>
+        <td class="text-center hidden-xs">{{ item.name }}</td>
         <td class="text-center speed">{{ item.speed_ground }}</td>
         <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_water }}</td>
         <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_air }}</td>
@@ -290,22 +268,6 @@ table.tablesorter .handling {
         <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_antigravity }}</td>
         <td class="text-center">{{ item.traction }}</td>
         <td class="text-center hidden-xs hidden-sm">{{ item.miniturbo }}</td>
-      </tr>
-      <!-- Visible: xs -->
-      <tr class="hidden-sm hidden-md hidden-lg">
-        <td class="text-center"><img src="{{ item.file }}" height="32" width="50" alt="{{ item.name }}"></td>
-        <td class="text-center hidden-xs">{{ item.name }}</td>
-        <td class="text-center">{{ item.speed_ground }}</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center">{{ item.acceleration }}</td>
-        <td class="text-center">{{ item.weight }}</td>
-        <td class="text-center">{{ item.handling_ground }}</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center">{{ item.traction }}</td>
       </tr>
       {% empty %}
       <tr><td colspan="13" class="text-center"><em>
@@ -379,10 +341,9 @@ table.tablesorter .handling {
       </thead>
       <tbody>
       {% for item in tires %}
-      <!-- Visible: sm, md, lg -->
-      <tr class="hidden-xs">
+      <tr>
         <td class="text-center"><img src="{{ item.file }}" height="32" width="50" alt="{{ item.name }}"></td>
-        <td class="text-center">{{ item.name }}</td>
+        <td class="text-center hidden-xs">{{ item.name }}</td>
         <td class="text-center speed">{{ item.speed_ground }}</td>
         <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_water }}</td>
         <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_air }}</td>
@@ -395,22 +356,6 @@ table.tablesorter .handling {
         <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_antigravity }}</td>
         <td class="text-center">{{ item.traction }}</td>
         <td class="text-center hidden-xs hidden-sm">{{ item.miniturbo }}</td>
-      </tr>
-      <!-- Visible: xs -->
-      <tr class="hidden-sm hidden-md hidden-lg">
-        <td class="text-center"><img src="{{ item.file }}" height="32" width="50" alt="{{ item.name }}"></td>
-        <td class="text-center hidden-xs">{{ item.name }}</td>
-        <td class="text-center">{{ item.speed_ground }}</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center">{{ item.acceleration }}</td>
-        <td class="text-center">{{ item.weight }}</td>
-        <td class="text-center">{{ item.handling_ground }}</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center">{{ item.traction }}</td>
       </tr>
       {% empty %}
       <tr><td colspan="13" class="text-center"><em>
@@ -484,10 +429,9 @@ table.tablesorter .handling {
       </thead>
       <tbody>
       {% for item in gliders %}
-      <!-- Visible: sm, md, lg -->
-      <tr class="hidden-xs">
+      <tr>
         <td class="text-center"><img src="{{ item.file }}" height="32" width="50" alt="{{ item.name }}"></td>
-        <td class="text-center">{{ item.name }}</td>
+        <td class="text-center hidden-xs">{{ item.name }}</td>
         <td class="text-center speed">{{ item.speed_ground }}</td>
         <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_water }}</td>
         <td class="text-center speed hidden-xs hidden-sm">{{ item.speed_air }}</td>
@@ -500,22 +444,6 @@ table.tablesorter .handling {
         <td class="text-center handling hidden-xs hidden-sm">{{ item.handling_antigravity }}</td>
         <td class="text-center">{{ item.traction }}</td>
         <td class="text-center hidden-xs hidden-sm">{{ item.miniturbo }}</td>
-      </tr>
-      <!-- Visible: xs -->
-      <tr class="hidden-sm hidden-md hidden-lg">
-        <td class="text-center"><img src="{{ item.file }}" height="32" width="50" alt="{{ item.name }}"></td>
-        <td class="text-center hidden-xs">{{ item.name }}</td>
-        <td class="text-center">{{ item.speed_ground }}</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center">{{ item.acceleration }}</td>
-        <td class="text-center">{{ item.weight }}</td>
-        <td class="text-center">{{ item.handling_ground }}</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-        <td class="text-center">{{ item.traction }}</td>
       </tr>
       {% empty %}
       <tr><td colspan="13" class="text-center"><em>
