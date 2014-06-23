@@ -145,6 +145,7 @@ def list(request, url_hash):
 
 
 def top(request):
+    """Display popular lists and configurations created by users."""
     popular_lists = ConfigList.objects.order_by('-view_count')[0:10]
     context = {
         'popular_lists': popular_lists,
