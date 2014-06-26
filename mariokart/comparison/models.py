@@ -6,8 +6,11 @@ from django.templatetags.static import static
 
 import re
 import uuid
+import logging
 
 from ipware.ip import get_ip, get_real_ip
+
+logger = logging.getLogger(__name__)
 
 
 class KartComponent(models.Model):
@@ -194,6 +197,9 @@ class ConfigList(models.Model):
 
         url = cls.generate_url(cls.URL_LENGTH)
         list = cls(url=url, create_ip=ip)
+
+        logger.debug('Adding ConfigList \'%s\' (%s)' % (url, ip))
+
         return list
 
     @staticmethod
@@ -223,6 +229,8 @@ class ConfigListItem(models.Model):
     @classmethod
     def create(cls, list, racer, body, tire, glider):
         """Initialize ConfigListItem with default parameters order."""
+        logger.debug('Adding \'%s\' ConfigListItem [%s, %s, %s, %s]' %
+                     (list.url, racer, body, tire, glider))
         return cls(list=list, racer=racer, body=body, tire=tire, glider=glider)
 
     class Meta:
