@@ -7,13 +7,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'comparison.views.home', name='home'),
-    url(r'^kart-components/', 'comparison.views.components', name='components'),
-    url(r'^reset/', 'comparison.views.reset', name='reset'),
-    url(r'^save/', 'comparison.views.save', name='save'),
-    url(r'^l/(?P<url_hash>[0-9a-f]{5})', 'comparison.views.list', name='list'),
-    url(r'^top/', 'comparison.views.top', name='top'),
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^', include('comparison.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
 )
