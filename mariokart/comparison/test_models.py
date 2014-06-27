@@ -37,14 +37,13 @@ class ConfigListTestCase(TestCase):
         )
         for kart in test_kart_ids:
             config = KartConfig(kart)
-            item = ConfigListItem.create(
+            ConfigListItem.create(
                 config_list,
                 config.racer,
                 config.body,
                 config.tire,
                 config.glider
-            )
-            item.save()
+            ).save()
         self.assertEqual(len(ConfigListItem.objects.all()), 2)
 
         # Now try to load the ConfigList by url_hash
