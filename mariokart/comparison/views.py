@@ -10,6 +10,19 @@ from django.shortcuts import (get_list_or_404, get_object_or_404, redirect,
 from .models import (Body, ConfigList, ConfigListItem, Glider, KartConfig,
                      Racer, RacerStats, Tire)
 
+import logging
+
+from ipware.ip import get_ip, get_real_ip
+
+logger = logging.getLogger(__name__)
+
+
+def log(msg, request):
+    ip = get_real_ip(request)
+    if ip is None:
+        ip = get_ip(request)
+    logger.info("[%s] %s" % (ip, msg))
+
 
 def home(request):
     """Display the visitor's config list and form to add a new config."""
@@ -25,10 +38,16 @@ def home(request):
         if potential_config in request.session.get('config_list', []):
             msg = 'The configuration you added already exists in your list.'
             messages.add_message(request, messages.WARNING, msg)
+
+            log('Rejecting duplicate configuration %s' % potential_config,
+                request)
+
         elif KartConfig(potential_config).valid:
             config_list = request.session.get('config_list', [])
             config_list.append(potential_config)
             request.session['config_list'] = config_list
+
+            log('Adding configuration %s' % potential_config, request)
 
     # Convert config_list tuples (session variable) into KartConfig objects
     configurations = []
@@ -36,6 +55,8 @@ def home(request):
         config = KartConfig(config_data)
         if config.valid:
             configurations.append(config)
+
+    log('Displaying My List page', request)
 
     context = {
         'racerstats':           RacerStats.objects.all(),
@@ -52,6 +73,8 @@ def home(request):
 
 def components(request):
     """List all kart components and their stats."""
+    log('Displaying Kart Components page', request)
+
     context = {
         'racerstats':           RacerStats.objects.all(),
         'racers':               Racer.objects.select_related().all(),
@@ -67,6 +90,9 @@ def components(request):
 def reset(request):
     """Erase the visitor's config list."""
     request.session['config_list'] = []
+
+    log('Resetting My List', request)
+
     return redirect('home')
 
 
@@ -79,29 +105,37 @@ def save(request):
         if config.valid:
             configurations.append(config)
 
-    # Create a ConfigList record for the new list
-    config_list = ConfigList.create(request)
-    config_list.save()
+    if configurations:
 
-    # Create ConfigListItem records for each configuration in this list
-    for config in configurations:
-        item = ConfigListItem.create(config_list,
-                                     config.racer,
-                                     config.body,
-                                     config.tire,
-                                     config.glider)
-        try:
-            item.save()
-        except IntegrityError:
-            pass
+        # Create a ConfigList record for the new list
+        config_list = ConfigList.create(request)
+        config_list.save()
 
-    # Create a success message
-    location = reverse('list', args=[config_list.url])
-    full_url = request.build_absolute_uri(location)
-    msg = ('Your current list has been saved to <a href="%s" '
-           'class="alert-link">%s</a>. Any additional changes you make will '
-           'need to be re-shared.' % (full_url, full_url))
-    messages.add_message(request, messages.SUCCESS, msg, extra_tags='safe')
+        # Create ConfigListItem records for each configuration in this list
+        for config in configurations:
+            item = ConfigListItem.create(config_list,
+                                         config.racer,
+                                         config.body,
+                                         config.tire,
+                                         config.glider)
+            try:
+                item.save()
+            except IntegrityError:
+                pass
+
+        # Create a success message
+        location = reverse('list', args=[config_list.url])
+        full_url = request.build_absolute_uri(location)
+        msg = ('Your current list has been saved to <a href="%s" '
+               'class="alert-link">%s</a>. Any additional changes you make '
+               'will need to be re-shared.' % (full_url, full_url))
+        messages.add_message(request, messages.SUCCESS, msg, extra_tags='safe')
+
+        log('Saving list to %s' % full_url, request)
+
+    else:
+
+        log('Rejected save attempt', request)
 
     # Redirect to the new url
     return redirect('list', url_hash=config_list.url)
@@ -131,6 +165,8 @@ def list(request, url_hash):
         if config.valid:
             configurations.append(config)
 
+    log('Displaying list %s' % url_hash, request)
+
     context = {
         'racerstats':           RacerStats.objects.all(),
         'racers':               Racer.objects.select_related().all(),
@@ -146,6 +182,8 @@ def list(request, url_hash):
 
 def top(request):
     """Display popular lists and configurations created by users."""
+    log('Displaying top page', request)
+
     popular_lists = ConfigList.objects.order_by('-view_count')[0:10]
     context = {
         'popular_lists': popular_lists,
