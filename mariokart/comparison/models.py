@@ -198,7 +198,7 @@ class ConfigList(models.Model):
         url = cls.generate_url(cls.URL_LENGTH)
         list = cls(url=url, create_ip=ip)
 
-        logger.debug('Adding ConfigList \'%s\' (%s)' % (url, ip))
+        logger.info('Adding ConfigList \'%s\' (%s)' % (url, ip))
 
         return list
 
@@ -229,7 +229,7 @@ class ConfigListItem(models.Model):
     @classmethod
     def create(cls, list, racer, body, tire, glider):
         """Initialize ConfigListItem with default parameters order."""
-        logger.debug('Adding \'%s\' ConfigListItem [%s, %s, %s, %s]' %
+        logger.info('Adding \'%s\' ConfigListItem [%s, %s, %s, %s]' %
                      (list.url, racer, body, tire, glider))
         return cls(list=list, racer=racer, body=body, tire=tire, glider=glider)
 
