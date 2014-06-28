@@ -7,6 +7,7 @@ from .models import ConfigList, ConfigListItem, KartConfig
 
 
 class ConfigListTestCase(TestCase):
+    """Tests for ConfigList and ConfigListItem models."""
     fixtures = [
         'racer.yaml',
         'racerstats.yaml',
@@ -16,6 +17,7 @@ class ConfigListTestCase(TestCase):
     ]
 
     def test_create(self):
+        """Test ConfigList.create and ConfigListItem.create."""
         # Initialize mock request
         mock_request = HttpRequest()
         mock_request.META = {
