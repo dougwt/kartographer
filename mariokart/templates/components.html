@@ -74,7 +74,12 @@ table.tablesorter .handling {
 .panel .nav {
   margin-bottom: 15px;
 }
-@media (max-width: 991px) {
+@media only screen and (max-width: 320px) {
+  ul.nav {
+    font-size: 85%;
+  }
+}
+@media only screen and (max-width: 992px) {
   table.tablesorter tbody tr td img {
     width: 50px;
     height: 32px;
@@ -91,7 +96,7 @@ table.tablesorter .handling {
     background: none;
   }
 }
-@media (max-width: 1199px) {
+@media only screen and (max-width: 1200px) {
   table.tablesorter thead tr th,
   table.tablesorter tbody tr th,
   table.tablesorter tfoot tr th,
@@ -107,7 +112,7 @@ table.tablesorter .handling {
 {% block panel_title %}Kart Components{% endblock %}
 
 {% block content %}
-<ul class="nav nav-tabs small">
+<ul class="nav nav-tabs">
   <li class="active"><a href="#racers" data-toggle="tab">Racers</a></li>
   <li><a href="#bodies" data-toggle="tab">Bodies</a></li>
   <li><a href="#tires" data-toggle="tab">Tires</a></li>
