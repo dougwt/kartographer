@@ -71,6 +71,13 @@ table.tablesorter .speed {
 table.tablesorter .handling {
   background-color: #fcf7e3;
 }
+table tbody tr.similar td {
+  background-color: #f0dddd !important;
+}
+table tbody tr.selected td {
+  background-color: #d65352 !important;
+  color: white;
+}
 .panel .nav {
   margin-bottom: 15px;
 }
@@ -485,38 +492,36 @@ $( document ).ready(function() {
     sortInitialOrder: 'desc',
   });
   $('#kart-tire').tablesorter({
-            sortInitialOrder: 'desc',
+    sortInitialOrder: 'desc',
   });
   $('#kart-glider').tablesorter({
-            sortInitialOrder: 'desc',
+    sortInitialOrder: 'desc',
   });
   $('table').stickyTableHeaders();
   $("table[data-component='racer'] tbody tr").click(function() {
     current = $( this ).data('stats');
-    $("table[data-component='racer'] tr").removeClass('info danger warning');
-    $("table[data-component='racer']").find("tr[data-stats='" + current + "']").addClass('info').removeClass('danger');
-    $( this ).addClass('danger');
+    $("table[data-component='racer'] tr").removeClass('similar selected');
+    $("table[data-component='racer']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $( this ).addClass('selected');
   });
   $("table[data-component='body'] tbody tr").click(function() {
     current = $( this ).data('stats');
-    $("table[data-component='body'] tr").removeClass('info danger warning');
-    $("table[data-component='body']").find("tr[data-stats='" + current + "']").addClass('info').removeClass('danger');
-    $( this ).addClass('danger');
+    $("table[data-component='body'] tr").removeClass('similar selected');
+    $("table[data-component='body']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $( this ).addClass('selected');
   });
   $("table[data-component='tire'] tbody tr").click(function() {
     current = $( this ).data('stats');
-    $("table[data-component='tire'] tr").removeClass('info danger warning');
-    $("table[data-component='tire']").find("tr[data-stats='" + current + "']").addClass('info').removeClass('danger');
-    $( this ).addClass('danger');
+    $("table[data-component='tire'] tr").removeClass('similar selected');
+    $("table[data-component='tire']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $( this ).addClass('selected');
   });
   $("table[data-component='glider'] tbody tr").click(function() {
     current = $( this ).data('stats');
-    $("table[data-component='glider'] tr").removeClass('info danger warning');
-    $("table[data-component='glider']").find("tr[data-stats='" + current + "']").addClass('info').removeClass('danger');
-    $( this ).addClass('danger');
+    $("table[data-component='glider'] tr").removeClass('similar selected');
+    $("table[data-component='glider']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $( this ).addClass('selected');
   });
-
-
   {% block script_extra %}{% endblock %}
 });
 </script>
