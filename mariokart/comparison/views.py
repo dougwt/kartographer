@@ -133,12 +133,16 @@ def save(request):
 
         log('Saving list to %s' % full_url, request)
 
+        # Redirect to the new url
+        return redirect('list', url_hash=config_list.url)
+
     else:
 
         log('Rejected save attempt', request)
 
-    # Redirect to the new url
-    return redirect('list', url_hash=config_list.url)
+        # Redirect to My List
+        return redirect('home')
+
 
 
 def list(request, url_hash):
