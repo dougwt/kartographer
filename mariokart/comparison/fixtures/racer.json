@@ -1,0 +1,258 @@
+[
+  {
+    "model": "comparison.racer",
+    "pk": 1,
+    "fields": {
+      "name": "Baby Mario",
+      "stats": 1
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 2,
+    "fields": {
+      "name": "Baby Luigi",
+      "stats": 1
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 3,
+    "fields": {
+      "name": "Baby Peach",
+      "stats": 1
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 4,
+    "fields": {
+      "name": "Baby Daisy",
+      "stats": 1
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 5,
+    "fields": {
+      "name": "Baby Rosalina",
+      "stats": 1
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 6,
+    "fields": {
+      "name": "Lemmy Koopa",
+      "stats": 1
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 7,
+    "fields": {
+      "name": "Mii (Light)",
+      "stats": 1
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 8,
+    "fields": {
+      "name": "Toad",
+      "stats": 2
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 9,
+    "fields": {
+      "name": "Koopa Troopa",
+      "stats": 2
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 10,
+    "fields": {
+      "name": "Shy Guy",
+      "stats": 2
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 11,
+    "fields": {
+      "name": "Lakitu",
+      "stats": 2
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 12,
+    "fields": {
+      "name": "Toadette",
+      "stats": 2
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 13,
+    "fields": {
+      "name": "Larry Koopa",
+      "stats": 2
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 14,
+    "fields": {
+      "name": "Wendy O. Koopa",
+      "stats": 2
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 15,
+    "fields": {
+      "name": "Peach",
+      "stats": 3
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 16,
+    "fields": {
+      "name": "Daisy",
+      "stats": 3
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 17,
+    "fields": {
+      "name": "Yoshi",
+      "stats": 3
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 18,
+    "fields": {
+      "name": "Mario",
+      "stats": 4
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 19,
+    "fields": {
+      "name": "Luigi",
+      "stats": 4
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 20,
+    "fields": {
+      "name": "Iggy Koopa",
+      "stats": 4
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 21,
+    "fields": {
+      "name": "Ludwig von Koopa",
+      "stats": 4
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 22,
+    "fields": {
+      "name": "Mii (Medium)",
+      "stats": 4
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 23,
+    "fields": {
+      "name": "Donkey Kong",
+      "stats": 5
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 24,
+    "fields": {
+      "name": "Waluigi",
+      "stats": 5
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 25,
+    "fields": {
+      "name": "Rosalina",
+      "stats": 5
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 26,
+    "fields": {
+      "name": "Roy Koopa",
+      "stats": 5
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 27,
+    "fields": {
+      "name": "Metal Mario",
+      "stats": 6
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 28,
+    "fields": {
+      "name": "Pink Gold Peach",
+      "stats": 6
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 29,
+    "fields": {
+      "name": "Bowser",
+      "stats": 7
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 30,
+    "fields": {
+      "name": "Wario",
+      "stats": 7
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 31,
+    "fields": {
+      "name": "Morton Koopa Jr.",
+      "stats": 7
+    }
+  },
+  {
+    "model": "comparison.racer",
+    "pk": 32,
+    "fields": {
+      "name": "Mii (Heavy)",
+      "stats": 7
+    }
+  }
+]
