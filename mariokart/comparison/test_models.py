@@ -9,11 +9,11 @@ from .models import ConfigList, ConfigListItem, KartConfig
 class ConfigListTestCase(TestCase):
     """Tests for ConfigList and ConfigListItem models."""
     fixtures = [
-        'racer.yaml',
-        'racerstats.yaml',
-        'body.yaml',
-        'tire.yaml',
-        'glider.yaml',
+        'racer.json',
+        'racerstats.json',
+        'body.json',
+        'tire.json',
+        'glider.json',
     ]
 
     def test_create(self):
