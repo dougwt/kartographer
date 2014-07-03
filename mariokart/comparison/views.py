@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 
 
 def log(msg, request):
+    """Log a message with the attached request IP address."""
     ip = get_real_ip(request)
     if ip is None:
         ip = get_ip(request)
@@ -142,7 +143,6 @@ def save(request):
 
         # Redirect to My List
         return redirect('home')
-
 
 
 def list(request, url_hash):
