@@ -141,7 +141,9 @@ class ViewTestCase(TestCase):
         """Ensure save view handles empty save."""
         response = self.client.get(reverse('save'))
         self.assertEqual(response.status_code, 302)
-        self.assertTrue('Your current list has been saved to' in response.content)
+        self.assertFalse(
+            'Your current list has been saved to' in response.content
+        )
 
     def test_top_empty(self):
         """Ensure top view renders."""
@@ -218,8 +220,9 @@ class PopulatedListViewTestCase(TestCase):
         """Ensure save view exports list."""
         response = self.client.get(reverse('save'))
         self.assertEqual(response.status_code, 302)
-        self.assertTrue('Your current list has been saved to' in response.content)
-        # TODO
+        self.assertTrue(
+            'Your current list has been saved to' in response.content
+        )
 
     def test_top_populated(self):
         """Ensure top view renders."""
