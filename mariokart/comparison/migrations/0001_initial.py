@@ -1,134 +1,173 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'RacerStats'
-        db.create_table(u'comparison_racerstats', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('speed', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('acceleration', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('weight', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('handling', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('traction', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-        ))
-        db.send_create_signal(u'comparison', ['RacerStats'])
+    dependencies = [
+    ]
 
-        # Adding model 'Body'
-        db.create_table(u'comparison_body', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('speed', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('acceleration', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('weight', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('handling', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('traction', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-        ))
-        db.send_create_signal(u'comparison', ['Body'])
-
-        # Adding model 'Tire'
-        db.create_table(u'comparison_tire', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('speed', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('acceleration', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('weight', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('handling', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('traction', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-        ))
-        db.send_create_signal(u'comparison', ['Tire'])
-
-        # Adding model 'Glider'
-        db.create_table(u'comparison_glider', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('speed', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('acceleration', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('weight', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('handling', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-            ('traction', self.gf('django.db.models.fields.DecimalField')(max_digits=3, decimal_places=2)),
-        ))
-        db.send_create_signal(u'comparison', ['Glider'])
-
-        # Adding model 'Racer'
-        db.create_table(u'comparison_racer', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('stats', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['comparison.RacerStats'])),
-        ))
-        db.send_create_signal(u'comparison', ['Racer'])
-
-
-    def backwards(self, orm):
-        # Deleting model 'RacerStats'
-        db.delete_table(u'comparison_racerstats')
-
-        # Deleting model 'Body'
-        db.delete_table(u'comparison_body')
-
-        # Deleting model 'Tire'
-        db.delete_table(u'comparison_tire')
-
-        # Deleting model 'Glider'
-        db.delete_table(u'comparison_glider')
-
-        # Deleting model 'Racer'
-        db.delete_table(u'comparison_racer')
-
-
-    models = {
-        u'comparison.body': {
-            'Meta': {'object_name': 'Body'},
-            'acceleration': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'handling': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'speed': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'traction': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'weight': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'})
-        },
-        u'comparison.glider': {
-            'Meta': {'object_name': 'Glider'},
-            'acceleration': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'handling': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'speed': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'traction': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'weight': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'})
-        },
-        u'comparison.racer': {
-            'Meta': {'object_name': 'Racer'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'stats': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['comparison.RacerStats']"})
-        },
-        u'comparison.racerstats': {
-            'Meta': {'object_name': 'RacerStats'},
-            'acceleration': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'handling': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'speed': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'traction': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'weight': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'})
-        },
-        u'comparison.tire': {
-            'Meta': {'object_name': 'Tire'},
-            'acceleration': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'handling': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'speed': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'traction': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'}),
-            'weight': ('django.db.models.fields.DecimalField', [], {'max_digits': '3', 'decimal_places': '2'})
-        }
-    }
-
-    complete_apps = ['comparison']
+    operations = [
+        migrations.CreateModel(
+            name='Body',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=30, blank=True)),
+                ('speed_ground', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_water', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_air', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_antigravity', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('acceleration', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('weight', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_ground', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_water', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_air', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_antigravity', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('traction', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('miniturbo', models.DecimalField(max_digits=3, decimal_places=2)),
+            ],
+            options={
+                'verbose_name_plural': 'bodies',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='ConfigList',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('url', models.CharField(max_length=5)),
+                ('create_ip', models.GenericIPAddressField(default=b'0.0.0.0')),
+                ('create_date', models.DateTimeField(auto_now_add=True)),
+                ('view_count', models.PositiveIntegerField(default=0)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='ConfigListItem',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('body', models.ForeignKey(to='comparison.Body')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Glider',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=30, blank=True)),
+                ('speed_ground', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_water', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_air', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_antigravity', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('acceleration', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('weight', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_ground', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_water', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_air', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_antigravity', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('traction', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('miniturbo', models.DecimalField(max_digits=3, decimal_places=2)),
+            ],
+            options={
+                'abstract': False,
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Racer',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=30, blank=True)),
+            ],
+            options={
+                'abstract': False,
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='RacerStats',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=30, blank=True)),
+                ('speed_ground', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_water', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_air', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_antigravity', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('acceleration', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('weight', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_ground', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_water', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_air', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_antigravity', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('traction', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('miniturbo', models.DecimalField(max_digits=3, decimal_places=2)),
+            ],
+            options={
+                'abstract': False,
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Tire',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=30, blank=True)),
+                ('speed_ground', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_water', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_air', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('speed_antigravity', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('acceleration', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('weight', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_ground', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_water', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_air', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('handling_antigravity', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('traction', models.DecimalField(max_digits=3, decimal_places=2)),
+                ('miniturbo', models.DecimalField(max_digits=3, decimal_places=2)),
+            ],
+            options={
+                'abstract': False,
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='racer',
+            name='stats',
+            field=models.ForeignKey(to='comparison.RacerStats'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='configlistitem',
+            name='glider',
+            field=models.ForeignKey(to='comparison.Glider'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='configlistitem',
+            name='list',
+            field=models.ForeignKey(to='comparison.ConfigList'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='configlistitem',
+            name='racer',
+            field=models.ForeignKey(to='comparison.Racer'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='configlistitem',
+            name='tire',
+            field=models.ForeignKey(to='comparison.Tire'),
+            preserve_default=True,
+        ),
+        migrations.AlterUniqueTogether(
+            name='configlistitem',
+            unique_together=set([('list', 'racer', 'body', 'tire', 'glider')]),
+        ),
+    ]
