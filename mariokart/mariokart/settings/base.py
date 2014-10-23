@@ -74,6 +74,9 @@ USE_L10N = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#test-runner
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 ########## END GENERAL CONFIGURATION
 
 
