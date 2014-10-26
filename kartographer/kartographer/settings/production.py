@@ -21,7 +21,7 @@ def get_env_setting(setting):
 
 ########## HOST CONFIGURATION
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
-ALLOWED_HOSTS = ['.mycodebytes.com']
+ALLOWED_HOSTS = ['.kartographer.com']
 ########## END HOST CONFIGURATION
 
 ########## EMAIL CONFIGURATION
@@ -73,7 +73,7 @@ CACHES = {
 
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = 'http://static.mycodebytes.com/mariokart/assets/'
+STATIC_URL = 'http://static.kartographer.com/assets/'
 ########## END STATIC FILE CONFIGURATION
 
 ########## SECRET CONFIGURATION
