@@ -1,13 +1,13 @@
 {% extends "list.html" %}
 {% load staticfiles %}
 
-{% block panel_title %}Your Configurations{% endblock %}
+{% block panel_title %}My Karts{% endblock %}
 
 {% block add_configform %}
 <div class="text-right">
   <a class="btn btn-default" href="/save/">Share <span class="glyphicon glyphicon-share"></span></a>
   <button id="reset-btn" class="btn btn-default">Reset <span class="glyphicon glyphicon-trash"></span></button>
-  <button class="btn btn-danger" data-toggle="modal" data-target="#addModalDriver">Add Config
+  <button class="btn btn-danger" data-toggle="modal" data-target="#addModalDriver">Add Kart
     <span class="glyphicon glyphicon-plus"></span>
   </button>
 </div>
@@ -43,7 +43,7 @@
   <div class="modal-content">
     <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title" id="myModalLabel">Step 2 of 4: <span class="hidden-xs">Please choose a kart...</span><span class="visible-xs">Kart</span></h4>
+    <h4 class="modal-title" id="myModalLabel">Step 2 of 4: <span class="hidden-xs">Please choose a body...</span><span class="visible-xs">Kart</span></h4>
     </div>
     <div class="modal-body">
       {% for item in bodies %}<label class="fb fb-body" for="fb-body-{{ forloop.counter }}">
