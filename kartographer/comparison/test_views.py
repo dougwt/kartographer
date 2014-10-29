@@ -137,10 +137,34 @@ class ViewTestCase(TestCase):
         }))
         self.assertEqual(response.status_code, 404)
 
+    def test_save(self):
+        """Ensure save view exports list."""
+        # Ensure configurations is empty
+        response = self.client.get(reverse('home'))
+        self.assertEqual(len(response.context['configurations']), 0)
+
+        # Add a configuration
+        response = self.client.post('/', {
+            'add-racer': 10,
+            'add-body': 19,
+            'add-tire': 2,
+            'add-glider': 2,
+        })
+        response = self.client.get(reverse('home'))
+
+        # Ensure configuration is not empty
+        self.assertEqual(len(response.context['configurations']), 1)
+
+        response = self.client.get(reverse('save'), follow=True)
+        self.assertEqual(response.redirect_chain[0][1], 302)
+        self.assertTrue(
+            'Your current list has been saved to' in response.content
+        )
+
     def test_save_empty(self):
         """Ensure save view handles empty save."""
-        response = self.client.get(reverse('save'))
-        self.assertEqual(response.status_code, 302)
+        response = self.client.get(reverse('save'), follow=True)
+        self.assertEqual(response.redirect_chain[0][1], 302)
         self.assertFalse(
             'Your current list has been saved to' in response.content
         )
@@ -218,11 +242,15 @@ class PopulatedListViewTestCase(TestCase):
 
     def test_save(self):
         """Ensure save view exports list."""
-        response = self.client.get(reverse('save'))
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue(
+        response = self.client.get(reverse('save'), follow=True)
+        self.assertEqual(response.redirect_chain[0][1], 302)
+        self.assertFalse(
             'Your current list has been saved to' in response.content
         )
+        # TODO: Add test for duplicate list alert
+        # self.assertTrue(
+        #     'Duplicate'
+        # )
 
     def test_top_populated(self):
         """Ensure top view renders."""
