@@ -6,6 +6,42 @@ from django.test import TestCase
 from .models import ConfigList, ConfigListItem, KartConfig
 
 
+class KartConfigTestCase(TestCase):
+    """Tests for KartConfig model."""
+    fixtures = [
+        'racer.json',
+        'racerstats.json',
+        'body.json',
+        'tire.json',
+        'glider.json',
+    ]
+
+    def test_valid(self):
+        """Test for invalid Racer id."""
+        test_kart_ids = (1, 1, 1, 1)
+        self.assertTrue(KartConfig(test_kart_ids).valid)
+
+    def test_invalid_racer(self):
+        """Test for invalid Racer id."""
+        test_kart_ids = (99, 1, 1, 1)
+        self.assertFalse(KartConfig(test_kart_ids).valid)
+
+    def test_invalid_body(self):
+        """Test for invalid Body id."""
+        test_kart_ids = (1, 99, 1, 1)
+        self.assertFalse(KartConfig(test_kart_ids).valid)
+
+    def test_invalid_tire(self):
+        """Test for invalid Tire id."""
+        test_kart_ids = (1, 1, 99, 1)
+        self.assertFalse(KartConfig(test_kart_ids).valid)
+
+    def test_invalid_glider(self):
+        """Test for invalid Glider id."""
+        test_kart_ids = (1, 1, 1, 99)
+        self.assertFalse(KartConfig(test_kart_ids).valid)
+
+
 class ConfigListTestCase(TestCase):
     """Tests for ConfigList and ConfigListItem models."""
     fixtures = [
