@@ -58,7 +58,7 @@ class Body(CommonStats):
 
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
-        return static('mk8/bodies/%s.png' % super(Body, self).file())
+        return static('images/mk8/bodies/%s.png' % super(Body, self).file())
 
     class Meta:
         verbose_name_plural = "bodies"
@@ -69,7 +69,7 @@ class Tire(CommonStats):
 
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
-        return static('mk8/tires/%s.png' % super(Tire, self).file())
+        return static('images/mk8/tires/%s.png' % super(Tire, self).file())
 
 
 class Glider(CommonStats):
@@ -78,7 +78,7 @@ class Glider(CommonStats):
 
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
-        return static('mk8/gliders/%s.png' % super(Glider, self).file())
+        return static('images/mk8/gliders/%s.png' % super(Glider, self).file())
 
 
 class Racer(KartComponent):
@@ -87,7 +87,7 @@ class Racer(KartComponent):
 
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
-        return static('mk8/racers/%s.png' % super(Racer, self).file())
+        return static('images/mk8/racers/%s.png' % super(Racer, self).file())
 
 
 class KartConfig():

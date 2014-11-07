@@ -70,7 +70,7 @@
     <div class="modal-body">
       {% for item in tires %}<label class="fb fb-tire" for="fb-tire-{{ forloop.counter }}">
         <input id="fb-tire-{{ forloop.counter }}" type="radio" name="add-tire" value="{{ item.id }}" />
-        <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+        <img src="{% static '{{ item.file }}' %}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
       </label>{% endfor %}
     </div>
     <div class="modal-footer">
