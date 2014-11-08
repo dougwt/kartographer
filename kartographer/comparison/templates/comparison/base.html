@@ -51,9 +51,10 @@
           <div class="col-xs-12 col-sm-8 menu">
             <nav>
               <ul id="main-nav" class="nav nav-pills navbar-right">
-                <li><a href="/"><span class="glyphicon glyphicon-home"></span> My Karts</a></li>
-                <li><a href="/kart-components/"><span class="glyphicon glyphicon-th-list"></span> Components</a></li>
-                <li><a href="#info"><span class="glyphicon glyphicon-info-sign"></span> Guide</a></li>
+                <li class="{% block nav_home_active %}{% endblock %}"><a href="/"><span class="glyphicon glyphicon-home"></span> My Karts</a></li>
+                <li class="{% block nav_popular_active %}{% endblock %}"><a href="/top/"><span class="glyphicon glyphicon-fire"></span> Popular</a></li>
+                <li class="{% block nav_components_active %}{% endblock %}"><a href="/kart-components/"><span class="glyphicon glyphicon-th-list"></span> Components</a></li>
+                <li class="{% block nav_info_active %}{% endblock %}"><a href="#info"><span class="glyphicon glyphicon-info-sign"></span> Guide</a></li>
               </ul>
             </nav>
           </div>
@@ -109,7 +110,7 @@
             <!--<h4 class="text-right"><small><em>"I'm-a gonna win!"</em></small></h4>-->
             <li><a href="http://www.djangoproject.com/"><img src="{% static 'images/django.png' %}" border="0" alt="Powered by Django." width="96" height="37" title="Powered by Django." /></a></li>
             <li><a href="http://github.com/dougwt/kartographer" title="The source code of this website is available on GitHub"><span class="mega-octicon octicon-logo-github footer-graphic"></span></a></li>
-            <li><em>&ldquo;I'm-a gonna win!&rdquo;</em></li>
+            <li><em><span class="glyphicon glyphicon-flag"></span>&ldquo;I'm-a gonna win!&rdquo;</em></li>
           </ul>
         </div>
       </footer>
