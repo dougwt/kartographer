@@ -1,4 +1,5 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+@import url(http://fonts.googleapis.com/css?family=Courgette|Nunito:300);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5419,3 +5420,107 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+/* ====================== */
+/* Typography             */
+/* ====================== */
+@media only screen and (max-width: 320px) {
+  ul.nav {
+    font-size: 85%; } }
+.navbar-brand {
+  font-family: 'Courgette', cursive; }
+
+h3.panel-title,
+.btn,
+ul.nav li a {
+  font-family: 'Nunito', sans-serif; }
+
+footer ul li em {
+  font-family: 'Courgette', cursive;
+  font-size: 1.3em; }
+
+/* ====================== */
+/* Layout                 */
+/* ====================== */
+body {
+  background-image: url("../images/mario-bg.jpg");
+  background-size: 379px 458px;
+  background-repeat: no-repeat;
+  background-position: right top; }
+
+nav.navbar {
+  margin-bottom: 0; }
+  nav.navbar .container {
+    background-image: url("../images/flags.png");
+    background-size: 70px 70px;
+    background-repeat: no-repeat;
+    background-position: left -10px; }
+    nav.navbar .container .navbar-brand {
+      padding-left: 75px; }
+
+header .row {
+  padding: 35px 0; }
+  header .row .logo a img {
+    width: 245px;
+    height: 77px;
+    margin-left: -20px; }
+  header .row div.menu {
+    line-height: 77px; }
+    header .row div.menu nav {
+      width: 100%;
+      vertical-align: middle;
+      display: inline-block; }
+      header .row div.menu nav ul {
+        line-height: 1em;
+        display: block; }
+      header .row div.menu nav:before, header .row div.menu nav:after {
+        content: " ";
+        display: table; }
+      header .row div.menu nav:after {
+        clear: both; }
+
+th:after {
+  content: ""; }
+
+footer {
+  padding-bottom: 1em; }
+  footer h6 {
+    margin-top: 0;
+    margin-bottom: 0; }
+  footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    footer ul li {
+      display: inline;
+      float: right;
+      padding: 0 0 0 20px; }
+      footer ul li em {
+        padding-right: 10px; }
+      footer ul li .footer-graphic {
+        line-height: 40px; }
+    footer ul h6 {
+      margin-top: 0; }
+
+/* ====================== */
+/* Color                  */
+/* ====================== */
+nav.navbar-default {
+  background-color: #2D88CD;
+  background-color: rgba(45, 136, 205, 0.6);
+  border: none; }
+  nav.navbar-default a.navbar-brand,
+  nav.navbar-default ul.navbar-nav li a {
+    color: white; }
+  nav.navbar-default ul.navbar-nav li.active a {
+    color: #5e5e5e;
+    background: rgba(231, 231, 231, 0.2); }
+  nav.navbar-default ul.navbar-nav li.active a:hover {
+    color: #333333;
+    color: #5e5e5e;
+    background: rgba(231, 231, 231, 0.2); }
+
+.footer-graphic {
+  color: #e7e7e7; }
+
+footer ul li em {
+  color: #ddd; }

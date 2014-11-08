@@ -7,117 +7,112 @@
     <title>Kart Comparison Tool</title>
     <meta name="description" content="Create side-by-side stat comparisons for different Mario Kart 8 kart configurations.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
 
     <!-- Twitter Bootstrap CSS  -->
-    <link rel="stylesheet" href="{% static 'css/site.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/octicons/octicons.css' %}">
-    <style>
-      th:after {
-      content: "";
-      }
-      .logo {
-        padding: 20px;
-      }
-      #main-nav {
-        min-height: 91px;
-        padding: 37px 20px 12px 0;
-      }
-      body {
-        background-image: url({% static 'images/mario-bg.jpg' %});
-        background-size: 379px 458px;
-        background-repeat: no-repeat;
-        background-position: right top;
-      }
-      .footer-graphic {
-        color: #e7e7e7;
-        line-height: 40px;
-      }
-      ul.footer {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      .footer li {
-        display: inline;
-        float: right;
-        padding: 0 0 0 20px;
-      }
-      .footer h6 {
-        margin-top: 0;
-      }
-      @media only screen and (max-width: 320px) {
-        ul.nav {
-          font-size: 85%;
-        }
-      }
-    </style>
     {% block head %}{% endblock %}
   </head>
   <body>
 
-  <div class="container">
-
-    <!-- Page Header -->
-    <div class="row">
-      <div class="col-xs-12 col-sm-2 text-center">
-        <a href="/"><img src="{% static 'images/logo.png' %}" alt="Kart Comparison Tool" class="logo" width="285" height="117"></a>
-      </div>
-      <div class="col-xs-12 col-sm-10">
-        <ul id="main-nav" class="nav nav-pills navbar-right pull-right">
-          <li><a href="/"><span class="glyphicon glyphicon-home"></span> My Karts</a></li>
-          <li><a href="/kart-components/"><span class="glyphicon glyphicon-th-list"></span> Components</a></li>
-        </ul>
-      </div>
-    </div>
-
-    {% if messages %}
-      {% for message in messages %}
-
-      <div class="alert
-      {% if 'debug' in message.tags %}alert-debug{% endif %}
-      {% if 'info' in message.tags %}alert-info{% endif %}
-      {% if 'success' in message.tags %}alert-success{% endif %}
-      {% if 'warning' in message.tags %}alert-warning{% endif %}
-      {% if 'error' in message.tags %}alert-error{% endif %}
-      ">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
-      </div>
-      {% endfor %}
-    {% endif %}
-
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">{% block panel_title %}&nbsp;{% endblock %}</h3>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Kartographer.com</a>
         </div>
-        <div class="panel-body">
+        <div id="navbar" class="collapse navbar-right navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Comparison Tool</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://github.com/dougwt/kartographer/issues">Feedback</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-        <!-- BEGIN PAGE CONTENT -->
-        {% block content %}{% endblock %}
-        <!-- END PAGE CONTENT -->
+    <div class="container">
 
+      <!-- Page Header -->
+      <header>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 logo">
+            <a href="/"><img src="{% static 'images/logo.png' %}" alt="Kart Comparison Tool"></a>
+          </div>
+          <div class="col-xs-12 col-sm-8 menu">
+            <!-- Nav -->
+            <nav>
+              <ul id="main-nav" class="nav nav-pills navbar-right">
+                <li><a href="/"><span class="glyphicon glyphicon-home"></span> My Karts</a></li>
+                <li><a href="/kart-components/"><span class="glyphicon glyphicon-th-list"></span> Components</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <!-- Alerts -->
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert
+        {% if 'debug' in message.tags %}alert-debug{% endif %}
+        {% if 'info' in message.tags %}alert-info{% endif %}
+        {% if 'success' in message.tags %}alert-success{% endif %}
+        {% if 'warning' in message.tags %}alert-warning{% endif %}
+        {% if 'error' in message.tags %}alert-error{% endif %}
+        ">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+        </div>
+        {% endfor %}
+      {% endif %}
+
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">{% block panel_title %}&nbsp;{% endblock %}</h3>
+          </div>
+          <div class="panel-body">
+
+          <!-- BEGIN PAGE CONTENT -->
+          {% block content %}{% endblock %}
+          <!-- END PAGE CONTENT -->
+
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Footer -->
-    <div class="row">
-      <div class="col-sm-8 col-xs-12 footer">
-        <h6 class="row text-small"><small>The Mario Kart name, characters, and images are property of Nintendo<br>
-          Created by <a href="http://mycodebytes.com">Doug Tyler</a>
-          &nbsp;<span class="glyphicon glyphicon-road"></span>&nbsp;
-          Currently serving {{ total_list_count }} lists containing {{ total_config_count }} configurations
-        </small></h6>
-      </div>
-      <ul class="col-sm-4 hidden-xs footer">
-        <!--<h4 class="text-right"><small><em>"I'm-a gonna win!"</em></small></h4>-->
-        <li><a href="http://www.djangoproject.com/"><img src="{% static 'images/django.png' %}" border="0" alt="Powered by Django." width="96" height="37" title="Powered by Django." /></a></li>
-        <li><a href="http://github.com/dougwt/kartographer" title="The source code of this website is available on GitHub"><span class="mega-octicon octicon-logo-github footer-graphic"></span></a></li>
-      </ul>
+
+      <!-- Footer -->
+      <footer>
+        <div class="row">
+          <div class="col-sm-6 col-xs-12">
+            <h6 class="row text-small">
+              <small>
+                The Mario Kart name, characters, and images are property of Nintendo<br>
+                Created by <a href="http://mycodebytes.com">Doug Tyler</a>
+                &nbsp;<span class="glyphicon glyphicon-road"></span>&nbsp;
+                Currently serving {{ total_list_count }} lists containing {{ total_config_count }} configurations
+              </small>
+            </h6>
+          </div>
+          <ul class="col-sm-6 hidden-xs">
+            <!--<h4 class="text-right"><small><em>"I'm-a gonna win!"</em></small></h4>-->
+            <li><a href="http://www.djangoproject.com/"><img src="{% static 'images/django.png' %}" border="0" alt="Powered by Django." width="96" height="37" title="Powered by Django." /></a></li>
+            <li><a href="http://github.com/dougwt/kartographer" title="The source code of this website is available on GitHub"><span class="mega-octicon octicon-logo-github footer-graphic"></span></a></li>
+            <li><em>&ldquo;I'm-a gonna win!&rdquo;</em></li>
+          </ul>
+        </div>
+      </footer>
+
     </div>
 
-  </div>
-
+    <!-- JavaScript includes -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Twitter Bootstrap JavaScript -->
@@ -129,9 +124,9 @@
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
       ga('create', 'UA-52256401-1', 'auto');
       ga('send', 'pageview');
     </script>
+
   </body>
 </html>

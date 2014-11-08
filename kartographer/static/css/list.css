@@ -1,0 +1,128 @@
+/* line 1, ../stylesheets/list.scss */
+label.fb {
+  margin: 0;
+}
+
+/* line 5, ../stylesheets/list.scss */
+.fb > input[type=radio] {
+  display: none;
+}
+
+/* line 9, ../stylesheets/list.scss */
+input[type=radio] + img {
+  cursor: pointer;
+  border: 5px solid transparent;
+}
+
+/* line 14, ../stylesheets/list.scss */
+input[type=radio]:checked + img {
+  border: 5px solid #d65352;
+}
+
+/* line 18, ../stylesheets/list.scss */
+.empty-alert {
+  line-height: 6em;
+  color: #aaa;
+}
+
+/* line 23, ../stylesheets/list.scss */
+table.tablesorter thead span.unsortable {
+  background-image: none !important;
+}
+
+/* line 27, ../stylesheets/list.scss */
+table.tablesorter thead {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+/* line 32, ../stylesheets/list.scss */
+table.tablesorter thead tr {
+  font-size: 0.8em;
+}
+
+/* line 36, ../stylesheets/list.scss */
+table.tablesorter thead tr th span {
+  background-image: url("../js/tablesorter/themes/black/bg.gif");
+  background-size: 21px 9px;
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right: 18px;
+}
+
+/* line 44, ../stylesheets/list.scss */
+table.tablesorter thead tr th.headerSortUp span {
+  background-image: url("../js/tablesorter/themes/black/asc.gif");
+  background-size: 21px 4px;
+  background-repeat: no-repeat;
+}
+
+/* line 50, ../stylesheets/list.scss */
+table.tablesorter thead tr th.headerSortDown span {
+  background-image: url("../js/tablesorter/themes/black/desc.gif");
+  background-size: 21px 4px;
+  background-repeat: no-repeat;
+}
+
+/* line 56, ../stylesheets/list.scss */
+table.tablesorter thead tr th {
+  text-align: center;
+}
+
+/* line 60, ../stylesheets/list.scss */
+table.tablesorter tbody tr {
+  color: #555;
+  font-size: 0.8em;
+}
+
+/* line 65, ../stylesheets/list.scss */
+table.tablesorter tbody tr td {
+  text-align: center;
+  padding: 15px 10px;
+  vertical-align: middle;
+}
+
+/* line 71, ../stylesheets/list.scss */
+table.tablesorter tbody tr td.lalign {
+  text-align: left;
+}
+
+/* line 75, ../stylesheets/list.scss */
+table.tablesorter thead th:hover {
+  color: #d65352;
+}
+
+/* line 79, ../stylesheets/list.scss */
+table.tablesorter .speed {
+  background-color: #dfefd8;
+}
+
+/* line 83, ../stylesheets/list.scss */
+table.tablesorter .handling {
+  background-color: #fcf7e3;
+}
+
+@media (max-width: 991px) {
+  /* line 88, ../stylesheets/list.scss */
+  table.tablesorter tbody tr td img {
+    width: 50px;
+    height: 32px;
+  }
+
+  /* line 92, ../stylesheets/list.scss */
+  table.tablesorter tbody tr td img.racer {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* line 96, ../stylesheets/list.scss */
+  table.tablesorter tbody tr {
+    color: #555;
+  }
+
+  /* line 99, ../stylesheets/list.scss */
+  table.tablesorter .speed,
+  table.tablesorter .handling {
+    background: none;
+  }
+}

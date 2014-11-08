@@ -69,7 +69,7 @@ def home(request):
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
     }
-    return render(request, 'home.html', context)
+    return render(request, 'comparison/home.html', context)
 
 
 def components(request):
@@ -85,7 +85,7 @@ def components(request):
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
     }
-    return render(request, 'components.html', context)
+    return render(request, 'comparison/components.html', context)
 
 
 def reset(request):
@@ -181,7 +181,7 @@ def list(request, url_hash):
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
     }
-    return render(request, 'list.html', context)
+    return render(request, 'comparison/list.html', context)
 
 
 def top(request):
@@ -192,4 +192,4 @@ def top(request):
     context = {
         'popular_lists': popular_lists,
     }
-    return render(request, 'top.html', context)
+    return render(request, 'comparison/top.html', context)
