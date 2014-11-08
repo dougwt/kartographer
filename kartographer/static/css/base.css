@@ -5508,16 +5508,11 @@ nav.navbar-default {
   background-color: #2D88CD;
   background-color: rgba(45, 136, 205, 0.6);
   border: none; }
-  nav.navbar-default a.navbar-brand,
-  nav.navbar-default ul.navbar-nav li a {
+  nav.navbar-default a.navbar-brand {
     color: white; }
-  nav.navbar-default ul.navbar-nav li.active a {
-    color: #5e5e5e;
-    background: rgba(231, 231, 231, 0.2); }
-  nav.navbar-default ul.navbar-nav li.active a:hover {
-    color: #333333;
-    color: #5e5e5e;
-    background: rgba(231, 231, 231, 0.2); }
+  nav.navbar-default ul.navbar-nav li a {
+    color: #efefef;
+    font-size: 0.9em; }
 
 .footer-graphic {
   color: #e7e7e7; }

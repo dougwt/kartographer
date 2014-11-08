@@ -136,18 +136,12 @@ footer {
 /* ====================== */
 
 nav.navbar-default {
-  a.navbar-brand,
-  ul.navbar-nav li a {
+  a.navbar-brand {
     color: white;
   }
-  ul.navbar-nav li.active a {
-    color: rgb(94, 94, 94);
-    background: rgba(231, 231, 231, 0.2);
-  }
-  ul.navbar-nav li.active a:hover {
-    color: rgb(51, 51, 51);
-    color: rgb(94, 94, 94);
-    background: rgba(231, 231, 231, 0.2);
+  ul.navbar-nav li a {
+    color: #efefef;
+    font-size: 0.9em;
   }
   background-color: #2D88CD;
   background-color: rgba(45, 136, 205, 0.6);
