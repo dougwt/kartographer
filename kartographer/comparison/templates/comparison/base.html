@@ -16,6 +16,7 @@
   </head>
   <body>
 
+    <!-- Site (Fixed) Navbar -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -42,15 +43,17 @@
       <!-- Page Header -->
       <header>
         <div class="row">
+          <!-- Logo -->
           <div class="col-xs-12 col-sm-4 logo">
             <a href="/"><img src="{% static 'images/logo.png' %}" alt="Kart Comparison Tool"></a>
           </div>
+          <!-- App Nav -->
           <div class="col-xs-12 col-sm-8 menu">
-            <!-- Nav -->
             <nav>
               <ul id="main-nav" class="nav nav-pills navbar-right">
                 <li><a href="/"><span class="glyphicon glyphicon-home"></span> My Karts</a></li>
                 <li><a href="/kart-components/"><span class="glyphicon glyphicon-th-list"></span> Components</a></li>
+                <li><a href="#info"><span class="glyphicon glyphicon-info-sign"></span> Guide</a></li>
               </ul>
             </nav>
           </div>
@@ -73,6 +76,7 @@
         {% endfor %}
       {% endif %}
 
+      <!-- Content Panel -->
       <div class="row">
         <div class="panel panel-default">
           <div class="panel-heading">
