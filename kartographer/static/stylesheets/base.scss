@@ -31,15 +31,11 @@ footer ul li em {
 /* Layout                 */
 /* ====================== */
 
-// Page/Header Background
-body {
-  background-image: url("../images/mario-bg.jpg");
-  background-size: 379px 458px;
-  background-repeat: no-repeat;
-  background-position: right top;
-}
+//
+// Experimental Tweaks
+//
 
-// Golden Wii Wheel Test
+// Golden Wii Wheel
 // nav.navbar {
 //   background-image: url("../images/wii_wheel_gold_512.png");
 //   background-size: 60px 60px;
@@ -48,7 +44,7 @@ body {
 //   background-transform: rotate(30deg);
 // }
 
-// Checkered Flag Test
+// Checkered Flag
 // .panel-heading {
 //   padding-left: 150px;
 //   background-image: url("../images/checkered-flag-background.png");
@@ -57,9 +53,20 @@ body {
 //   background-position: left top;
 // }
 
-// Fixed Navbar
-nav.navbar {
-  .container {
+//
+// Mobile Tweaks
+//
+
+@media (min-width: $screen-xs-min) {
+  // Page/Header Background
+  body {
+    background-image: url("../images/mario-bg.jpg");
+    background-size: 379px 458px;
+    background-repeat: no-repeat;
+    background-position: right top;
+  }
+  // Crossed Flags icon
+  nav.navbar .container {
     .navbar-brand {
       padding-left: 75px;
     }
@@ -68,21 +75,35 @@ nav.navbar {
     background-repeat: no-repeat;
     background-position: left -10px;
   }
-  margin-bottom: 0;
+  // Logo
+  .logo a img {
+    width: 245px;
+    height: 77px;
+  }
+  header {
+    margin-bottom: 20px;
+  }
+  // Footer Text
+  footer {
+    div.row div {
+      font-size: 0.7em;
+      text-align: center;
+    }
+    padding-bottom: 1em;
+  }
 }
 
-// Header & Secondary Nav
-header .row {
-  .logo {
-    a {
-      img {
-        width: 245px;
-        height: 77px;
-        margin-left: -20px;
-      }
-    }
+//
+// Tablet Tweaks
+//
+
+@media (min-width: $screen-sm-min) {
+  // Remove logo margin
+  .logo a img {
+    margin-left: -20px;
   }
-  div.menu {
+  // Vertically center nav
+  header div.menu {
     nav {
       ul {
         line-height: 1em;
@@ -95,41 +116,55 @@ header .row {
     }
     line-height: 77px;
   }
-  padding: 35px 0;
-}
-
-// ???
-th:after {
-  content: "";
-}
-
-// Footer
-footer {
-  h6 {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  ul {
-    li {
-      em {
-        padding-right: 10px;
+  // Footer Text & Graphics
+  footer {
+    div.row div {
+      text-align: left;
+    }
+    ul {
+      li {
+        em {
+          padding-right: 10px;
+        }
+        display: inline;
+        float: right;
+        padding-left: 20px;
       }
       .footer-graphic {
         line-height: 40px;
       }
-      display: inline;
-      float: right;
-      padding: 0 0 0 20px;
+      list-style-type: none;
     }
-    h6 {
-      margin-top: 0;
-    }
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 0 -15px;
+    height: 40px;
   }
-  padding-bottom: 1em;
 }
+
+//
+// Medium Desktop Tweaks
+//
+
+@media (min-width: $screen-md-min) {
+  // Add top & bottom padding to header
+  header .row {
+    padding: 20px 0;
+  }
+  footer div.row em {
+    padding-right: 10px;
+    line-height: 40px;
+  }
+}
+
+//
+// Large Desktop Tweaks
+//
+
+@media (min-width: $screen-lg-min) {}
+
+// // ???
+// th:after {
+//   content: "";
+// }
 
 /* ====================== */
 /* Color                  */
@@ -150,6 +185,10 @@ nav.navbar-default {
 
 .footer-graphic {
   color: #e7e7e7;
+}
+
+footer div.row div {
+  color: #777;
 }
 
 footer ul li em {
