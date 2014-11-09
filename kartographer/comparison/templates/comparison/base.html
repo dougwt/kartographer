@@ -76,7 +76,7 @@
         {% if 'warning' in message.tags %}alert-warning{% endif %}
         {% if 'error' in message.tags %}alert-danger{% endif %}
         ">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
         </div>
         {% endfor %}
