@@ -5423,10 +5423,8 @@ button.close {
 /* ====================== */
 /* Typography             */
 /* ====================== */
-@media only screen and (max-width: 320px) {
-  ul.nav {
-    font-size: 85%; } }
-.navbar-brand {
+.navbar-brand,
+header h1 {
   font-family: 'Courgette', cursive; }
 
 h3.panel-title,
@@ -5441,7 +5439,7 @@ footer ul li em {
 /* ====================== */
 /* Layout                 */
 /* ====================== */
-@media (min-width: 480px) {
+@media only screen and (min-width: 480px) {
   body {
     background-image: url("../images/mario-bg.jpg");
     background-size: 379px 458px;
@@ -5462,13 +5460,15 @@ footer ul li em {
 
   header {
     margin-bottom: 20px; }
+    header h1 {
+      display: none; }
 
   footer {
     padding-bottom: 1em; }
     footer div.row div {
       font-size: 0.7em;
       text-align: center; } }
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .logo a img {
     margin-left: -20px; }
 
@@ -5502,7 +5502,7 @@ footer ul li em {
           padding-right: 10px; }
       footer ul .footer-graphic {
         line-height: 40px; } }
-@media (min-width: 992px) {
+@media only screen and (min-width: 992px) {
   header .row {
     padding: 20px 0; }
 
@@ -5530,3 +5530,18 @@ footer div.row div {
 
 footer ul li em {
   color: #ddd; }
+
+/* ====================== */
+/* Print                  */
+/* ====================== */
+@media print {
+  header h1 {
+    display: inline; }
+
+  header div {
+    display: none; }
+
+  footer div.row div {
+    width: 100%; }
+  footer div.row ul {
+    display: none; } }
