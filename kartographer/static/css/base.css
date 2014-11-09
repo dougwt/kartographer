@@ -5469,8 +5469,10 @@ footer ul li em {
       font-size: 0.7em;
       text-align: center; } }
 @media only screen and (min-width: 768px) {
-  .logo a img {
-    margin-left: -20px; }
+  .logo {
+    text-align: left; }
+    .logo a img {
+      margin-left: -20px; }
 
   header div.menu {
     line-height: 77px; }

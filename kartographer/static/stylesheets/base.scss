@@ -97,8 +97,11 @@ footer ul li em {
 
 @media only screen and (min-width: $screen-sm-min) {
   // Remove logo margin
-  .logo a img {
-    margin-left: -20px;
+  .logo {
+    text-align: left;
+    a img {
+      margin-left: -20px;
+    }
   }
   // Vertically center nav
   header div.menu {
