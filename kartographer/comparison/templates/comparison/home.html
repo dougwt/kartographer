@@ -1,5 +1,9 @@
-{% extends "comparison/list.html" %}
+{% extends "comparison/list_new.html" %}
 {% load staticfiles %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
 
 {% block panel_title %}My Karts{% endblock %}
 
@@ -109,8 +113,47 @@
 {% endblock %}
 
 {% block script_extra %}
-{% if configurations %}
-$( "#share_link" ).removeClass("disabled");
-$('#share_link > a').unbind('click');
-{% endif %}
+<script>
+$( document ).ready(function() {
+  // Add Kart form
+  $( "label.fb-racer" ).click(function() {
+    $( "#racer-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
+  $( "label.fb-body" ).click(function() {
+    $( "#body-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
+  $( "label.fb-tire" ).click(function() {
+    $( "#tire-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
+  $( "label.fb-glider" ).click(function() {
+    $( "#glider-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
+
+  // Add Kart form
+  $( "label.fb-racer" ).click(function() {
+    $( "#racer-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
+  $( "label.fb-body" ).click(function() {
+    $( "#body-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
+  $( "label.fb-tire" ).click(function() {
+    $( "#tire-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
+  $( "label.fb-glider" ).click(function() {
+    $( "#glider-next" ).removeClass( "disabled").addClass( "btn-danger" );
+  });
+
+  // confirm kart configuration list reset
+  $( "#reset-btn" ).click(function() {
+    if (confirm('Are you sure you want to clear all your kart configurations?')) {
+      window.location = "{% url 'reset' %}";
+    }
+  });
+
+  {% if configurations %}
+  $( "#share_link" ).removeClass("disabled");
+  $('#share_link > a').unbind('click');
+  {% endif %}
+});
+</script>
 {% endblock %}

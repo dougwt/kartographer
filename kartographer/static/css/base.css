@@ -5423,6 +5423,10 @@ button.close {
 /* ====================== */
 /* Typography             */
 /* ====================== */
+#navbar .github-prompt {
+  font-size: 0.9em;
+  font-style: italic; }
+
 .navbar-brand,
 header h1 {
   font-family: 'Courgette', cursive; }
@@ -5434,12 +5438,12 @@ ul.nav li a {
 
 footer ul li em {
   font-family: 'Courgette', cursive;
-  font-size: 1.3em; }
+  font-size: 1.1em; }
 
 /* ====================== */
 /* Layout                 */
 /* ====================== */
-@media only screen and (min-width: 480px) {
+@media only screen {
   body {
     background-image: url("../images/mario-bg.jpg");
     background-size: 379px 458px;
@@ -5462,6 +5466,12 @@ footer ul li em {
     margin-bottom: 20px; }
     header h1 {
       display: none; }
+
+  .panel-heading {
+    line-height: 23px;
+    padding: 7px 15px; }
+    .panel-heading h3 {
+      line-height: 23px; }
 
   footer {
     padding-bottom: 1em; }
@@ -5516,10 +5526,15 @@ footer ul li em {
 /* ====================== */
 nav.navbar-default {
   background-color: #2D88CD;
-  background-color: rgba(45, 136, 205, 0.6);
-  border: none; }
+  background-color: rgba(45, 136, 205, 0.6); }
   nav.navbar-default a.navbar-brand {
-    color: white; }
+    color: #efefef; }
+  nav.navbar-default .navbar-toggle {
+    border-color: #abd4ea; }
+    nav.navbar-default .navbar-toggle .icon-bar {
+      background-color: #efefef; }
+  nav.navbar-default .navbar-toggle:hover {
+    background-color: #abd4ea; }
   nav.navbar-default ul.navbar-nav li a {
     color: #efefef;
     font-size: 0.9em; }
@@ -5536,14 +5551,3 @@ footer ul li em {
 /* ====================== */
 /* Print                  */
 /* ====================== */
-@media print {
-  header h1 {
-    display: inline; }
-
-  header div {
-    display: none; }
-
-  footer div.row div {
-    width: 100%; }
-  footer div.row ul {
-    display: none; } }

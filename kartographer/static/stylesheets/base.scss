@@ -6,6 +6,11 @@
 
 @import url(http://fonts.googleapis.com/css?family=Courgette|Nunito:300);
 
+#navbar .github-prompt {
+  font-size: 0.9em;
+  font-style: italic;
+}
+
 .navbar-brand,
 header h1 {
   font-family: 'Courgette', cursive;
@@ -19,7 +24,7 @@ ul.nav li a {
 
 footer ul li em {
   font-family: 'Courgette', cursive;
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 /* ====================== */
@@ -52,7 +57,17 @@ footer ul li em {
 // Mobile Tweaks
 //
 
-@media only screen and (min-width: $screen-xs-min) {
+// Fix for scrolling bug causing reloads in iOS Safari
+// html,
+// body {
+//   height: 100%;
+//   overflow: auto;
+//   margin: 0;
+//   -webkit-overflow-scrolling: touch;
+// }
+
+//@media only screen and (min-width: $screen-xs-min) {
+@media only screen {
   // Page/Header Background
   body {
     background-image: url("../images/mario-bg.jpg");
@@ -81,7 +96,13 @@ footer ul li em {
     }
     margin-bottom: 20px;
   }
-  // Footer Text
+  .panel-heading {
+    h3 {
+      line-height: 23px;
+    }
+    line-height: 23px;
+    padding: 7px 15px;
+  }
   footer {
     div.row div {
       font-size: 0.7em;
@@ -171,17 +192,28 @@ footer ul li em {
 /* Color                  */
 /* ====================== */
 
+$navbar-highlight: #ABD4EA;
+$navbar-white: #efefef;
+
 nav.navbar-default {
   a.navbar-brand {
-    color: white;
+    color: $navbar-white;
+  }
+  .navbar-toggle {
+    .icon-bar {
+      background-color: $navbar-white;
+    }
+    border-color: $navbar-highlight;
+  }
+  .navbar-toggle:hover {
+    background-color: $navbar-highlight;
   }
   ul.navbar-nav li a {
-    color: #efefef;
+    color: $navbar-white;
     font-size: 0.9em;
   }
   background-color: #2D88CD;
   background-color: rgba(45, 136, 205, 0.6);
-  border: none;
 }
 
 .footer-graphic {
@@ -200,19 +232,19 @@ footer ul li em {
 /* Print                  */
 /* ====================== */
 
-@media print {
-  header h1 {
-    display: inline;
-  }
-  header div {
-    display: none;
-  }
-  footer div.row {
-    div {
-      width: 100%;
-    }
-    ul {
-      display: none;
-    }
-  }
-}
+// @media print {
+//   header h1 {
+//     display: inline;
+//   }
+//   header div {
+//     display: none;
+//   }
+//   footer div.row {
+//     div {
+//       width: 100%;
+//     }
+//     ul {
+//       display: none;
+//     }
+//   }
+// }

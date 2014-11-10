@@ -1,0 +1,19 @@
+@import "bootstrap/variables";
+
+// Add Kart form
+label.fb {
+  margin: 0;
+}
+
+.fb > input[type=radio] {
+  display: none;
+}
+
+input[type=radio] + img {
+  cursor: pointer;
+  border: 5px solid transparent;
+}
+
+input[type=radio]:checked + img {
+  border: 5px solid #d65352;
+}

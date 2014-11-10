@@ -1,90 +1,85 @@
-label.fb {
-  margin: 0;
-}
+@import "bootstrap/variables";
 
-.fb > input[type=radio] {
-  display: none;
-}
+/* ====================== */
+/* Typography             */
+/* ====================== */
 
-input[type=radio] + img {
-  cursor: pointer;
-  border: 5px solid transparent;
-}
-
-input[type=radio]:checked + img {
-  border: 5px solid #d65352;
+.spanned-titles th {
+  font-size: 0.8em;
 }
 
 .empty-alert {
   line-height: 6em;
-  color: #aaa;
 }
 
-table.tablesorter thead span.unsortable {
-  background-image: none !important;
+/* ====================== */
+/* Layout                 */
+/* ====================== */
+
+//
+// Mobile Tweaks
+//
+
+@media only screen {
+  // View dropdown
+  div.dropdown {
+    li.dropdown-header {
+      padding-left: 10px;
+    }
+    li a {
+      padding-left: 20px;
+      font-size: 0.8em;
+    }
+  }
+  // Shrink table headers to fit on sub-xs devices
+  th.header {
+    font-size: 0.8em;
+  }
+  // tablesorter
+  table.tablesorter thead span.unsortable {
+    background-image: none !important;
+  }
+  table.tablesorter thead {
+    cursor: pointer;
+  }
+  table.tablesorter thead tr {
+    font-size: 0.8em;
+  }
+  table.tablesorter thead tr th span {
+    background-image: url("../js/tablesorter/themes/black/bg.gif");
+    background-size: 21px 9px;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-right: 18px;
+  }
+  table.tablesorter thead tr th.headerSortUp span {
+    background-image: url("../js/tablesorter/themes/black/asc.gif");
+    background-size: 21px 4px;
+    background-repeat: no-repeat;
+  }
+  table.tablesorter thead tr th.headerSortDown span {
+    background-image: url("../js/tablesorter/themes/black/desc.gif");
+    background-size: 21px 4px;
+    background-repeat: no-repeat;
+  }
+  table.tablesorter thead tr th {
+    text-align: center;
+  }
+  table.tablesorter tbody tr {
+    font-size: 0.8em;
+  }
+  table.tablesorter tbody tr td {
+    text-align: center;
+    padding: 15px 10px;
+    vertical-align: middle;
+  }
+  table.tablesorter tbody tr td.lalign {
+    text-align: left;
+  }
 }
 
-table.tablesorter thead {
-  cursor: pointer;
-  background-color: #fff;
-}
-
-table.tablesorter thead tr {
-  font-size: 0.8em;
-}
-
-table.tablesorter thead tr th span {
-  background-image: url("../js/tablesorter/themes/black/bg.gif");
-  background-size: 21px 9px;
-  background-repeat: no-repeat;
-  background-position: center right;
-  padding-right: 18px;
-}
-
-table.tablesorter thead tr th.headerSortUp span {
-  background-image: url("../js/tablesorter/themes/black/asc.gif");
-  background-size: 21px 4px;
-  background-repeat: no-repeat;
-}
-
-table.tablesorter thead tr th.headerSortDown span {
-  background-image: url("../js/tablesorter/themes/black/desc.gif");
-  background-size: 21px 4px;
-  background-repeat: no-repeat;
-}
-
-table.tablesorter thead tr th {
-  text-align: center;
-}
-
-table.tablesorter tbody tr {
-  color: #555;
-  font-size: 0.8em;
-}
-
-table.tablesorter tbody tr td {
-  text-align: center;
-  padding: 15px 10px;
-  vertical-align: middle;
-}
-
-table.tablesorter tbody tr td.lalign {
-  text-align: left;
-}
-
-table.tablesorter thead th:hover {
-  color: #d65352;
-}
-
-table.tablesorter .speed {
-  background-color: #dfefd8;
-}
-
-table.tablesorter .handling {
-  background-color: #fcf7e3;
-}
-
-@media (max-width: 991px) {
+// Tweak table appearance for xs devices
+@media only screen and (max-width: $screen-sm-min) {
   table.tablesorter tbody tr td img {
     width: 50px;
     height: 32px;
@@ -101,3 +96,70 @@ table.tablesorter .handling {
     background: none;
   }
 }
+
+@media only screen and (min-width: $screen-xs-min) {
+  // Return table headers to normal size
+  th.header {
+    font-size: 1em;
+  }
+}
+
+//
+// Tablet Tweaks
+//
+
+@media only screen and (min-width: $screen-sm-min) {}
+
+//
+// Medium Desktop Tweaks
+//
+
+@media only screen and (min-width: $screen-md-min) {}
+
+//
+// Large Desktop Tweaks
+//
+
+@media only screen and (min-width: $screen-lg-min) {}
+
+/* ====================== */
+/* Color                  */
+/* ====================== */
+
+div.dropdown a.selected {
+  background-color: rgba(45, 136, 205, 0.6);
+}
+
+.empty-alert {
+  color: #aaa;
+}
+
+.secret-stat {
+  background-color: whitesmoke;
+}
+
+table.tablesorter thead {
+  background-color: #fff;
+}
+
+table.tablesorter thead th:hover {
+  color: #d65352;
+}
+
+table.tablesorter .speed {
+  background-color: #dfefd8;
+}
+
+table.tablesorter .handling {
+  background-color: #fcf7e3;
+}
+
+table.tablesorter tbody tr {
+  color: #555;
+}
+
+/* ====================== */
+/* Print                  */
+/* ====================== */
+
+@media print {}
