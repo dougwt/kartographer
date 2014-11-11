@@ -10,7 +10,7 @@ after_success:
 - coveralls
 - chmod 600 .travis/deployment_id_dsa
 - ssh-add .travis/deployment_id_dsa
-- git remote add deploy ssh://dougwt.webfactional.com/home/dougwt/webapps/kartographer/kartographer.git
+- git remote add deploy ssh://dougwt@dougwt.webfactional.com/home/dougwt/webapps/kartographer/kartographer.git
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "travis-deployment" && git push deploy
 env:
   global:
