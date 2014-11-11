@@ -16,4 +16,4 @@ env:
   global:
     secure: VhriqvEd8duOKs6jVPvGwqP8iRFkT9aKeF+vBkVtDN2Gno36uLoVuJ3BLc/nctaRwxdcUXfu5Ay8cK62p/druJxgcGLh18lpQ+2BJVFybItE8U02Q2dbRSpdf06KVL14bxJxF9TKWb9Pm1gtuTb5L+4wEcmT2AqaLRQp8QIwD6o=
 before_install:
-  - echo $deployment_password | gpg .travis/deployment_id_dsa.gpg
+  - gpg --passphrase $deployment_password .travis/deployment_id_dsa.gpg
