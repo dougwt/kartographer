@@ -1,11 +1,19 @@
 language: python
 python:
-  - "2.7"
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+- '2.7'
 install:
-  - pip install -r requirements/test.txt
-  - pip install coveralls
-# command to run tests, e.g. python setup.py test
+- pip install -r requirements/test.txt
+- pip install coveralls
 script:
-  - coverage run kartographer/manage.py test comparison --settings=kartographer.settings.test
-after_success: coveralls
+- coverage run kartographer/manage.py test comparison --settings=kartographer.settings.test
+after_success:
+- coveralls
+- chmod 600 .travis/deployment_id_dsa
+- ssh-add .travis/deployment_id_dsa
+- git remote add deploy ssh://dougwt.webfactional.com/home/dougwt/webapps/kartographer/kartographer.git
+- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "production" && git push deploy
+env:
+  global:
+    secure: VhriqvEd8duOKs6jVPvGwqP8iRFkT9aKeF+vBkVtDN2Gno36uLoVuJ3BLc/nctaRwxdcUXfu5Ay8cK62p/druJxgcGLh18lpQ+2BJVFybItE8U02Q2dbRSpdf06KVL14bxJxF9TKWb9Pm1gtuTb5L+4wEcmT2AqaLRQp8QIwD6o=
+before_install:
+  - echo $deployment_password | gpg .travis/deployment_id_dsa.gpg
