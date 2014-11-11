@@ -8,6 +8,7 @@ script:
 - coverage run kartographer/manage.py test comparison --settings=kartographer.settings.test
 after_success:
 - coveralls
+- eval `ssh-agent -s`
 - chmod 600 .travis/deployment_id_dsa
 - ssh-add .travis/deployment_id_dsa
 - git remote add deploy ssh://dougwt@dougwt.webfactional.com/home/dougwt/webapps/kartographer/kartographer.git
