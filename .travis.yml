@@ -11,7 +11,7 @@ after_success:
 - chmod 600 .travis/deployment_id_dsa
 - ssh-add .travis/deployment_id_dsa
 - git remote add deploy ssh://dougwt.webfactional.com/home/dougwt/webapps/kartographer/kartographer.git
-- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "production" && git push deploy
+- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "travis-deployment" && git push deploy
 env:
   global:
     secure: VhriqvEd8duOKs6jVPvGwqP8iRFkT9aKeF+vBkVtDN2Gno36uLoVuJ3BLc/nctaRwxdcUXfu5Ay8cK62p/druJxgcGLh18lpQ+2BJVFybItE8U02Q2dbRSpdf06KVL14bxJxF9TKWb9Pm1gtuTb5L+4wEcmT2AqaLRQp8QIwD6o=
