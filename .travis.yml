@@ -15,5 +15,7 @@ after_success:
 env:
   global:
     secure: VhriqvEd8duOKs6jVPvGwqP8iRFkT9aKeF+vBkVtDN2Gno36uLoVuJ3BLc/nctaRwxdcUXfu5Ay8cK62p/druJxgcGLh18lpQ+2BJVFybItE8U02Q2dbRSpdf06KVL14bxJxF9TKWb9Pm1gtuTb5L+4wEcmT2AqaLRQp8QIwD6o=
+before_script:
+  - echo -e "Host dougwt.webfactional.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 before_install:
   - gpg --passphrase $deployment_password .travis/deployment_id_dsa.gpg
