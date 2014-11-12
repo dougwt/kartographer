@@ -195,7 +195,7 @@ def list(request, url_hash):
         'total_config_count':   len(ConfigListItem.objects.all()),
         'quote':                fetch_random_quote(),
     }
-    return render(request, 'comparison/list_new.html', context)
+    return render(request, 'comparison/list.html', context)
 
 
 def top(request):

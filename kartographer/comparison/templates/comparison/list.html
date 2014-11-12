@@ -3,189 +3,185 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/list.css' %}">
+{% block head_extra %}{% endblock %}
 {% endblock %}
 
 {% block panel_title %}Saved Configuration List{% endblock %}
 
+{% block panel_alt_title %}
+<div class="dropdown pull-right">
+  <button class="btn btn-default btn-xs dropdown-toggle navbar-right" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-cog"></span> View
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation" class="dropdown-header">Columns</li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-speed">Speed</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-speed-hidden">Speed (secret)</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-acceleration">Acceleration</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-weight">Weight</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling">Handling</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling-hidden">Handling (secret)</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-traction">Traction</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-miniturbo">Miniturbo</a></li>
+    <li role="presentation" class="dropdown-header">Options</li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight">Highlight secret stats</a></li>
+  </ul>
+</div>
+{% endblock %}
+
 {% block content %}
-<table class="table table-condensed table-hover tablesorter">
-  <!-- Header -->
-  <thead>
-  <tr class="spanned-titles hidden-xs hidden-sm">
-    <th>&nbsp;</th>
-    <th class="speed" colspan="4">Speed</th>
-    <th>&nbsp;</th>
-    <th>&nbsp;</th>
-    <th class="handling" colspan="4">Handling</th>
-    <th>&nbsp;</th>
-    <th>&nbsp;</th>
-  </tr>
-  <tr>
-    <th class="text-center hidden-xs">
-      <span class="unsortable">Configuration</span>
-    </th>
-    <th class="text-center">
-      <span class="hidden-xs hidden-sm"><abbr title="Ground">Grnd</abbr></span>
-      <span class="hidden-md hidden-lg"><abbr title="Speed">Spd</abbr></span>
-    </th>
-    <th class="text-center hidden-xs hidden-sm">
-      <span>Water</span>
-    </th>
-    <th class="text-center hidden-xs hidden-sm">
-      <span>Air</span>
-    </th>
-    <th class="text-center hidden-xs hidden-sm">
-      <span>Antigrav</span>
-    </th>
-    <th class="text-center">
-      <span><abbr title="Acceleration">Accel</abbr></span>
-    </th>
-    <th class="text-center">
-      <span class="hidden-xs">Weight</span>
-      <span class="hidden-sm hidden-md hidden-lg"><abbr title="Weight">Wgt</abbr></span>
-    </th>
-    <th class="text-center">
-      <span class="hidden-xs hidden-sm"><abbr title="Ground">Grnd</abbr></span>
-      <span class="hidden-md hidden-lg"><abbr title="Handling">Hdlg</abbr></span>
-    </th>
-    <th class="text-center hidden-xs hidden-sm">
-      <span>Water</span>
-    </th>
-    <th class="text-center hidden-xs hidden-sm">
-      <span>Air</span>
-    </th>
-    <th class="text-center hidden-xs hidden-sm">
-      <span>Antigrav</span>
-    </th>
-    <th class="text-center">
-      <span class="hidden-xs">Traction</span>
-      <span class="hidden-sm hidden-md hidden-lg"><abbr title="Traction">Trct</abbr></span>
-    </th>
-    <th class="text-center hidden-xs hidden-sm">
-      <span>Miniturbo</span>
-    </th>
-  </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table table-condensed table-hover tablesorter" data-role="table" data-mode="columntoggle" id="kart-list">
+    <!-- Header -->
+    <thead>
+    <tr class="spanned-titles hidden-xs hidden-sm hidden-md">
+      <th>Configuration</th>
+      <th data-priority="1" data-column="speed_ground">Speed</th>
+      <th data-priority="3" data-column="speed_water" colspan="3">Speed (secret)</th>
+      <th data-priority="1" data-column="acceleration">Acceleration</th>
+      <th data-priority="1" data-column="weight">Weight</th>
+      <th data-priority="1" data-column="handling_ground">Handling</th>
+      <th data-priority="3" data-column="handling_water" colspan="3">Handling (secret)</th>
+      <th data-priority="1" data-column="traction">Traction</th>
+      <th data-priority="2" data-column="miniturbo">Miniturbo</th>
+    </tr>
+    <tr>
+      <th class="hidden-xs">
+        <span class="unsortable">Configuration</span>
+      </th>
+      <th data-priority="1" data-column="speed_ground">
+        <span class="hidden-xs hidden-sm hidden-md"><abbr title="The top speed of the vehicle on land with normal gravity.">Ground</abbr></span>
+        <span class="hidden-lg"><abbr title="The top speed of the vehicle. Does not affect off-road travel.">Speed</abbr></span>
+      </th>
+      <th data-priority="3" data-column="speed_water">
+        <span><abbr title="The top speed of the vehicle while driving underwater.">Water</abbr></span>
+      </th>
+      <th data-priority="3" data-column="speed_air">
+        <span><abbr title="The top speed of the vehicle while gliding.">Air</abbr></span>
+      </th>
+      <th data-priority="3" data-column="speed_antigravity">
+        <span><abbr title="The top speed of the vehicle in anti-gravity mode.">Antigrav</abbr></span>
+      </th>
+      <th data-priority="1" data-column="acceleration">
+        <span><abbr title="The rate of the vehicle it takes to reach its top speed from a standing position.">Accel</abbr></span>
+      </th>
+      <th data-priority="1" data-column="weight">
+        <span><abbr title="The weight of the vehicle. Vehicles with higher weight knock away vehicles with lower weight.">Weight</abbr></span>
+      </th>
+      <th data-priority="1" data-column="handling_ground">
+        <span class="hidden-xs hidden-sm hidden-md"><abbr title="The turning ability of the vehicle on land with normal gravity.">Ground</abbr></span>
+        <span class="hidden-lg"><abbr title="The turning ability of the vehicle. A higher stat means vehicles turn sharper.">Handling</abbr></span>
+      </th>
+      <th data-priority="3" data-column="handling_water">
+        <span><abbr title="The turning ability of the vehicle while driving underwater.">Water</abbr></span>
+      </th>
+      <th data-priority="3" data-column="handling_air">
+        <span><abbr title="The turning ability of the vehicle while gliding.">Air</abbr></span>
+      </th>
+      <th data-priority="3" data-column="handling_antigravity">
+        <span><abbr title="The turning ability of the vehicle in anti-gravity mode.">Antigrav</abbr></span>
+      </th>
+      <th data-priority="1" data-column="traction">
+        <span><abbr title="The grasp of the vehicle. Vehicles with higher traction slip less on certain terrain and can stay stable on the road better. Not to be confused with handling.">Traction</abbr></span>
+      </th>
+      <th data-priority="2" data-column="miniturbo">
+        <span><abbr title="The strength of the vehicle's mini-turbo speed boosts.">Miniturbo</abbr></span>
+      </th>
+    </tr>
+    </thead>
 
-  <tbody>
-  {% for config in configurations %}
-  <!-- Visible: sm, md, lg -->
-  <tr class="hidden-xs">
-    <td class="text-center">
-      <img src="{{ config.racer.file }}" height="32" width="32" alt="{{ config.racer.name }}" class="racer"><img src="{{ config.body.file }}" height="32" width="50" alt="{{ config.body.name }}"><img src="{{ config.tire.file }}" height="32" width="50" alt="{{ config.tire.name }}"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
-    </td>
-    <td class="text-center speed">{{ config.speed_ground }}</td>
-    <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_water }}</td>
-    <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_air }}</td>
-    <td class="text-center speed hidden-xs hidden-sm">{{ config.speed_antigravity }}</td>
-    <td class="text-center">{{ config.acceleration }}</td>
-    <td class="text-center">{{ config.weight }}</td>
-    <td class="text-center handling">{{ config.handling_ground }}</td>
-    <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_water }}</td>
-    <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_air }}</td>
-    <td class="text-center handling hidden-xs hidden-sm">{{ config.handling_antigravity }}</td>
-    <td class="text-center">{{ config.traction }}</td>
-    <td class="text-center hidden-xs hidden-sm">{{ config.miniturbo }}</td>
-  </tr>
-  <!-- Visible: xs -->
-  <tr class="hidden-sm hidden-md hidden-lg">
-    <td class="text-center" colspan="5">
-      <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
-      <img src="{{ config.body.file }}" height="64" width="100" alt="{{ config.body.name }}">
-      <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
-      <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
-    </td>
-    <td class="text-center hidden-xs">{{ config.speed_ground }}</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center hidden-xs">{{ config.acceleration }}</td>
-    <td class="text-center hidden-xs">{{ config.weight }}</td>
-    <td class="text-center hidden-xs">{{ config.handling_ground }}</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center hidden-xs">{{ config.traction }}</td>
-  </tr>
-  <tr class="hidden-sm hidden-md hidden-lg">
-    <td class="text-center hidden-xs"></td>
-    <td class="text-center">{{ config.speed_ground }}</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center">{{ config.acceleration }}</td>
-    <td class="text-center">{{ config.weight }}</td>
-    <td class="text-center">{{ config.handling_ground }}</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center hidden-xs hidden-sm">&nbsp;</td>
-    <td class="text-center">{{ config.traction }}</td>
-  </tr>
-  {% empty %}
-  <tr><td colspan="13" class="text-center"><em>
-    <span class="empty-alert hidden-xs">Your list is empty. Add a kart configuration by clicking the button below.</span>
-    <span class="empty-alert hidden-sm hidden-md hidden-ms">Your list is empty. Add a configuration below.</span>
-  </em></td></tr>
-  {% endfor %}
-  </tbody>
+    <tbody>
+    {% for config in configurations %}
+    <!-- Visible: sm, md, lg -->
+    <tr class="hidden-xs">
+      <td>
+        <img src="{{ config.racer.file }}" height="32" width="32" alt="{{ config.racer.name }}" class="racer"><img src="{{ config.body.file }}" height="32" width="50" alt="{{ config.body.name }}"><img src="{{ config.tire.file }}" height="32" width="50" alt="{{ config.tire.name }}"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
+      </td>
+      <td data-priority="1" data-column="speed_ground">{{ config.speed_ground }}</td>
+      <td data-priority="3" data-column="speed_water">{{ config.speed_water }}</td>
+      <td data-priority="3" data-column="speed_air">{{ config.speed_air }}</td>
+      <td data-priority="3" data-column="speed_antigravity">{{ config.speed_antigravity }}</td>
+      <td data-priority="1" data-column="acceleration">{{ config.acceleration }}</td>
+      <td data-priority="1" data-column="weight">{{ config.weight }}</td>
+      <td data-priority="1" data-column="handling_ground">{{ config.handling_ground }}</td>
+      <td data-priority="3" data-column="handling_water">{{ config.handling_water }}</td>
+      <td data-priority="3" data-column="handling_air">{{ config.handling_air }}</td>
+      <td data-priority="3" data-column="handling_antigravity">{{ config.handling_antigravity }}</td>
+      <td data-priority="1" data-column="traction">{{ config.traction }}</td>
+      <td data-priority="2" data-column="miniturbo">{{ config.miniturbo }}</td>
+    </tr>
+    <!-- Visible: xs -->
+    <tr class="hidden-sm hidden-md hidden-lg">
+      <td colspan="12">
+        <img src="{{ config.racer.file }}" height="64" width="64" alt="{{ config.racer.name }}" class="racer">
+        <img src="{{ config.body.file }}" height="64" width="100" alt="{{ config.body.name }}">
+        <img src="{{ config.tire.file }}" height="64" width="100" alt="{{ config.tire.name }}">
+        <img src="{{ config.glider.file }}" height="64" width="100" alt="{{ config.glider.name }}">
+      </td>
+      <td data-priority="1" data-column="speed_ground" class="hidden-xs">{{ config.speed_ground }}</td>
+      <td data-priority="3" data-column="speed_water" class="hidden-xs">{{ config.speed_water }}</td>
+      <td data-priority="3" data-column="speed_air" class="hidden-xs">{{ config.speed_air }}</td>
+      <td data-priority="3" data-column="speed_antigravity" class="hidden-xs">{{ config.speed_antigravity }}</td>
+      <td data-priority="1" data-column="acceleration" class="hidden-xs">{{ config.acceleration }}</td>
+      <td data-priority="1" data-column="weight" class="hidden-xs">{{ config.weight }}</td>
+      <td data-priority="1" data-column="handling_ground" class="hidden-xs">{{ config.handling_ground }}</td>
+      <td data-priority="3" data-column="handling_water" class="hidden-xs">{{ config.handling_water }}</td>
+      <td data-priority="3" data-column="handling_air" class="hidden-xs">{{ config.handling_air }}</td>
+      <td data-priority="3" data-column="handling_antigravity" class="hidden-xs">{{ config.handling_antigravity }}</td>
+      <td data-priority="1" data-column="traction" class="hidden-xs">{{ config.traction }}</td>
+      <td data-priority="2" data-column="miniturbo" class="hidden-xs">{{ config.miniturbo }}</td>
+    </tr>
+    <tr class="hidden-sm hidden-md hidden-lg">
+      <td class="hidden-xs"></td>
+      <td data-priority="1" data-column="speed_ground">{{ config.speed_ground }}</td>
+      <td data-priority="3" data-column="speed_water">{{ config.speed_water }}</td>
+      <td data-priority="3" data-column="speed_air">{{ config.speed_air }}</td>
+      <td data-priority="3" data-column="speed_antigravity">{{ config.speed_antigravity }}</td>
+      <td data-priority="1" data-column="acceleration">{{ config.acceleration }}</td>
+      <td data-priority="1" data-column="weight">{{ config.weight }}</td>
+      <td data-priority="1" data-column="handling_ground">{{ config.handling_ground }}</td>
+      <td data-priority="3" data-column="handling_water">{{ config.handling_water }}</td>
+      <td data-priority="3" data-column="handling_air">{{ config.handling_air }}</td>
+      <td data-priority="3" data-column="handling_antigravity">{{ config.handling_antigravity }}</td>
+      <td data-priority="1" data-column="traction">{{ config.traction }}</td>
+      <td data-priority="2" data-column="miniturbo">{{ config.miniturbo }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="13"><em>
+      <span class="empty-alert hidden-xs">Your list is empty. Add a kart configuration by clicking the button below.</span>
+      <span class="empty-alert hidden-sm hidden-md hidden-ms">Your list is empty. Add a configuration below.</span>
+    </em></td></tr>
+    {% endfor %}
+    </tbody>
 
-</table>
+  </table>
+</div>
 {% block add_configform %}{% endblock %}
 {% endblock %}
 
 {% block script %}
-<script src="{% static 'js/ion.sound.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery.contra.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/tablesorter/jquery.tablesorter.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.stickytableheaders.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.toggle-columns.js' %}"></script>
 <script>
 $( document ).ready(function() {
-  $( ".choice" ).click(function() {
-    $( this ).toggleClass( "chosen" );
-  });
+  // ???
+  // $( ".choice" ).click(function() {
+  //   $( this ).toggleClass( "chosen" );
+  // });
 
-  $( "label.fb-racer" ).click(function() {
-    $( "#racer-next" ).removeClass( "disabled").addClass( "btn-danger" );
-  });
-
-  $( "label.fb-body" ).click(function() {
-    $( "#body-next" ).removeClass( "disabled").addClass( "btn-danger" );
-  });
-
-  $( "label.fb-tire" ).click(function() {
-    $( "#tire-next" ).removeClass( "disabled").addClass( "btn-danger" );
-  });
-
-  $( "label.fb-glider" ).click(function() {
-    $( "#glider-next" ).removeClass( "disabled").addClass( "btn-danger" );
-  });
-
-  $( "#reset-btn" ).click(function() {
-    if (confirm('Are you sure you want to clear all your kart configurations?')) {
-      window.location = "{% url 'reset' %}";
-    }
-  });
-
+  // tablesorter
   $('table').tablesorter({
             sortInitialOrder: 'desc',
   });
+
+  // stickyTableHeaders
   $('table').stickyTableHeaders();
 
-  $.ionSound({
-    sounds: [
-      "mk64_mario08",
-    ],
-    path: "{% static 'sounds/' %}",
-    multiPlay: true,
-    volume: "1.0"
-  });
-
-  $.contra( function() {
-    $.ionSound.play("mk64_mario08");
-  } );
-
-  {% block script_extra %}{% endblock %}
-
+  // Hide & Show Table Columns
+  enable_toggleable_list_columns();
 });
 </script>
+{% block script_extra %}{% endblock %}
 {% endblock %}
