@@ -34,7 +34,8 @@
     background-size: 21px 9px;
     background-repeat: no-repeat;
     background-position: center right;
-    padding-right: 18px; }
+    padding-right: 17px;
+    margin-right: -17px; }
 
   table.tablesorter thead tr th.headerSortUp span {
     background-image: url("../js/tablesorter/themes/black/asc.gif");
