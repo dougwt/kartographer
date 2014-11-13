@@ -4,10 +4,6 @@
 /* Typography             */
 /* ====================== */
 
-.spanned-titles th {
-  font-size: 0.8em;
-}
-
 .empty-alert {
   line-height: 6em;
 }
@@ -27,11 +23,8 @@
       padding-left: 10px;
     }
     li a {
-      padding-left: 20px;
+      padding-left: 25px;
       font-size: 0.8em;
-    }
-    a.selected {
-      background-color: rgba(45, 136, 205, 0.6);
     }
   }
   // Shrink table headers to fit on sub-xs devices
@@ -44,7 +37,6 @@
   }
   table.tablesorter thead {
     cursor: pointer;
-    background-color: #fff;
   }
   table.tablesorter thead tr {
     font-size: 0.8em;
@@ -87,21 +79,14 @@
 
 // Tweak table appearance for xs devices
 @media only screen and (max-width: $screen-sm-min) {
-  // table.tablesorter tbody tr td img {
-  //   width: 50px;
-  //   height: 32px;
-  // }
-  // table.tablesorter tbody tr td img.racer {
-  //   width: 32px;
-  //   height: 32px;
-  // }
-  // table.tablesorter tbody tr {
-  //   color: #555;
-  // }
-  // table.tablesorter .speed,
-  // table.tablesorter .handling {
-  //   background: none;
-  // }
+  table.tablesorter tbody tr td img {
+    width: 50px;
+    height: 32px;
+  }
+  table.tablesorter tbody tr td img.racer {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 @media only screen and (min-width: $screen-xs-min) {
@@ -142,8 +127,17 @@
 /* Color                  */
 /* ====================== */
 
-div.dropdown a.selected {
-  background-color: rgba(45, 136, 205, 0.6);
+div.dropdown {
+  a span {
+    color: lighten(black, 60%);
+  }
+  a.selected {
+    span {
+      color: darken(white, 15%);
+    }
+    background-color: rgba(45, 136, 205, 0.6);
+    color: white;
+  }
 }
 
 .empty-alert {
@@ -155,7 +149,7 @@ div.dropdown a.selected {
 }
 
 table.tablesorter thead {
-  background-color: #fff;
+  background-color: whitesmoke;
 }
 
 table.tablesorter thead th:hover {

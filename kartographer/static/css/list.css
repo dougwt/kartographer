@@ -1,9 +1,6 @@
 /* ====================== */
 /* Typography             */
 /* ====================== */
-.spanned-titles th {
-  font-size: 0.8em; }
-
 .empty-alert {
   line-height: 6em; }
 
@@ -14,10 +11,8 @@
   div.dropdown li.dropdown-header {
     padding-left: 10px; }
   div.dropdown li a {
-    padding-left: 20px;
+    padding-left: 25px;
     font-size: 0.8em; }
-  div.dropdown a.selected {
-    background-color: rgba(45, 136, 205, 0.6); }
 
   th.header {
     font-size: 0.6em; }
@@ -26,8 +21,7 @@
     background-image: none !important; }
 
   table.tablesorter thead {
-    cursor: pointer;
-    background-color: #fff; }
+    cursor: pointer; }
 
   table.tablesorter thead tr {
     font-size: 0.8em; }
@@ -64,6 +58,14 @@
 
   table.tablesorter tbody tr td.lalign {
     text-align: left; } }
+@media only screen and (max-width: 768px) {
+  table.tablesorter tbody tr td img {
+    width: 50px;
+    height: 32px; }
+
+  table.tablesorter tbody tr td img.racer {
+    width: 32px;
+    height: 32px; } }
 @media only screen and (min-width: 480px) {
   th.header {
     font-size: 1em; } }
@@ -78,8 +80,13 @@
 /* ====================== */
 /* Color                  */
 /* ====================== */
+div.dropdown a span {
+  color: #999999; }
 div.dropdown a.selected {
-  background-color: rgba(45, 136, 205, 0.6); }
+  background-color: rgba(45, 136, 205, 0.6);
+  color: white; }
+  div.dropdown a.selected span {
+    color: #d9d9d9; }
 
 .empty-alert {
   color: #aaa; }
@@ -88,7 +95,7 @@ div.dropdown a.selected {
   background-color: whitesmoke; }
 
 table.tablesorter thead {
-  background-color: #fff; }
+  background-color: whitesmoke; }
 
 table.tablesorter thead th:hover {
   color: #d65352; }

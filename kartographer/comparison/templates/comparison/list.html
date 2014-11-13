@@ -17,13 +17,13 @@
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation" class="dropdown-header">Columns</li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-speed">Speed</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-speed-hidden">Speed (secret)</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-speed-hidden">Speed <span>(secret)</span></a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-acceleration">Acceleration</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-weight">Weight</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling">Handling</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling-hidden">Handling (secret)</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling-hidden">Handling <span>(secret)</span></a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-traction">Traction</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-miniturbo">Miniturbo</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-miniturbo">Miniturbo <span>(secret)</span></a></li>
     <li role="presentation" class="dropdown-header">Options</li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight">Highlight secret stats</a></li>
   </ul>
@@ -35,24 +35,12 @@
   <table class="table table-condensed table-hover tablesorter" data-role="table" data-mode="columntoggle" id="kart-list">
     <!-- Header -->
     <thead>
-    <tr class="spanned-titles hidden-xs hidden-sm hidden-md">
-      <th>Configuration</th>
-      <th data-priority="1" data-column="speed_ground">Speed</th>
-      <th data-priority="3" data-column="speed_water" colspan="3">Speed (secret)</th>
-      <th data-priority="1" data-column="acceleration">Acceleration</th>
-      <th data-priority="1" data-column="weight">Weight</th>
-      <th data-priority="1" data-column="handling_ground">Handling</th>
-      <th data-priority="3" data-column="handling_water" colspan="3">Handling (secret)</th>
-      <th data-priority="1" data-column="traction">Traction</th>
-      <th data-priority="2" data-column="miniturbo">Miniturbo</th>
-    </tr>
     <tr>
       <th class="hidden-xs">
         <span class="unsortable">Configuration</span>
       </th>
       <th data-priority="1" data-column="speed_ground">
-        <span class="hidden-xs hidden-sm hidden-md"><abbr title="The top speed of the vehicle on land with normal gravity.">Ground</abbr></span>
-        <span class="hidden-lg"><abbr title="The top speed of the vehicle. Does not affect off-road travel.">Speed</abbr></span>
+        <span><abbr title="The top speed of the vehicle on land with normal gravity. Does not affect off-road travel.">Speed</abbr></span>
       </th>
       <th data-priority="3" data-column="speed_water">
         <span><abbr title="The top speed of the vehicle while driving underwater.">Water</abbr></span>
@@ -70,8 +58,7 @@
         <span><abbr title="The weight of the vehicle. Vehicles with higher weight knock away vehicles with lower weight.">Weight</abbr></span>
       </th>
       <th data-priority="1" data-column="handling_ground">
-        <span class="hidden-xs hidden-sm hidden-md"><abbr title="The turning ability of the vehicle on land with normal gravity.">Ground</abbr></span>
-        <span class="hidden-lg"><abbr title="The turning ability of the vehicle. A higher stat means vehicles turn sharper.">Handling</abbr></span>
+        <span><abbr title="The turning ability of the vehicle on land with normal gravity. A higher stat means vehicles turn sharper.">Handling</abbr></span>
       </th>
       <th data-priority="3" data-column="handling_water">
         <span><abbr title="The turning ability of the vehicle while driving underwater.">Water</abbr></span>
