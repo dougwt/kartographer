@@ -97,10 +97,7 @@ class ViewTestCase(TestCase):
 
         # Ensure context variables exist
         self.assertTrue(response.context['racerstats'])
-        self.assertTrue(response.context['racers'])
-        self.assertTrue(response.context['bodies'])
-        self.assertTrue(response.context['tires'])
-        self.assertTrue(response.context['gliders'])
+        self.assertTrue(response.context['components'])
         self.assertEqual(response.context['total_list_count'], 0)
         self.assertEqual(response.context['total_config_count'], 0)
 
