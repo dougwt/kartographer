@@ -30,10 +30,13 @@
       padding-left: 20px;
       font-size: 0.8em;
     }
+    a.selected {
+      background-color: rgba(45, 136, 205, 0.6);
+    }
   }
   // Shrink table headers to fit on sub-xs devices
   th.header {
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
   // tablesorter
   table.tablesorter thead span.unsortable {
@@ -41,6 +44,7 @@
   }
   table.tablesorter thead {
     cursor: pointer;
+    background-color: #fff;
   }
   table.tablesorter thead tr {
     font-size: 0.8em;
@@ -57,11 +61,13 @@
     background-image: url("../js/tablesorter/themes/black/asc.gif");
     background-size: 21px 4px;
     background-repeat: no-repeat;
+    background-position: center right;
   }
   table.tablesorter thead tr th.headerSortDown span {
     background-image: url("../js/tablesorter/themes/black/desc.gif");
     background-size: 21px 4px;
     background-repeat: no-repeat;
+    background-position: center right;
   }
   table.tablesorter thead tr th {
     text-align: center;
@@ -71,7 +77,7 @@
   }
   table.tablesorter tbody tr td {
     text-align: center;
-    padding: 15px 10px;
+    // padding: 15px 10px;
     vertical-align: middle;
   }
   table.tablesorter tbody tr td.lalign {
@@ -121,7 +127,16 @@
 // Large Desktop Tweaks
 //
 
-@media only screen and (min-width: $screen-lg-min) {}
+@media only screen and (min-width: $screen-lg-min) {
+  table.tablesorter thead tr th,
+  table.tablesorter tbody tr th,
+  table.tablesorter tfoot tr th,
+  table.tablesorter thead tr td,
+  table.tablesorter tbody tr td,
+  table.tablesorter tfoot tr td {
+    padding: 8px 4px;
+  }
+}
 
 /* ====================== */
 /* Color                  */

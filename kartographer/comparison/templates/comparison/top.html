@@ -9,6 +9,8 @@
 <ul>
   {% for item in popular_lists %}
   <li><a href="/l/{{ item.url }}">{{ item.url }} ({{ item.view_count }})</a></li>
+  {% empty %}
+  <li class="empty-alert">No items in database.</li>
   {% endfor %}
 </ul>
 {% endblock %}

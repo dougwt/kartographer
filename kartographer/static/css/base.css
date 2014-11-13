@@ -5538,6 +5538,10 @@ nav.navbar-default {
     color: #efefef;
     font-size: 0.9em; }
 
+.nav-pills li.active a {
+  background-color: #2D88CD;
+  background-color: rgba(45, 136, 205, 0.8); }
+
 .footer-graphic {
   color: #e7e7e7; }
 

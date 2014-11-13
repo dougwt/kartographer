@@ -88,12 +88,32 @@ def components(request):
     """List all kart components and their stats."""
     log('Displaying Kart Components page', request)
 
+    components = [
+        {
+            'name': 'racer',
+            'plural': 'racers',
+            'items': Racer.objects.select_related().all(),
+        },
+        {
+            'name': 'body',
+            'plural': 'bodies',
+            'items': Body.objects.all(),
+        },
+        {
+            'name': 'tire',
+            'plural': 'tires',
+            'items': Tire.objects.all(),
+        },
+        {
+            'name': 'glider',
+            'plural': 'gliders',
+            'items': Glider.objects.all(),
+        },
+    ]
+
     context = {
         'racerstats':           RacerStats.objects.all(),
-        'racers':               Racer.objects.select_related().all(),
-        'bodies':               Body.objects.all(),
-        'tires':                Tire.objects.all(),
-        'gliders':              Glider.objects.all(),
+        'components':           components,
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
         'quote':                fetch_random_quote(),
