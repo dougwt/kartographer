@@ -36,7 +36,7 @@
 {% block content %}
   <ul class="nav nav-tabs">
     {% for component in components %}
-    <li{% if forloop.first %} class="active"{% endif %}><a href="#{{ component.name }}" data-toggle="tab">{{ component.plural }}</a></li>
+    <li{% if forloop.first %} class="active"{% endif %}><a href="#{{ component.name }}" data-toggle="tab">{{ component.plural|capfirst }}</a></li>
     {% endfor %}
   </ul>
 

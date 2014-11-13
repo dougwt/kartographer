@@ -64,21 +64,6 @@
 
   table.tablesorter tbody tr td.lalign {
     text-align: left; } }
-@media only screen and (max-width: 768px) {
-  table.tablesorter tbody tr td img {
-    width: 50px;
-    height: 32px; }
-
-  table.tablesorter tbody tr td img.racer {
-    width: 32px;
-    height: 32px; }
-
-  table.tablesorter tbody tr {
-    color: #555; }
-
-  table.tablesorter .speed,
-  table.tablesorter .handling {
-    background: none; } }
 @media only screen and (min-width: 480px) {
   th.header {
     font-size: 1em; } }

@@ -4,10 +4,6 @@
 /* Typography             */
 /* ====================== */
 
-div.panel ul.nav-tabs li:first-letter {
-  text-transform: capitalize;
-}
-
 /* ====================== */
 /* Layout                 */
 /* ====================== */
@@ -21,19 +17,19 @@ div.panel ul.nav-tabs li:first-letter {
   div.panel ul.nav-tabs li {
     font-size: 0.9em;
   }
-}
-
-@media only screen and (min-width: $screen-xs-min) {
-  // Return Components tabs to normal size
-  div.panel ul.nav-tabs li {
-    font-size: 1em;
-  }
   // Add margin beneath tabs
   .panel .nav {
     margin-bottom: 15px;
   }
   table.tablesorter tbody tr td {
     cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: $screen-xs-min) {
+  // Return Components tabs to normal size
+  div.panel ul.nav-tabs li {
+    font-size: 1em;
   }
 }
 

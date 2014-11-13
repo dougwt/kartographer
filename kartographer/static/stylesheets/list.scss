@@ -87,21 +87,21 @@
 
 // Tweak table appearance for xs devices
 @media only screen and (max-width: $screen-sm-min) {
-  table.tablesorter tbody tr td img {
-    width: 50px;
-    height: 32px;
-  }
-  table.tablesorter tbody tr td img.racer {
-    width: 32px;
-    height: 32px;
-  }
-  table.tablesorter tbody tr {
-    color: #555;
-  }
-  table.tablesorter .speed,
-  table.tablesorter .handling {
-    background: none;
-  }
+  // table.tablesorter tbody tr td img {
+  //   width: 50px;
+  //   height: 32px;
+  // }
+  // table.tablesorter tbody tr td img.racer {
+  //   width: 32px;
+  //   height: 32px;
+  // }
+  // table.tablesorter tbody tr {
+  //   color: #555;
+  // }
+  // table.tablesorter .speed,
+  // table.tablesorter .handling {
+  //   background: none;
+  // }
 }
 
 @media only screen and (min-width: $screen-xs-min) {
