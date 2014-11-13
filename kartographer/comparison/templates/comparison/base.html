@@ -1,0 +1,156 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kart Comparison Tool</title>
+    <meta name="description" content="Create side-by-side stat comparisons for different Mario Kart 8 kart configurations.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+
+    <!-- Twitter Bootstrap CSS  -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/octicons/octicons.css' %}">
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+
+    <!-- Site (Fixed) Navbar -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Kartographer.com</a>
+        </div>
+        <div id="navbar" class="collapse navbar-right navbar-collapse">
+          <ul class="nav navbar-nav">
+            <!-- GitHub link for desktop screens -->
+            <li class="hidden-xs github-prompt"><a href="https://github.com/dougwt/kartographer/issues">Have a great idea for a feature? Found a bug? Let us know! <span class="glyphicon glyphicon-pencil"></span></a></li>
+            <!-- Mobile Navigation links -->
+            <li class="visible-xs"><a href="/"><span class="glyphicon glyphicon-home"></span> My Karts</a></li>
+            <li class="visible-xs"><a href="/top/"><span class="glyphicon glyphicon-fire"></span> Popular Lists</a></li>
+            <li class="visible-xs"><a href="/kart-components/"><span class="glyphicon glyphicon-th-list"></span> Kart Components</a></li>
+            <li class="visible-xs"><a href="#info"><span class="glyphicon glyphicon-info-sign"></span> Guide</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <!-- Page Header -->
+      <header>
+        <div class="row">
+          <!-- Logo -->
+          <div class="col-xs-12 col-sm-4 text-center logo">
+            <a href="/"><img src="{% static 'images/logo.png' %}" alt="Kart Comparison Tool"></a>
+          </div>
+          <!-- Primary navigation links -->
+          <div class="hidden-xs col-sm-8 menu">
+            <nav>
+              <ul id="main-nav" class="nav nav-pills navbar-right">
+                <li class="{% block nav_home_active %}{% endblock %}"><a href="/"><span class="glyphicon glyphicon-home"></span> My Karts</a></li>
+                <li class="{% block nav_popular_active %}{% endblock %}"><a href="/top/"><span class="glyphicon glyphicon-fire"></span> Popular</a></li>
+                <li class="{% block nav_components_active %}{% endblock %}"><a href="/kart-components/"><span class="glyphicon glyphicon-th-list"></span> Components</a></li>
+                <li class="{% block nav_info_active %}{% endblock %}"><a href="#info"><span class="glyphicon glyphicon-info-sign"></span> Guide</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <!-- Alerts -->
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert
+        {% if 'debug' in message.tags %}alert-debug{% endif %}
+        {% if 'info' in message.tags %}alert-info{% endif %}
+        {% if 'success' in message.tags %}alert-success{% endif %}
+        {% if 'warning' in message.tags %}alert-warning{% endif %}
+        {% if 'error' in message.tags %}alert-danger{% endif %}
+        ">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+        </div>
+        {% endfor %}
+      {% endif %}
+
+      <!-- Content Panel -->
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <h3 class="panel-title col-xs-10">{% block panel_title %}&nbsp;{% endblock %}</h3>
+            <h3 class="panel-title col-xs-2">{% block panel_alt_title %}&nbsp;{% endblock %}</h3>
+          </div>
+          <div class="panel-body">
+
+          <!-- BEGIN PAGE CONTENT -->
+          {% block content %}{% endblock %}
+          <!-- END PAGE CONTENT -->
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-md-6">
+                Disclaimer: The Mario Kart name, characters, and images are property of Nintendo Co., Ltd.<br>
+                Created with <span class="glyphicon glyphicon-heart"></span> by <b><a href="https://twitter.com/dougwt">@dougwt</a></b>
+                &nbsp;<span class="glyphicon glyphicon-road"></span>&nbsp;
+                Currently serving {{ total_list_count }} lists containing {{ total_config_count }} configurations
+          </div>
+          <ul class="hidden-xs col-sm-4 col-md-6">
+            <!--<h4 class="text-right"><small><em>"I'm-a gonna win!"</em></small></h4>-->
+            <li><a href="http://www.djangoproject.com/"><img src="{% static 'images/django.png' %}" border="0" alt="Powered by Django." width="96" height="37" title="Powered by Django." /></a></li>
+            <li><a href="http://github.com/dougwt/kartographer" title="The source code of this website is available on GitHub"><span class="mega-octicon octicon-logo-github footer-graphic"></span></a></li>
+            <li class="hidden-xs hidden-sm"><em><span class="glyphicon glyphicon-flag"></span>&ldquo;{{ quote }}&rdquo;</em></li>
+          </ul>
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- JavaScript includes -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Twitter Bootstrap JavaScript -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+    {% block script %}{% endblock %}
+    <script type="text/javascript" src="{% static 'js/jquery.contra.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ion.sound.js' %}"></script>
+    <script type="text/javascript">
+    $( document ).ready(function() {
+      // Audio Easter Egg
+      $.ionSound({
+        sounds: [
+          "mk64_mario08",
+        ],
+        path: "{% static 'sounds/' %}",
+        multiPlay: true,
+        volume: "1.0"
+      });
+      $.contra( function() {
+        $.ionSound.play("mk64_mario08");
+      } );
+    });
+    </script>
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-52256401-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>

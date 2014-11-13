@@ -1,0 +1,122 @@
+/* ====================== */
+/* Typography             */
+/* ====================== */
+.spanned-titles th {
+  font-size: 0.8em; }
+
+.empty-alert {
+  line-height: 6em; }
+
+/* ====================== */
+/* Layout                 */
+/* ====================== */
+@media only screen {
+  div.dropdown li.dropdown-header {
+    padding-left: 10px; }
+  div.dropdown li a {
+    padding-left: 20px;
+    font-size: 0.8em; }
+  div.dropdown a.selected {
+    background-color: rgba(45, 136, 205, 0.6); }
+
+  th.header {
+    font-size: 0.6em; }
+
+  table.tablesorter thead span.unsortable {
+    background-image: none !important; }
+
+  table.tablesorter thead {
+    cursor: pointer;
+    background-color: #fff; }
+
+  table.tablesorter thead tr {
+    font-size: 0.8em; }
+
+  table.tablesorter thead tr th span {
+    background-image: url("../js/tablesorter/themes/black/bg.gif");
+    background-size: 21px 9px;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-right: 17px;
+    margin-right: -17px; }
+
+  table.tablesorter thead tr th.headerSortUp span {
+    background-image: url("../js/tablesorter/themes/black/asc.gif");
+    background-size: 21px 4px;
+    background-repeat: no-repeat;
+    background-position: center right; }
+
+  table.tablesorter thead tr th.headerSortDown span {
+    background-image: url("../js/tablesorter/themes/black/desc.gif");
+    background-size: 21px 4px;
+    background-repeat: no-repeat;
+    background-position: center right; }
+
+  table.tablesorter thead tr th {
+    text-align: center; }
+
+  table.tablesorter tbody tr {
+    font-size: 0.8em; }
+
+  table.tablesorter tbody tr td {
+    text-align: center;
+    vertical-align: middle; }
+
+  table.tablesorter tbody tr td.lalign {
+    text-align: left; } }
+@media only screen and (max-width: 768px) {
+  table.tablesorter tbody tr td img {
+    width: 50px;
+    height: 32px; }
+
+  table.tablesorter tbody tr td img.racer {
+    width: 32px;
+    height: 32px; }
+
+  table.tablesorter tbody tr {
+    color: #555; }
+
+  table.tablesorter .speed,
+  table.tablesorter .handling {
+    background: none; } }
+@media only screen and (min-width: 480px) {
+  th.header {
+    font-size: 1em; } }
+@media only screen and (min-width: 1200px) {
+  table.tablesorter thead tr th,
+  table.tablesorter tbody tr th,
+  table.tablesorter tfoot tr th,
+  table.tablesorter thead tr td,
+  table.tablesorter tbody tr td,
+  table.tablesorter tfoot tr td {
+    padding: 8px 4px; } }
+/* ====================== */
+/* Color                  */
+/* ====================== */
+div.dropdown a.selected {
+  background-color: rgba(45, 136, 205, 0.6); }
+
+.empty-alert {
+  color: #aaa; }
+
+.secret-stat {
+  background-color: whitesmoke; }
+
+table.tablesorter thead {
+  background-color: #fff; }
+
+table.tablesorter thead th:hover {
+  color: #d65352; }
+
+table.tablesorter .speed {
+  background-color: #dfefd8; }
+
+table.tablesorter .handling {
+  background-color: #fcf7e3; }
+
+table.tablesorter tbody tr {
+  color: #555; }
+
+/* ====================== */
+/* Print                  */
+/* ====================== */

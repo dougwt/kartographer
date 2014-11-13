@@ -1,0 +1,36 @@
+/* ====================== */
+/* Typography             */
+/* ====================== */
+div.panel ul.nav-tabs li:first-letter {
+  text-transform: capitalize; }
+
+/* ====================== */
+/* Layout                 */
+/* ====================== */
+@media only screen {
+  div.panel ul.nav-tabs li {
+    font-size: 0.9em; } }
+@media only screen and (min-width: 480px) {
+  div.panel ul.nav-tabs li {
+    font-size: 1em; }
+
+  .panel .nav {
+    margin-bottom: 15px; }
+
+  table.tablesorter tbody tr td {
+    cursor: pointer; } }
+/* ====================== */
+/* Color                  */
+/* ====================== */
+table tbody tr.similar td {
+  background-color: #f0dddd !important;
+  border-color: #aaa; }
+
+table tbody tr.selected td {
+  background-color: #d65352 !important;
+  border-color: #aaa;
+  color: white; }
+
+/* ====================== */
+/* Print                  */
+/* ====================== */

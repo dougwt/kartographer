@@ -1,0 +1,254 @@
+@import "bootstrap";
+
+/* ====================== */
+/* Typography             */
+/* ====================== */
+
+@import url(http://fonts.googleapis.com/css?family=Courgette|Nunito:300);
+
+#navbar .github-prompt {
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.navbar-brand,
+header h1 {
+  font-family: 'Courgette', cursive;
+}
+
+h3.panel-title,
+.btn,
+ul.nav li a {
+  font-family: 'Nunito', sans-serif;
+}
+
+footer ul li em {
+  font-family: 'Courgette', cursive;
+  font-size: 1em;
+}
+
+/* ====================== */
+/* Layout                 */
+/* ====================== */
+
+//
+// Experimental Tweaks
+//
+
+// Golden Wii Wheel
+// nav.navbar {
+//   background-image: url("../images/wii_wheel_gold_512.png");
+//   background-size: 60px 60px;
+//   background-repeat: no-repeat;
+//   background-position: 30px -5px;
+//   background-transform: rotate(30deg);
+// }
+
+// Checkered Flag
+// .panel-heading {
+//   padding-left: 150px;
+//   background-image: url("../images/checkered-flag-background.png");
+//   background-size: 160px 120px;
+//   background-repeat: no-repeat;
+//   background-position: left top;
+// }
+
+//
+// Mobile Tweaks
+//
+
+// Fix for scrolling bug causing reloads in iOS Safari
+// html,
+// body {
+//   height: 100%;
+//   overflow: auto;
+//   margin: 0;
+//   -webkit-overflow-scrolling: touch;
+// }
+
+//@media only screen and (min-width: $screen-xs-min) {
+@media only screen {
+  // Page/Header Background
+  body {
+    background-image: url("../images/mario-bg.jpg");
+    background-size: 379px 458px;
+    background-repeat: no-repeat;
+    background-position: right top;
+  }
+  // Crossed Flags icon
+  nav.navbar .container {
+    .navbar-brand {
+      padding-left: 75px;
+    }
+    background-image: url("../images/flags.png");
+    background-size: 70px 70px;
+    background-repeat: no-repeat;
+    background-position: left -10px;
+  }
+  // Logo
+  .logo a img {
+    width: 245px;
+    height: 77px;
+  }
+  header {
+    h1 {
+      display: none;
+    }
+    margin-bottom: 20px;
+  }
+  .panel-heading {
+    h3 {
+      line-height: 23px;
+    }
+    line-height: 23px;
+    padding: 7px 15px;
+  }
+  footer {
+    div.row div {
+      font-size: 0.7em;
+      text-align: center;
+    }
+    padding-bottom: 1em;
+  }
+}
+
+//
+// Tablet Tweaks
+//
+
+@media only screen and (min-width: $screen-sm-min) {
+  // Remove logo margin
+  .logo {
+    text-align: left;
+    a img {
+      margin-left: -10px;
+    }
+  }
+  // Vertically center nav
+  header div.menu {
+    nav {
+      ul {
+        line-height: 1em;
+        display: block;
+      }
+      width: 100%;
+      vertical-align: middle;
+      display: inline-block;
+      @include clearfix;
+    }
+    line-height: 77px;
+  }
+  // Footer Text & Graphics
+  footer {
+    div.row div {
+      text-align: left;
+    }
+    ul {
+      li {
+        em {
+          padding-right: 10px;
+        }
+        display: inline;
+        float: right;
+        padding-left: 20px;
+      }
+      .footer-graphic {
+        line-height: 40px;
+      }
+      list-style-type: none;
+    }
+    height: 40px;
+  }
+}
+
+//
+// Medium Desktop Tweaks
+//
+
+@media only screen and (min-width: $screen-md-min) {
+  // Add top & bottom padding to header
+  header .row {
+    padding: 20px 0;
+  }
+  footer div.row em {
+    padding-right: 10px;
+    line-height: 40px;
+  }
+}
+
+//
+// Large Desktop Tweaks
+//
+
+@media only screen and (min-width: $screen-lg-min) {}
+
+// // ???
+// th:after {
+//   content: "";
+// }
+
+/* ====================== */
+/* Color                  */
+/* ====================== */
+
+$navbar-highlight: #ABD4EA;
+$navbar-white: #efefef;
+
+nav.navbar-default {
+  a.navbar-brand {
+    color: $navbar-white;
+  }
+  .navbar-toggle {
+    .icon-bar {
+      background-color: $navbar-white;
+    }
+    border-color: $navbar-highlight;
+  }
+  .navbar-toggle:hover {
+    background-color: $navbar-highlight;
+  }
+  ul.navbar-nav li a {
+    color: $navbar-white;
+    font-size: 0.9em;
+  }
+  background-color: #2D88CD;
+  background-color: rgba(45, 136, 205, 0.6);
+}
+
+.nav-pills li.active a {
+  background-color: #2D88CD;
+  background-color: rgba(45, 136, 205, 0.8);
+}
+
+.footer-graphic {
+  color: #e7e7e7;
+}
+
+footer div.row div {
+  color: #777;
+}
+
+footer ul li em {
+  color: #ddd;
+}
+
+/* ====================== */
+/* Print                  */
+/* ====================== */
+
+// @media print {
+//   header h1 {
+//     display: inline;
+//   }
+//   header div {
+//     display: none;
+//   }
+//   footer div.row {
+//     div {
+//       width: 100%;
+//     }
+//     ul {
+//       display: none;
+//     }
+//   }
+// }

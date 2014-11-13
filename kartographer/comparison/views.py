@@ -1,18 +1,19 @@
 """Django views for displaying and comparing MK8 kart configurations."""
 
+import logging
+import random
+
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.db import IntegrityError
 from django.db.models import F
 from django.shortcuts import (get_list_or_404, get_object_or_404, redirect,
                               render)
+from ipware.ip import get_ip, get_real_ip
 
 from .models import (Body, ConfigList, ConfigListItem, Glider, KartConfig,
                      Racer, RacerStats, Tire)
-
-import logging
-
-from ipware.ip import get_ip, get_real_ip
+import settings.base as settings
 
 logger = logging.getLogger(__name__)
 
@@ -23,6 +24,16 @@ def log(msg, request):
     if ip is None:
         ip = get_ip(request)
     logger.info("[%s] %s" % (ip, msg))
+
+
+def fetch_random_quote():
+    file_path = "%s/comparison/quotes.txt" % settings.SITE_ROOT
+    with open(file_path, 'r') as f:
+        read_data = f.read()
+
+    if read_data:
+        quotes = read_data.splitlines()
+        return random.choice(quotes)
 
 
 def home(request):
@@ -68,24 +79,46 @@ def home(request):
         'configurations':       configurations,
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
+        'quote':                fetch_random_quote(),
     }
-    return render(request, 'home.html', context)
+    return render(request, 'comparison/home.html', context)
 
 
 def components(request):
     """List all kart components and their stats."""
     log('Displaying Kart Components page', request)
 
+    components = [
+        {
+            'name': 'racer',
+            'plural': 'racers',
+            'items': Racer.objects.select_related().all(),
+        },
+        {
+            'name': 'body',
+            'plural': 'bodies',
+            'items': Body.objects.all(),
+        },
+        {
+            'name': 'tire',
+            'plural': 'tires',
+            'items': Tire.objects.all(),
+        },
+        {
+            'name': 'glider',
+            'plural': 'gliders',
+            'items': Glider.objects.all(),
+        },
+    ]
+
     context = {
         'racerstats':           RacerStats.objects.all(),
-        'racers':               Racer.objects.select_related().all(),
-        'bodies':               Body.objects.all(),
-        'tires':                Tire.objects.all(),
-        'gliders':              Glider.objects.all(),
+        'components':           components,
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
+        'quote':                fetch_random_quote(),
     }
-    return render(request, 'components.html', context)
+    return render(request, 'comparison/components.html', context)
 
 
 def reset(request):
@@ -180,8 +213,9 @@ def list(request, url_hash):
         'configurations':       configurations,
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
+        'quote':                fetch_random_quote(),
     }
-    return render(request, 'list.html', context)
+    return render(request, 'comparison/list.html', context)
 
 
 def top(request):
@@ -191,5 +225,6 @@ def top(request):
     popular_lists = ConfigList.objects.order_by('-view_count')[0:10]
     context = {
         'popular_lists': popular_lists,
+        'quote':                fetch_random_quote(),
     }
-    return render(request, 'top.html', context)
+    return render(request, 'comparison/top.html', context)

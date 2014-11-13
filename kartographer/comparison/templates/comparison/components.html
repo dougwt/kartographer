@@ -1,0 +1,188 @@
+{% extends "comparison/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/list.css' %}">
+<link rel="stylesheet" href="{% static 'css/components.css' %}">
+{% endblock %}
+
+{% block panel_title %}Kart Components{% endblock %}
+
+{% block panel_alt_title %}
+<div class="dropdown pull-right">
+  <button class="btn btn-default btn-xs dropdown-toggle navbar-right" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-cog"></span> View
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation" class="dropdown-header">Columns</li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-name">Name</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-speed">Speed</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-speed-hidden">Speed (secret)</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-acceleration">Acceleration</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-weight">Weight</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling">Handling</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling-hidden">Handling (secret)</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-traction">Traction</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-miniturbo">Miniturbo</a></li>
+    <li role="presentation" class="dropdown-header">Options</li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight">Highlight secret stats</a></li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block nav_components_active %}active{% endblock %}
+
+{% block content %}
+  <ul class="nav nav-tabs">
+    {% for component in components %}
+    <li{% if forloop.first %} class="active"{% endif %}><a href="#{{ component.name }}" data-toggle="tab">{{ component.plural }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <div class="tab-content">
+
+  {% for component in components %}
+
+    <div class="tab-pane table-responsive{% if forloop.first %} active{% endif %}" id="{{ component.name }}">
+      <table id="kart-{{ component.name }}" class="table table-hover tablesorter" data-component="{{ component.name }}">
+        <thead>
+          <tr class="spanned-titles hidden-xs hidden-sm hidden-md">
+            <th>Icon</th>
+            <th data-priority="2" data-column="name">Name</th>
+            <th data-priority="1" data-column="speed_ground">Speed</th>
+            <th data-priority="3" data-column="speed_water" colspan="3">Speed (secret)</th>
+            <th data-priority="1" data-column="acceleration">Acceleration</th>
+            <th data-priority="1" data-column="weight">Weight</th>
+            <th data-priority="1" data-column="handling_ground">Handling</th>
+            <th data-priority="3" data-column="handling_water" colspan="3">Handling (secret)</th>
+            <th data-priority="1" data-column="traction">Traction</th>
+            <th data-priority="2" data-column="miniturbo">Miniturbo</th>
+          </tr>
+          <tr>
+            <th>
+              <span class="unsortable">Icon</span>
+            </th>
+            <th data-priority="2" data-column="name">
+              <span>Name</span>
+            </th>
+            <th data-priority="1" data-column="speed_ground">
+              <span class="hidden-xs hidden-sm hidden-md"><abbr title="The top speed of the vehicle on land with normal gravity.">Ground</abbr></span>
+              <span class="hidden-lg"><abbr title="The top speed of the vehicle. Does not affect off-road travel.">Speed</abbr></span>
+            </th>
+            <th data-priority="3" data-column="speed_water">
+              <span><abbr title="The top speed of the vehicle while driving underwater.">Water</abbr></span>
+            </th>
+            <th data-priority="3" data-column="speed_air">
+              <span><abbr title="The top speed of the vehicle while gliding.">Air</abbr></span>
+            </th>
+            <th data-priority="3" data-column="speed_antigravity">
+              <span><abbr title="The top speed of the vehicle in anti-gravity mode.">Antigrav</abbr></span>
+            </th>
+            <th data-priority="1" data-column="acceleration">
+              <span><abbr title="The rate of the vehicle it takes to reach its top speed from a standing position.">Accel</abbr></span>
+            </th>
+            <th data-priority="1" data-column="weight">
+              <span><abbr title="The weight of the vehicle. Vehicles with higher weight knock away vehicles with lower weight.">Weight</abbr></span>
+            </th>
+            <th data-priority="1" data-column="handling_ground">
+              <span class="hidden-xs hidden-sm hidden-md"><abbr title="The turning ability of the vehicle on land with normal gravity.">Ground</abbr></span>
+              <span class="hidden-lg"><abbr title="The turning ability of the vehicle. A higher stat means vehicles turn sharper.">Handling</abbr></span>
+            </th>
+            <th data-priority="3" data-column="handling_water">
+              <span><abbr title="The turning ability of the vehicle while driving underwater.">Water</abbr></span>
+            </th>
+            <th data-priority="3" data-column="handling_air">
+              <span><abbr title="The turning ability of the vehicle while gliding.">Air</abbr></span>
+            </th>
+            <th data-priority="3" data-column="handling_antigravity">
+              <span><abbr title="The turning ability of the vehicle in anti-gravity mode.">Antigrav</abbr></span>
+            </th>
+            <th data-priority="1" data-column="traction">
+              <span><abbr title="The grasp of the vehicle. Vehicles with higher traction slip less on certain terrain and can stay stable on the road better. Not to be confused with handling.">Traction</abbr></span>
+            </th>
+            <th data-priority="2" data-column="miniturbo">
+              <span><abbr title="The strength of the vehicle's mini-turbo speed boosts.">Miniturbo</abbr></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in component.items %}
+          <tr data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}">
+            <td class="text-center"><img src="{{ item.file }}" height="32" {% if item.stats.speed_ground %}width="32"{% else %}width="50"{% endif %} alt="{{ item.name }}"></td>
+            <td data-priority="2" data-column="name">{{ item.name }}</td>
+            <td data-priority="1" data-column="speed_ground">{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}{% else %}{{ item.speed_ground }}{% endif %}</td>
+            <td data-priority="3" data-column="speed_water">{% if item.stats.speed_water %}{{ item.stats.speed_water }}{% else %}{{ item.speed_water }}{% endif %}</td>
+            <td data-priority="3" data-column="speed_air">{% if item.stats.speed_air %}{{ item.stats.speed_air }}{% else %}{{ item.speed_air }}{% endif %}</td>
+            <td data-priority="3" data-column="speed_antigravity">{% if item.stats.speed_antigravity %}{{ item.stats.speed_antigravity }}{% else %}{{ item.speed_antigravity }}{% endif %}</td>
+            <td data-priority="1" data-column="antigravity">{% if item.stats.acceleration %}{{ item.stats.acceleration }}{% else %}{{ item.acceleration }}{% endif %}</td>
+            <td data-priority="1" data-column="weight">{% if item.stats.weight %}{{ item.stats.weight }}{% else %}{{ item.weight }}{% endif %}</td>
+            <td data-priority="1" data-column="handling_ground">{% if item.stats.handling_ground %}{{ item.stats.handling_ground }}{% else %}{{ item.handling_ground }}{% endif %}</td>
+            <td data-priority="3" data-column="handling_water">{% if item.stats.handling_water %}{{ item.stats.handling_water }}{% else %}{{ item.handling_water }}{% endif %}</td>
+            <td data-priority="3" data-column="handling_air">{% if item.stats.handling_air %}{{ item.stats.handling_air }}{% else %}{{ item.handling_air }}{% endif %}</td>
+            <td data-priority="3" data-column="handling_antigravity">{% if item.stats.handling_antigravity %}{{ item.stats.handling_antigravity }}{% else %}{{ item.handling_antigravity }}{% endif %}</td>
+            <td data-priority="1" data-column="traction">{% if item.stats.traction %}{{ item.stats.traction }}{% else %}{{ item.traction }}{% endif %}</td>
+            <td data-priority="2" data-column="miniturbo">{% if item.stats.miniturbo %}{{ item.stats.miniturbo }}{% else %}{{ item.miniturbo }}{% endif %}</td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="13" class="text-center"><em>
+            <span class="empty-alert">No items in database.</span>
+          </em></td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endfor %}
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{% static 'js/tablesorter/jquery.tablesorter.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.stickytableheaders.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.toggle-columns.js' %}"></script>
+<script>
+$( document ).ready(function() {
+  $('#kart-racer').tablesorter({
+    sortInitialOrder: 'desc',
+  });
+  $('#kart-body').tablesorter({
+    sortInitialOrder: 'desc',
+  });
+  $('#kart-tire').tablesorter({
+    sortInitialOrder: 'desc',
+  });
+  $('#kart-glider').tablesorter({
+    sortInitialOrder: 'desc',
+  });
+  $('table').stickyTableHeaders();
+  $("table[data-component='racer'] tbody tr").click(function() {
+    current = $( this ).data('stats');
+    $("table[data-component='racer'] tr").removeClass('similar selected');
+    $("table[data-component='racer']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $( this ).addClass('selected');
+  });
+  $("table[data-component='body'] tbody tr").click(function() {
+    current = $( this ).data('stats');
+    $("table[data-component='body'] tr").removeClass('similar selected');
+    $("table[data-component='body']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $( this ).addClass('selected');
+  });
+  $("table[data-component='tire'] tbody tr").click(function() {
+    current = $( this ).data('stats');
+    $("table[data-component='tire'] tr").removeClass('similar selected');
+    $("table[data-component='tire']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $( this ).addClass('selected');
+  });
+  $("table[data-component='glider'] tbody tr").click(function() {
+    current = $( this ).data('stats');
+    $("table[data-component='glider'] tr").removeClass('similar selected');
+    $("table[data-component='glider']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $( this ).addClass('selected');
+  });
+
+  // Hide & Show Table Columns
+  enable_toggleable_components_columns();
+
+  {% block script_extra %}{% endblock %}
+});
+</script>
+{% endblock %}
