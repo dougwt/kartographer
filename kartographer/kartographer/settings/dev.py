@@ -15,21 +15,21 @@ TEMPLATE_DEBUG = DEBUG
 
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = 'http://static.kartographer.com/assets/'
+STATIC_URL = 'http://static.kartographer.com/dev/assets/'
 ########## END STATIC FILE CONFIGURATION
 
-########## TOOLBAR CONFIGURATION
-# See: http://django-debug-toolbar.readthedocs.org/en/latest/installation.html#explicit-setup
-INSTALLED_APPS += (
-    'debug_toolbar',
-)
+# ########## TOOLBAR CONFIGURATION
+# # See: http://django-debug-toolbar.readthedocs.org/en/latest/installation.html#explicit-setup
+# INSTALLED_APPS += (
+#     'debug_toolbar',
+# )
 
-MIDDLEWARE_CLASSES += (
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
-)
+# MIDDLEWARE_CLASSES += (
+#     'debug_toolbar.middleware.DebugToolbarMiddleware',
+# )
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
+# DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
-# http://django-debug-toolbar.readthedocs.org/en/latest/installation.html
-INTERNAL_IPS = ('127.0.0.1',)
-########## END TOOLBAR CONFIGURATION
+# # http://django-debug-toolbar.readthedocs.org/en/latest/installation.html
+# INTERNAL_IPS = ('127.0.0.1',)
+# ########## END TOOLBAR CONFIGURATION
