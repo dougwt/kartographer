@@ -4,6 +4,7 @@
     "pk": 1,
     "fields": {
       "name": "Light 1",
+      "sort_order": "a1",
       "speed_ground": 2.25,
       "speed_water": 2.75,
       "speed_air": 2.25,
@@ -22,6 +23,8 @@
     "model": "comparison.characterstats",
     "pk": 2,
     "fields": {
+      "name": "Light 2",
+      "sort_order": "a2",
       "speed_ground": 2.75,
       "speed_water": 3.25,
       "speed_air": 2.75,
@@ -40,7 +43,8 @@
     "model": "comparison.characterstats",
     "pk": 3,
     "fields": {
-      "name": "Medium 1",
+      "name": "Medium 2",
+      "sort_order": "b2",
       "speed_ground": 3.25,
       "speed_water": 3.75,
       "speed_air": 3.25,
@@ -59,7 +63,8 @@
     "model": "comparison.characterstats",
     "pk": 4,
     "fields": {
-      "name": "Medium 2",
+      "name": "Medium 4",
+      "sort_order": "b4",
       "speed_ground": 3.75,
       "speed_water": 4.25,
       "speed_air": 3.75,
@@ -79,6 +84,7 @@
     "pk": 5,
     "fields": {
       "name": "Heavy 1",
+      "sort_order": "c1",
       "speed_ground": 4.25,
       "speed_water": 4.75,
       "speed_air": 4.25,
@@ -98,6 +104,7 @@
     "pk": 6,
     "fields": {
       "name": "Heavy 2",
+      "sort_order": "c2",
       "speed_ground": 4.25,
       "speed_water": 4.75,
       "speed_air": 4.25,
@@ -117,6 +124,7 @@
     "pk": 7,
     "fields": {
       "name": "Heavy 3",
+      "sort_order": "c3",
       "speed_ground": 4.75,
       "speed_water": 5.25,
       "speed_air": 4.75,
@@ -129,6 +137,46 @@
       "handling_antigravity": 2.5,
       "traction": 3.25,
       "miniturbo": 1.75
+    }
+  },
+  {
+    "model": "comparison.characterstats",
+    "pk": 8,
+    "fields": {
+      "name": "Medium 1",
+      "sort_order": "b1",
+      "speed_ground": 3.25,
+      "speed_water": 3.75,
+      "speed_air": 3.25,
+      "speed_antigravity": 3.5,
+      "acceleration": 3,
+      "weight": 3,
+      "handling_ground": 3.75,
+      "handling_water": 3.75,
+      "handling_air": 3.5,
+      "handling_antigravity": 4,
+      "traction": 4,
+      "miniturbo": 2.5
+    }
+  },
+  {
+    "model": "comparison.characterstats",
+    "pk": 9,
+    "fields": {
+      "name": "Medium 3",
+      "sort_order": "b3",
+      "speed_ground": 3.25,
+      "speed_water": 4.25,
+      "speed_air": 3.75,
+      "speed_antigravity": 4,
+      "acceleration": 2.75,
+      "weight": 3.5,
+      "handling_ground": 3.25,
+      "handling_water": 3.25,
+      "handling_air": 3,
+      "handling_antigravity": 3.5,
+      "traction": 3.75,
+      "miniturbo": 2.25
     }
   }
 ]

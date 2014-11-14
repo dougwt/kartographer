@@ -49,8 +49,11 @@ class CommonStats(KartComponent):
 
 
 class CharacterStats(CommonStats):
-    """Maps racers to the stats belonging to the 7 weight subclasses."""
-    pass
+    """Maps racers to the stats belonging to the 9 weight subclasses."""
+    sort_order = models.CharField(max_length=5)
+
+    class Meta:
+        ordering = ['sort_order']
 
 
 class Kart(CommonStats):
@@ -88,6 +91,9 @@ class Character(KartComponent):
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
         return static('images/mk8/characters/%s.png' % super(Character, self).file())
+
+    class Meta:
+        ordering = ['stats']
 
 
 class KartConfig():

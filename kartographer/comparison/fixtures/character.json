@@ -254,5 +254,29 @@
       "name": "Mii (Heavy)",
       "stats": 7
     }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 33,
+    "fields": {
+      "name": "Tanooki Mario",
+      "stats": 9
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 34,
+    "fields": {
+      "name": "Cat Peach",
+      "stats": 8
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 35,
+    "fields": {
+      "name": "Link",
+      "stats": 5
+    }
   }
 ]
