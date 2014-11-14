@@ -1,6 +1,6 @@
 [
   {
-    "model": "comparison.racerstats",
+    "model": "comparison.characterstats",
     "pk": 1,
     "fields": {
       "name": "Light 1",
@@ -19,7 +19,7 @@
     }
   },
   {
-    "model": "comparison.racerstats",
+    "model": "comparison.characterstats",
     "pk": 2,
     "fields": {
       "speed_ground": 2.75,
@@ -37,7 +37,7 @@
     }
   },
   {
-    "model": "comparison.racerstats",
+    "model": "comparison.characterstats",
     "pk": 3,
     "fields": {
       "name": "Medium 1",
@@ -56,7 +56,7 @@
     }
   },
   {
-    "model": "comparison.racerstats",
+    "model": "comparison.characterstats",
     "pk": 4,
     "fields": {
       "name": "Medium 2",
@@ -75,7 +75,7 @@
     }
   },
   {
-    "model": "comparison.racerstats",
+    "model": "comparison.characterstats",
     "pk": 5,
     "fields": {
       "name": "Heavy 1",
@@ -94,7 +94,7 @@
     }
   },
   {
-    "model": "comparison.racerstats",
+    "model": "comparison.characterstats",
     "pk": 6,
     "fields": {
       "name": "Heavy 2",
@@ -113,7 +113,7 @@
     }
   },
   {
-    "model": "comparison.racerstats",
+    "model": "comparison.characterstats",
     "pk": 7,
     "fields": {
       "name": "Heavy 3",

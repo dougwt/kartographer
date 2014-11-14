@@ -9,10 +9,10 @@ from .models import ConfigList, ConfigListItem, KartConfig
 class KartConfigTestCase(TestCase):
     """Tests for KartConfig model."""
     fixtures = [
-        'racer.json',
-        'racerstats.json',
-        'body.json',
-        'tire.json',
+        'character.json',
+        'characterstats.json',
+        'kart.json',
+        'wheel.json',
         'glider.json',
     ]
 
@@ -45,10 +45,10 @@ class KartConfigTestCase(TestCase):
 class ConfigListTestCase(TestCase):
     """Tests for ConfigList and ConfigListItem models."""
     fixtures = [
-        'racer.json',
-        'racerstats.json',
-        'body.json',
-        'tire.json',
+        'character.json',
+        'characterstats.json',
+        'kart.json',
+        'wheel.json',
         'glider.json',
     ]
 
@@ -77,9 +77,9 @@ class ConfigListTestCase(TestCase):
             config = KartConfig(kart)
             ConfigListItem.create(
                 config_list,
-                config.racer,
-                config.body,
-                config.tire,
+                config.character,
+                config.kart,
+                config.wheel,
                 config.glider
             ).save()
         self.assertEqual(len(ConfigListItem.objects.all()), 2)
@@ -93,5 +93,5 @@ class ConfigListTestCase(TestCase):
         # Ensure it contains the 2 ConfigListItems
         result = ConfigListItem.objects.filter(list_id=config_list.id)
         self.assertEqual(len(result), 2)
-        self.assertEqual(result[0].racer.id, 8)
-        self.assertEqual(result[1].racer.id, 9)
+        self.assertEqual(result[0].character.id, 8)
+        self.assertEqual(result[1].character.id, 9)

@@ -11,8 +11,8 @@ from django.shortcuts import (get_list_or_404, get_object_or_404, redirect,
                               render)
 from ipware.ip import get_ip, get_real_ip
 
-from .models import (Body, ConfigList, ConfigListItem, Glider, KartConfig,
-                     Racer, RacerStats, Tire)
+from .models import (Kart, ConfigList, ConfigListItem, Glider, KartConfig,
+                     Character, CharacterStats, Wheel)
 import settings.base as settings
 
 logger = logging.getLogger(__name__)
@@ -41,9 +41,9 @@ def home(request):
     # Insert any potential new configurations that were submitted
     if request.method == "POST":
         potential_config = (
-            request.POST['add-racer'],
-            request.POST['add-body'],
-            request.POST['add-tire'],
+            request.POST['add-character'],
+            request.POST['add-kart'],
+            request.POST['add-wheel'],
             request.POST['add-glider']
         )
         potential_config = [unicode(item) for item in potential_config]
@@ -71,10 +71,10 @@ def home(request):
     log('Displaying My List page', request)
 
     context = {
-        'racerstats':           RacerStats.objects.all(),
-        'racers':               Racer.objects.select_related().all(),
-        'bodies':               Body.objects.all(),
-        'tires':                Tire.objects.all(),
+        'characterstats':       CharacterStats.objects.all(),
+        'characters':           Character.objects.select_related().all(),
+        'karts':                Kart.objects.all(),
+        'wheels':               Wheel.objects.all(),
         'gliders':              Glider.objects.all(),
         'configurations':       configurations,
         'total_list_count':     len(ConfigList.objects.all()),
@@ -90,19 +90,19 @@ def components(request):
 
     components = [
         {
-            'name': 'racer',
-            'plural': 'racers',
-            'items': Racer.objects.select_related().all(),
+            'name': 'character',
+            'plural': 'characters',
+            'items': Character.objects.select_related().all(),
         },
         {
-            'name': 'body',
-            'plural': 'bodies',
-            'items': Body.objects.all(),
+            'name': 'kart',
+            'plural': 'karts',
+            'items': Kart.objects.all(),
         },
         {
-            'name': 'tire',
-            'plural': 'tires',
-            'items': Tire.objects.all(),
+            'name': 'wheel',
+            'plural': 'wheels',
+            'items': Wheel.objects.all(),
         },
         {
             'name': 'glider',
@@ -112,7 +112,7 @@ def components(request):
     ]
 
     context = {
-        'racerstats':           RacerStats.objects.all(),
+        'characterstats':       CharacterStats.objects.all(),
         'components':           components,
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
@@ -148,9 +148,9 @@ def save(request):
         # Create ConfigListItem records for each configuration in this list
         for config in configurations:
             item = ConfigListItem.create(config_list,
-                                         config.racer,
-                                         config.body,
-                                         config.tire,
+                                         config.character,
+                                         config.kart,
+                                         config.wheel,
                                          config.glider)
             try:
                 item.save()
@@ -195,9 +195,9 @@ def list(request, url_hash):
     # Convert config_list tuples into KartConfig objects
     configurations = []
     for config_data in config_list:
-        config = KartConfig((config_data.racer.id,
-                             config_data.body.id,
-                             config_data.tire.id,
+        config = KartConfig((config_data.character.id,
+                             config_data.kart.id,
+                             config_data.wheel.id,
                              config_data.glider.id))
         if config.valid:
             configurations.append(config)
@@ -205,10 +205,10 @@ def list(request, url_hash):
     log('Displaying list %s' % url_hash, request)
 
     context = {
-        'racerstats':           RacerStats.objects.all(),
-        'racers':               Racer.objects.select_related().all(),
-        'bodies':               Body.objects.all(),
-        'tires':                Tire.objects.all(),
+        'characterstats':       CharacterStats.objects.all(),
+        'characters':           Character.objects.select_related().all(),
+        'karts':                Kart.objects.all(),
+        'wheels':               Wheel.objects.all(),
         'gliders':              Glider.objects.all(),
         'configurations':       configurations,
         'total_list_count':     len(ConfigList.objects.all()),

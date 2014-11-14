@@ -1,6 +1,6 @@
 [
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 1,
     "fields": {
       "name": "Standard Kart",
@@ -19,7 +19,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 2,
     "fields": {
       "name": "Pipe Frame",
@@ -38,7 +38,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 3,
     "fields": {
       "name": "Mach 8",
@@ -57,7 +57,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 4,
     "fields": {
       "name": "Steel Driver",
@@ -76,7 +76,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 5,
     "fields": {
       "name": "Cat Cruiser",
@@ -95,7 +95,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 6,
     "fields": {
       "name": "Circuit Special",
@@ -114,7 +114,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 7,
     "fields": {
       "name": "Tri-Speeder",
@@ -133,7 +133,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 8,
     "fields": {
       "name": "Badwagon",
@@ -152,7 +152,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 9,
     "fields": {
       "name": "Prancer",
@@ -171,7 +171,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 10,
     "fields": {
       "name": "Biddybuggy",
@@ -190,7 +190,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 11,
     "fields": {
       "name": "Landship",
@@ -209,7 +209,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 12,
     "fields": {
       "name": "Sneaker",
@@ -228,7 +228,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 13,
     "fields": {
       "name": "Sports Coupe",
@@ -247,7 +247,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 14,
     "fields": {
       "name": "Gold Standard",
@@ -266,7 +266,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 15,
     "fields": {
       "name": "Standard Bike",
@@ -285,7 +285,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 16,
     "fields": {
       "name": "Comet",
@@ -304,7 +304,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 17,
     "fields": {
       "name": "Sport Bike",
@@ -323,7 +323,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 18,
     "fields": {
       "name": "The Duke",
@@ -342,7 +342,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 19,
     "fields": {
       "name": "Flame Rider",
@@ -361,7 +361,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 20,
     "fields": {
       "name": "Varmint",
@@ -380,7 +380,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 21,
     "fields": {
       "name": "Mr. Scooty",
@@ -399,7 +399,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 22,
     "fields": {
       "name": "Jet Bike",
@@ -418,7 +418,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 23,
     "fields": {
       "name": "Yoshi Bike",
@@ -437,7 +437,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 24,
     "fields": {
       "name": "Standard ATV",
@@ -456,7 +456,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 25,
     "fields": {
       "name": "Wild Wiggler",
@@ -475,7 +475,7 @@
     }
   },
   {
-    "model": "comparison.body",
+    "model": "comparison.kart",
     "pk": 26,
     "fields": {
       "name": "Teddy Buggy",

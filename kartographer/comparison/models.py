@@ -48,28 +48,28 @@ class CommonStats(KartComponent):
         abstract = True
 
 
-class RacerStats(CommonStats):
+class CharacterStats(CommonStats):
     """Maps racers to the stats belonging to the 7 weight subclasses."""
     pass
 
 
-class Body(CommonStats):
+class Kart(CommonStats):
     """Stats for a kart body."""
 
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
-        return static('images/mk8/bodies/%s.png' % super(Body, self).file())
+        return static('images/mk8/bodies/%s.png' % super(Kart, self).file())
 
     class Meta:
         verbose_name_plural = "bodies"
 
 
-class Tire(CommonStats):
-    """Stats for a set of kart tires."""
+class Wheel(CommonStats):
+    """Stats for a set of kart wheels."""
 
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
-        return static('images/mk8/tires/%s.png' % super(Tire, self).file())
+        return static('images/mk8/tires/%s.png' % super(Wheel, self).file())
 
 
 class Glider(CommonStats):
@@ -81,97 +81,97 @@ class Glider(CommonStats):
         return static('images/mk8/gliders/%s.png' % super(Glider, self).file())
 
 
-class Racer(KartComponent):
+class Character(KartComponent):
     """Stats for a kart racer/driver."""
-    stats = models.ForeignKey(RacerStats)
+    stats = models.ForeignKey(CharacterStats)
 
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
-        return static('images/mk8/racers/%s.png' % super(Racer, self).file())
+        return static('images/mk8/racers/%s.png' % super(Character, self).file())
 
 
 class KartConfig():
     """Stats for a complete kart configuration."""
 
-    def __init__(self, (racer_id, body_id, tire_id, glider_id)):
+    def __init__(self, (character_id, kart_id, wheel_id, glider_id)):
         """Create a config with the supplied component ids."""
         try:
-            self.racer = Racer.objects.get(pk=racer_id)
-            self.body = Body.objects.get(pk=body_id)
-            self.tire = Tire.objects.get(pk=tire_id)
+            self.character = Character.objects.get(pk=character_id)
+            self.kart = Kart.objects.get(pk=kart_id)
+            self.wheel = Wheel.objects.get(pk=wheel_id)
             self.glider = Glider.objects.get(pk=glider_id)
             self.valid = True
 
             self.speed_ground = \
-                self.racer.stats.speed_ground + \
-                self.body.speed_ground + \
-                self.tire.speed_ground + \
+                self.character.stats.speed_ground + \
+                self.kart.speed_ground + \
+                self.wheel.speed_ground + \
                 self.glider.speed_ground
 
             self.speed_water = \
-                self.racer.stats.speed_water + \
-                self.body.speed_water + \
-                self.tire.speed_water + \
+                self.character.stats.speed_water + \
+                self.kart.speed_water + \
+                self.wheel.speed_water + \
                 self.glider.speed_water
 
             self.speed_air = \
-                self.racer.stats.speed_air + \
-                self.body.speed_air + \
-                self.tire.speed_air + \
+                self.character.stats.speed_air + \
+                self.kart.speed_air + \
+                self.wheel.speed_air + \
                 self.glider.speed_air
 
             self.speed_antigravity = \
-                self.racer.stats.speed_antigravity + \
-                self.body.speed_antigravity + \
-                self.tire.speed_antigravity + \
+                self.character.stats.speed_antigravity + \
+                self.kart.speed_antigravity + \
+                self.wheel.speed_antigravity + \
                 self.glider.speed_antigravity
 
             self.acceleration = \
-                self.racer.stats.acceleration + \
-                self.body.acceleration + \
-                self.tire.acceleration + \
+                self.character.stats.acceleration + \
+                self.kart.acceleration + \
+                self.wheel.acceleration + \
                 self.glider.acceleration
 
             self.weight = \
-                self.racer.stats.weight + \
-                self.body.weight + \
-                self.tire.weight + \
+                self.character.stats.weight + \
+                self.kart.weight + \
+                self.wheel.weight + \
                 self.glider.weight
 
             self.handling_ground = \
-                self.racer.stats.handling_ground + \
-                self.body.handling_ground + \
-                self.tire.handling_ground + \
+                self.character.stats.handling_ground + \
+                self.kart.handling_ground + \
+                self.wheel.handling_ground + \
                 self.glider.handling_ground
 
             self.handling_water = \
-                self.racer.stats.handling_water + \
-                self.body.handling_water + \
-                self.tire.handling_water + \
+                self.character.stats.handling_water + \
+                self.kart.handling_water + \
+                self.wheel.handling_water + \
                 self.glider.handling_water
 
             self.handling_air = \
-                self.racer.stats.handling_air + \
-                self.body.handling_air + \
-                self.tire.handling_air + \
+                self.character.stats.handling_air + \
+                self.kart.handling_air + \
+                self.wheel.handling_air + \
                 self.glider.handling_air
 
             self.handling_antigravity = \
-                self.racer.stats.handling_antigravity + \
-                self.body.handling_antigravity + \
-                self.tire.handling_antigravity + \
+                self.character.stats.handling_antigravity + \
+                self.kart.handling_antigravity + \
+                self.wheel.handling_antigravity + \
                 self.glider.handling_antigravity
 
             self.traction = \
-                self.racer.stats.traction + \
-                self.body.traction + \
-                self.tire.traction + \
+                self.character.stats.traction + \
+                self.kart.traction + \
+                self.wheel.traction + \
                 self.glider.traction
 
             self.miniturbo = \
-                self.racer.stats.miniturbo + \
-                self.body.miniturbo + \
-                self.tire.miniturbo + \
+                self.character.stats.miniturbo + \
+                self.kart.miniturbo + \
+                self.wheel.miniturbo + \
                 self.glider.miniturbo
 
         except ObjectDoesNotExist:
@@ -221,17 +221,17 @@ class ConfigList(models.Model):
 class ConfigListItem(models.Model):
     """A saved kart configuration associated with a ConfigList."""
     list = models.ForeignKey(ConfigList)
-    racer = models.ForeignKey(Racer)
-    body = models.ForeignKey(Body)
-    tire = models.ForeignKey(Tire)
+    character = models.ForeignKey(Character)
+    kart = models.ForeignKey(Kart)
+    wheel = models.ForeignKey(Wheel)
     glider = models.ForeignKey(Glider)
 
     @classmethod
-    def create(cls, list, racer, body, tire, glider):
+    def create(cls, list, character, kart, wheel, glider):
         """Initialize ConfigListItem with default parameters order."""
         logger.info('Adding \'%s\' ConfigListItem [%s, %s, %s, %s]' %
-                     (list.url, racer, body, tire, glider))
-        return cls(list=list, racer=racer, body=body, tire=tire, glider=glider)
+                    (list.url, character, kart, wheel, glider))
+        return cls(list=list, character=character, kart=kart, wheel=wheel, glider=glider)
 
     class Meta:
-        unique_together = ("list", "racer", "body", "tire", "glider")
+        unique_together = ("list", "character", "kart", "wheel", "glider")

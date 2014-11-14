@@ -1,6 +1,6 @@
 [
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 1,
     "fields": {
       "name": "Standard",
@@ -19,7 +19,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 2,
     "fields": {
       "name": "Monster",
@@ -38,7 +38,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 3,
     "fields": {
       "name": "Roller",
@@ -57,7 +57,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 4,
     "fields": {
       "name": "Slim",
@@ -76,7 +76,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 5,
     "fields": {
       "name": "Slick",
@@ -95,7 +95,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 6,
     "fields": {
       "name": "Metal",
@@ -114,7 +114,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 7,
     "fields": {
       "name": "Button",
@@ -133,7 +133,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 8,
     "fields": {
       "name": "Off-Road",
@@ -152,7 +152,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 9,
     "fields": {
       "name": "Sponge",
@@ -171,7 +171,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 10,
     "fields": {
       "name": "Wood",
@@ -190,7 +190,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 11,
     "fields": {
       "name": "Cushion",
@@ -209,7 +209,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 12,
     "fields": {
       "name": "Blue Standard",
@@ -228,7 +228,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 13,
     "fields": {
       "name": "Hot Monster",
@@ -247,7 +247,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 14,
     "fields": {
       "name": "Azure Roller",
@@ -266,7 +266,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 15,
     "fields": {
       "name": "Crimson Slim",
@@ -285,7 +285,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 16,
     "fields": {
       "name": "Cyber Slick",
@@ -304,7 +304,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 17,
     "fields": {
       "name": "Retro Off-Road",
@@ -323,7 +323,7 @@
     }
   },
   {
-    "model": "comparison.tire",
+    "model": "comparison.wheel",
     "pk": 18,
     "fields": {
       "name": "Gold",

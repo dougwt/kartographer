@@ -1,6 +1,6 @@
 [
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 1,
     "fields": {
       "name": "Baby Mario",
@@ -8,7 +8,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 2,
     "fields": {
       "name": "Baby Luigi",
@@ -16,7 +16,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 3,
     "fields": {
       "name": "Baby Peach",
@@ -24,7 +24,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 4,
     "fields": {
       "name": "Baby Daisy",
@@ -32,7 +32,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 5,
     "fields": {
       "name": "Baby Rosalina",
@@ -40,7 +40,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 6,
     "fields": {
       "name": "Lemmy Koopa",
@@ -48,7 +48,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 7,
     "fields": {
       "name": "Mii (Light)",
@@ -56,7 +56,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 8,
     "fields": {
       "name": "Toad",
@@ -64,7 +64,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 9,
     "fields": {
       "name": "Koopa Troopa",
@@ -72,7 +72,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 10,
     "fields": {
       "name": "Shy Guy",
@@ -80,7 +80,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 11,
     "fields": {
       "name": "Lakitu",
@@ -88,7 +88,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 12,
     "fields": {
       "name": "Toadette",
@@ -96,7 +96,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 13,
     "fields": {
       "name": "Larry Koopa",
@@ -104,7 +104,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 14,
     "fields": {
       "name": "Wendy O. Koopa",
@@ -112,7 +112,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 15,
     "fields": {
       "name": "Peach",
@@ -120,7 +120,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 16,
     "fields": {
       "name": "Daisy",
@@ -128,7 +128,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 17,
     "fields": {
       "name": "Yoshi",
@@ -136,7 +136,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 18,
     "fields": {
       "name": "Mario",
@@ -144,7 +144,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 19,
     "fields": {
       "name": "Luigi",
@@ -152,7 +152,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 20,
     "fields": {
       "name": "Iggy Koopa",
@@ -160,7 +160,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 21,
     "fields": {
       "name": "Ludwig von Koopa",
@@ -168,7 +168,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 22,
     "fields": {
       "name": "Mii (Medium)",
@@ -176,7 +176,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 23,
     "fields": {
       "name": "Donkey Kong",
@@ -184,7 +184,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 24,
     "fields": {
       "name": "Waluigi",
@@ -192,7 +192,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 25,
     "fields": {
       "name": "Rosalina",
@@ -200,7 +200,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 26,
     "fields": {
       "name": "Roy Koopa",
@@ -208,7 +208,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 27,
     "fields": {
       "name": "Metal Mario",
@@ -216,7 +216,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 28,
     "fields": {
       "name": "Pink Gold Peach",
@@ -224,7 +224,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 29,
     "fields": {
       "name": "Bowser",
@@ -232,7 +232,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 30,
     "fields": {
       "name": "Wario",
@@ -240,7 +240,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 31,
     "fields": {
       "name": "Morton Koopa Jr.",
@@ -248,7 +248,7 @@
     }
   },
   {
-    "model": "comparison.racer",
+    "model": "comparison.character",
     "pk": 32,
     "fields": {
       "name": "Mii (Heavy)",

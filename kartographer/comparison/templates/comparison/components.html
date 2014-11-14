@@ -127,35 +127,35 @@
 <script type="text/javascript" src="{% static 'js/jquery.toggle-columns.js' %}"></script>
 <script>
 $( document ).ready(function() {
-  $('#kart-racer').tablesorter({
+  $('#kart-character').tablesorter({
     sortInitialOrder: 'desc',
   });
-  $('#kart-body').tablesorter({
+  $('#kart-kart').tablesorter({
     sortInitialOrder: 'desc',
   });
-  $('#kart-tire').tablesorter({
+  $('#kart-wheel').tablesorter({
     sortInitialOrder: 'desc',
   });
   $('#kart-glider').tablesorter({
     sortInitialOrder: 'desc',
   });
   $('table').stickyTableHeaders();
-  $("table[data-component='racer'] tbody tr").click(function() {
+  $("table[data-component='character'] tbody tr").click(function() {
     current = $( this ).data('stats');
-    $("table[data-component='racer'] tr").removeClass('similar selected');
-    $("table[data-component='racer']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $("table[data-component='character'] tr").removeClass('similar selected');
+    $("table[data-component='character']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
     $( this ).addClass('selected');
   });
-  $("table[data-component='body'] tbody tr").click(function() {
+  $("table[data-component='kart'] tbody tr").click(function() {
     current = $( this ).data('stats');
-    $("table[data-component='body'] tr").removeClass('similar selected');
-    $("table[data-component='body']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $("table[data-component='kart'] tr").removeClass('similar selected');
+    $("table[data-component='kart']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
     $( this ).addClass('selected');
   });
-  $("table[data-component='tire'] tbody tr").click(function() {
+  $("table[data-component='wheel'] tbody tr").click(function() {
     current = $( this ).data('stats');
-    $("table[data-component='tire'] tr").removeClass('similar selected');
-    $("table[data-component='tire']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+    $("table[data-component='wheel'] tr").removeClass('similar selected');
+    $("table[data-component='wheel']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
     $( this ).addClass('selected');
   });
   $("table[data-component='glider'] tbody tr").click(function() {
