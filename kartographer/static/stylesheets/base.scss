@@ -225,11 +225,11 @@ nav.navbar-default {
 }
 
 footer div.row div {
-  color: #777;
+  color: lighten(#777, 10%);
 }
 
 footer ul li em {
-  color: #ddd;
+  color: lighten(#777, 35%);
 }
 
 /* ====================== */
