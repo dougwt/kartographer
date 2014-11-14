@@ -10,10 +10,10 @@ from .models import ConfigList, ConfigListItem, KartConfig
 class ViewTestCase(TestCase):
     """Tests for non-populated list views."""
     fixtures = [
-        'racer.json',
-        'racerstats.json',
-        'body.json',
-        'tire.json',
+        'character.json',
+        'characterstats.json',
+        'kart.json',
+        'wheel.json',
         'glider.json',
     ]
 
@@ -33,10 +33,10 @@ class ViewTestCase(TestCase):
         self.assertTrue('id="addModalGlider"' in response.content)
 
         # Ensure context variables exist
-        self.assertTrue(response.context['racerstats'])
-        self.assertTrue(response.context['racers'])
-        self.assertTrue(response.context['bodies'])
-        self.assertTrue(response.context['tires'])
+        self.assertTrue(response.context['characterstats'])
+        self.assertTrue(response.context['characters'])
+        self.assertTrue(response.context['karts'])
+        self.assertTrue(response.context['wheels'])
         self.assertTrue(response.context['gliders'])
         self.assertEqual(len(response.context['configurations']), 0)
         self.assertEqual(response.context['total_list_count'], 0)
@@ -45,9 +45,9 @@ class ViewTestCase(TestCase):
     def test_home_add(self):
         """Ensure home view processes list addition."""
         response = self.client.post('/', {
-            'add-racer': 10,
-            'add-body': 19,
-            'add-tire': 2,
+            'add-character': 10,
+            'add-kart': 19,
+            'add-wheel': 2,
             'add-glider': 2,
         })
         self.assertTrue(response.status_code, 200)
@@ -58,9 +58,9 @@ class ViewTestCase(TestCase):
     def test_home_add_duplicate(self):
         """Ensure home view processes list addition."""
         response = self.client.post('/', {
-            'add-racer': 10,
-            'add-body': 19,
-            'add-tire': 2,
+            'add-character': 10,
+            'add-kart': 19,
+            'add-wheel': 2,
             'add-glider': 2,
         })
         self.assertTrue(response.status_code, 200)
@@ -70,9 +70,9 @@ class ViewTestCase(TestCase):
 
         # Attempt to add duplicate
         response = self.client.post('/', {
-            'add-racer': 10,
-            'add-body': 19,
-            'add-tire': 2,
+            'add-character': 10,
+            'add-kart': 19,
+            'add-wheel': 2,
             'add-glider': 2,
         })
         self.assertTrue(response.status_code, 200)
@@ -90,13 +90,13 @@ class ViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Ensure Component tabs are present
-        self.assertTrue('id="kart-racer"' in response.content)
-        self.assertTrue('id="kart-body"' in response.content)
-        self.assertTrue('id="kart-tire"' in response.content)
+        self.assertTrue('id="kart-character"' in response.content)
+        self.assertTrue('id="kart-kart"' in response.content)
+        self.assertTrue('id="kart-wheel"' in response.content)
         self.assertTrue('id="kart-glider"' in response.content)
 
         # Ensure context variables exist
-        self.assertTrue(response.context['racerstats'])
+        self.assertTrue(response.context['characterstats'])
         self.assertTrue(response.context['components'])
         self.assertEqual(response.context['total_list_count'], 0)
         self.assertEqual(response.context['total_config_count'], 0)
@@ -109,9 +109,9 @@ class ViewTestCase(TestCase):
 
         # Add a configuration
         response = self.client.post('/', {
-            'add-racer': 10,
-            'add-body': 19,
-            'add-tire': 2,
+            'add-character': 10,
+            'add-kart': 19,
+            'add-wheel': 2,
             'add-glider': 2,
         })
         response = self.client.get(reverse('home'))
@@ -142,9 +142,9 @@ class ViewTestCase(TestCase):
 
         # Add a configuration
         response = self.client.post('/', {
-            'add-racer': 10,
-            'add-body': 19,
-            'add-tire': 2,
+            'add-character': 10,
+            'add-kart': 19,
+            'add-wheel': 2,
             'add-glider': 2,
         })
         response = self.client.get(reverse('home'))
@@ -178,10 +178,10 @@ class ViewTestCase(TestCase):
 class PopulatedListViewTestCase(TestCase):
     """Tests for populated list views."""
     fixtures = [
-        'racer.json',
-        'racerstats.json',
-        'body.json',
-        'tire.json',
+        'character.json',
+        'characterstats.json',
+        'kart.json',
+        'wheel.json',
         'glider.json',
     ]
 
@@ -212,9 +212,9 @@ class PopulatedListViewTestCase(TestCase):
             config = KartConfig(kart)
             ConfigListItem.create(
                 self.config_list,
-                config.racer,
-                config.body,
-                config.tire,
+                config.character,
+                config.kart,
+                config.wheel,
                 config.glider
             ).save()
         self.assertEqual(len(ConfigListItem.objects.all()), 2)
@@ -228,10 +228,10 @@ class PopulatedListViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Ensure context variables exist
-        self.assertTrue(response.context['racerstats'])
-        self.assertTrue(response.context['racers'])
-        self.assertTrue(response.context['bodies'])
-        self.assertTrue(response.context['tires'])
+        self.assertTrue(response.context['characterstats'])
+        self.assertTrue(response.context['characters'])
+        self.assertTrue(response.context['karts'])
+        self.assertTrue(response.context['wheels'])
         self.assertTrue(response.context['gliders'])
         self.assertTrue(response.context['configurations'])
         self.assertEqual(response.context['total_list_count'], 1)
