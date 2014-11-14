@@ -80,18 +80,6 @@
   }
 }
 
-// Tweak table appearance for xs devices
-@media only screen and (max-width: $screen-sm-min) {
-  table.tablesorter tbody tr td img {
-    width: 50px;
-    height: 32px;
-  }
-  table.tablesorter tbody tr td img.character {
-    width: 32px;
-    height: 32px;
-  }
-}
-
 @media only screen and (min-width: $screen-xs-min) {
   // Return table headers to normal size
   th.header {
