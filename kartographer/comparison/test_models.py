@@ -93,5 +93,5 @@ class ConfigListTestCase(TestCase):
         # Ensure it contains the 2 ConfigListItems
         result = ConfigListItem.objects.filter(list_id=config_list.id)
         self.assertEqual(len(result), 2)
-        self.assertEqual(result[0].racer.id, 8)
-        self.assertEqual(result[1].racer.id, 9)
+        self.assertEqual(result[0].character.id, 8)
+        self.assertEqual(result[1].character.id, 9)
