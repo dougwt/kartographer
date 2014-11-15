@@ -45,7 +45,7 @@
     background-image: url("../js/tablesorter/themes/black/bg.gif");
     background-size: 21px 9px;
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: 100% 82%;
     padding-right: 17px;
     margin-right: -17px;
   }
@@ -53,13 +53,13 @@
     background-image: url("../js/tablesorter/themes/black/asc.gif");
     background-size: 21px 4px;
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: 100% 60%;
   }
   table.tablesorter thead tr th.headerSortDown span {
     background-image: url("../js/tablesorter/themes/black/desc.gif");
     background-size: 21px 4px;
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: 100% 60%;
   }
   table.tablesorter thead tr th {
     text-align: center;
