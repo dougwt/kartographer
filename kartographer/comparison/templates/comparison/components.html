@@ -141,28 +141,48 @@ $( document ).ready(function() {
   });
   $('table').stickyTableHeaders();
   $("table[data-component='character'] tbody tr").click(function() {
-    current = $( this ).data('stats');
-    $("table[data-component='character'] tr").removeClass('similar selected');
-    $("table[data-component='character']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
-    $( this ).addClass('selected');
+    if ( $(this).hasClass('selected') ) {
+      current = $( this ).data('stats');
+      $("table[data-component='character'] tr").removeClass('similar selected');
+    } else {
+      current = $( this ).data('stats');
+      $("table[data-component='character'] tr").removeClass('similar selected');
+      $("table[data-component='character']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+      $( this ).addClass('selected');
+    }
   });
   $("table[data-component='kart'] tbody tr").click(function() {
-    current = $( this ).data('stats');
-    $("table[data-component='kart'] tr").removeClass('similar selected');
-    $("table[data-component='kart']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
-    $( this ).addClass('selected');
+    if ( $(this).hasClass('selected') ) {
+      current = $( this ).data('stats');
+      $("table[data-component='kart'] tr").removeClass('similar selected');
+    } else {
+      current = $( this ).data('stats');
+      $("table[data-component='kart'] tr").removeClass('similar selected');
+      $("table[data-component='kart']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+      $( this ).addClass('selected');
+    }
   });
   $("table[data-component='wheel'] tbody tr").click(function() {
-    current = $( this ).data('stats');
-    $("table[data-component='wheel'] tr").removeClass('similar selected');
-    $("table[data-component='wheel']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
-    $( this ).addClass('selected');
+    if ( $(this).hasClass('selected') ) {
+      current = $( this ).data('stats');
+      $("table[data-component='wheel'] tr").removeClass('similar selected');
+    } else {
+      current = $( this ).data('stats');
+      $("table[data-component='wheel'] tr").removeClass('similar selected');
+      $("table[data-component='wheel']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+      $( this ).addClass('selected');
+    }
   });
   $("table[data-component='glider'] tbody tr").click(function() {
-    current = $( this ).data('stats');
-    $("table[data-component='glider'] tr").removeClass('similar selected');
-    $("table[data-component='glider']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
-    $( this ).addClass('selected');
+    if ( $(this).hasClass('selected') ) {
+      current = $( this ).data('stats');
+      $("table[data-component='glider'] tr").removeClass('similar selected');
+    } else {
+      current = $( this ).data('stats');
+      $("table[data-component='glider'] tr").removeClass('similar selected');
+      $("table[data-component='glider']").find("tr[data-stats='" + current + "']").addClass('similar').removeClass('selected');
+      $( this ).addClass('selected');
+    }
   });
 
   // Hide & Show Table Columns
