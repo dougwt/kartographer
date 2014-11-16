@@ -17,15 +17,15 @@
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation" class="dropdown-header">Columns</li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-speed">Speed</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-speed-hidden">Speed <span>(secret)</span></a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-speed-hidden">Speed <span>(hidden)</span></a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-acceleration">Acceleration</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-weight">Weight</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling">Handling</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling-hidden">Handling <span>(secret)</span></a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling-hidden">Handling <span>(hidden)</span></a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-traction">Traction</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-miniturbo">Miniturbo <span>(secret)</span></a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-miniturbo">Miniturbo <span>(hidden)</span></a></li>
     <li role="presentation" class="dropdown-header">Highlights</li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight-secret">Secret stats</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight-hidden">Hidden stats</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight-acceleration">Inefficient accelerations</a></li>
   </ul>
 </div>
@@ -40,41 +40,41 @@
       <th class="hidden-xs">
         <span class="unsortable">Configuration</span>
       </th>
-      <th data-priority="1" data-column="speed_ground">
-        <span><abbr title="The top speed of the vehicle on land with normal gravity. Does not affect off-road travel.">Speed</abbr></span>
+      <th data-priority="1" data-column="speed_ground" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Ground Speed" data-content="The top speed of the vehicle on land with normal gravity. Does not affect off-road travel.">
+        <span>Speed</span>
       </th>
-      <th data-priority="3" data-column="speed_water">
-        <span><abbr title="The top speed of the vehicle while driving underwater.">Water</abbr></span>
+      <th data-priority="3" data-column="speed_water" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Water Speed" data-content="<p>The top speed of the vehicle while driving underwater.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+        <span>Water</span>
       </th>
-      <th data-priority="3" data-column="speed_air">
-        <span><abbr title="The top speed of the vehicle while gliding.">Air</abbr></span>
+      <th data-priority="3" data-column="speed_air" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Air Speed" data-content="<p>The top speed of the vehicle while gliding.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+        <span>Air</span>
       </th>
-      <th data-priority="3" data-column="speed_antigravity">
-        <span><abbr title="The top speed of the vehicle in anti-gravity mode.">Antigrav</abbr></span>
+      <th data-priority="3" data-column="speed_antigravity" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Antigravity Speed" data-content="<p>The top speed of the vehicle in anti-gravity mode.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+        <span>Antigrav</span>
       </th>
-      <th data-priority="1" data-column="acceleration">
-        <span><abbr title="The rate of the vehicle it takes to reach its top speed from a standing position.">Accel</abbr></span>
+      <th data-priority="1" data-column="acceleration" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Acceleration" data-content="<p>The rate at which the vehicle reaches its top speed from a standing position.</p><p><i><b>Note:</b> This stat is <b>tiered</b> in Mario Kart 8, meaning the game rounds values down to the nearest whole number. To maximize efficiency, avoid final acceleration values with a fractional part.</i></p>">
+        <span>Accel</span>
       </th>
-      <th data-priority="1" data-column="weight">
-        <span><abbr title="The weight of the vehicle. Vehicles with higher weight knock away vehicles with lower weight.">Weight</abbr></span>
+      <th data-priority="1" data-column="weight" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Weight" data-content="The weight of the vehicle. Vehicles with higher weight knock away vehicles with lower weight.">
+        <span>Weight</span>
       </th>
-      <th data-priority="1" data-column="handling_ground">
-        <span><abbr title="The turning ability of the vehicle on land with normal gravity. A higher stat means vehicles turn sharper.">Handling</abbr></span>
+      <th data-priority="1" data-column="handling_ground" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Ground Handling" data-content="The turning ability of the vehicle on land with normal gravity. A higher stat means vehicles turn sharper.">
+        <span>Handling</span>
       </th>
-      <th data-priority="3" data-column="handling_water">
-        <span><abbr title="The turning ability of the vehicle while driving underwater.">Water</abbr></span>
+      <th data-priority="3" data-column="handling_water" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Water Handling" data-content="<p>The turning ability of the vehicle while driving underwater.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+        <span>Water</span>
       </th>
-      <th data-priority="3" data-column="handling_air">
-        <span><abbr title="The turning ability of the vehicle while gliding.">Air</abbr></span>
+      <th data-priority="3" data-column="handling_air" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Air Handling" data-content="<p>The turning ability of the vehicle while gliding.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+        <span>Air</span>
       </th>
-      <th data-priority="3" data-column="handling_antigravity">
-        <span><abbr title="The turning ability of the vehicle in anti-gravity mode.">Antigrav</abbr></span>
+      <th data-priority="3" data-column="handling_antigravity" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Antigrav Handling" data-content="<p>The turning ability of the vehicle in anti-gravity mode.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+        <span>Antigrav</span>
       </th>
-      <th data-priority="1" data-column="traction">
-        <span><abbr title="The grasp of the vehicle. Vehicles with higher traction slip less on certain terrain and can stay stable on the road better. Not to be confused with handling.">Traction</abbr></span>
+      <th data-priority="1" data-column="traction" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Traction" data-content="The grasp of the vehicle. Vehicles with higher traction slip less on certain terrain and can stay stable on the road better. Not to be confused with handling.">
+        <span>Traction</span>
       </th>
-      <th data-priority="2" data-column="miniturbo">
-        <span><abbr title="The strength of the vehicle's mini-turbo speed boosts.">Miniturbo</abbr></span>
+      <th data-priority="2" data-column="miniturbo" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Miniturbo" data-content="<p>The strength of the vehicle's mini-turbo speed boosts.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+        <span>Miniturbo</span>
       </th>
     </tr>
     </thead>
@@ -171,6 +171,10 @@ $( document ).ready(function() {
   $('td[data-column="acceleration"]:contains(".25")').addClass('inefficient-1');
   $('td[data-column="acceleration"]:contains(".50")').addClass('inefficient-2');
   $('td[data-column="acceleration"]:contains(".75")').addClass('inefficient-3');
+
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
 
   // Hide & Show Table Columns
   enable_toggleable_list_columns();

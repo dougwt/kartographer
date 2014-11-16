@@ -78,6 +78,12 @@
   table.tablesorter tbody tr td.lalign {
     text-align: left;
   }
+  div.popover {
+    h3 {
+      font-size: 1.1em;
+    }
+    font-size: 0.8em;
+  }
 }
 
 @media only screen and (min-width: $screen-xs-min) {
@@ -135,7 +141,7 @@ div.dropdown {
   color: #aaa;
 }
 
-.secret-stat {
+.hidden-stat {
   background-color: whitesmoke;
 }
 

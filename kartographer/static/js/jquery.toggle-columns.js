@@ -32,7 +32,7 @@
     var $toggle_handling_hidden = $( "#table-toggle-handling-hidden" );
     var $toggle_traction = $( "#table-toggle-traction" );
     var $toggle_miniturbo = $( "#table-toggle-miniturbo" );
-    var $toggle_highlight_secret = $( "#table-toggle-highlight-secret" );
+    var $toggle_highlight_hidden = $( "#table-toggle-highlight-hidden" );
     var $toggle_highlight_acceleration = $( "#table-toggle-highlight-acceleration" );
 
     // Bootstrap view breakpoints
@@ -41,13 +41,13 @@
     var $screen_lg_min = 1200;
 
     function toggleHighlightSecret() {
-      $col_speed_water.toggleClass('secret-stat');
-      $col_speed_air.toggleClass('secret-stat');
-      $col_speed_antigravity.toggleClass('secret-stat');
-      $col_handling_water.toggleClass('secret-stat');
-      $col_handling_air.toggleClass('secret-stat');
-      $col_handling_antigravity.toggleClass('secret-stat');
-      $col_miniturbo.toggleClass('secret-stat');
+      $col_speed_water.toggleClass('hidden-stat');
+      $col_speed_air.toggleClass('hidden-stat');
+      $col_speed_antigravity.toggleClass('hidden-stat');
+      $col_handling_water.toggleClass('hidden-stat');
+      $col_handling_air.toggleClass('hidden-stat');
+      $col_handling_antigravity.toggleClass('hidden-stat');
+      $col_miniturbo.toggleClass('hidden-stat');
     }
 
     function toggleHighlightAcceleration() {
@@ -65,7 +65,7 @@
       $toggle_handling.addClass("selected");
       $toggle_handling_hidden.removeClass("selected");
       $toggle_traction.addClass("selected");
-      $toggle_highlight_secret.addClass("selected");
+      $toggle_highlight_hidden.addClass("selected");
       $toggle_highlight_acceleration.addClass("selected");
 
       // Prioritize columns based on screen size
@@ -86,13 +86,13 @@
       }
 
       // Secret stat highlights
-      $col_speed_water.addClass('secret-stat');
-      $col_speed_air.addClass('secret-stat');
-      $col_speed_antigravity.addClass('secret-stat');
-      $col_handling_water.addClass('secret-stat');
-      $col_handling_air.addClass('secret-stat');
-      $col_handling_antigravity.addClass('secret-stat');
-      $col_miniturbo.addClass('secret-stat');
+      $col_speed_water.addClass('hidden-stat');
+      $col_speed_air.addClass('hidden-stat');
+      $col_speed_antigravity.addClass('hidden-stat');
+      $col_handling_water.addClass('hidden-stat');
+      $col_handling_air.addClass('hidden-stat');
+      $col_handling_antigravity.addClass('hidden-stat');
+      $col_miniturbo.addClass('hidden-stat');
     }
 
     // Initialize Columns onLoad & onResize
@@ -154,7 +154,7 @@
       event.stopPropagation();
     });
     // #table-toggle-highlight
-    $toggle_highlight_secret.click(function( event ) {
+    $toggle_highlight_hidden.click(function( event ) {
       $(this).toggleClass("selected");
       toggleHighlightSecret();
       event.stopPropagation();
@@ -200,7 +200,7 @@
     var $toggle_handling_hidden = $( "#table-toggle-handling-hidden" );
     var $toggle_traction = $( "#table-toggle-traction" );
     var $toggle_miniturbo = $( "#table-toggle-miniturbo" );
-    var $toggle_highlight_secret = $( "#table-toggle-highlight-secret" );
+    var $toggle_highlight_hidden = $( "#table-toggle-highlight-hidden" );
     var $toggle_highlight_acceleration = $( "#table-toggle-highlight-acceleration" );
 
     // Bootstrap view breakpoints
@@ -209,13 +209,13 @@
     var $screen_lg_min = 1200;
 
     function toggleHighlightSecret() {
-      $col_speed_water.toggleClass('secret-stat');
-      $col_speed_air.toggleClass('secret-stat');
-      $col_speed_antigravity.toggleClass('secret-stat');
-      $col_handling_water.toggleClass('secret-stat');
-      $col_handling_air.toggleClass('secret-stat');
-      $col_handling_antigravity.toggleClass('secret-stat');
-      $col_miniturbo.toggleClass('secret-stat');
+      $col_speed_water.toggleClass('hidden-stat');
+      $col_speed_air.toggleClass('hidden-stat');
+      $col_speed_antigravity.toggleClass('hidden-stat');
+      $col_handling_water.toggleClass('hidden-stat');
+      $col_handling_air.toggleClass('hidden-stat');
+      $col_handling_antigravity.toggleClass('hidden-stat');
+      $col_miniturbo.toggleClass('hidden-stat');
     }
 
     function toggleHighlightAcceleration() {
@@ -234,7 +234,7 @@
       $toggle_handling.addClass("selected");
       $toggle_handling_hidden.removeClass("selected");
       $toggle_traction.addClass("selected");
-      $toggle_highlight_secret.addClass("selected");
+      $toggle_highlight_hidden.addClass("selected");
       $toggle_highlight_acceleration.addClass("selected");
 
       // Prioritize columns based on screen size
@@ -256,13 +256,13 @@
       }
 
       // Secret stat highlights
-      $col_speed_water.addClass('secret-stat');
-      $col_speed_air.addClass('secret-stat');
-      $col_speed_antigravity.addClass('secret-stat');
-      $col_handling_water.addClass('secret-stat');
-      $col_handling_air.addClass('secret-stat');
-      $col_handling_antigravity.addClass('secret-stat');
-      $col_miniturbo.addClass('secret-stat');
+      $col_speed_water.addClass('hidden-stat');
+      $col_speed_air.addClass('hidden-stat');
+      $col_speed_antigravity.addClass('hidden-stat');
+      $col_handling_water.addClass('hidden-stat');
+      $col_handling_air.addClass('hidden-stat');
+      $col_handling_antigravity.addClass('hidden-stat');
+      $col_miniturbo.addClass('hidden-stat');
     }
 
     // Initialize Columns onLoad & onResize
@@ -330,7 +330,7 @@
       event.stopPropagation();
     });
     // #table-toggle-highlight
-    $toggle_highlight_secret.click(function( event ) {
+    $toggle_highlight_hidden.click(function( event ) {
       $(this).toggleClass("selected");
       toggleHighlightSecret();
       event.stopPropagation();

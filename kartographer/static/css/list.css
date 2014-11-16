@@ -59,7 +59,12 @@
       margin-right: 10px; }
 
   table.tablesorter tbody tr td.lalign {
-    text-align: left; } }
+    text-align: left; }
+
+  div.popover {
+    font-size: 0.8em; }
+    div.popover h3 {
+      font-size: 1.1em; } }
 @media only screen and (min-width: 480px) {
   th.header {
     font-size: 1em; } }
@@ -85,7 +90,7 @@ div.dropdown a.selected {
 .empty-alert {
   color: #aaa; }
 
-.secret-stat {
+.hidden-stat {
   background-color: whitesmoke; }
 
 table.tablesorter thead {
