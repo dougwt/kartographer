@@ -492,5 +492,62 @@
       "traction": 0,
       "miniturbo": 0
     }
+  },
+  {
+    "model": "comparison.kart",
+    "pk": 27,
+    "fields": {
+      "name": "GLA",
+      "speed_ground": 0,
+      "speed_water": 0.5,
+      "speed_air": 0,
+      "speed_antigravity": -0.25,
+      "acceleration": -0.5,
+      "weight": 0.5,
+      "handling_ground": -0.5,
+      "handling_water": 0.75,
+      "handling_air": -0.25,
+      "handling_antigravity": -0.75,
+      "traction": 0.5,
+      "miniturbo": -0.75
+    }
+  },
+  {
+    "model": "comparison.kart",
+    "pk": 28,
+    "fields": {
+      "name": "W 25 Silver Arrow",
+      "speed_ground": 0,
+      "speed_water": 0.25,
+      "speed_air": 0.25,
+      "speed_antigravity": -0.25,
+      "acceleration": 0.25,
+      "weight": -0.25,
+      "handling_ground": 0.5,
+      "handling_water": 0.5,
+      "handling_air": 0.5,
+      "handling_antigravity": 0.25,
+      "traction": -0.5,
+      "miniturbo": 0.25
+    }
+  },
+  {
+    "model": "comparison.kart",
+    "pk": 29,
+    "fields": {
+      "name": "300 SL Roadster",
+      "speed_ground": 0,
+      "speed_water": 0,
+      "speed_air": 0,
+      "speed_antigravity": 0,
+      "acceleration": 0,
+      "weight": 0,
+      "handling_ground": 0,
+      "handling_water": 0,
+      "handling_air": 0,
+      "handling_antigravity": 0,
+      "traction": 0,
+      "miniturbo": 0
+    }
   }
 ]
