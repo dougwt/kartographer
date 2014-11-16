@@ -26,7 +26,7 @@
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-traction">Traction</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-miniturbo">Miniturbo (secret)</a></li>
     <li role="presentation" class="dropdown-header">Options</li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight">Highlight secret stats</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight-secret">Highlight secret stats</a></li>
   </ul>
 </div>
 {% endblock %}
@@ -101,7 +101,7 @@
             <td data-priority="3" data-column="speed_water">{% if item.stats.speed_water %}{{ item.stats.speed_water }}{% else %}{{ item.speed_water }}{% endif %}</td>
             <td data-priority="3" data-column="speed_air">{% if item.stats.speed_air %}{{ item.stats.speed_air }}{% else %}{{ item.speed_air }}{% endif %}</td>
             <td data-priority="3" data-column="speed_antigravity">{% if item.stats.speed_antigravity %}{{ item.stats.speed_antigravity }}{% else %}{{ item.speed_antigravity }}{% endif %}</td>
-            <td data-priority="1" data-column="antigravity">{% if item.stats.acceleration %}{{ item.stats.acceleration }}{% else %}{{ item.acceleration }}{% endif %}</td>
+            <td data-priority="1" data-column="acceleration">{% if item.stats.acceleration %}{{ item.stats.acceleration }}{% else %}{{ item.acceleration }}{% endif %}</td>
             <td data-priority="1" data-column="weight">{% if item.stats.weight %}{{ item.stats.weight }}{% else %}{{ item.weight }}{% endif %}</td>
             <td data-priority="1" data-column="handling_ground">{% if item.stats.handling_ground %}{{ item.stats.handling_ground }}{% else %}{{ item.handling_ground }}{% endif %}</td>
             <td data-priority="3" data-column="handling_water">{% if item.stats.handling_water %}{{ item.stats.handling_water }}{% else %}{{ item.handling_water }}{% endif %}</td>

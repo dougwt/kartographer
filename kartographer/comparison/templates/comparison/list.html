@@ -24,8 +24,9 @@
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-handling-hidden">Handling <span>(secret)</span></a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-traction">Traction</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-miniturbo">Miniturbo <span>(secret)</span></a></li>
-    <li role="presentation" class="dropdown-header">Options</li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight">Highlight secret stats</a></li>
+    <li role="presentation" class="dropdown-header">Highlights</li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight-secret">Secret stats</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="table-toggle-highlight-acceleration">Inefficient accelerations</a></li>
   </ul>
 </div>
 {% endblock %}
@@ -165,6 +166,11 @@ $( document ).ready(function() {
 
   // stickyTableHeaders
   $('table').stickyTableHeaders();
+
+  // Highlight Inefficient Accelerations
+  $('td[data-column="acceleration"]:contains(".25")').addClass('inefficient-1');
+  $('td[data-column="acceleration"]:contains(".50")').addClass('inefficient-2');
+  $('td[data-column="acceleration"]:contains(".75")').addClass('inefficient-3');
 
   // Hide & Show Table Columns
   enable_toggleable_list_columns();

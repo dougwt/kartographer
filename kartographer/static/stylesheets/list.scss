@@ -159,6 +159,19 @@ table.tablesorter tbody tr {
   color: #555;
 }
 
+// Inefficient Accelerations
+table.tablesorter td.inefficient-1 {
+  background-color: lighten(#FFF483, 19%);
+}
+
+table.tablesorter td.inefficient-2 {
+  background-color: lighten(#f0ad4e, 32%);
+}
+
+table.tablesorter td.inefficient-3 {
+  background-color: lighten(#d9534f, 37%);
+}
+
 /* ====================== */
 /* Print                  */
 /* ====================== */

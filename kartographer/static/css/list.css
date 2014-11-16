@@ -103,6 +103,15 @@ table.tablesorter .handling {
 table.tablesorter tbody tr {
   color: #555; }
 
+table.tablesorter td.inefficient-1 {
+  background-color: #fffde4; }
+
+table.tablesorter td.inefficient-2 {
+  background-color: #fdf3e4; }
+
+table.tablesorter td.inefficient-3 {
+  background-color: #fbebea; }
+
 /* ====================== */
 /* Print                  */
 /* ====================== */

@@ -32,14 +32,15 @@
     var $toggle_handling_hidden = $( "#table-toggle-handling-hidden" );
     var $toggle_traction = $( "#table-toggle-traction" );
     var $toggle_miniturbo = $( "#table-toggle-miniturbo" );
-    var $toggle_highlight = $( "#table-toggle-highlight" );
+    var $toggle_highlight_secret = $( "#table-toggle-highlight-secret" );
+    var $toggle_highlight_acceleration = $( "#table-toggle-highlight-acceleration" );
 
     // Bootstrap view breakpoints
     var $screen_sm_min = 768;
     var $screen_md_min = 992;
     var $screen_lg_min = 1200;
 
-    function toggleSecretStatsHighlight() {
+    function toggleHighlightSecret() {
       $col_speed_water.toggleClass('secret-stat');
       $col_speed_air.toggleClass('secret-stat');
       $col_speed_antigravity.toggleClass('secret-stat');
@@ -47,6 +48,12 @@
       $col_handling_air.toggleClass('secret-stat');
       $col_handling_antigravity.toggleClass('secret-stat');
       $col_miniturbo.toggleClass('secret-stat');
+    }
+
+    function toggleHighlightAcceleration() {
+      $('td[data-column="acceleration"]:contains(".25")').toggleClass('inefficient-1');
+      $('td[data-column="acceleration"]:contains(".50")').toggleClass('inefficient-2');
+      $('td[data-column="acceleration"]:contains(".75")').toggleClass('inefficient-3');
     }
 
     function initializeColumns() {
@@ -58,7 +65,8 @@
       $toggle_handling.addClass("selected");
       $toggle_handling_hidden.removeClass("selected");
       $toggle_traction.addClass("selected");
-      $toggle_highlight.addClass("selected");
+      $toggle_highlight_secret.addClass("selected");
+      $toggle_highlight_acceleration.addClass("selected");
 
       // Prioritize columns based on screen size
       $priority1.removeClass("hidden");
@@ -146,12 +154,16 @@
       event.stopPropagation();
     });
     // #table-toggle-highlight
-    $toggle_highlight.click(function( event ) {
+    $toggle_highlight_secret.click(function( event ) {
       $(this).toggleClass("selected");
-      toggleSecretStatsHighlight();
+      toggleHighlightSecret();
       event.stopPropagation();
     });
-
+    $toggle_highlight_acceleration.click(function( event ) {
+      $(this).toggleClass("selected");
+      toggleHighlightAcceleration();
+      event.stopPropagation();
+    });
   };
 
   ////////////////////////////////////////
@@ -188,14 +200,15 @@
     var $toggle_handling_hidden = $( "#table-toggle-handling-hidden" );
     var $toggle_traction = $( "#table-toggle-traction" );
     var $toggle_miniturbo = $( "#table-toggle-miniturbo" );
-    var $toggle_highlight = $( "#table-toggle-highlight" );
+    var $toggle_highlight_secret = $( "#table-toggle-highlight-secret" );
+    var $toggle_highlight_acceleration = $( "#table-toggle-highlight-acceleration" );
 
     // Bootstrap view breakpoints
     var $screen_sm_min = 768;
     var $screen_md_min = 992;
     var $screen_lg_min = 1200;
 
-    function toggleSecretStatsHighlight() {
+    function toggleHighlightSecret() {
       $col_speed_water.toggleClass('secret-stat');
       $col_speed_air.toggleClass('secret-stat');
       $col_speed_antigravity.toggleClass('secret-stat');
@@ -203,6 +216,12 @@
       $col_handling_air.toggleClass('secret-stat');
       $col_handling_antigravity.toggleClass('secret-stat');
       $col_miniturbo.toggleClass('secret-stat');
+    }
+
+    function toggleHighlightAcceleration() {
+      $('td[data-column="acceleration"]:contains(".25")').toggleClass('inefficient-1');
+      $('td[data-column="acceleration"]:contains(".50")').toggleClass('inefficient-2');
+      $('td[data-column="acceleration"]:contains(".75")').toggleClass('inefficient-3');
     }
 
     function initializeColumns() {
@@ -215,7 +234,8 @@
       $toggle_handling.addClass("selected");
       $toggle_handling_hidden.removeClass("selected");
       $toggle_traction.addClass("selected");
-      $toggle_highlight.addClass("selected");
+      $toggle_highlight_secret.addClass("selected");
+      $toggle_highlight_acceleration.addClass("selected");
 
       // Prioritize columns based on screen size
       $priority1.removeClass("hidden");
@@ -310,11 +330,15 @@
       event.stopPropagation();
     });
     // #table-toggle-highlight
-    $toggle_highlight.click(function( event ) {
+    $toggle_highlight_secret.click(function( event ) {
       $(this).toggleClass("selected");
-      toggleSecretStatsHighlight();
+      toggleHighlightSecret();
       event.stopPropagation();
     });
-
+    $toggle_highlight_acceleration.click(function( event ) {
+      $(this).toggleClass("selected");
+      toggleHighlightAcceleration();
+      event.stopPropagation();
+    });
   };
 })(jQuery);
