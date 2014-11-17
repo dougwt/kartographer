@@ -165,7 +165,7 @@
     "fields": {
       "name": "Medium 3",
       "sort_order": "b3",
-      "speed_ground": 3.25,
+      "speed_ground": 3.75,
       "speed_water": 4.25,
       "speed_air": 3.75,
       "speed_antigravity": 4,

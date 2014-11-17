@@ -25,7 +25,7 @@
       "name": "Monster",
       "speed_ground": 0,
       "speed_water": -0.5,
-      "speed_air": -0.25,
+      "speed_air": -0.5,
       "speed_antigravity": 0,
       "acceleration": -0.5,
       "weight": 0.5,
@@ -234,7 +234,7 @@
       "name": "Hot Monster",
       "speed_ground": 0,
       "speed_water": -0.5,
-      "speed_air": -0.25,
+      "speed_air": -0.5,
       "speed_antigravity": 0,
       "acceleration": -0.5,
       "weight": 0.5,
@@ -339,6 +339,44 @@
       "handling_antigravity": 0,
       "traction": -0.5,
       "miniturbo": 0
+    }
+  },
+  {
+    "model": "comparison.wheel",
+    "pk": 19,
+    "fields": {
+      "name": "GLA",
+      "speed_ground": 0,
+      "speed_water": 0,
+      "speed_air": 0,
+      "speed_antigravity": 0,
+      "acceleration": 0,
+      "weight": 0,
+      "handling_ground": 0,
+      "handling_water": 0,
+      "handling_air": 0,
+      "handling_antigravity": 0,
+      "traction": 0,
+      "miniturbo": 0
+    }
+  },
+  {
+    "model": "comparison.wheel",
+    "pk": 20,
+    "fields": {
+      "name": "Triforce",
+      "speed_ground": 0.25,
+      "speed_water": -0.25,
+      "speed_air": 0.25,
+      "speed_antigravity": 0.25,
+      "acceleration": -0.25,
+      "weight": 0,
+      "handling_ground": 0.25,
+      "handling_water": 0.25,
+      "handling_air": 0.25,
+      "handling_antigravity": 0.25,
+      "traction": -0.5,
+      "miniturbo": 0.25
     }
   }
 ]
