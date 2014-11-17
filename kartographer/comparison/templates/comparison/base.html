@@ -34,8 +34,8 @@
             <li class="hidden-xs github-prompt"><a href="https://github.com/dougwt/kartographer/issues">Have a great idea for a feature? Found a bug? Let us know! <span class="glyphicon glyphicon-pencil"></span></a></li>
             <!-- Mobile Navigation links -->
             <li class="visible-xs"><a href="/"><span class="glyphicon glyphicon-home"></span> My Karts</a></li>
-            <li class="visible-xs"><a href="/top/"><span class="glyphicon glyphicon-fire"></span> Popular Lists</a></li>
             <li class="visible-xs"><a href="/kart-components/"><span class="glyphicon glyphicon-th-list"></span> Kart Components</a></li>
+            <li class="visible-xs"><a href="/top/"><span class="glyphicon glyphicon-fire"></span> Popular</a></li>
             <li class="visible-xs"><a href="#info"><span class="glyphicon glyphicon-info-sign"></span> Guide</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -56,8 +56,9 @@
             <nav>
               <ul id="main-nav" class="nav nav-pills navbar-right">
                 <li class="{% block nav_home_active %}{% endblock %}"><a href="/"><span class="glyphicon glyphicon-home"></span> My Karts</a></li>
-                <li class="{% block nav_popular_active %}{% endblock %}"><a href="/top/"><span class="glyphicon glyphicon-fire"></span> Popular</a></li>
+
                 <li class="{% block nav_components_active %}{% endblock %}"><a href="/kart-components/"><span class="glyphicon glyphicon-th-list"></span> Components</a></li>
+                <li class="{% block nav_popular_active %}{% endblock %}"><a href="/top/"><span class="glyphicon glyphicon-fire"></span> Popular</a></li>
                 <li class="{% block nav_info_active %}{% endblock %}"><a href="#info"><span class="glyphicon glyphicon-info-sign"></span> Guide</a></li>
               </ul>
             </nav>

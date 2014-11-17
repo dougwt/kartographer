@@ -1,0 +1,186 @@
+@import "bootstrap/variables";
+
+/* ====================== */
+/* Typography             */
+/* ====================== */
+
+/* ====================== */
+/* Layout                 */
+/* ====================== */
+
+//
+// Mobile Tweaks
+//
+
+@media only screen {
+  // Add Kart form
+  label.fb {
+    margin: 0;
+  }
+  .fb > input[type=radio] {
+    display: none;
+  }
+  input[type=radio] + img {
+    cursor: pointer;
+    border: 5px solid transparent;
+  }
+  input[type=radio]:checked + img {
+    border: 5px solid #d65352;
+  }
+  .stat,
+  .name {
+    color: #666;
+    text-align: center;
+    font-weight: normal;
+    font-size: 0.9em;
+  }
+  .stat-header {
+    font-weight: bold;
+    font-size: 0.7em;
+  }
+  label.fb-character img {
+    width: 55px;
+    height: 55px;
+  }
+  label.fb-kart img,
+  label.fb-wheel img,
+  label.fb-glider img {
+    width: 105px;
+    height: 69px;
+  }
+  #accordion {
+    .panel-heading {
+      cursor: pointer;
+    }
+    margin-bottom: 1em;
+  }
+  .panel-title,
+  .panel-stats {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .icon {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 6px;
+  }
+  input[type=radio]:checked + .icon {
+    border: 3px solid #d65352;
+    padding: 3px;
+    background-color: lighten(#d65352, 20%);
+  }
+  div.similar {
+    border: 2px solid lighten(#2D88CD, 30%);
+    padding: 4px;
+    background-color: lighten(#2D88CD, 40%);
+  }
+  span.selected {
+    color: #d65352;
+  }
+  span.similar {
+    color: #2D88CD;
+  }
+  #collapseKart .icon img,
+  #collapseWheel .icon img,
+  #collapseGlider .icon img {
+    width: 50px;
+    height: 32px;
+    padding: 2px;
+    width: 54px;
+    height: 36px;
+  }
+}
+
+.add-header {
+  padding-top: 1em;
+}
+
+.stat-header:hover {
+  cursor: help;
+}
+
+@media only screen and (min-width: $screen-xs-min) {}
+
+//
+// Tablet Tweaks
+//
+
+@media only screen and (min-width: $screen-sm-min) {}
+
+//
+// Medium Desktop Tweaks
+//
+
+@media only screen and (min-width: $screen-md-min) {}
+
+//
+// Large Desktop Tweaks
+//
+
+@media only screen and (min-width: $screen-lg-min) {}
+
+/* ====================== */
+/* Color                  */
+/* ====================== */
+
+// Inefficient Accelerations
+.inefficient-1 {
+  background-color: lighten(#FFF483, 19%);
+}
+
+.inefficient-2 {
+  background-color: lighten(#f0ad4e, 32%);
+}
+
+.inefficient-3 {
+  background-color: lighten(#d9534f, 37%);
+}
+
+/* ====================== */
+/* Print                  */
+/* ====================== */
+
+@media print {}
+
+// .add-header {
+//   .panel-title {
+//     background-color: red;
+//   }
+//   .panel-stats {
+//     div {
+//       background-color: green;
+//     }
+//     background-color: yellow;
+//   }
+//   div div {
+//     background-color: purple;
+//   }
+// }
+
+// .panel-heading {
+//   h4 {
+//     background-color: red;
+//   }
+//   div {
+//     div {
+//       background-color: green;
+//     }
+//     background-color: yellow;
+//   }
+// }
+
+// .panel-total {
+//   .text-left {
+//     div {
+//       background-color: green;
+//     }
+//     background-color: red;
+//   }
+//   .text-right {
+//     div {
+//       background-color: green;
+//     }
+//     background-color: yellow;
+//   }
+// }

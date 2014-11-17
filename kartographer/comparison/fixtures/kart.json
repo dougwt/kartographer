@@ -267,7 +267,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 27,
+    "pk": 15,
     "fields": {
       "name": "GLA",
       "speed_ground": 0,
@@ -286,7 +286,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 28,
+    "pk": 16,
     "fields": {
       "name": "W 25 Silver Arrow",
       "speed_ground": 0,
@@ -305,7 +305,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 29,
+    "pk": 17,
     "fields": {
       "name": "300 SL Roadster",
       "speed_ground": 0,
@@ -324,7 +324,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 30,
+    "pk": 18,
     "fields": {
       "name": "Blue Falcon",
       "speed_ground": 0.25,
@@ -343,7 +343,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 31,
+    "pk": 19,
     "fields": {
       "name": "Tanooki Kart",
       "speed_ground": 0,
@@ -362,7 +362,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 32,
+    "pk": 20,
     "fields": {
       "name": "B Dasher",
       "speed_ground": 0.5,
@@ -381,7 +381,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 15,
+    "pk": 21,
     "fields": {
       "name": "Standard Bike",
       "speed_ground": 0,
@@ -400,7 +400,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 16,
+    "pk": 22,
     "fields": {
       "name": "Comet",
       "speed_ground": 0,
@@ -419,7 +419,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 17,
+    "pk": 23,
     "fields": {
       "name": "Sport Bike",
       "speed_ground": 0,
@@ -438,7 +438,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 18,
+    "pk": 24,
     "fields": {
       "name": "The Duke",
       "speed_ground": 0,
@@ -457,7 +457,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 19,
+    "pk": 25,
     "fields": {
       "name": "Flame Rider",
       "speed_ground": 0,
@@ -476,7 +476,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 20,
+    "pk": 26,
     "fields": {
       "name": "Varmint",
       "speed_ground": 0,
@@ -495,7 +495,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 21,
+    "pk": 27,
     "fields": {
       "name": "Mr. Scooty",
       "speed_ground": -0.75,
@@ -514,7 +514,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 22,
+    "pk": 28,
     "fields": {
       "name": "Jet Bike",
       "speed_ground": 0,
@@ -533,7 +533,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 23,
+    "pk": 29,
     "fields": {
       "name": "Yoshi Bike",
       "speed_ground": 0,
@@ -552,7 +552,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 32,
+    "pk": 30,
     "fields": {
       "name": "Master Cycle",
       "speed_ground": 0.25,
@@ -571,7 +571,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 24,
+    "pk": 31,
     "fields": {
       "name": "Standard ATV",
       "speed_ground": 0,
@@ -590,7 +590,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 25,
+    "pk": 32,
     "fields": {
       "name": "Wild Wiggler",
       "speed_ground": 0,
@@ -609,7 +609,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 26,
+    "pk": 33,
     "fields": {
       "name": "Teddy Buggy",
       "speed_ground": 0,

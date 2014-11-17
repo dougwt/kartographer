@@ -1,0 +1,336 @@
+{% extends "comparison/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/add.css' %}">
+{% endblock %}
+
+{% block panel_title %}Add Kart{% endblock %}
+
+{% block nav_home_active %}active{% endblock %}
+
+{% block content %}
+<form action="{% url 'home' %}" method="post">
+{% csrf_token %}
+
+<div class="row">
+  <div class="col-xs-12">
+    <h4>Select a component from each section to build your kart loadout.</h4>
+    <p><small>Selected components will appear highlighted in <span class="selected">red</span>, while components with identical stats will appear highlighted in <span class="similar">blue</span> for your convenience.</small></p>
+  </div>
+
+</div>
+
+<div class="row add-header">
+  <div class="col-xs-12">
+    <div class="col-xs-12">
+      <div class="panel-title hidden-xs col-sm-4 col-md-6">
+        &nbsp;
+      </div>
+      <div class="panel-stats col-xs-12 col-sm-8 col-md-6 text-right">
+        <div class="col-xs-2 stat stat-header col-xs-offset-2" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-container="body" title="Ground Speed" data-content="The top speed of the vehicle on land with normal gravity. Does not affect off-road travel.">Speed</div>
+        <div class="col-xs-2 stat stat-header" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-container="body" title="Acceleration" data-content="<p>The rate at which the vehicle reaches its top speed from a standing position.</p><p><i><b>Note:</b> Mario Kart 8 rounds acceleration values down to the nearest whole number. To maximize efficiency, avoid fractional final acceleration values.</i></p>">Accel</div>
+        <div class="col-xs-2 stat stat-header" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-container="body" title="Weight" data-content="The weight of the vehicle. Vehicles with higher weight knock away vehicles with lower weight.">Weight</div>
+        <div class="col-xs-2 stat stat-header" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-container="body" title="Ground Handling" data-content="The turning ability of the vehicle on land with normal gravity. A higher stat means vehicles turn sharper.">Handling</div>
+        <div class="col-xs-2 stat stat-header" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-container="body" title="Traction" data-content="The grasp of the vehicle. Vehicles with higher traction slip less on certain terrain and can stay stable on the road better. Not to be confused with handling.">Traction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="panel-group clearfix" id="accordion" role="tablist" aria-multiselectable="true">
+    <!-- Step 1: Character -->
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix" role="tab" id="headingCharacter" data-toggle="collapse" data-parent="#accordion" href="#collapseCharacter" aria-expanded="true" aria-controls="collapseCharacter">
+        <h4 class="panel-title col-xs-12 col-sm-4 col-md-6">
+            Character: <span class="name">(unspecified)</span>
+        </h4>
+        <div class="panel-stats col-xs-12 col-sm-8 col-md-6 text-right">
+          <div class="col-xs-2 stat speed col-xs-offset-2">-</div>
+          <div class="col-xs-2 stat acceleration">-</div>
+          <div class="col-xs-2 stat weight">-</div>
+          <div class="col-xs-2 stat handling">-</div>
+          <div class="col-xs-2 stat traction">-</div>
+        </div>
+      </div>
+      <div id="collapseCharacter" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingCharacter">
+        <div class="panel-body">
+
+          {% for item in characters %}<label class="fb fb-character" for="fb-character-{{ forloop.counter }}">
+            <input id="fb-character-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.stats.speed_ground }}" data-acceleration="{{ item.stats.acceleration }}" data-weight="{{ item.stats.weight }}" data-handling="{{ item.stats.handling_ground }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" data-traction="{{ item.stats.traction }}" type="radio" name="add-character" value="{{ item.id }}" tabindex="1" />
+            <div class="icon">
+              <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+            </div>
+          </label>{% endfor %}
+
+        </div>
+      </div>
+    </div>
+    <!-- Step 2: Kart -->
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix" role="tab" id="headingKart"  class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseKart" aria-expanded="false" aria-controls="collapseKart">
+        <h4 class="panel-title col-xs-12 col-sm-4 col-md-6">
+            Kart: <span class="name">(unspecified)</span>
+        </h4>
+        <div class="panel-stats col-xs-12 col-sm-8 col-md-6 text-right">
+          <div class="col-xs-2 stat speed col-xs-offset-2">-</div>
+          <div class="col-xs-2 stat acceleration">-</div>
+          <div class="col-xs-2 stat weight">-</div>
+          <div class="col-xs-2 stat handling">-</div>
+          <div class="col-xs-2 stat traction">-</div>
+        </div>
+      </div>
+      <div id="collapseKart" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingKart">
+        <div class="panel-body">
+
+          {% for item in karts %}<label class="fb fb-kart" for="fb-kart-{{ forloop.counter }}">
+            <input id="fb-kart-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-kart" value="{{ item.id }}" tabindex="2" />
+            <div class="icon">
+              <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+            </div>
+          </label>{% endfor %}
+
+        </div>
+      </div>
+    </div>
+    <!-- Step 3: Wheels -->
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix" role="tab" id="headingWheel" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseWheel" aria-expanded="false" aria-controls="collapseWheel">
+        <h4 class="panel-title col-xs-12 col-sm-4 col-md-6">
+            Wheel: <span class="name">(unspecified)</span>
+        </h4>
+        <div class="panel-stats col-xs-12 col-sm-8 col-md-6 text-right">
+          <div class="col-xs-2 stat speed col-xs-offset-2">-</div>
+          <div class="col-xs-2 stat acceleration">-</div>
+          <div class="col-xs-2 stat weight">-</div>
+          <div class="col-xs-2 stat handling">-</div>
+          <div class="col-xs-2 stat traction">-</div>
+        </div>
+      </div>
+      <div id="collapseWheel" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingWheel">
+        <div class="panel-body">
+
+          {% for item in wheels %}<label class="fb fb-wheel" for="fb-wheel-{{ forloop.counter }}">
+            <input id="fb-wheel-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-wheel" value="{{ item.id }}" tabindex="3" />
+            <div class="icon">
+              <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+            </div>
+          </label>{% endfor %}
+
+        </div>
+      </div>
+    </div>
+    <!-- Step 4: Glider -->
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix" role="tab" id="headingGlider" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseGlider" aria-expanded="false" aria-controls="collapseGlider">
+        <h4 class="panel-title col-xs-12 col-sm-4 col-md-6">
+            Glider: <span class="name">(unspecified)</span>
+        </h4>
+        <div class="panel-stats col-xs-12 col-sm-8 col-md-6 text-right">
+          <div class="col-xs-2 stat speed col-xs-offset-2">-</div>
+          <div class="col-xs-2 stat acceleration">-</div>
+          <div class="col-xs-2 stat weight">-</div>
+          <div class="col-xs-2 stat handling">-</div>
+          <div class="col-xs-2 stat traction">-</div>
+        </div>
+      </div>
+      <div id="collapseGlider" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGlider">
+        <div class="panel-body">
+
+          {% for item in gliders %}<label class="fb fb-glider" for="fb-glider-{{ forloop.counter }}">
+            <input id="fb-glider-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-glider" value="{{ item.id }}" tabindex="4" />
+            <div class="icon">
+              <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+            </div>
+          </label>{% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="row add-header">
+  <div class="col-xs-12">
+    <div class="col-xs-12">
+      <div class="panel-title hidden-xs col-sm-4 col-md-6">
+        &nbsp;
+      </div>
+      <div class="panel-stats col-xs-12 col-sm-8 col-md-6 text-right">
+        <div class="col-xs-2 stat stat-header col-xs-offset-2" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-container="body" title="Ground Speed" data-content="The top speed of the vehicle on land with normal gravity. Does not affect off-road travel.">Speed</div>
+        <div class="col-xs-2 stat stat-header" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-container="body" title="Acceleration" data-content="<p>The rate at which the vehicle reaches its top speed from a standing position.</p><p><i><b>Note:</b> Mario Kart 8 rounds acceleration values down to the nearest whole number. To maximize efficiency, avoid fractional final acceleration values.</i></p>">Accel</div>
+        <div class="col-xs-2 stat stat-header" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-container="body" title="Weight" data-content="The weight of the vehicle. Vehicles with higher weight knock away vehicles with lower weight.">Weight</div>
+        <div class="col-xs-2 stat stat-header" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-container="body" title="Ground Handling" data-content="The turning ability of the vehicle on land with normal gravity. A higher stat means vehicles turn sharper.">Handling</div>
+        <div class="col-xs-2 stat stat-header" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-container="body" title="Traction" data-content="The grasp of the vehicle. Vehicles with higher traction slip less on certain terrain and can stay stable on the road better. Not to be confused with handling.">Traction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="panel panel-default panel-total">
+    <div class="panel-body">
+      <div class="panel-title col-xs-12 col-sm-4 col-md-6 text-left">
+        Combined Stats:
+      </div>
+      <div class="panel-stats col-xs-12 col-sm-8 col-md-6 text-right">
+        <div class="col-xs-2 stat speed col-xs-offset-2">-</div>
+        <div class="col-xs-2 stat acceleration">-</div>
+        <div class="col-xs-2 stat weight">-</div>
+        <div class="col-xs-2 stat handling">-</div>
+        <div class="col-xs-2 stat traction">-</div>
+      </div>
+    </div>
+  </div>
+
+<div class="row text-right">
+  <div class="col-xs-12">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+    <button type="submit" id="add-submit" class="btn btn-danger disabled">Finish Kart <span class="glyphicon glyphicon-flag"></span></button>
+  </div>
+</div>
+
+</form>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+  function refresh_kart_stats() {
+    $selected_character = $( '#collapseCharacter input[type=radio]:checked' );
+    $selected_kart = $( '#collapseKart input[type=radio]:checked' );
+    $selected_wheel = $( '#collapseWheel input[type=radio]:checked' );
+    $selected_glider = $( '#collapseGlider input[type=radio]:checked' );
+
+    function fetch_attribute(item, field) {
+      var value = item.data(field);
+      if (value == "-")
+        value = 0;
+
+      return
+    };
+
+    function fetch_array(item) {
+      var array = new Array();
+      array['name'] = item.data('name');
+      array['speed'] = item.data('speed');
+      array['acceleration'] = item.data('acceleration');
+      array['weight'] = item.data('weight');
+      array['handling'] = item.data('handling');
+      array['traction'] = item.data('traction');
+      return array
+    }
+
+    var character = fetch_array($selected_character);
+    var kart = fetch_array($selected_kart);
+    var wheel = fetch_array($selected_wheel);
+    var glider = fetch_array($selected_glider);
+
+    var total = new Array();
+    total['speed'] = Number(character['speed']) + Number(kart['speed']) + Number(wheel['speed']) + Number(glider['speed']);
+    total['acceleration'] = Number(character['acceleration']) + Number(kart['acceleration']) + Number(wheel['acceleration']) + Number(glider['acceleration']);
+    total['weight'] = Number(character['weight']) + Number(kart['weight']) + Number(wheel['weight']) + Number(glider['weight']);
+    total['handling'] = Number(character['handling']) + Number(kart['handling']) + Number(wheel['handling']) + Number(glider['handling']);
+    total['traction'] = Number(character['traction']) + Number(kart['traction']) + Number(wheel['traction']) + Number(glider['traction']);
+
+    // Enable Submit button if all component slots are selected
+    if (character['name'] && kart['name'] && wheel['name'] && glider['name']) {
+      $( '#add-submit' ).removeClass('disabled');
+    }
+
+    // replace NaN totals with dashes
+    total['speed'] = (isNaN(total['speed']) ? "-" : total['speed']);
+    total['acceleration'] = (isNaN(total['acceleration']) ? "-" : total['acceleration']);
+    total['weight'] = (isNaN(total['weight']) ? "-" : total['weight']);
+    total['handling'] = (isNaN(total['handling']) ? "-" : total['handling']);
+    total['traction'] = (isNaN(total['traction']) ? "-" : total['traction']);
+
+    // Update Character Stats
+    $( '#headingCharacter .name' ).text(character['name']);
+    $( '#headingCharacter .panel-stats .speed' ).text(character['speed']);
+    $( '#headingCharacter .panel-stats .acceleration' ).text(character['acceleration']);
+    $( '#headingCharacter .panel-stats .weight' ).text(character['weight']);
+    $( '#headingCharacter .panel-stats .handling' ).text(character['handling']);
+    $( '#headingCharacter .panel-stats .traction' ).text(character['traction']);
+
+    // Update Kart Stats
+    $( '#headingKart .name' ).text(kart['name']);
+    $( '#headingKart .panel-stats .speed' ).text(kart['speed']);
+    $( '#headingKart .panel-stats .acceleration' ).text(kart['acceleration']);
+    $( '#headingKart .panel-stats .weight' ).text(kart['weight']);
+    $( '#headingKart .panel-stats .handling' ).text(kart['handling']);
+    $( '#headingKart .panel-stats .traction' ).text(kart['traction']);
+
+    // Update Wheel Stats
+    $( '#headingWheel .name' ).text(wheel['name']);
+    $( '#headingWheel .panel-stats .speed' ).text(wheel['speed']);
+    $( '#headingWheel .panel-stats .acceleration' ).text(wheel['acceleration']);
+    $( '#headingWheel .panel-stats .weight' ).text(wheel['weight']);
+    $( '#headingWheel .panel-stats .handling' ).text(wheel['handling']);
+    $( '#headingWheel .panel-stats .traction' ).text(wheel['traction']);
+
+    // Update Glider Stats
+    $( '#headingGlider .name' ).text(glider['name']);
+    $( '#headingGlider .panel-stats .speed' ).text(glider['speed']);
+    $( '#headingGlider .panel-stats .acceleration' ).text(glider['acceleration']);
+    $( '#headingGlider .panel-stats .weight' ).text(glider['weight']);
+    $( '#headingGlider .panel-stats .handling' ).text(glider['handling']);
+    $( '#headingGlider .panel-stats .traction' ).text(glider['traction']);
+
+    // Update Stat Totals
+    $( '.panel-total .panel-stats .speed' ).text(total['speed']);
+    $( '.panel-total .panel-stats .acceleration' ).text(total['acceleration']);
+    $( '.panel-total .panel-stats .weight' ).text(total['weight']);
+    $( '.panel-total .panel-stats .handling' ).text(total['handling']);
+    $( '.panel-total .panel-stats .traction' ).text(total['traction']);
+
+    // Highlight Inefficient Accelerations
+    $('.panel-total .panel-body .acceleration').removeClass('inefficient-1').removeClass('inefficient-2').removeClass('inefficient-3');
+    $('.panel-total .panel-body .acceleration:contains(".25")').addClass('inefficient-1');
+    $('.panel-total .panel-body .acceleration:contains(".5")').addClass('inefficient-2');
+    $('.panel-total .panel-body .acceleration:contains(".75")').addClass('inefficient-3');
+  }
+  function cycle_panels() {
+    var current = $( "#accordion .in" ).attr('id');;
+    switch (current){
+      case "collapseCharacter":
+        $( '#collapseCharacter').collapse('toggle');
+        $( '#collapseKart').collapse('toggle');
+        break;
+      case "collapseKart":
+        $( '#collapseKart').collapse('toggle');
+        $( '#collapseWheel').collapse('toggle');
+        break;
+      case "collapseWheel":
+        $( '#collapseWheel').collapse('toggle');
+        $( '#collapseGlider').collapse('toggle');
+        break;
+      case "collapseGlider":
+        $( '#collapseGlider').collapse('toggle');
+        $( '#collapseCharacter').collapse('toggle');
+        break;
+      default : $( '#collapseCharacter').collapse('toggle');
+    }
+    return current;
+  }
+  $( document ).ready(function() {
+    refresh_kart_stats();
+    $( 'input[type=radio]' ).click(function() {
+      refresh_kart_stats();
+
+      $parent = $( this ).parents('#accordion div.panel-body');
+      $parent.find('.icon').removeClass('similar');
+      $parent.find("input[data-stats='" + $( this ).data('stats') + "'] + .icon").addClass('similar');
+      $( this ).removeClass('similar');
+    });
+
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+
+    $( 'body' ).keydown(function( event ) {
+      if ( event.which == 9 ) {
+         event.preventDefault();
+         cycle_panels();
+      }
+    });
+  });
+</script>
+{% endblock %}

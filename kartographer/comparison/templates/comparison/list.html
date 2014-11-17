@@ -52,7 +52,7 @@
       <th data-priority="3" data-column="speed_antigravity" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Antigravity Speed" data-content="<p>The top speed of the vehicle in anti-gravity mode.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
         <span>Antigrav</span>
       </th>
-      <th data-priority="1" data-column="acceleration" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Acceleration" data-content="<p>The rate at which the vehicle reaches its top speed from a standing position.</p><p><i><b>Note:</b> This stat is <b>tiered</b> in Mario Kart 8, meaning the game rounds values down to the nearest whole number. To maximize efficiency, avoid final acceleration values with a fractional part.</i></p>">
+      <th data-priority="1" data-column="acceleration" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Acceleration" data-content="<p>The rate at which the vehicle reaches its top speed from a standing position.</p><p><i><b>Note:</b> Mario Kart 8 rounds acceleration values down to the nearest whole number. To maximize efficiency, avoid fractional final acceleration values.</i></p>">
         <span>Accel</span>
       </th>
       <th data-priority="1" data-column="weight" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Weight" data-content="The weight of the vehicle. Vehicles with higher weight knock away vehicles with lower weight.">
@@ -169,7 +169,7 @@ $( document ).ready(function() {
 
   // Highlight Inefficient Accelerations
   $('td[data-column="acceleration"]:contains(".25")').addClass('inefficient-1');
-  $('td[data-column="acceleration"]:contains(".50")').addClass('inefficient-2');
+  $('td[data-column="acceleration"]:contains(".5")').addClass('inefficient-2');
   $('td[data-column="acceleration"]:contains(".75")').addClass('inefficient-3');
 
   $(function () {

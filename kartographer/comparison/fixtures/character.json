@@ -3,56 +3,56 @@
     "model": "comparison.character",
     "pk": 1,
     "fields": {
-      "name": "Baby Mario",
-      "stats": 1
+      "name": "Mario",
+      "stats": 4
     }
   },
   {
     "model": "comparison.character",
     "pk": 2,
     "fields": {
-      "name": "Baby Luigi",
-      "stats": 1
+      "name": "Luigi",
+      "stats": 4
     }
   },
   {
     "model": "comparison.character",
     "pk": 3,
     "fields": {
-      "name": "Baby Peach",
-      "stats": 1
+      "name": "Peach",
+      "stats": 3
     }
   },
   {
     "model": "comparison.character",
     "pk": 4,
     "fields": {
-      "name": "Baby Daisy",
-      "stats": 1
+      "name": "Daisy",
+      "stats": 3
     }
   },
   {
     "model": "comparison.character",
     "pk": 5,
     "fields": {
-      "name": "Baby Rosalina",
-      "stats": 1
+      "name": "Rosalina",
+      "stats": 5
     }
   },
   {
     "model": "comparison.character",
     "pk": 6,
     "fields": {
-      "name": "Lemmy Koopa",
-      "stats": 1
+      "name": "Metal Mario",
+      "stats": 6
     }
   },
   {
     "model": "comparison.character",
     "pk": 7,
     "fields": {
-      "name": "Mii (Light)",
-      "stats": 1
+      "name": "Yoshi",
+      "stats": 3
     }
   },
   {
@@ -99,125 +99,45 @@
     "model": "comparison.character",
     "pk": 13,
     "fields": {
-      "name": "Larry Koopa",
-      "stats": 2
+      "name": "Baby Mario",
+      "stats": 1
     }
   },
   {
     "model": "comparison.character",
     "pk": 14,
     "fields": {
-      "name": "Wendy O. Koopa",
-      "stats": 2
+      "name": "Baby Luigi",
+      "stats": 1
     }
   },
   {
     "model": "comparison.character",
     "pk": 15,
     "fields": {
-      "name": "Peach",
-      "stats": 3
+      "name": "Baby Peach",
+      "stats": 1
     }
   },
   {
     "model": "comparison.character",
     "pk": 16,
     "fields": {
-      "name": "Daisy",
-      "stats": 3
+      "name": "Baby Daisy",
+      "stats": 1
     }
   },
   {
     "model": "comparison.character",
     "pk": 17,
     "fields": {
-      "name": "Yoshi",
-      "stats": 3
+      "name": "Baby Rosalina",
+      "stats": 1
     }
   },
   {
     "model": "comparison.character",
     "pk": 18,
-    "fields": {
-      "name": "Mario",
-      "stats": 4
-    }
-  },
-  {
-    "model": "comparison.character",
-    "pk": 19,
-    "fields": {
-      "name": "Luigi",
-      "stats": 4
-    }
-  },
-  {
-    "model": "comparison.character",
-    "pk": 20,
-    "fields": {
-      "name": "Iggy Koopa",
-      "stats": 4
-    }
-  },
-  {
-    "model": "comparison.character",
-    "pk": 21,
-    "fields": {
-      "name": "Ludwig von Koopa",
-      "stats": 4
-    }
-  },
-  {
-    "model": "comparison.character",
-    "pk": 22,
-    "fields": {
-      "name": "Mii (Medium)",
-      "stats": 4
-    }
-  },
-  {
-    "model": "comparison.character",
-    "pk": 23,
-    "fields": {
-      "name": "Donkey Kong",
-      "stats": 5
-    }
-  },
-  {
-    "model": "comparison.character",
-    "pk": 24,
-    "fields": {
-      "name": "Waluigi",
-      "stats": 5
-    }
-  },
-  {
-    "model": "comparison.character",
-    "pk": 25,
-    "fields": {
-      "name": "Rosalina",
-      "stats": 5
-    }
-  },
-  {
-    "model": "comparison.character",
-    "pk": 26,
-    "fields": {
-      "name": "Roy Koopa",
-      "stats": 5
-    }
-  },
-  {
-    "model": "comparison.character",
-    "pk": 27,
-    "fields": {
-      "name": "Metal Mario",
-      "stats": 6
-    }
-  },
-  {
-    "model": "comparison.character",
-    "pk": 28,
     "fields": {
       "name": "Pink Gold Peach",
       "stats": 6
@@ -225,7 +145,7 @@
   },
   {
     "model": "comparison.character",
-    "pk": 29,
+    "pk": 19,
     "fields": {
       "name": "Bowser",
       "stats": 7
@@ -233,7 +153,15 @@
   },
   {
     "model": "comparison.character",
-    "pk": 30,
+    "pk": 20,
+    "fields": {
+      "name": "Donkey Kong",
+      "stats": 5
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 21,
     "fields": {
       "name": "Wario",
       "stats": 7
@@ -241,10 +169,82 @@
   },
   {
     "model": "comparison.character",
-    "pk": 31,
+    "pk": 22,
+    "fields": {
+      "name": "Waluigi",
+      "stats": 5
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 23,
+    "fields": {
+      "name": "Iggy Koopa",
+      "stats": 4
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 24,
+    "fields": {
+      "name": "Roy Koopa",
+      "stats": 5
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 25,
+    "fields": {
+      "name": "Lemmy Koopa",
+      "stats": 1
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 26,
+    "fields": {
+      "name": "Larry Koopa",
+      "stats": 2
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 27,
+    "fields": {
+      "name": "Wendy O. Koopa",
+      "stats": 2
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 28,
+    "fields": {
+      "name": "Ludwig von Koopa",
+      "stats": 4
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 29,
     "fields": {
       "name": "Morton Koopa Jr.",
       "stats": 7
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 30,
+    "fields": {
+      "name": "Mii (Light)",
+      "stats": 1
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 31,
+    "fields": {
+      "name": "Mii (Medium)",
+      "stats": 4
     }
   },
   {

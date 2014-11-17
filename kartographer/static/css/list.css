@@ -59,12 +59,7 @@
       margin-right: 10px; }
 
   table.tablesorter tbody tr td.lalign {
-    text-align: left; }
-
-  div.popover {
-    font-size: 0.8em; }
-    div.popover h3 {
-      font-size: 1.1em; } }
+    text-align: left; } }
 @media only screen and (min-width: 480px) {
   th.header {
     font-size: 1em; } }

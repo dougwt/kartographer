@@ -1,0 +1,102 @@
+/* ====================== */
+/* Typography             */
+/* ====================== */
+/* ====================== */
+/* Layout                 */
+/* ====================== */
+@media only screen {
+  label.fb {
+    margin: 0; }
+
+  .fb > input[type=radio] {
+    display: none; }
+
+  input[type=radio] + img {
+    cursor: pointer;
+    border: 5px solid transparent; }
+
+  input[type=radio]:checked + img {
+    border: 5px solid #d65352; }
+
+  .stat,
+  .name {
+    color: #666;
+    text-align: center;
+    font-weight: normal;
+    font-size: 0.9em; }
+
+  .stat-header {
+    font-weight: bold;
+    font-size: 0.7em; }
+
+  label.fb-character img {
+    width: 55px;
+    height: 55px; }
+
+  label.fb-kart img,
+  label.fb-wheel img,
+  label.fb-glider img {
+    width: 105px;
+    height: 69px; }
+
+  #accordion {
+    margin-bottom: 1em; }
+    #accordion .panel-heading {
+      cursor: pointer; }
+
+  .panel-title,
+  .panel-stats {
+    padding-left: 0;
+    padding-right: 0; }
+
+  .icon {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 6px; }
+
+  input[type=radio]:checked + .icon {
+    border: 3px solid #d65352;
+    padding: 3px;
+    background-color: #eaa5a4; }
+
+  div.similar {
+    border: 2px solid #a7ceec;
+    padding: 4px;
+    background-color: #d1e5f5; }
+
+  span.selected {
+    color: #d65352; }
+
+  span.similar {
+    color: #2D88CD; }
+
+  #collapseKart .icon img,
+  #collapseWheel .icon img,
+  #collapseGlider .icon img {
+    width: 50px;
+    height: 32px;
+    padding: 2px;
+    width: 54px;
+    height: 36px; } }
+.add-header {
+  padding-top: 1em; }
+
+.stat-header:hover {
+  cursor: help; }
+
+/* ====================== */
+/* Color                  */
+/* ====================== */
+.inefficient-1 {
+  background-color: #fffde4; }
+
+.inefficient-2 {
+  background-color: #fdf3e4; }
+
+.inefficient-3 {
+  background-color: #fbebea; }
+
+/* ====================== */
+/* Print                  */
+/* ====================== */
