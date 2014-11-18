@@ -86,6 +86,9 @@ def add(request):
 
             log('Adding configuration %s' % potential_config, request)
 
+            # Redirect to My List
+            return redirect('home')
+
     log('Displaying Add page', request)
 
     context = {

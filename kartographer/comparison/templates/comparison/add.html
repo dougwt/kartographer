@@ -10,7 +10,7 @@
 {% block nav_home_active %}active{% endblock %}
 
 {% block content %}
-<form action="{% url 'home' %}" method="post">
+<form action="{% url 'add' %}" method="post">
 {% csrf_token %}
 
 <div class="row">
