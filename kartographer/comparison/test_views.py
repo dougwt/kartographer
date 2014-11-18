@@ -26,12 +26,6 @@ class ViewTestCase(TestCase):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
 
-        # Ensure Add Configuration modals are present
-        self.assertTrue('id="addModalDriver"' in response.content)
-        self.assertTrue('id="addModalKart"' in response.content)
-        self.assertTrue('id="addModalTire"' in response.content)
-        self.assertTrue('id="addModalGlider"' in response.content)
-
         # Ensure context variables exist
         self.assertTrue(response.context['characterstats'])
         self.assertTrue(response.context['characters'])
@@ -42,47 +36,61 @@ class ViewTestCase(TestCase):
         self.assertEqual(response.context['total_list_count'], 0)
         self.assertEqual(response.context['total_config_count'], 0)
 
-    def test_home_add(self):
-        """Ensure home view processes list addition."""
-        response = self.client.post('/', {
+    def test_add(self):
+        """Ensure add view renders."""
+        response = self.client.get(reverse('add'))
+        self.assertEqual(response.status_code, 200)
+
+        # Ensure Add Kart panels are present
+        self.assertTrue('id="collapseCharacter"' in response.content)
+        self.assertTrue('id="collapseKart"' in response.content)
+        self.assertTrue('id="collapseWheel"' in response.content)
+        self.assertTrue('id="collapseGlider"' in response.content)
+
+    def test_add_add(self):
+        """Ensure add view processes list addition."""
+        response = self.client.post(reverse('add'), {
             'add-character': 10,
             'add-kart': 19,
             'add-wheel': 2,
             'add-glider': 2,
-        })
-        self.assertTrue(response.status_code, 200)
+        }, follow=True)
+        self.assertEqual(response.redirect_chain[0][1], 302)
+        self.assertEqual(response.status_code, 200)
 
         # Ensure context variables exist
         self.assertEqual(len(response.context['configurations']), 1)
 
-    def test_home_add_duplicate(self):
-        """Ensure home view processes list addition."""
-        response = self.client.post('/', {
+    def test_add_add_duplicate(self):
+        """Ensure add view processes list addition."""
+        response = self.client.post(reverse('add'), {
             'add-character': 10,
             'add-kart': 19,
             'add-wheel': 2,
             'add-glider': 2,
-        })
-        self.assertTrue(response.status_code, 200)
+        }, follow=True)
+        self.assertEqual(response.redirect_chain[0][1], 302)
+        self.assertEqual(response.status_code, 200)
 
         # Ensure context variables exist
         self.assertEqual(len(response.context['configurations']), 1)
 
         # Attempt to add duplicate
-        response = self.client.post('/', {
+        response = self.client.post(reverse('add'), {
             'add-character': 10,
             'add-kart': 19,
             'add-wheel': 2,
             'add-glider': 2,
         })
-        self.assertTrue(response.status_code, 200)
-
-        # Ensure no new config was added
-        self.assertEqual(len(response.context['configurations']), 1)
+        self.assertEqual(response.status_code, 200)
 
         # Ensure warning message appears
         exists_msg = 'The configuration you added already exists in your list.'
         self.assertTrue(exists_msg in response.content)
+
+        # Ensure no new config was added
+        response = self.client.get(reverse('home'))
+        self.assertEqual(len(response.context['configurations']), 1)
 
     def test_components(self):
         """Ensure components view renders."""
@@ -108,7 +116,7 @@ class ViewTestCase(TestCase):
         self.assertEqual(len(response.context['configurations']), 0)
 
         # Add a configuration
-        response = self.client.post('/', {
+        response = self.client.post(reverse('add'), {
             'add-character': 10,
             'add-kart': 19,
             'add-wheel': 2,
@@ -141,7 +149,7 @@ class ViewTestCase(TestCase):
         self.assertEqual(len(response.context['configurations']), 0)
 
         # Add a configuration
-        response = self.client.post('/', {
+        response = self.client.post(reverse('add'), {
             'add-character': 10,
             'add-kart': 19,
             'add-wheel': 2,

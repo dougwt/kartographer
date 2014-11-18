@@ -38,6 +38,31 @@ def fetch_random_quote():
 
 def home(request):
     """Display the visitor's config list and form to add a new config."""
+    # Convert config_list tuples (session variable) into KartConfig objects
+    configurations = []
+    for config_data in request.session.get('config_list', []):
+        config = KartConfig(config_data)
+        if config.valid:
+            configurations.append(config)
+
+    log('Displaying My List page', request)
+
+    context = {
+        'characterstats':       CharacterStats.objects.all(),
+        'characters':           Character.objects.select_related().all(),
+        'karts':                Kart.objects.all(),
+        'wheels':               Wheel.objects.all(),
+        'gliders':              Glider.objects.all(),
+        'configurations':       configurations,
+        'total_list_count':     len(ConfigList.objects.all()),
+        'total_config_count':   len(ConfigListItem.objects.all()),
+        'quote':                fetch_random_quote(),
+    }
+    return render(request, 'comparison/home.html', context)
+
+
+def add(request):
+    """Display the visitor's config list and form to add a new config."""
     # Insert any potential new configurations that were submitted
     if request.method == "POST":
         potential_config = (
@@ -61,14 +86,10 @@ def home(request):
 
             log('Adding configuration %s' % potential_config, request)
 
-    # Convert config_list tuples (session variable) into KartConfig objects
-    configurations = []
-    for config_data in request.session.get('config_list', []):
-        config = KartConfig(config_data)
-        if config.valid:
-            configurations.append(config)
+            # Redirect to My List
+            return redirect('home')
 
-    log('Displaying My List page', request)
+    log('Displaying Add page', request)
 
     context = {
         'characterstats':       CharacterStats.objects.all(),
@@ -76,12 +97,11 @@ def home(request):
         'karts':                Kart.objects.all(),
         'wheels':               Wheel.objects.all(),
         'gliders':              Glider.objects.all(),
-        'configurations':       configurations,
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
         'quote':                fetch_random_quote(),
     }
-    return render(request, 'comparison/home.html', context)
+    return render(request, 'comparison/add.html', context)
 
 
 def components(request):

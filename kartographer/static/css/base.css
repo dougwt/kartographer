@@ -5477,7 +5477,12 @@ footer ul li em {
     padding-bottom: 1em; }
     footer div.row div {
       font-size: 0.7em;
-      text-align: center; } }
+      text-align: center; }
+
+  div.popover {
+    font-size: 0.8em; }
+    div.popover h3 {
+      font-size: 1.1em; } }
 @media only screen and (min-width: 768px) {
   .logo {
     text-align: left; }
