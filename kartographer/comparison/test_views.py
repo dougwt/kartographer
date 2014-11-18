@@ -61,6 +61,24 @@ class ViewTestCase(TestCase):
         # Ensure context variables exist
         self.assertEqual(len(response.context['configurations']), 1)
 
+    def test_add_incomplete(self):
+        """Ensure add view processes incomplete form submission."""
+        response = self.client.post(reverse('add'), {
+            'add-character': '',
+            'add-kart': 'test string',
+            'add-wheel': '',
+            'add-glider': ''
+        })
+        self.assertEqual(response.status_code, 200)
+
+        # Ensure error message appears
+        exists_msg = 'Unable to add kart.'
+        self.assertTrue(exists_msg in response.content)
+
+        # Ensure no new config was added
+        response = self.client.get(reverse('home'))
+        self.assertEqual(len(response.context['configurations']), 0)
+
     def test_add_add_duplicate(self):
         """Ensure add view processes list addition."""
         response = self.client.post(reverse('add'), {

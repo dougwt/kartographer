@@ -66,13 +66,19 @@ def add(request):
     # Insert any potential new configurations that were submitted
     if request.method == "POST":
         potential_config = (
-            request.POST['add-character'],
-            request.POST['add-kart'],
-            request.POST['add-wheel'],
-            request.POST['add-glider']
+            request.POST.get('add-character', ''),
+            request.POST.get('add-kart', 'test string'),
+            request.POST.get('add-wheel', ''),
+            request.POST.get('add-glider', '')
         )
+
         potential_config = [unicode(item) for item in potential_config]
-        if potential_config in request.session.get('config_list', []):
+        if '' in potential_config:
+            msg = 'Unable to add kart. Please choose a component for each ' \
+                  'section and try again.'
+            messages.add_message(request, messages.ERROR, msg)
+
+        elif potential_config in request.session.get('config_list', []):
             msg = 'The configuration you added already exists in your list.'
             messages.add_message(request, messages.WARNING, msg)
 
@@ -83,6 +89,9 @@ def add(request):
             config_list = request.session.get('config_list', [])
             config_list.append(potential_config)
             request.session['config_list'] = config_list
+
+            msg = 'Your kart configuration was added successfully.'
+            messages.add_message(request, messages.SUCCESS, msg)
 
             log('Adding configuration %s' % potential_config, request)
 
