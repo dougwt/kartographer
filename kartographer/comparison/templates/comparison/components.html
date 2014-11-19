@@ -33,92 +33,104 @@
 
 {% block nav_components_active %}active{% endblock %}
 
+{% block content-header %}
+<div id="content-header" class="row">
+  <div class="col-xs-12 col-sm-8">
+    <h5>View the (hidden) stats of every single component in Mario Kart 8.</h5>
+    <p>Need to find a wheel with the highest speed or wondering which kart has the best acceleration? Use this sortable table to view all of the components' stats at a quick glance. Individual columns can be toggled using the View dropdown on the right.</p>
+  </div>
+  <div class="hidden-xs col-sm-4 text-center">
+    <img src="{% static 'images/mk8/pit-toad.png' %}" alt="Pit Toad">
+  </div>
+</div>
+{% endblock %}
+
 {% block content %}
-  <ul class="nav nav-tabs">
-    {% for component in components %}
-    <li{% if forloop.first %} class="active"{% endif %}><a href="#{{ component.name }}" data-toggle="tab">{{ component.plural|capfirst }}</a></li>
-    {% endfor %}
-  </ul>
-
-  <div class="tab-content">
-
+<ul class="nav nav-tabs">
   {% for component in components %}
-
-    <div class="tab-pane table-responsive{% if forloop.first %} active{% endif %}" id="{{ component.name }}">
-      <table id="kart-{{ component.name }}" class="table table-hover tablesorter" data-component="{{ component.name }}">
-        <thead>
-          <tr>
-            <th>
-              <span class="unsortable">Icon</span>
-            </th>
-            <th data-priority="2" data-column="name">
-              <span>Name</span>
-            </th>
-            <th data-priority="1" data-column="speed_ground" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Ground Speed" data-content="The top speed of the vehicle on land with normal gravity. Does not affect off-road travel.">
-              <span>Speed</span>
-            </th>
-            <th data-priority="3" data-column="speed_water" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Water Speed" data-content="<p>The top speed of the vehicle while driving underwater.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
-              <span>Water</span>
-            </th>
-            <th data-priority="3" data-column="speed_air" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Air Speed" data-content="<p>The top speed of the vehicle while gliding.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
-              <span>Air</span>
-            </th>
-            <th data-priority="3" data-column="speed_antigravity" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Antigravity Speed" data-content="<p>The top speed of the vehicle in anti-gravity mode.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
-              <span>Antigrav</span>
-            </th>
-            <th data-priority="1" data-column="acceleration" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Acceleration" data-content="<p>The rate at which the vehicle reaches its top speed from a standing position.</p><p><i><b>Note:</b> Mario Kart 8 rounds acceleration values down to the nearest whole number. To maximize efficiency, avoid fractional final acceleration values.</i></p>">
-              <span>Accel</span>
-            </th>
-            <th data-priority="1" data-column="weight" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Weight" data-content="The weight of the vehicle. Vehicles with higher weight knock away vehicles with lower weight.">
-              <span>Weight</span>
-            </th>
-            <th data-priority="1" data-column="handling_ground" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Ground Handling" data-content="The turning ability of the vehicle on land with normal gravity. A higher stat means vehicles turn sharper.">
-              <span>Handling</span>
-            </th>
-            <th data-priority="3" data-column="handling_water" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Water Handling" data-content="<p>The turning ability of the vehicle while driving underwater.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
-              <span>Water</span>
-            </th>
-            <th data-priority="3" data-column="handling_air" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Air Handling" data-content="<p>The turning ability of the vehicle while gliding.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
-              <span>Air</span>
-            </th>
-            <th data-priority="3" data-column="handling_antigravity" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Antigrav Handling" data-content="<p>The turning ability of the vehicle in anti-gravity mode.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
-              <span>Antigrav</span>
-            </th>
-            <th data-priority="1" data-column="traction" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Traction" data-content="The grasp of the vehicle. Vehicles with higher traction slip less on certain terrain and can stay stable on the road better. Not to be confused with handling.">
-              <span>Traction</span>
-            </th>
-            <th data-priority="2" data-column="miniturbo" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Miniturbo" data-content="<p>The strength of the vehicle's mini-turbo speed boosts.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
-              <span>Miniturbo</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in component.items %}
-          <tr data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}">
-            <td class="text-center"><img src="{{ item.file }}" height="32" {% if item.stats.speed_ground %}width="32"{% else %}width="50"{% endif %} alt="{{ item.name }}"></td>
-            <td data-priority="2" data-column="name">{{ item.name }}</td>
-            <td data-priority="1" data-column="speed_ground">{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}{% else %}{{ item.speed_ground }}{% endif %}</td>
-            <td data-priority="3" data-column="speed_water">{% if item.stats.speed_water %}{{ item.stats.speed_water }}{% else %}{{ item.speed_water }}{% endif %}</td>
-            <td data-priority="3" data-column="speed_air">{% if item.stats.speed_air %}{{ item.stats.speed_air }}{% else %}{{ item.speed_air }}{% endif %}</td>
-            <td data-priority="3" data-column="speed_antigravity">{% if item.stats.speed_antigravity %}{{ item.stats.speed_antigravity }}{% else %}{{ item.speed_antigravity }}{% endif %}</td>
-            <td data-priority="1" data-column="acceleration">{% if item.stats.acceleration %}{{ item.stats.acceleration }}{% else %}{{ item.acceleration }}{% endif %}</td>
-            <td data-priority="1" data-column="weight">{% if item.stats.weight %}{{ item.stats.weight }}{% else %}{{ item.weight }}{% endif %}</td>
-            <td data-priority="1" data-column="handling_ground">{% if item.stats.handling_ground %}{{ item.stats.handling_ground }}{% else %}{{ item.handling_ground }}{% endif %}</td>
-            <td data-priority="3" data-column="handling_water">{% if item.stats.handling_water %}{{ item.stats.handling_water }}{% else %}{{ item.handling_water }}{% endif %}</td>
-            <td data-priority="3" data-column="handling_air">{% if item.stats.handling_air %}{{ item.stats.handling_air }}{% else %}{{ item.handling_air }}{% endif %}</td>
-            <td data-priority="3" data-column="handling_antigravity">{% if item.stats.handling_antigravity %}{{ item.stats.handling_antigravity }}{% else %}{{ item.handling_antigravity }}{% endif %}</td>
-            <td data-priority="1" data-column="traction">{% if item.stats.traction %}{{ item.stats.traction }}{% else %}{{ item.traction }}{% endif %}</td>
-            <td data-priority="2" data-column="miniturbo">{% if item.stats.miniturbo %}{{ item.stats.miniturbo }}{% else %}{{ item.miniturbo }}{% endif %}</td>
-          </tr>
-          {% empty %}
-          <tr><td colspan="13" class="text-center"><em>
-            <span class="empty-alert">No items in database.</span>
-          </em></td></tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
+  <li{% if forloop.first %} class="active"{% endif %}><a href="#{{ component.name }}" data-toggle="tab">{{ component.plural|capfirst }}</a></li>
   {% endfor %}
+</ul>
+
+<div class="tab-content">
+
+{% for component in components %}
+
+  <div class="tab-pane table-responsive{% if forloop.first %} active{% endif %}" id="{{ component.name }}">
+    <table id="kart-{{ component.name }}" class="table table-hover tablesorter" data-component="{{ component.name }}">
+      <thead>
+        <tr>
+          <th>
+            <span class="unsortable">Icon</span>
+          </th>
+          <th data-priority="2" data-column="name">
+            <span>Name</span>
+          </th>
+          <th data-priority="1" data-column="speed_ground" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Ground Speed" data-content="The top speed of the vehicle on land with normal gravity. Does not affect off-road travel.">
+            <span>Speed</span>
+          </th>
+          <th data-priority="3" data-column="speed_water" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Water Speed" data-content="<p>The top speed of the vehicle while driving underwater.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+            <span>Water</span>
+          </th>
+          <th data-priority="3" data-column="speed_air" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Air Speed" data-content="<p>The top speed of the vehicle while gliding.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+            <span>Air</span>
+          </th>
+          <th data-priority="3" data-column="speed_antigravity" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Antigravity Speed" data-content="<p>The top speed of the vehicle in anti-gravity mode.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+            <span>Antigrav</span>
+          </th>
+          <th data-priority="1" data-column="acceleration" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Acceleration" data-content="<p>The rate at which the vehicle reaches its top speed from a standing position.</p><p><i><b>Note:</b> Mario Kart 8 rounds acceleration values down to the nearest whole number. To maximize efficiency, avoid fractional final acceleration values.</i></p>">
+            <span>Accel</span>
+          </th>
+          <th data-priority="1" data-column="weight" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Weight" data-content="The weight of the vehicle. Vehicles with higher weight knock away vehicles with lower weight.">
+            <span>Weight</span>
+          </th>
+          <th data-priority="1" data-column="handling_ground" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Ground Handling" data-content="The turning ability of the vehicle on land with normal gravity. A higher stat means vehicles turn sharper.">
+            <span>Handling</span>
+          </th>
+          <th data-priority="3" data-column="handling_water" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Water Handling" data-content="<p>The turning ability of the vehicle while driving underwater.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+            <span>Water</span>
+          </th>
+          <th data-priority="3" data-column="handling_air" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Air Handling" data-content="<p>The turning ability of the vehicle while gliding.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+            <span>Air</span>
+          </th>
+          <th data-priority="3" data-column="handling_antigravity" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Antigrav Handling" data-content="<p>The turning ability of the vehicle in anti-gravity mode.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+            <span>Antigrav</span>
+          </th>
+          <th data-priority="1" data-column="traction" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Traction" data-content="The grasp of the vehicle. Vehicles with higher traction slip less on certain terrain and can stay stable on the road better. Not to be confused with handling.">
+            <span>Traction</span>
+          </th>
+          <th data-priority="2" data-column="miniturbo" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-container="body" title="Miniturbo" data-content="<p>The strength of the vehicle's mini-turbo speed boosts.</p><p><i><b>Note:</b> This stat is hidden in Mario Kart 8.</i></p>">
+            <span>Miniturbo</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in component.items %}
+        <tr data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}">
+          <td class="text-center"><img src="{{ item.file }}" height="32" {% if item.stats.speed_ground %}width="32"{% else %}width="50"{% endif %} alt="{{ item.name }}"></td>
+          <td data-priority="2" data-column="name">{{ item.name }}</td>
+          <td data-priority="1" data-column="speed_ground">{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}{% else %}{{ item.speed_ground }}{% endif %}</td>
+          <td data-priority="3" data-column="speed_water">{% if item.stats.speed_water %}{{ item.stats.speed_water }}{% else %}{{ item.speed_water }}{% endif %}</td>
+          <td data-priority="3" data-column="speed_air">{% if item.stats.speed_air %}{{ item.stats.speed_air }}{% else %}{{ item.speed_air }}{% endif %}</td>
+          <td data-priority="3" data-column="speed_antigravity">{% if item.stats.speed_antigravity %}{{ item.stats.speed_antigravity }}{% else %}{{ item.speed_antigravity }}{% endif %}</td>
+          <td data-priority="1" data-column="acceleration">{% if item.stats.acceleration %}{{ item.stats.acceleration }}{% else %}{{ item.acceleration }}{% endif %}</td>
+          <td data-priority="1" data-column="weight">{% if item.stats.weight %}{{ item.stats.weight }}{% else %}{{ item.weight }}{% endif %}</td>
+          <td data-priority="1" data-column="handling_ground">{% if item.stats.handling_ground %}{{ item.stats.handling_ground }}{% else %}{{ item.handling_ground }}{% endif %}</td>
+          <td data-priority="3" data-column="handling_water">{% if item.stats.handling_water %}{{ item.stats.handling_water }}{% else %}{{ item.handling_water }}{% endif %}</td>
+          <td data-priority="3" data-column="handling_air">{% if item.stats.handling_air %}{{ item.stats.handling_air }}{% else %}{{ item.handling_air }}{% endif %}</td>
+          <td data-priority="3" data-column="handling_antigravity">{% if item.stats.handling_antigravity %}{{ item.stats.handling_antigravity }}{% else %}{{ item.handling_antigravity }}{% endif %}</td>
+          <td data-priority="1" data-column="traction">{% if item.stats.traction %}{{ item.stats.traction }}{% else %}{{ item.traction }}{% endif %}</td>
+          <td data-priority="2" data-column="miniturbo">{% if item.stats.miniturbo %}{{ item.stats.miniturbo }}{% else %}{{ item.miniturbo }}{% endif %}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="13" class="text-center"><em>
+          <span class="empty-alert">No items in database.</span>
+        </em></td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endfor %}
 {% endblock %}
 
 {% block script %}

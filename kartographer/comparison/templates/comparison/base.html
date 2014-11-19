@@ -90,6 +90,7 @@
             <h3 class="panel-title col-xs-2">{% block panel_alt_title %}&nbsp;{% endblock %}</h3>
           </div>
           <div class="panel-body">
+          {% block content-header %}{% endblock %}
 
           <!-- BEGIN PAGE CONTENT -->
           {% block content %}{% endblock %}

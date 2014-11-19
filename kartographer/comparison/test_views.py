@@ -270,10 +270,6 @@ class PopulatedListViewTestCase(TestCase):
         self.assertFalse(
             'Your current list has been saved to' in response.content
         )
-        # TODO: Add test for duplicate list alert
-        # self.assertTrue(
-        #     'Duplicate'
-        # )
 
     def test_top_populated(self):
         """Ensure top view renders."""

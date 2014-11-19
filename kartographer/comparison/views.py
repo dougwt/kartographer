@@ -1,5 +1,6 @@
 """Django views for displaying and comparing MK8 kart configurations."""
 
+import locale
 import logging
 import random
 
@@ -47,6 +48,11 @@ def home(request):
 
     log('Displaying My List page', request)
 
+    total_combinations = Character.objects.count() * \
+                       Kart.objects.count() * \
+                       Wheel.objects.count() * \
+                       Glider.objects.count()
+
     context = {
         'characterstats':       CharacterStats.objects.all(),
         'characters':           Character.objects.select_related().all(),
@@ -54,6 +60,7 @@ def home(request):
         'wheels':               Wheel.objects.all(),
         'gliders':              Glider.objects.all(),
         'configurations':       configurations,
+        'total_combinations':   total_combinations,
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
         'quote':                fetch_random_quote(),

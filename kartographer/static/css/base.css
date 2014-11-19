@@ -5433,8 +5433,16 @@ header h1 {
 
 h3.panel-title,
 .btn,
+footer div div,
+.github-prompt,
 ul.nav li a {
   font-family: 'Nunito', sans-serif; }
+
+#content-header p {
+  font-family: 'Nunito', sans-serif; }
+
+#content-header div {
+  font-size: 0.85em; }
 
 footer ul li em {
   font-family: 'Courgette', cursive;
@@ -5467,11 +5475,18 @@ footer ul li em {
     header h1 {
       display: none; }
 
+  #content-header {
+    margin-bottom: 1em; }
+    #content-header img {
+      max-width: 180px;
+      max-height: 120px; }
+
   .panel-heading {
     line-height: 23px;
     padding: 7px 15px; }
     .panel-heading h3 {
-      line-height: 23px; }
+      line-height: 23px;
+      padding-left: 0; }
 
   footer {
     padding-bottom: 1em; }
