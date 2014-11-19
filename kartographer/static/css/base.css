@@ -5433,8 +5433,16 @@ header h1 {
 
 h3.panel-title,
 .btn,
+footer div div,
+.github-prompt,
 ul.nav li a {
   font-family: 'Nunito', sans-serif; }
+
+#content-header p {
+  font-family: 'Nunito', sans-serif; }
+
+#content-header div {
+  font-size: 0.85em; }
 
 footer ul li em {
   font-family: 'Courgette', cursive;
