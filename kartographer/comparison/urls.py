@@ -4,7 +4,7 @@ from django.conf.urls import patterns, url
 
 urlpatterns = patterns('',
     url(r'^$', 'comparison.views.home', name='home'),
-    url(r'^kart-components/', 'comparison.views.components', name='components'),
+    url(r'^components/', 'comparison.views.components', name='components'),
     url(r'^add/', 'comparison.views.add', name='add'),
     url(r'^reset/', 'comparison.views.reset', name='reset'),
     url(r'^save/', 'comparison.views.save', name='save'),
