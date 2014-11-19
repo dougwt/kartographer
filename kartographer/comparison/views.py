@@ -53,9 +53,6 @@ def home(request):
                        Wheel.objects.count() * \
                        Glider.objects.count()
 
-    locale.setlocale(locale.LC_ALL, 'en_US')
-    total_combinations = locale.format("%d", total_combinations, grouping=True)
-
     context = {
         'characterstats':       CharacterStats.objects.all(),
         'characters':           Character.objects.select_related().all(),

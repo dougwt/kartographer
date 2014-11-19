@@ -1,5 +1,6 @@
 {% extends "comparison/list.html" %}
 {% load staticfiles %}
+{% load humanize %}
 
 {% block head_extra %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -13,7 +14,7 @@
 <div id="content-header" class="row">
   <div class="col-xs-12 col-sm-8">
     <h4>Add one or more Mario Kart 8 loadouts to compare stats.</h4>
-    <p><small>No more scrolling back and forth between kart components using in-game menus! Now you can plan the best possible loadout for your driving style by comparing any of the {{ total_combinations }} possible kart loadouts in a user-friendly layout.</small></p>
+    <p><small>No more scrolling back and forth between kart components using in-game menus! Now you can plan the best possible loadout for your driving style by comparing any of the {{ total_combinations|intcomma }} possible kart loadouts in a user-friendly layout.</small></p>
   </div>
   <div class="hidden-xs col-sm-4 text-center">
     <img src="{% static 'images/mk8/koopalings.png' %}" alt="Hold on to your hats.">
