@@ -14,7 +14,7 @@ class URLTestCase(TestCase):
 
     def test_components(self):
         """Ensure components url resolves to components view."""
-        resolver = resolve('/kart-components/')
+        resolver = resolve('/components/')
         self.assertEqual(resolver.view_name, 'components')
 
     def test_reset(self):
