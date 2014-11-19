@@ -31,10 +31,22 @@
 </div>
 {% endblock %}
 
+{% block content-header %}
+<div id="content-header" class="row">
+  <div class="col-xs-12 col-sm-8">
+    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
+    <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.</small></p>
+  </div>
+  <div class="hidden-xs col-sm-4 text-center">
+    <img src="{% static 'images/mk8/koopalings.png' %}" alt="The Koopalings">
+  </div>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="table-responsive">
   <table class="table table-condensed table-hover tablesorter" data-role="table" data-mode="columntoggle" id="kart-list">
-    <!-- Header -->
     <thead>
     <tr>
       <th class="hidden-xs">

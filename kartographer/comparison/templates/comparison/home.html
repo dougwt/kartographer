@@ -9,6 +9,20 @@
 
 {% block nav_home_active %}active{% endblock %}
 
+{% block content-header %}
+<div id="content-header" class="row">
+  <div class="col-xs-12 col-sm-8">
+    <h4>Build a virtual garage of karts to compare different stat loadouts!</h4>
+    <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.</small></p>
+  </div>
+  <div class="hidden-xs col-sm-4 text-center">
+    <img src="{% static 'images/mk8/koopalings.png' %}" alt="Hold on to your hats.">
+
+  </div>
+</div>
+{% endblock %}
+
 {% block add_configform %}
 <div class="text-right">
   <a class="btn btn-default" href="/save/">Share <span class="glyphicon glyphicon-share"></span></a>

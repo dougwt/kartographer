@@ -9,19 +9,21 @@
 
 {% block nav_home_active %}active{% endblock %}
 
+{% block content-header %}
+<div id="content-header" class="row">
+  <div class="col-xs-12 col-sm-8">
+    <h4>Select a component from each section to build your kart loadout.</h4>
+    <p><small>Selected components will appear highlighted in <span class="selected"><b>red</b></span>, while components with identical stats will appear highlighted in <span class="similar"><b>blue</b></span> for your convenience.</small></p>
+  </div>
+  <div class="hidden-xs col-sm-4 text-center">
+    <img src="{% static 'images/mk8/mechanic.png' %}" alt="Mechanic">
+  </div>
+</div>
+{% endblock %}
+
 {% block content %}
 <form action="{% url 'add' %}" method="post">
 {% csrf_token %}
-
-<div class="row">
-  <div class="col-xs-12 col-sm-8">
-    <h4>Select a component from each section to build your kart loadout.</h4>
-    <p><small>Selected components will appear highlighted in <span class="selected">red</span>, while components with identical stats will appear highlighted in <span class="similar">blue</span> for your convenience.</small></p>
-  </div>
-  <div class="hidden-xs col-sm-4 text-right">
-    <img src="{% static 'images/mechanic.png' %}" alt="Brought to you by Mario Motors" width="160" height="96">
-  </div>
-</div>
 
 <div class="row add-header">
   <div class="col-xs-12">
