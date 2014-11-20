@@ -1,341 +1,378 @@
 (function($){
+  enable_toggleable_columns = function(column_prefs) {
+    // column_prefs = column_prefs | null;
 
-  ////////////////////////////////////////
-  // enable_toggleable_list_columns
-  ////////////////////////////////////////
+    ////////////////////////
+    // INITIALIZE
+    ////////////////////////
 
-  enable_toggleable_list_columns = function() {
+    // Preload commonly used jQuery objects
+    // Priority columns
+    var $priority = new Array();
+    $priority[1] = $( "*[data-priority='1']" );
+    $priority[2] = $( "*[data-priority='2']" );
+    $priority[3] = $( "*[data-priority='3']" );
 
-    // Preload jQuery objects
-    var $priority1 = $( "*[data-priority='1']" );
-    var $priority2 = $( "*[data-priority='2']" );
-    var $priority3 = $( "*[data-priority='3']" );
+    // Table columns
+    var $col = new Array();
+    $col['name'] = $( "*[data-column='name']" );
+    $col['speed'] = $( "*[data-column='speed_ground']" );
+    $col['speed_water'] = $( "*[data-column='speed_water']" );
+    $col['speed_air'] = $( "*[data-column='speed_air']" );
+    $col['speed_antigravity'] = $( "*[data-column='speed_antigravity']" );
+    $col['acceleration'] = $( "*[data-column='acceleration']" );
+    $col['weight'] = $( "*[data-column='weight']" );
+    $col['handling'] = $( "*[data-column='handling_ground']" );
+    $col['handling_water'] = $( "*[data-column='handling_water']" );
+    $col['handling_air'] = $( "*[data-column='handling_air']" );
+    $col['handling_antigravity'] = $( "*[data-column='handling_antigravity']" );
+    $col['traction'] = $( "*[data-column='traction']" );
+    $col['miniturbo'] = $( "*[data-column='miniturbo']" );
 
-    var $col_speed_ground = $( "*[data-column='speed_ground']" );
-    var $col_speed_water = $( "*[data-column='speed_water']" );
-    var $col_speed_air = $( "*[data-column='speed_air']" );
-    var $col_speed_antigravity = $( "*[data-column='speed_antigravity']" );
-    var $col_acceleration = $( "*[data-column='acceleration']" );
-    var $col_weight = $( "*[data-column='weight']" );
-    var $col_handling_ground = $( "*[data-column='handling_ground']" );
-    var $col_handling_water = $( "*[data-column='handling_water']" );
-    var $col_handling_air = $( "*[data-column='handling_air']" );
-    var $col_handling_antigravity = $( "*[data-column='handling_antigravity']" );
-    var $col_traction = $( "*[data-column='traction']" );
-    var $col_miniturbo = $( "*[data-column='miniturbo']" );
-
-    var $toggle_speed = $( "#table-toggle-speed" );
-    var $toggle_speed_hidden = $( "#table-toggle-speed-hidden" );
-    var $toggle_acceleration = $( "#table-toggle-acceleration" );
-    var $toggle_weight = $( "#table-toggle-weight" );
-    var $toggle_handling = $( "#table-toggle-handling" );
-    var $toggle_handling_hidden = $( "#table-toggle-handling-hidden" );
-    var $toggle_traction = $( "#table-toggle-traction" );
-    var $toggle_miniturbo = $( "#table-toggle-miniturbo" );
-    var $toggle_highlight_hidden = $( "#table-toggle-highlight-hidden" );
-    var $toggle_highlight_acceleration = $( "#table-toggle-highlight-acceleration" );
+    // Dropdown toggles
+    var $toggle = new Array();
+    $toggle['name'] = $( "#table-toggle-name" );
+    $toggle['speed'] = $( "#table-toggle-speed" );
+    $toggle['speed_hidden'] = $( "#table-toggle-speed-hidden" );
+    $toggle['acceleration'] = $( "#table-toggle-acceleration" );
+    $toggle['weight'] = $( "#table-toggle-weight" );
+    $toggle['handling'] = $( "#table-toggle-handling" );
+    $toggle['handling_hidden'] = $( "#table-toggle-handling-hidden" );
+    $toggle['traction'] = $( "#table-toggle-traction" );
+    $toggle['miniturbo'] = $( "#table-toggle-miniturbo" );
+    $toggle['highlight_hidden'] = $( "#table-toggle-highlight-hidden" );
+    $toggle['highlight_acceleration'] = $( "#table-toggle-highlight-acceleration" );
 
     // Bootstrap view breakpoints
-    var $screen_sm_min = 768;
-    var $screen_md_min = 992;
-    var $screen_lg_min = 1200;
+    var screen_sm_min = 768;
+    var screen_md_min = 992;
+    var screen_lg_min = 1200;
 
+    ////////////////////////
+    // FUNCTIONS
+    ////////////////////////
+
+    // Toggle background color for secret stats
     function toggleHighlightSecret() {
-      $col_speed_water.toggleClass('hidden-stat');
-      $col_speed_air.toggleClass('hidden-stat');
-      $col_speed_antigravity.toggleClass('hidden-stat');
-      $col_handling_water.toggleClass('hidden-stat');
-      $col_handling_air.toggleClass('hidden-stat');
-      $col_handling_antigravity.toggleClass('hidden-stat');
-      $col_miniturbo.toggleClass('hidden-stat');
+      $col['speed_water'].toggleClass('hidden-stat');
+      $col['speed_air'].toggleClass('hidden-stat');
+      $col['speed_antigravity'].toggleClass('hidden-stat');
+      $col['handling_water'].toggleClass('hidden-stat');
+      $col['handling_air'].toggleClass('hidden-stat');
+      $col['handling_antigravity'].toggleClass('hidden-stat');
+      $col['miniturbo'].toggleClass('hidden-stat');
     }
 
+    // Toggles background color for inefficient acceleration values
     function toggleHighlightAcceleration() {
       $('td[data-column="acceleration"]:contains(".25")').toggleClass('inefficient-1');
       $('td[data-column="acceleration"]:contains(".50")').toggleClass('inefficient-2');
       $('td[data-column="acceleration"]:contains(".75")').toggleClass('inefficient-3');
     }
 
+    // Changes a View preference's state to visible/selected
+    function show_column(slug) {
+      if (slug == 'speed_hidden') {
+        $toggle['speed_hidden'].addClass("selected");
+        $col['speed_water'].removeClass("hidden");
+        $col['speed_air'].removeClass("hidden");
+        $col['speed_antigravity'].removeClass("hidden");
+      } else if (slug == 'handling_hidden') {
+        $toggle['handling_hidden'].addClass("selected");
+        $col['handling_water'].removeClass("hidden");
+        $col['handling_air'].removeClass("hidden");
+        $col['handling_antigravity'].removeClass("hidden");
+      } else if (slug == 'highlight_hidden') {
+        $toggle['highlight_hidden'].addClass("selected");
+        $col['speed_water'].addClass('hidden-stat');
+        $col['speed_air'].addClass('hidden-stat');
+        $col['speed_antigravity'].addClass('hidden-stat');
+        $col['handling_water'].addClass('hidden-stat');
+        $col['handling_air'].addClass('hidden-stat');
+        $col['handling_antigravity'].addClass('hidden-stat');
+        $col['miniturbo'].addClass('hidden-stat');
+      } else if (slug == 'highlight_acceleration') {
+        $toggle['highlight_acceleration'].addClass("selected");
+        $('#kart-list td[data-column="acceleration"]:contains(".25")').addClass('inefficient-1');
+        $('#kart-list td[data-column="acceleration"]:contains(".5")').addClass('inefficient-2');
+        $('#kart-list td[data-column="acceleration"]:contains(".75")').addClass('inefficient-3');
+      } else {
+        $toggle[slug].addClass("selected");
+        $col[slug].removeClass("hidden");
+      }
+    }
+
+    // Changes a View preference's state to hidden/unselected
+    function hide_column(slug) {
+      if (slug == 'speed_hidden') {
+        $toggle['speed_hidden'].removeClass("selected");
+        $col['speed_water'].addClass("hidden");
+        $col['speed_air'].addClass("hidden");
+        $col['speed_antigravity'].addClass("hidden");
+      } else if (slug == 'handling_hidden') {
+        $toggle['handling_hidden'].removeClass("selected");
+        $col['handling_water'].addClass("hidden");
+        $col['handling_air'].addClass("hidden");
+        $col['handling_antigravity'].addClass("hidden");
+      } else if (slug == 'highlight_hidden') {
+        $toggle['highlight_hidden'].removeClass("selected");
+        $col['speed_water'].removeClass('hidden-stat');
+        $col['speed_air'].removeClass('hidden-stat');
+        $col['speed_antigravity'].removeClass('hidden-stat');
+        $col['handling_water'].removeClass('hidden-stat');
+        $col['handling_air'].removeClass('hidden-stat');
+        $col['handling_antigravity'].removeClass('hidden-stat');
+        $col['miniturbo'].removeClass('hidden-stat');
+      } else if (slug == 'highlight_acceleration') {
+        $toggle['highlight_acceleration'].removeClass("selected");
+        $('#kart-list td[data-column="acceleration"]:contains(".25")').removeClass('inefficient-1');
+        $('#kart-list td[data-column="acceleration"]:contains(".5")').removeClass('inefficient-2');
+        $('#kart-list td[data-column="acceleration"]:contains(".75")').removeClass('inefficient-3');
+      } else {
+        $toggle[slug].removeClass("selected");
+        $col[slug].addClass("hidden");
+      }
+    }
+
+    ////////////////////////////////////////////////////////
+    // Nifty csrftoken functions for ajax from django docs
+    ////////////////////////////////////////////////////////
+    // fetch csrftoken using jQuery
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = jQuery.trim(cookies[i]);
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) == (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+    function csrfSafeMethod(method) {
+      // these HTTP methods do not require CSRF protection
+      return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    ////////////////////////////////////////////////////////
+
+    // Makes an AJAX POST request to store the updated preference
+    function set_pref(preference, value) {
+      if (preference != "" && value != "") {
+        var data = { preference:preference, value:value };
+        var args = { type:"POST", url:"/ajax_set_pref/", data:data, complete:null };
+        $.ajaxSetup({
+          beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+          }
+        });
+        $.ajax(args);
+      }
+      else {
+        // display an explanation of failure
+      }
+      return false;
+    };
+
+    // Set the initial state of all columns
     function initializeColumns() {
-      // Dropdown selections
-      $toggle_speed.addClass("selected");
-      $toggle_speed_hidden.removeClass("selected");
-      $toggle_acceleration.addClass("selected");
-      $toggle_weight.addClass("selected");
-      $toggle_handling.addClass("selected");
-      $toggle_handling_hidden.removeClass("selected");
-      $toggle_traction.addClass("selected");
-      $toggle_highlight_hidden.addClass("selected");
-      $toggle_highlight_acceleration.addClass("selected");
+      function load_pref(name, default_show) {
+        if (column_prefs[name] == true) {
+          // alert(name + ' true');
+          show_column(name);
+        } else if (column_prefs[name] == false) {
+          // alert(name + ' false');
+          hide_column(name);
+        } else if (default_show) {
+          // alert(name + ' default show');
+          show_column(name);
+        } else {
+          // alert(name + ' default hide');
+          hide_column(name);
+        }
+      }
 
       // Prioritize columns based on screen size
-      $priority1.removeClass("hidden");
-      $priority2.addClass("hidden");
-      $priority3.addClass("hidden");
+      $priority[1].removeClass("hidden");
+      $priority[2].addClass("hidden");
+      $priority[3].addClass("hidden");
 
       var $width = $( window ).width();
 
-      if ($width > $screen_sm_min) {
-        $priority2.removeClass("hidden");
-        $toggle_miniturbo.addClass("selected");
+      if ($width > screen_sm_min) {
+        show_column('name');
+        show_column('miniturbo');
       }
-      if ($width > $screen_lg_min) {
-        $priority3.removeClass("hidden");
-        $toggle_speed_hidden.addClass("selected");
-        $toggle_handling_hidden.addClass("selected");
+      if ($width > screen_lg_min) {
+        show_column('speed_hidden');
+        show_column('handling_hidden');
       }
 
-      // Secret stat highlights
-      $col_speed_water.addClass('hidden-stat');
-      $col_speed_air.addClass('hidden-stat');
-      $col_speed_antigravity.addClass('hidden-stat');
-      $col_handling_water.addClass('hidden-stat');
-      $col_handling_air.addClass('hidden-stat');
-      $col_handling_antigravity.addClass('hidden-stat');
-      $col_miniturbo.addClass('hidden-stat');
+      // Determine default state based on screen width
+      var defaults = new Array();
+      defaults['name'] = false;
+      defaults['miniturbo'] = false;
+      defaults['speed_hidden'] = false;
+      defaults['handling_hidden'] = false;
+
+      if ($width > screen_sm_min) {
+        defaults['name'] = true;
+        defaults['miniturbo'] = true;
+      }
+      if ($width > screen_lg_min) {
+        defaults['speed_hidden'] = true;
+        defaults['handling_hidden'] = true;
+      }
+
+      // Override screen defaults based on parameters
+      load_pref('name', defaults['name']);
+      load_pref('speed', true);
+      load_pref('speed_hidden', defaults['speed_hidden']);
+      load_pref('acceleration', true);
+      load_pref('weight', true)
+      load_pref('handling', true);
+      load_pref('handling_hidden', defaults['handling_hidden']);
+      load_pref('traction', true);
+      load_pref('miniturbo', defaults['miniturbo']);
+      load_pref('highlight_hidden', true);
+      load_pref('highlight_acceleration', true);
     }
 
-    // Initialize Columns onLoad & onResize
+    ////////////////////////
+    // onLoad begins here
+    ////////////////////////
+
+    // Initialize Columns onLoad
     initializeColumns();
-    $( window ).resize(function() {
-      initializeColumns();
-    });
 
-    // #table-toggle-speed
-    $toggle_speed.click(function( event ) {
-      $(this).toggleClass("selected");
-      $col_speed_ground.toggleClass("hidden");
-      event.stopPropagation();
-    });
-    // #table-toggle-speed-hidden
-    $toggle_speed_hidden.click(function( event ) {
-      $(this).toggleClass("selected");
-      $col_speed_water.toggleClass("hidden");
-      $col_speed_air.toggleClass("hidden");
-      $col_speed_antigravity.toggleClass("hidden");
-      event.stopPropagation();
-    });
-    // #table-toggle-acceleration
-    $toggle_acceleration.click(function( event ) {
-      $(this).toggleClass("selected");
-      $col_acceleration.toggleClass("hidden");
-      event.stopPropagation();
-    });
-    // #table-toggle-weight
-    $toggle_weight.click(function( event ) {
-      $(this).toggleClass("selected");
-      $col_weight.toggleClass("hidden");
-      event.stopPropagation();
-    });
-    // #table-toggle-handling
-    $toggle_handling.click(function( event ) {
-      $(this).toggleClass("selected");
-      $col_handling_ground.toggleClass("hidden");
-      event.stopPropagation();
-    });
-    // #table-toggle-handling-hidden
-    $toggle_handling_hidden.click(function( event ) {
-      $(this).toggleClass("selected");
-      $col_handling_water.toggleClass("hidden");
-      $col_handling_air.toggleClass("hidden");
-      $col_handling_antigravity.toggleClass("hidden");
-      event.stopPropagation();
-    });
-    // #table-toggle-traction
-    $toggle_traction.click(function( event ) {
-      $(this).toggleClass("selected");
-      $col_traction.toggleClass("hidden");
-      event.stopPropagation();
-    });
-    // #table-toggle-miniturbo
-    $toggle_miniturbo.click(function( event ) {
-      $(this).toggleClass("selected");
-      $col_miniturbo.toggleClass("hidden");
-      event.stopPropagation();
-    });
-    // #table-toggle-highlight
-    $toggle_highlight_hidden.click(function( event ) {
-      $(this).toggleClass("selected");
-      toggleHighlightSecret();
-      event.stopPropagation();
-    });
-    $toggle_highlight_acceleration.click(function( event ) {
-      $(this).toggleClass("selected");
-      toggleHighlightAcceleration();
-      event.stopPropagation();
-    });
-  };
-
-  ////////////////////////////////////////
-  // enable_toggleable_components_columns
-  ////////////////////////////////////////
-
-  enable_toggleable_components_columns = function() {
-
-    // Preload jQuery objects
-    var $priority1 = $( "*[data-priority='1']" );
-    var $priority2 = $( "*[data-priority='2']" );
-    var $priority3 = $( "*[data-priority='3']" );
-
-    var $col_name = $( "*[data-column='name']" );
-    var $col_speed_ground = $( "*[data-column='speed_ground']" );
-    var $col_speed_water = $( "*[data-column='speed_water']" );
-    var $col_speed_air = $( "*[data-column='speed_air']" );
-    var $col_speed_antigravity = $( "*[data-column='speed_antigravity']" );
-    var $col_acceleration = $( "*[data-column='acceleration']" );
-    var $col_weight = $( "*[data-column='weight']" );
-    var $col_handling_ground = $( "*[data-column='handling_ground']" );
-    var $col_handling_water = $( "*[data-column='handling_water']" );
-    var $col_handling_air = $( "*[data-column='handling_air']" );
-    var $col_handling_antigravity = $( "*[data-column='handling_antigravity']" );
-    var $col_traction = $( "*[data-column='traction']" );
-    var $col_miniturbo = $( "*[data-column='miniturbo']" );
-
-    var $toggle_name = $( "#table-toggle-name" );
-    var $toggle_speed = $( "#table-toggle-speed" );
-    var $toggle_speed_hidden = $( "#table-toggle-speed-hidden" );
-    var $toggle_acceleration = $( "#table-toggle-acceleration" );
-    var $toggle_weight = $( "#table-toggle-weight" );
-    var $toggle_handling = $( "#table-toggle-handling" );
-    var $toggle_handling_hidden = $( "#table-toggle-handling-hidden" );
-    var $toggle_traction = $( "#table-toggle-traction" );
-    var $toggle_miniturbo = $( "#table-toggle-miniturbo" );
-    var $toggle_highlight_hidden = $( "#table-toggle-highlight-hidden" );
-    var $toggle_highlight_acceleration = $( "#table-toggle-highlight-acceleration" );
-
-    // Bootstrap view breakpoints
-    var $screen_sm_min = 768;
-    var $screen_md_min = 992;
-    var $screen_lg_min = 1200;
-
-    function toggleHighlightSecret() {
-      $col_speed_water.toggleClass('hidden-stat');
-      $col_speed_air.toggleClass('hidden-stat');
-      $col_speed_antigravity.toggleClass('hidden-stat');
-      $col_handling_water.toggleClass('hidden-stat');
-      $col_handling_air.toggleClass('hidden-stat');
-      $col_handling_antigravity.toggleClass('hidden-stat');
-      $col_miniturbo.toggleClass('hidden-stat');
-    }
-
-    function toggleHighlightAcceleration() {
-      $('td[data-column="acceleration"]:contains(".25")').toggleClass('inefficient-1');
-      $('td[data-column="acceleration"]:contains(".50")').toggleClass('inefficient-2');
-      $('td[data-column="acceleration"]:contains(".75")').toggleClass('inefficient-3');
-    }
-
-    function initializeColumns() {
-      // Dropdown selections
-      $toggle_name.removeClass("selected");
-      $toggle_speed.addClass("selected");
-      $toggle_speed_hidden.removeClass("selected");
-      $toggle_acceleration.addClass("selected");
-      $toggle_weight.addClass("selected");
-      $toggle_handling.addClass("selected");
-      $toggle_handling_hidden.removeClass("selected");
-      $toggle_traction.addClass("selected");
-      $toggle_highlight_hidden.addClass("selected");
-      $toggle_highlight_acceleration.addClass("selected");
-
-      // Prioritize columns based on screen size
-      $priority1.removeClass("hidden");
-      $priority2.addClass("hidden");
-      $priority3.addClass("hidden");
-
-      var $width = $( window ).width();
-
-      if ($width > $screen_sm_min) {
-        $priority2.removeClass("hidden");
-        $toggle_name.addClass("selected");
-        $toggle_miniturbo.addClass("selected");
-      }
-      if ($width > $screen_lg_min) {
-        $priority3.removeClass("hidden");
-        $toggle_speed_hidden.addClass("selected");
-        $toggle_handling_hidden.addClass("selected");
-      }
-
-      // Secret stat highlights
-      $col_speed_water.addClass('hidden-stat');
-      $col_speed_air.addClass('hidden-stat');
-      $col_speed_antigravity.addClass('hidden-stat');
-      $col_handling_water.addClass('hidden-stat');
-      $col_handling_air.addClass('hidden-stat');
-      $col_handling_antigravity.addClass('hidden-stat');
-      $col_miniturbo.addClass('hidden-stat');
-    }
-
-    // Initialize Columns onLoad & onResize
-    initializeColumns();
-    // $( window ).resize(function() {
-    //   initializeColumns();
-    // });
-
+    // Handle dropdown click toggle events
     // #table-toggle-name
-    $toggle_name.click(function( event ) {
+    $toggle['name'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('name', 'false');
+      } else {
+        set_pref('name', True);
+      }
       $(this).toggleClass("selected");
-      $col_name.toggleClass("hidden");
+      $col['name'].toggleClass("hidden");
+
       event.stopPropagation();
     });
     // #table-toggle-speed
-    $toggle_speed.click(function( event ) {
+    $toggle['speed'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('speed', 'false');
+      } else {
+        set_pref('speed', True);
+      }
       $(this).toggleClass("selected");
-      $col_speed_ground.toggleClass("hidden");
+      $col['speed_ground'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-speed-hidden
-    $toggle_speed_hidden.click(function( event ) {
+    $toggle['speed_hidden'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('speed_hidden', 'false');
+      } else {
+        set_pref('speed_hidden', 'true');
+      }
       $(this).toggleClass("selected");
-      $col_speed_water.toggleClass("hidden");
-      $col_speed_air.toggleClass("hidden");
-      $col_speed_antigravity.toggleClass("hidden");
+      $col['speed_water'].toggleClass("hidden");
+      $col['speed_air'].toggleClass("hidden");
+      $col['speed_antigravity'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-acceleration
-    $toggle_acceleration.click(function( event ) {
+    $toggle['acceleration'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('acceleration', 'false');
+      } else {
+        set_pref('acceleration', True);
+      }
       $(this).toggleClass("selected");
-      $col_acceleration.toggleClass("hidden");
+      $col['acceleration'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-weight
-    $toggle_weight.click(function( event ) {
+    $toggle['weight'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('weight', 'false');
+      } else {
+        set_pref('weight', 'true');
+      }
       $(this).toggleClass("selected");
-      $col_weight.toggleClass("hidden");
+      $col['weight'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-handling
-    $toggle_handling.click(function( event ) {
+    $toggle['handling'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('handling', 'false');
+      } else {
+        set_pref('handling', 'true');
+      }
       $(this).toggleClass("selected");
-      $col_handling_ground.toggleClass("hidden");
+      $col['handling_ground'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-handling-hidden
-    $toggle_handling_hidden.click(function( event ) {
+    $toggle['handling_hidden'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('handling_hidden', 'false');
+      } else {
+        set_pref('handling_hidden', 'true');
+      }
       $(this).toggleClass("selected");
-      $col_handling_water.toggleClass("hidden");
-      $col_handling_air.toggleClass("hidden");
-      $col_handling_antigravity.toggleClass("hidden");
+      $col['handling_water'].toggleClass("hidden");
+      $col['handling_air'].toggleClass("hidden");
+      $col['handling_antigravity'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-traction
-    $toggle_traction.click(function( event ) {
+    $toggle['traction'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('traction', 'false');
+      } else {
+        set_pref('traction', 'true');
+      }
       $(this).toggleClass("selected");
-      $col_traction.toggleClass("hidden");
+      $col['traction'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-miniturbo
-    $toggle_miniturbo.click(function( event ) {
+    $toggle['miniturbo'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('miniturbo', 'false');
+      } else {
+        set_pref('miniturbo', 'true');
+      }
       $(this).toggleClass("selected");
-      $col_miniturbo.toggleClass("hidden");
+      $col['miniturbo'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-highlight
-    $toggle_highlight_hidden.click(function( event ) {
+    $toggle['highlight_hidden'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('highlight_hidden', 'false');
+      } else {
+        set_pref('highlight_hidden', 'true');
+      }
       $(this).toggleClass("selected");
       toggleHighlightSecret();
       event.stopPropagation();
     });
-    $toggle_highlight_acceleration.click(function( event ) {
+    $toggle['highlight_acceleration'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('highlight_acceleration', 'false');
+      } else {
+        set_pref('highlight_acceleration', 'true');
+      }
       $(this).toggleClass("selected");
       toggleHighlightAcceleration();
       event.stopPropagation();

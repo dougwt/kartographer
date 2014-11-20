@@ -1,20 +1,22 @@
 """Django views for displaying and comparing MK8 kart configurations."""
 
+import json
 import locale
 import logging
 import random
 
+import settings.base as settings
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.db import IntegrityError
 from django.db.models import F
+from django.http import HttpResponse, HttpResponseServerError
 from django.shortcuts import (get_list_or_404, get_object_or_404, redirect,
                               render)
 from ipware.ip import get_ip, get_real_ip
 
-from .models import (Kart, ConfigList, ConfigListItem, Glider, KartConfig,
-                     Character, CharacterStats, Wheel)
-import settings.base as settings
+from .models import (Character, CharacterStats, ConfigList, ConfigListItem,
+                     Glider, Kart, KartConfig, Wheel)
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +55,19 @@ def home(request):
                        Wheel.objects.count() * \
                        Glider.objects.count()
 
+    column_prefs = {
+        'speed': request.session.get('show_col_speed', None),
+        'speed_hidden': request.session.get('show_col_speed_hidden', None),
+        'acceleration': request.session.get('show_col_acceleration', None),
+        'weight': request.session.get('show_col_weight', None),
+        'handling': request.session.get('show_col_handling', None),
+        'handling_hidden': request.session.get('show_col_handling_hidden', None),
+        'traction': request.session.get('show_col_traction', None),
+        'miniturbo': request.session.get('show_col_miniturbo', None),
+        'highlight_hidden': request.session.get('show_col_highlight_hidden', None),
+        'highlight_acceleration': request.session.get('show_col_highlight_acceleration', None),
+    }
+
     context = {
         'characterstats':       CharacterStats.objects.all(),
         'characters':           Character.objects.select_related().all(),
@@ -60,6 +75,7 @@ def home(request):
         'wheels':               Wheel.objects.all(),
         'gliders':              Glider.objects.all(),
         'configurations':       configurations,
+        'column_prefs':         json.dumps(column_prefs),
         'total_combinations':   total_combinations,
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
@@ -147,9 +163,24 @@ def components(request):
         },
     ]
 
+    column_prefs = {
+        'name': request.session.get('show_col_name', None),
+        'speed': request.session.get('show_col_speed', None),
+        'speed_hidden': request.session.get('show_col_speed_hidden', None),
+        'acceleration': request.session.get('show_col_acceleration', None),
+        'weight': request.session.get('show_col_weight', None),
+        'handling': request.session.get('show_col_handling', None),
+        'handling_hidden': request.session.get('show_col_handling_hidden', None),
+        'traction': request.session.get('show_col_traction', None),
+        'miniturbo': request.session.get('show_col_miniturbo', None),
+        'highlight_hidden': request.session.get('show_col_highlight_hidden', None),
+        'highlight_acceleration': request.session.get('show_col_highlight_acceleration', None),
+    }
+
     context = {
         'characterstats':       CharacterStats.objects.all(),
         'components':           components,
+        'column_prefs':         json.dumps(column_prefs),
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
         'quote':                fetch_random_quote(),
@@ -240,6 +271,19 @@ def list(request, url_hash):
 
     log('Displaying list %s' % url_hash, request)
 
+    column_prefs = {
+        'speed': request.session.get('show_col_speed', None),
+        'speed_hidden': request.session.get('show_col_speed_hidden', None),
+        'acceleration': request.session.get('show_col_acceleration', None),
+        'weight': request.session.get('show_col_weight', None),
+        'handling': request.session.get('show_col_handling', None),
+        'handling_hidden': request.session.get('show_col_handling_hidden', None),
+        'traction': request.session.get('show_col_traction', None),
+        'miniturbo': request.session.get('show_col_miniturbo', None),
+        'highlight_hidden': request.session.get('show_col_highlight_hidden', None),
+        'highlight_acceleration': request.session.get('show_col_highlight_acceleration', None),
+    }
+
     context = {
         'characterstats':       CharacterStats.objects.all(),
         'characters':           Character.objects.select_related().all(),
@@ -247,6 +291,7 @@ def list(request, url_hash):
         'wheels':               Wheel.objects.all(),
         'gliders':              Glider.objects.all(),
         'configurations':       configurations,
+        'column_prefs':         json.dumps(column_prefs),
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
         'quote':                fetch_random_quote(),
@@ -264,3 +309,31 @@ def top(request):
         'quote':                fetch_random_quote(),
     }
     return render(request, 'comparison/top.html', context)
+
+
+def ajax_set_preference(request):
+    success = False
+    to_return = {'msg':u'No POST data sent.' }
+    if request.method == "POST":
+        post = request.POST.copy()
+        if post.has_key('preference') and post.has_key('value'):
+            preference = post['preference']
+            value = post['value']
+
+            allowed_pref = ['name', 'speed', 'speed_hidden', 'acceleration', 'handling', 'handling_hidden', 'traction', 'miniturbo', 'highlight_hidden', 'highlight_acceleration']
+            allowed_value = ['true', 'false']
+
+            if preference in allowed_pref and value in allowed_value:
+                if value == 'true':
+                    value = True
+                else:
+                    value = False
+                request.session['show_col_' + preference] = value
+                success = True
+        else:
+            to_return['msg'] = u"Requires both valid 'preference' and 'value'!"
+    serialized = json.dumps(to_return)
+    if success == True:
+        return HttpResponse(serialized, content_type="application/json")
+    else:
+        return HttpResponseServerError(serialized, content_type="application/json")

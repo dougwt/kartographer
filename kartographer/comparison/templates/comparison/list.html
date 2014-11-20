@@ -180,16 +180,16 @@ $( document ).ready(function() {
   $('table').stickyTableHeaders();
 
   // Highlight Inefficient Accelerations
-  $('td[data-column="acceleration"]:contains(".25")').addClass('inefficient-1');
-  $('td[data-column="acceleration"]:contains(".5")').addClass('inefficient-2');
-  $('td[data-column="acceleration"]:contains(".75")').addClass('inefficient-3');
+  // $('td[data-column="acceleration"]:contains(".25")').addClass('inefficient-1');
+  // $('td[data-column="acceleration"]:contains(".5")').addClass('inefficient-2');
+  // $('td[data-column="acceleration"]:contains(".75")').addClass('inefficient-3');
 
   $(function () {
     $('[data-toggle="popover"]').popover()
   })
 
   // Hide & Show Table Columns
-  enable_toggleable_list_columns();
+  enable_toggleable_columns({{ column_prefs|safe }});
 });
 </script>
 {% block script_extra %}{% endblock %}
