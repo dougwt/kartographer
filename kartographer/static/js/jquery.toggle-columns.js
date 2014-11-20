@@ -2,12 +2,18 @@
   enable_toggleable_columns = function(column_prefs) {
     // column_prefs = column_prefs | null;
 
-    // Preload jQuery objects
+    ////////////////////////
+    // INITIALIZE
+    ////////////////////////
+
+    // Preload commonly used jQuery objects
+    // Priority columns
     var $priority = new Array();
     $priority[1] = $( "*[data-priority='1']" );
     $priority[2] = $( "*[data-priority='2']" );
     $priority[3] = $( "*[data-priority='3']" );
 
+    // Table columns
     var $col = new Array();
     $col['name'] = $( "*[data-column='name']" );
     $col['speed'] = $( "*[data-column='speed_ground']" );
@@ -23,6 +29,7 @@
     $col['traction'] = $( "*[data-column='traction']" );
     $col['miniturbo'] = $( "*[data-column='miniturbo']" );
 
+    // Dropdown toggles
     var $toggle = new Array();
     $toggle['name'] = $( "#table-toggle-name" );
     $toggle['speed'] = $( "#table-toggle-speed" );
@@ -41,7 +48,11 @@
     var screen_md_min = 992;
     var screen_lg_min = 1200;
 
-    // Toggles background color for secret stats
+    ////////////////////////
+    // FUNCTIONS
+    ////////////////////////
+
+    // Toggle background color for secret stats
     function toggleHighlightSecret() {
       $col['speed_water'].toggleClass('hidden-stat');
       $col['speed_air'].toggleClass('hidden-stat');
@@ -59,6 +70,7 @@
       $('td[data-column="acceleration"]:contains(".75")').toggleClass('inefficient-3');
     }
 
+    // Changes a View preference's state to visible/selected
     function show_column(slug) {
       if (slug == 'speed_hidden') {
         $toggle['speed_hidden'].addClass("selected");
@@ -90,6 +102,7 @@
       }
     }
 
+    // Changes a View preference's state to hidden/unselected
     function hide_column(slug) {
       if (slug == 'speed_hidden') {
         $toggle['speed_hidden'].removeClass("selected");
@@ -121,6 +134,9 @@
       }
     }
 
+    ////////////////////////////////////////////////////////
+    // Nifty csrftoken functions for ajax from django docs
+    ////////////////////////////////////////////////////////
     // fetch csrftoken using jQuery
     function getCookie(name) {
       var cookieValue = null;
@@ -138,14 +154,14 @@
       return cookieValue;
     }
     var csrftoken = getCookie('csrftoken');
-
     function csrfSafeMethod(method) {
       // these HTTP methods do not require CSRF protection
       return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
+    ////////////////////////////////////////////////////////
 
-
-    var set_pref = function(preference, value) {
+    // Makes an AJAX POST request to store the updated preference
+    function set_pref(preference, value) {
       if (preference != "" && value != "") {
         var data = { preference:preference, value:value };
         var args = { type:"POST", url:"/ajax_set_pref/", data:data, complete:null };
@@ -164,9 +180,8 @@
       return false;
     };
 
-    // Set the initial state for columns
+    // Set the initial state of all columns
     function initializeColumns() {
-
       function load_pref(name, default_show) {
         if (column_prefs[name] == true) {
           // alert(name + ' true');
@@ -227,23 +242,11 @@
       load_pref('miniturbo', defaults['miniturbo']);
       load_pref('highlight_hidden', true);
       load_pref('highlight_acceleration', true);
-
-      // // Secret stat highlights
-      // $col['speed_water'].addClass('hidden-stat');
-      // $col['speed_air'].addClass('hidden-stat');
-      // $col['speed_antigravity'].addClass('hidden-stat');
-      // $col['handling_water'].addClass('hidden-stat');
-      // $col['handling_air'].addClass('hidden-stat');
-      // $col['handling_antigravity'].addClass('hidden-stat');
-      // $col['miniturbo'].addClass('hidden-stat');
-
-      // // Inefficient acceleration highlights
-      // $('td[data-column="acceleration"]:contains(".25")').addClass('inefficient-1');
-      // $('td[data-column="acceleration"]:contains(".5")').addClass('inefficient-2');
-      // $('td[data-column="acceleration"]:contains(".75")').addClass('inefficient-3');
     }
 
-    // Execution begins here
+    ////////////////////////
+    // onLoad begins here
+    ////////////////////////
 
     // Initialize Columns onLoad
     initializeColumns();
