@@ -203,7 +203,7 @@ $( document ).ready(function() {
   })
 
   // Hide & Show Table Columns
-  enable_toggleable_components_columns();
+  enable_toggleable_columns({{ column_prefs|safe }});
 
   {% block script_extra %}{% endblock %}
 });
