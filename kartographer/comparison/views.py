@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.db import IntegrityError
 from django.db.models import F
+from django.http import HttpResponse, HttpResponseServerError
 from django.shortcuts import (get_list_or_404, get_object_or_404, redirect,
                               render)
 from ipware.ip import get_ip, get_real_ip
@@ -308,3 +309,31 @@ def top(request):
         'quote':                fetch_random_quote(),
     }
     return render(request, 'comparison/top.html', context)
+
+
+def ajax_set_preference(request):
+    success = False
+    to_return = {'msg':u'No POST data sent.' }
+    if request.method == "POST":
+        post = request.POST.copy()
+        if post.has_key('preference') and post.has_key('value'):
+            preference = post['preference']
+            value = post['value']
+
+            allowed_pref = ['name', 'speed', 'speed_hidden', 'acceleration', 'handling', 'handling_hidden', 'traction', 'miniturbo', 'highlight_hidden', 'highlight_acceleration']
+            allowed_value = ['true', 'false']
+
+            if preference in allowed_pref and value in allowed_value:
+                if value == 'true':
+                    value = True
+                else:
+                    value = False
+                request.session['show_col_' + preference] = value
+                success = True
+        else:
+            to_return['msg'] = u"Requires both valid 'preference' and 'value'!"
+    serialized = json.dumps(to_return)
+    if success == True:
+        return HttpResponse(serialized, content_type="application/json")
+    else:
+        return HttpResponseServerError(serialized, content_type="application/json")

@@ -24,6 +24,7 @@
     $col['miniturbo'] = $( "*[data-column='miniturbo']" );
 
     var $toggle = new Array();
+    $toggle['name'] = $( "#table-toggle-name" );
     $toggle['speed'] = $( "#table-toggle-speed" );
     $toggle['speed_hidden'] = $( "#table-toggle-speed-hidden" );
     $toggle['acceleration'] = $( "#table-toggle-acceleration" );
@@ -34,7 +35,6 @@
     $toggle['miniturbo'] = $( "#table-toggle-miniturbo" );
     $toggle['highlight_hidden'] = $( "#table-toggle-highlight-hidden" );
     $toggle['highlight_acceleration'] = $( "#table-toggle-highlight-acceleration" );
-    $toggle['name'] = $( "#table-toggle-name" );
 
     // Bootstrap view breakpoints
     var screen_sm_min = 768;
@@ -60,38 +60,109 @@
     }
 
     function show_column(slug) {
-      $toggle[slug].addClass("selected");
-
       if (slug == 'speed_hidden') {
+        $toggle['speed_hidden'].addClass("selected");
         $col['speed_water'].removeClass("hidden");
         $col['speed_air'].removeClass("hidden");
         $col['speed_antigravity'].removeClass("hidden");
-      }
-      else if (slug == 'handling_hidden') {
+      } else if (slug == 'handling_hidden') {
+        $toggle['handling_hidden'].addClass("selected");
         $col['handling_water'].removeClass("hidden");
         $col['handling_air'].removeClass("hidden");
         $col['handling_antigravity'].removeClass("hidden");
+      } else if (slug == 'highlight_hidden') {
+        $toggle['highlight_hidden'].addClass("selected");
+        $col['speed_water'].addClass('hidden-stat');
+        $col['speed_air'].addClass('hidden-stat');
+        $col['speed_antigravity'].addClass('hidden-stat');
+        $col['handling_water'].addClass('hidden-stat');
+        $col['handling_air'].addClass('hidden-stat');
+        $col['handling_antigravity'].addClass('hidden-stat');
+        $col['miniturbo'].addClass('hidden-stat');
+      } else if (slug == 'highlight_acceleration') {
+        $toggle['highlight_acceleration'].addClass("selected");
+        $('#kart-list td[data-column="acceleration"]:contains(".25")').addClass('inefficient-1');
+        $('#kart-list td[data-column="acceleration"]:contains(".5")').addClass('inefficient-2');
+        $('#kart-list td[data-column="acceleration"]:contains(".75")').addClass('inefficient-3');
       } else {
+        $toggle[slug].addClass("selected");
         $col[slug].removeClass("hidden");
       }
     }
 
     function hide_column(slug) {
-      $toggle[slug].removeClass("selected");
-
       if (slug == 'speed_hidden') {
+        $toggle['speed_hidden'].removeClass("selected");
         $col['speed_water'].addClass("hidden");
         $col['speed_air'].addClass("hidden");
         $col['speed_antigravity'].addClass("hidden");
-      }
-      else if (slug == 'handling_hidden') {
+      } else if (slug == 'handling_hidden') {
+        $toggle['handling_hidden'].removeClass("selected");
         $col['handling_water'].addClass("hidden");
         $col['handling_air'].addClass("hidden");
         $col['handling_antigravity'].addClass("hidden");
+      } else if (slug == 'highlight_hidden') {
+        $toggle['highlight_hidden'].addClass("selected");
+        $col['speed_water'].removeClass('hidden-stat');
+        $col['speed_air'].removeClass('hidden-stat');
+        $col['speed_antigravity'].removeClass('hidden-stat');
+        $col['handling_water'].removeClass('hidden-stat');
+        $col['handling_air'].removeClass('hidden-stat');
+        $col['handling_antigravity'].removeClass('hidden-stat');
+        $col['miniturbo'].removeClass('hidden-stat');
+      } else if (slug == 'highlight_acceleration') {
+        $toggle['highlight_acceleration'].addClass("selected");
+        $('#kart-list td[data-column="acceleration"]:contains(".25")').removeClass('inefficient-1');
+        $('#kart-list td[data-column="acceleration"]:contains(".5")').removeClass('inefficient-2');
+        $('#kart-list td[data-column="acceleration"]:contains(".75")').removeClass('inefficient-3');
       } else {
+        $toggle[slug].removeClass("selected");
         $col[slug].addClass("hidden");
       }
     }
+
+    // fetch csrftoken using jQuery
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = jQuery.trim(cookies[i]);
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) == (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+      // these HTTP methods do not require CSRF protection
+      return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+
+    var set_pref = function(preference, value) {
+      if (preference != "" && value != "") {
+        var data = { preference:preference, value:value };
+        var args = { type:"POST", url:"/ajax_set_pref/", data:data, complete:null };
+        $.ajaxSetup({
+          beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+          }
+        });
+        $.ajax(args);
+      }
+      else {
+        // display an explanation of failure
+      }
+      return false;
+    };
 
     // Set the initial state for columns
     function initializeColumns() {
@@ -154,18 +225,22 @@
       load_pref('handling_hidden', defaults['handling_hidden']);
       load_pref('traction', true);
       load_pref('miniturbo', defaults['miniturbo']);
+      load_pref('highlight_hidden', true);
+      load_pref('highlight_acceleration', true);
 
-      // handle_pref('highlight_hidden');
-      // handle_pref('highlight_acceleration', false);
+      // // Secret stat highlights
+      // $col['speed_water'].addClass('hidden-stat');
+      // $col['speed_air'].addClass('hidden-stat');
+      // $col['speed_antigravity'].addClass('hidden-stat');
+      // $col['handling_water'].addClass('hidden-stat');
+      // $col['handling_air'].addClass('hidden-stat');
+      // $col['handling_antigravity'].addClass('hidden-stat');
+      // $col['miniturbo'].addClass('hidden-stat');
 
-      // Secret stat highlights
-      $col['speed_water'].addClass('hidden-stat');
-      $col['speed_air'].addClass('hidden-stat');
-      $col['speed_antigravity'].addClass('hidden-stat');
-      $col['handling_water'].addClass('hidden-stat');
-      $col['handling_air'].addClass('hidden-stat');
-      $col['handling_antigravity'].addClass('hidden-stat');
-      $col['miniturbo'].addClass('hidden-stat');
+      // // Inefficient acceleration highlights
+      // $('td[data-column="acceleration"]:contains(".25")').addClass('inefficient-1');
+      // $('td[data-column="acceleration"]:contains(".5")').addClass('inefficient-2');
+      // $('td[data-column="acceleration"]:contains(".75")').addClass('inefficient-3');
     }
 
     // Execution begins here
@@ -176,18 +251,34 @@
     // Handle dropdown click toggle events
     // #table-toggle-name
     $toggle['name'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('name', 'false');
+      } else {
+        set_pref('name', True);
+      }
       $(this).toggleClass("selected");
       $col['name'].toggleClass("hidden");
+
       event.stopPropagation();
     });
     // #table-toggle-speed
     $toggle['speed'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('speed', 'false');
+      } else {
+        set_pref('speed', True);
+      }
       $(this).toggleClass("selected");
       $col['speed_ground'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-speed-hidden
     $toggle['speed_hidden'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('speed_hidden', 'false');
+      } else {
+        set_pref('speed_hidden', 'true');
+      }
       $(this).toggleClass("selected");
       $col['speed_water'].toggleClass("hidden");
       $col['speed_air'].toggleClass("hidden");
@@ -196,24 +287,44 @@
     });
     // #table-toggle-acceleration
     $toggle['acceleration'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('acceleration', 'false');
+      } else {
+        set_pref('acceleration', True);
+      }
       $(this).toggleClass("selected");
       $col['acceleration'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-weight
     $toggle['weight'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('weight', 'false');
+      } else {
+        set_pref('weight', 'true');
+      }
       $(this).toggleClass("selected");
       $col['weight'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-handling
     $toggle['handling'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('handling', 'false');
+      } else {
+        set_pref('handling', 'true');
+      }
       $(this).toggleClass("selected");
       $col['handling_ground'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-handling-hidden
     $toggle['handling_hidden'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('handling_hidden', 'false');
+      } else {
+        set_pref('handling_hidden', 'true');
+      }
       $(this).toggleClass("selected");
       $col['handling_water'].toggleClass("hidden");
       $col['handling_air'].toggleClass("hidden");
@@ -222,23 +333,43 @@
     });
     // #table-toggle-traction
     $toggle['traction'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('traction', 'false');
+      } else {
+        set_pref('traction', 'true');
+      }
       $(this).toggleClass("selected");
       $col['traction'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-miniturbo
     $toggle['miniturbo'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('miniturbo', 'false');
+      } else {
+        set_pref('miniturbo', 'true');
+      }
       $(this).toggleClass("selected");
       $col['miniturbo'].toggleClass("hidden");
       event.stopPropagation();
     });
     // #table-toggle-highlight
     $toggle['highlight_hidden'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('highlight_hidden', 'false');
+      } else {
+        set_pref('highlight_hidden', 'true');
+      }
       $(this).toggleClass("selected");
       toggleHighlightSecret();
       event.stopPropagation();
     });
     $toggle['highlight_acceleration'].click(function( event ) {
+      if ($(this).hasClass("selected")) {
+        set_pref('highlight_acceleration', 'false');
+      } else {
+        set_pref('highlight_acceleration', 'true');
+      }
       $(this).toggleClass("selected");
       toggleHighlightAcceleration();
       event.stopPropagation();
