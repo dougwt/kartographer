@@ -102,7 +102,7 @@
         $col['handling_air'].addClass("hidden");
         $col['handling_antigravity'].addClass("hidden");
       } else if (slug == 'highlight_hidden') {
-        $toggle['highlight_hidden'].addClass("selected");
+        $toggle['highlight_hidden'].removeClass("selected");
         $col['speed_water'].removeClass('hidden-stat');
         $col['speed_air'].removeClass('hidden-stat');
         $col['speed_antigravity'].removeClass('hidden-stat');
@@ -111,7 +111,7 @@
         $col['handling_antigravity'].removeClass('hidden-stat');
         $col['miniturbo'].removeClass('hidden-stat');
       } else if (slug == 'highlight_acceleration') {
-        $toggle['highlight_acceleration'].addClass("selected");
+        $toggle['highlight_acceleration'].removeClass("selected");
         $('#kart-list td[data-column="acceleration"]:contains(".25")').removeClass('inefficient-1');
         $('#kart-list td[data-column="acceleration"]:contains(".5")').removeClass('inefficient-2');
         $('#kart-list td[data-column="acceleration"]:contains(".75")').removeClass('inefficient-3');
