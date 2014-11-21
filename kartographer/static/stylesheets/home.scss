@@ -1,4 +1,5 @@
 @import "bootstrap/variables";
+@import "variables.scss";
 
 // Add Kart form
 label.fb {
@@ -15,5 +16,5 @@ input[type=radio] + img {
 }
 
 input[type=radio]:checked + img {
-  border: 5px solid #d65352;
+  border: 5px solid $red-base;
 }

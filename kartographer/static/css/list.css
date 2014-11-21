@@ -94,14 +94,8 @@ table.tablesorter thead {
 table.tablesorter thead th:hover {
   color: #d65352; }
 
-table.tablesorter .speed {
-  background-color: #dfefd8; }
-
-table.tablesorter .handling {
-  background-color: #fcf7e3; }
-
 table.tablesorter tbody tr {
-  color: #555; }
+  color: #555555; }
 
 table.tablesorter td.inefficient-1 {
   background-color: #fffde4; }

@@ -1,4 +1,5 @@
 @import "bootstrap/variables";
+@import "variables.scss";
 
 /* ====================== */
 /* Typography             */
@@ -56,13 +57,12 @@
 /* ====================== */
 
 table tbody tr.similar td {
-  background-color: #f0dddd !important;
-  border-color: #aaa;
+  background-color: lighten($blue-base, 40%);
+  border-color: lighten($blue-base, 30%);
 }
 
 table tbody tr.selected td {
-  background-color: #d65352 !important;
-  border-color: #aaa;
+  background-color: lighten($red-base, 10%);
   color: white;
 }
 

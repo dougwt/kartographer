@@ -20,12 +20,11 @@
 /* Color                  */
 /* ====================== */
 table tbody tr.similar td {
-  background-color: #f0dddd !important;
-  border-color: #aaa; }
+  background-color: #d1e5f5;
+  border-color: #a7ceec; }
 
 table tbody tr.selected td {
-  background-color: #d65352 !important;
-  border-color: #aaa;
+  background-color: #e07c7b;
   color: white; }
 
 /* ====================== */

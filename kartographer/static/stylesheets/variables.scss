@@ -1,0 +1,38 @@
+//
+// Variables
+// --------------------------------------------------
+
+//== Colors
+//
+
+$blue-base: #2D88CD;
+$blue-darker: lighten($blue-base, 13.5%);
+$blue-dark: lighten($blue-base, 20%);
+$blue: lighten($blue-base, 33.5%);
+$blue-light: lighten($blue-base, 46.7%);
+$blue-lighter: lighten($blue-base, 93.5%);
+
+$red-base: #d65352;
+$red-darker: lighten($red-base, 13.5%);
+$red-dark: lighten($red-base, 20%);
+$red: lighten($red-base, 33.5%);
+$red-light: lighten($red-base, 46.7%);
+$red-lighter: lighten($red-base, 93.5%);
+
+$table-bg: #555;
+
+$inefficient-low: lighten(#FFF483, 19%);
+$inefficient-medium: lighten(#f0ad4e, 32%);
+$inefficient-high: lighten(#d9534f, 37%);
+
+$navbar-highlight: #ABD4EA;
+$navbar-white: #efefef;
+
+$footer-graphic: #e7e7e7;
+$footer-text: #777;
+
+// $brand-primary: #428bca !default;
+// $brand-success: #5cb85c !default;
+// $brand-info: #5bc0de !default;
+// $brand-warning: #f0ad4e !default;
+// $brand-danger: #d9534f !default;

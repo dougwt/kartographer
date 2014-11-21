@@ -1,4 +1,5 @@
 @import "bootstrap/variables";
+@import "variables.scss";
 
 /* ====================== */
 /* Typography             */
@@ -144,32 +145,24 @@ table.tablesorter thead {
 }
 
 table.tablesorter thead th:hover {
-  color: #d65352;
-}
-
-table.tablesorter .speed {
-  background-color: #dfefd8;
-}
-
-table.tablesorter .handling {
-  background-color: #fcf7e3;
+  color: $red-base;
 }
 
 table.tablesorter tbody tr {
-  color: #555;
+  color: $table-bg;
 }
 
 // Inefficient Accelerations
 table.tablesorter td.inefficient-1 {
-  background-color: lighten(#FFF483, 19%);
+  background-color: $inefficient-low;
 }
 
 table.tablesorter td.inefficient-2 {
-  background-color: lighten(#f0ad4e, 32%);
+  background-color: $inefficient-medium;
 }
 
 table.tablesorter td.inefficient-3 {
-  background-color: lighten(#d9534f, 37%);
+  background-color: $inefficient-high;
 }
 
 /* ====================== */

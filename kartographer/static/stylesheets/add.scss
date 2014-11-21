@@ -1,4 +1,5 @@
 @import "bootstrap/variables";
+@import "variables.scss";
 
 /* ====================== */
 /* Typography             */
@@ -25,7 +26,7 @@
     border: 5px solid transparent;
   }
   input[type=radio]:checked + img {
-    border: 5px solid #d65352;
+    border: 5px solid $red-base;
   }
   .stat,
   .name {
@@ -66,20 +67,20 @@
     border-radius: 6px;
   }
   input[type=radio]:checked + .icon {
-    border: 3px solid #d65352;
+    border: 3px solid $red-base;
     padding: 3px;
-    background-color: lighten(#d65352, 20%);
+    background-color: lighten($red-base, 20%);
   }
   div.similar {
-    border: 2px solid lighten(#2D88CD, 30%);
+    border: 2px solid lighten($blue-base, 30%);
     padding: 4px;
-    background-color: lighten(#2D88CD, 40%);
+    background-color: lighten($blue-base, 40%);
   }
   span.selected {
-    color: #d65352;
+    color: $red-base;
   }
   span.similar {
-    color: #2D88CD;
+    color: $blue-base;
   }
   #collapseKart .icon img,
   #collapseWheel .icon img,
@@ -126,15 +127,15 @@
 
 // Inefficient Accelerations
 .inefficient-1 {
-  background-color: lighten(#FFF483, 19%);
+  background-color: $inefficient-low;
 }
 
 .inefficient-2 {
-  background-color: lighten(#f0ad4e, 32%);
+  background-color: $inefficient-medium;
 }
 
 .inefficient-3 {
-  background-color: lighten(#d9534f, 37%);
+  background-color: $inefficient-high;
 }
 
 /* ====================== */
@@ -142,45 +143,3 @@
 /* ====================== */
 
 @media print {}
-
-// .add-header {
-//   .panel-title {
-//     background-color: red;
-//   }
-//   .panel-stats {
-//     div {
-//       background-color: green;
-//     }
-//     background-color: yellow;
-//   }
-//   div div {
-//     background-color: purple;
-//   }
-// }
-
-// .panel-heading {
-//   h4 {
-//     background-color: red;
-//   }
-//   div {
-//     div {
-//       background-color: green;
-//     }
-//     background-color: yellow;
-//   }
-// }
-
-// .panel-total {
-//   .text-left {
-//     div {
-//       background-color: green;
-//     }
-//     background-color: red;
-//   }
-//   .text-right {
-//     div {
-//       background-color: green;
-//     }
-//     background-color: yellow;
-//   }
-// }
