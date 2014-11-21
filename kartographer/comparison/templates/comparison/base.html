@@ -36,7 +36,6 @@
             <li class="visible-xs"><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> My Karts</a></li>
             <li class="visible-xs"><a href="{% url 'components' %}"><span class="glyphicon glyphicon-th-list"></span> Kart Components</a></li>
             <li class="visible-xs"><a href="{% url 'top' %}"><span class="glyphicon glyphicon-fire"></span> Popular</a></li>
-            <li class="visible-xs"><a href="#info"><span class="glyphicon glyphicon-info-sign"></span> Guide</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -59,7 +58,6 @@
 
                 <li class="{% block nav_components_active %}{% endblock %}"><a href="{% url 'components' %}"><span class="glyphicon glyphicon-th-list"></span> Components</a></li>
                 <li class="{% block nav_popular_active %}{% endblock %}"><a href="{% url 'top' %}"><span class="glyphicon glyphicon-fire"></span> Popular</a></li>
-                <li class="{% block nav_info_active %}{% endblock %}"><a href="#info"><span class="glyphicon glyphicon-info-sign"></span> Guide</a></li>
               </ul>
             </nav>
           </div>
