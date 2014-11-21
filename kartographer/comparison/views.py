@@ -16,7 +16,7 @@ from django.shortcuts import (get_list_or_404, get_object_or_404, redirect,
 from ipware.ip import get_ip, get_real_ip
 
 from .models import (Character, CharacterStats, ConfigList, ConfigListItem,
-                     Glider, Kart, KartConfig, Wheel)
+                     Glider, Kart, KartConfig, KartRecord, Wheel)
 
 logger = logging.getLogger(__name__)
 
@@ -112,6 +112,15 @@ def add(request):
             config_list = request.session.get('config_list', [])
             config_list.append(potential_config)
             request.session['config_list'] = config_list
+
+            record = {
+                'character': Character.objects.get(pk=potential_config[0]),
+                'kart': Kart.objects.get(pk=potential_config[1]),
+                'wheel': Wheel.objects.get(pk=potential_config[2]),
+                'glider': Glider.objects.get(pk=potential_config[3]),
+            }
+
+            KartRecord.objects.create(**record)
 
             msg = 'Your kart configuration was added successfully.'
             messages.add_message(request, messages.SUCCESS, msg)
@@ -306,6 +315,7 @@ def top(request):
     popular_lists = ConfigList.objects.order_by('-view_count')[0:10]
     context = {
         'popular_lists': popular_lists,
+        'records': KartRecord.objects.all(),
         'quote':                fetch_random_quote(),
     }
     return render(request, 'comparison/top.html', context)

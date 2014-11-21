@@ -26,4 +26,12 @@
   <li class="empty-alert">No items in database.</li>
   {% endfor %}
 </ul>
+
+<ul>
+  {% for item in records %}
+  <li>{{ item.id }}</li>
+  {% empty %}
+  <li class="empty-alert">No items in database.</li>
+  {% endfor %}
+</ul>
 {% endblock %}
