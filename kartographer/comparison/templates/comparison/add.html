@@ -222,10 +222,26 @@
       return array
     }
 
-    var character = fetch_array($selected_character);
-    var kart = fetch_array($selected_kart);
-    var wheel = fetch_array($selected_wheel);
-    var glider = fetch_array($selected_glider);
+    var character = null;
+    var kart = null;
+    var wheel = null;
+    var glider = null;
+
+    if ($selected_character) {
+      character = fetch_array($selected_character);
+    }
+
+    if ($selected_kart) {
+      kart = fetch_array($selected_kart);
+    }
+
+    if ($selected_wheel) {
+      wheel = fetch_array($selected_wheel);
+    }
+
+    if ($selected_glider) {
+      glider = fetch_array($selected_glider);
+    }
 
     var total = new Array();
     total['speed'] = Number(character['speed']) + Number(kart['speed']) + Number(wheel['speed']) + Number(glider['speed']);
@@ -293,6 +309,7 @@
   }
   $( document ).ready(function() {
     refresh_kart_stats();
+    $( '#add-submit' ).addClass('disabled');
     $( 'input[type=radio]' ).click(function() {
       refresh_kart_stats();
 
