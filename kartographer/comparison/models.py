@@ -63,6 +63,7 @@ class Kart(CommonStats):
 
     class Meta:
         verbose_name_plural = "karts"
+        ordering = ['pk']
 
 
 class Wheel(CommonStats):
@@ -71,6 +72,9 @@ class Wheel(CommonStats):
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
         return static('images/mk8/wheels/%s.png' % super(Wheel, self).file())
+
+    class Meta:
+        ordering = ['pk']
 
 
 class Glider(CommonStats):
@@ -81,6 +85,9 @@ class Glider(CommonStats):
         """Return a lowercase form of the name used for image filenames."""
         return static('images/mk8/gliders/%s.png' % super(Glider, self).file())
 
+    class Meta:
+        ordering = ['pk']
+
 
 class Character(KartComponent):
     """Stats for a kart racer/driver."""
@@ -89,6 +96,9 @@ class Character(KartComponent):
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
         return static('images/mk8/faces/%s.png' % super(Character, self).file())
+
+    class Meta:
+        ordering = ['pk']
 
 
 class KartConfig():

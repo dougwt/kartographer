@@ -69,10 +69,10 @@ def home(request):
 
     context = {
         'characterstats':       CharacterStats.objects.all(),
-        'characters':           Character.objects.select_related().order_by('pk'),
-        'karts':                Kart.objects.order_by('pk'),
-        'wheels':               Wheel.objects.order_by('pk'),
-        'gliders':              Glider.objects.order_by('pk'),
+        'characters':           Character.objects.select_related().all(),
+        'karts':                Kart.objects.all(),
+        'wheels':               Wheel.objects.all(),
+        'gliders':              Glider.objects.all(),
         'configurations':       configurations,
         'column_prefs':         json.dumps(column_prefs),
         'total_combinations':   total_combinations,
@@ -133,10 +133,10 @@ def add(request):
 
     context = {
         'characterstats':       CharacterStats.objects.all(),
-        'characters':           Character.objects.select_related().order_by('pk'),
-        'karts':                Kart.objects.order_by('pk'),
-        'wheels':               Wheel.objects.order_by('pk'),
-        'gliders':              Glider.objects.order_by('pk'),
+        'characters':           Character.objects.select_related().all(),
+        'karts':                Kart.objects.all(),
+        'wheels':               Wheel.objects.all(),
+        'gliders':              Glider.objects.all(),
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
         'quote':                fetch_random_quote(),
@@ -152,22 +152,22 @@ def components(request):
         {
             'name': 'character',
             'plural': 'characters',
-            'items': Character.objects.select_related().order_by('pk'),
+            'items': Character.objects.select_related().all(),
         },
         {
             'name': 'kart',
             'plural': 'karts',
-            'items': Kart.objects.order_by('pk'),
+            'items': Kart.objects.all(),
         },
         {
             'name': 'wheel',
             'plural': 'wheels',
-            'items': Wheel.objects.order_by('pk'),
+            'items': Wheel.objects.all(),
         },
         {
             'name': 'glider',
             'plural': 'gliders',
-            'items': Glider.objects.order_by('pk'),
+            'items': Glider.objects.all(),
         },
     ]
 
@@ -294,10 +294,10 @@ def list(request, url_hash):
 
     context = {
         'characterstats':       CharacterStats.objects.all(),
-        'characters':           Character.objects.select_related().order_by('pk'),
-        'karts':                Kart.objects.order_by('pk'),
-        'wheels':               Wheel.objects.order_by('pk'),
-        'gliders':              Glider.objects.order_by('pk'),
+        'characters':           Character.objects.select_related().all(),
+        'karts':                Kart.objects.all(),
+        'wheels':               Wheel.objects.all(),
+        'gliders':              Glider.objects.all(),
         'configurations':       configurations,
         'column_prefs':         json.dumps(column_prefs),
         'total_list_count':     len(ConfigList.objects.all()),
