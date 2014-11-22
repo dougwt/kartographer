@@ -1,7 +1,6 @@
 """Django views for displaying and comparing MK8 kart configurations."""
 
 import json
-import locale
 import logging
 import random
 
@@ -134,10 +133,10 @@ def add(request):
 
     context = {
         'characterstats':       CharacterStats.objects.all(),
-        'characters':           Character.objects.select_related().all(),
-        'karts':                Kart.objects.all(),
-        'wheels':               Wheel.objects.all(),
-        'gliders':              Glider.objects.all(),
+        'characters':           Character.objects.select_related().order_by('pk'),
+        'karts':                Kart.objects.order_by('pk'),
+        'wheels':               Wheel.objects.order_by('pk'),
+        'gliders':              Glider.objects.order_by('pk'),
         'total_list_count':     len(ConfigList.objects.all()),
         'total_config_count':   len(ConfigListItem.objects.all()),
         'quote':                fetch_random_quote(),
@@ -295,10 +294,10 @@ def list(request, url_hash):
 
     context = {
         'characterstats':       CharacterStats.objects.all(),
-        'characters':           Character.objects.select_related().all(),
-        'karts':                Kart.objects.all(),
-        'wheels':               Wheel.objects.all(),
-        'gliders':              Glider.objects.all(),
+        'characters':           Character.objects.select_related().order_by('pk'),
+        'karts':                Kart.objects.order_by('pk'),
+        'wheels':               Wheel.objects.order_by('pk'),
+        'gliders':              Glider.objects.order_by('pk'),
         'configurations':       configurations,
         'column_prefs':         json.dumps(column_prefs),
         'total_list_count':     len(ConfigList.objects.all()),
