@@ -255,9 +255,9 @@
     // #table-toggle-name
     $toggle['name'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('name', false);
+        set_pref('name', 'false');
       } else {
-        set_pref('name', true);
+        set_pref('name', 'true');
       }
       $(this).toggleClass("selected");
       $col['name'].toggleClass("hidden");
@@ -266,9 +266,9 @@
     // #table-toggle-speed
     $toggle['speed_ground'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('speed_ground', false);
+        set_pref('speed_ground', 'false');
       } else {
-        set_pref('speed_ground', true);
+        set_pref('speed_ground', 'true');
       }
       $(this).toggleClass("selected");
       $col['speed_ground'].toggleClass("hidden");
@@ -277,9 +277,9 @@
     // #table-toggle-speed-hidden
     $toggle['speed_hidden'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('speed_hidden', false);
+        set_pref('speed_hidden', 'false');
       } else {
-        set_pref('speed_hidden', true);
+        set_pref('speed_hidden', 'true');
       }
       $(this).toggleClass("selected");
       $col['speed_water'].toggleClass("hidden");
@@ -290,9 +290,9 @@
     // #table-toggle-acceleration
     $toggle['acceleration'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('acceleration', false);
+        set_pref('acceleration', 'false');
       } else {
-        set_pref('acceleration', true);
+        set_pref('acceleration', 'true');
       }
       $(this).toggleClass("selected");
       $col['acceleration'].toggleClass("hidden");
@@ -301,9 +301,9 @@
     // #table-toggle-weight
     $toggle['weight'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('weight', false);
+        set_pref('weight', 'false');
       } else {
-        set_pref('weight', true);
+        set_pref('weight', 'true');
       }
       $(this).toggleClass("selected");
       $col['weight'].toggleClass("hidden");
@@ -312,9 +312,9 @@
     // #table-toggle-handling
     $toggle['handling_ground'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('handling_ground', false);
+        set_pref('handling_ground', 'false');
       } else {
-        set_pref('handling_ground', true);
+        set_pref('handling_ground', 'true');
       }
       $(this).toggleClass("selected");
       $col['handling_ground'].toggleClass("hidden");
@@ -323,9 +323,9 @@
     // #table-toggle-handling-hidden
     $toggle['handling_hidden'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('handling_hidden', false);
+        set_pref('handling_hidden', 'false');
       } else {
-        set_pref('handling_hidden', true);
+        set_pref('handling_hidden', 'true');
       }
       $(this).toggleClass("selected");
       $col['handling_water'].toggleClass("hidden");
@@ -336,9 +336,9 @@
     // #table-toggle-traction
     $toggle['traction'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('traction', false);
+        set_pref('traction', 'false');
       } else {
-        set_pref('traction', true);
+        set_pref('traction', 'true');
       }
       $(this).toggleClass("selected");
       $col['traction'].toggleClass("hidden");
@@ -347,9 +347,9 @@
     // #table-toggle-miniturbo
     $toggle['miniturbo'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('miniturbo', false);
+        set_pref('miniturbo', 'false');
       } else {
-        set_pref('miniturbo', true);
+        set_pref('miniturbo', 'true');
       }
       $(this).toggleClass("selected");
       $col['miniturbo'].toggleClass("hidden");
@@ -358,9 +358,9 @@
     // #table-toggle-highlight
     $toggle['highlight_hidden'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('highlight_hidden', false);
+        set_pref('highlight_hidden', 'false');
       } else {
-        set_pref('highlight_hidden', true);
+        set_pref('highlight_hidden', 'true');
       }
       $(this).toggleClass("selected");
       toggleHighlightSecret();
@@ -368,9 +368,9 @@
     });
     $toggle['highlight_acceleration'].click(function( event ) {
       if ($(this).hasClass("selected")) {
-        set_pref('highlight_acceleration', false);
+        set_pref('highlight_acceleration', 'false');
       } else {
-        set_pref('highlight_acceleration', true);
+        set_pref('highlight_acceleration', 'true');
       }
       $(this).toggleClass("selected");
       toggleHighlightAcceleration();

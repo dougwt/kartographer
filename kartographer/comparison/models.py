@@ -27,7 +27,7 @@ class KartComponent(models.Model):
 
     class Meta:
         abstract = True
-        ordering = ['id']
+        ordering = ['pk']
 
 
 class CommonStats(KartComponent):

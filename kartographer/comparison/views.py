@@ -56,11 +56,11 @@ def home(request):
                        Glider.objects.count()
 
     column_prefs = {
-        'speed_ground': request.session.get('show_col_speed', None),
+        'speed_ground': request.session.get('show_col_speed_ground', None),
         'speed_hidden': request.session.get('show_col_speed_hidden', None),
         'acceleration': request.session.get('show_col_acceleration', None),
         'weight': request.session.get('show_col_weight', None),
-        'handling_ground': request.session.get('show_col_handling', None),
+        'handling_ground': request.session.get('show_col_handling_ground', None),
         'handling_hidden': request.session.get('show_col_handling_hidden', None),
         'traction': request.session.get('show_col_traction', None),
         'miniturbo': request.session.get('show_col_miniturbo', None),
@@ -153,32 +153,32 @@ def components(request):
         {
             'name': 'character',
             'plural': 'characters',
-            'items': Character.objects.select_related().all(),
+            'items': Character.objects.select_related().order_by('pk'),
         },
         {
             'name': 'kart',
             'plural': 'karts',
-            'items': Kart.objects.all(),
+            'items': Kart.objects.order_by('pk'),
         },
         {
             'name': 'wheel',
             'plural': 'wheels',
-            'items': Wheel.objects.all(),
+            'items': Wheel.objects.order_by('pk'),
         },
         {
             'name': 'glider',
             'plural': 'gliders',
-            'items': Glider.objects.all(),
+            'items': Glider.objects.order_by('pk'),
         },
     ]
 
     column_prefs = {
         'name': request.session.get('show_col_name', None),
-        'speed': request.session.get('show_col_speed', None),
+        'speed_ground': request.session.get('show_col_speed_ground', None),
         'speed_hidden': request.session.get('show_col_speed_hidden', None),
         'acceleration': request.session.get('show_col_acceleration', None),
         'weight': request.session.get('show_col_weight', None),
-        'handling': request.session.get('show_col_handling', None),
+        'handling_ground': request.session.get('show_col_handling_ground', None),
         'handling_hidden': request.session.get('show_col_handling_hidden', None),
         'traction': request.session.get('show_col_traction', None),
         'miniturbo': request.session.get('show_col_miniturbo', None),
@@ -281,11 +281,11 @@ def list(request, url_hash):
     log('Displaying list %s' % url_hash, request)
 
     column_prefs = {
-        'speed': request.session.get('show_col_speed', None),
+        'speed_ground': request.session.get('show_col_speed', None),
         'speed_hidden': request.session.get('show_col_speed_hidden', None),
         'acceleration': request.session.get('show_col_acceleration', None),
         'weight': request.session.get('show_col_weight', None),
-        'handling': request.session.get('show_col_handling', None),
+        'handling_ground': request.session.get('show_col_handling', None),
         'handling_hidden': request.session.get('show_col_handling_hidden', None),
         'traction': request.session.get('show_col_traction', None),
         'miniturbo': request.session.get('show_col_miniturbo', None),
@@ -330,7 +330,7 @@ def ajax_set_preference(request):
             preference = post['preference']
             value = post['value']
 
-            allowed_pref = ['name', 'speed', 'speed_hidden', 'acceleration', 'handling', 'handling_hidden', 'traction', 'miniturbo', 'highlight_hidden', 'highlight_acceleration']
+            allowed_pref = ['name', 'speed_ground', 'speed_hidden', 'acceleration', 'weight', 'handling_ground', 'handling_hidden', 'traction', 'miniturbo', 'highlight_hidden', 'highlight_acceleration']
             allowed_value = ['true', 'false']
 
             if preference in allowed_pref and value in allowed_value:
