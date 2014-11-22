@@ -56,11 +56,11 @@ def home(request):
                        Glider.objects.count()
 
     column_prefs = {
-        'speed': request.session.get('show_col_speed', None),
+        'speed_ground': request.session.get('show_col_speed', None),
         'speed_hidden': request.session.get('show_col_speed_hidden', None),
         'acceleration': request.session.get('show_col_acceleration', None),
         'weight': request.session.get('show_col_weight', None),
-        'handling': request.session.get('show_col_handling', None),
+        'handling_ground': request.session.get('show_col_handling', None),
         'handling_hidden': request.session.get('show_col_handling_hidden', None),
         'traction': request.session.get('show_col_traction', None),
         'miniturbo': request.session.get('show_col_miniturbo', None),
