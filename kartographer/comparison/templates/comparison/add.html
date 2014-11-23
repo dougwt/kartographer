@@ -310,15 +310,26 @@
   $( document ).ready(function() {
     refresh_kart_stats();
     $( '#add-submit' ).addClass('disabled');
-    $( 'input[type=radio]' ).click(function() {
+
+    function selectid(id) {
+      var tg=document.getElementById(id);
+      tg.checked=true;
+    }
+
+    var register_selection = function() {
+      $label = $( this ).parents('label');
+      $panelbody = $label.parents('.panel-body');
+      selectid( $label.find('input').attr('id') );
+
       refresh_kart_stats();
 
-      $parent = $( this ).parents('#accordion div.panel-body');
-      $parent.find('.icon').removeClass('similar');
-      $parent.find("input[data-stats='" + $( this ).data('stats') + "'] + .icon").addClass('similar');
-      $( this ).removeClass('similar');
-    });
+      $panelbody.find('.icon').removeClass('similar');
+      $panelbody.find("input[data-stats='" + $label.find('input').data('stats') + "'] + .icon").addClass('similar');
+      $label.find('.icon').removeClass('similar');
+    }
 
+    $( 'input:radio' ).click(register_selection);
+    $( 'label.fb img'  ).click(register_selection);
     $(function () {
       $('[data-toggle="popover"]').popover()
     })
