@@ -4,6 +4,7 @@ import json
 import logging
 import random
 import os
+import operator
 import datetime
 
 from django.conf import settings
@@ -46,6 +47,11 @@ def fetch_random_quote():
     if read_data:
         quotes = read_data.splitlines()
         return random.choice(quotes)
+
+
+def random_hexcolor():
+    r = lambda: random.randint(0, 255)
+    return ('#%02X%02X%02X' % (r(), r(), r()))
 
 
 def home(request):
@@ -318,9 +324,30 @@ def top(request):
     log('Displaying top page', request)
 
     popular_lists = ConfigList.objects.order_by('-view_count')[0:10]
+
+    characters = Character.objects.select_related().all()
+    character_stats = {character.name: {'count': len(KartRecord.objects.filter(character__name=character.name)), 'color': random_hexcolor()} for character in characters}
+    character_stats = sorted(character_stats.items(), key=lambda (k, v): v['count'], reverse=True)
+
+    karts = Kart.objects.select_related().all()
+    kart_stats = {kart.name: {'count': len(KartRecord.objects.filter(kart__name=kart.name)), 'color': random_hexcolor()} for kart in karts}
+    kart_stats = sorted(kart_stats.items(), key=lambda (k, v): v['count'], reverse=True)
+
+    wheel = Wheel.objects.select_related().all()
+    wheel_stats = {wheel.name: {'count': len(KartRecord.objects.filter(wheel__name=wheel.name)), 'color': random_hexcolor()} for wheel in wheel}
+    wheel_stats = sorted(wheel_stats.items(), key=lambda (k, v): v['count'], reverse=True)
+
+    gliders = Glider.objects.select_related().all()
+    glider_stats = {glider.name: {'count': len(KartRecord.objects.filter(glider__name=glider.name)), 'color': random_hexcolor()} for glider in gliders}
+    glider_stats = sorted(glider_stats.items(), key=lambda (k, v): v['count'], reverse=True)
+
     context = {
         'popular_lists':        popular_lists,
         'records':              KartRecord.objects.all(),
+        'characters':           character_stats,
+        'karts':                kart_stats,
+        'wheels':               wheel_stats,
+        'gliders':              glider_stats,
         'update_timestamp':     fetch_update_datetime(),
         'quote':                fetch_random_quote(),
     }
@@ -329,7 +356,7 @@ def top(request):
 
 def ajax_set_preference(request):
     success = False
-    to_return = {'msg':u'No POST data sent.' }
+    to_return = {'msg': u'No POST data sent.'}
     if request.method == "POST":
         post = request.POST.copy()
         if post.has_key('preference') and post.has_key('value'):

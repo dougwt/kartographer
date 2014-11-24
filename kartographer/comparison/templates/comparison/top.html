@@ -1,7 +1,11 @@
 {% extends "comparison/base.html" %}
 {% load staticfiles %}
 
-{% block panel_title %}Popular Lists{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/top.css' %}">
+{% endblock %}
+
+{% block panel_title %}Popular{% endblock %}
 
 {% block nav_popular_active %}active{% endblock %}
 
@@ -19,19 +23,170 @@
 {% endblock %}
 
 {% block content %}
-<ul>
-  {% for item in popular_lists %}
-  <li><a href="/l/{{ item.url }}">{{ item.url }} ({{ item.view_count }})</a></li>
-  {% empty %}
-  <li class="empty-alert">No items in database.</li>
-  {% endfor %}
-</ul>
+<div class="chart-container clearfix">
+<div class="chart col-xs-12 col-md-6">
+  <h4>Characters</h4>
+  <div class="well">
+    <canvas id="charactersChart" width="250" height="250"></canvas>
+    <div id="charactersLegend"></div>
+  </div>
+</div>
 
-<ul>
-  {% for item in records %}
-  <li>{{ item.id }}</li>
-  {% empty %}
-  <li class="empty-alert">No items in database.</li>
-  {% endfor %}
-</ul>
+<div class="chart col-xs-12 col-md-6">
+  <h4>Karts</h4>
+  <div class="well">
+    <canvas id="kartsChart" width="250" height="250"></canvas>
+    <div id="kartsLegend"></div>
+  </div>
+</div>
+
+<div class="chart col-xs-12 col-md-6">
+  <h4>Wheels</h4>
+  <div class="well">
+    <canvas id="wheelsChart" width="250" height="250"></canvas>
+    <div id="wheelsLegend"></div>
+  </div>
+</div>
+
+<div class="chart col-xs-12 col-md-6">
+  <h4>Gliders</h4>
+  <div class="well">
+    <canvas id="glidersChart" width="250" height="250"></canvas>
+    <div id="glidersLegend"></div>
+  </div>
+</div>
+</div>
+
+<h4>Most-Visited Saved Lists</h4>
+<div class="col-xs-12">
+  <div class="chart-container clearfix">
+    <p>TestLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <ul>
+      {% for item in popular_lists %}
+      <li><a href="/l/{{ item.url }}">{{ item.url }} ({{ item.view_count }})</a></li>
+      {% empty %}
+      <li class="empty-alert">No items in database.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/chart.legend.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/randomColor.js' %}"></script>
+<script>
+$( document ).ready(function() {
+  var options = {
+    //Boolean - Whether we should show a stroke on each segment
+    segmentShowStroke : true,
+
+    //String - The colour of each segment stroke
+    segmentStrokeColor : "#fff",
+
+    //Number - The width of each segment stroke
+    segmentStrokeWidth : 2,
+
+    //Number - The percentage of the chart that we cut out of the middle
+    percentageInnerCutout : 0, // This is 0 for Pie charts
+
+    //Number - Amount of animation steps
+    animationSteps : 100,
+
+    //String - Animation easing effect
+    animationEasing : "easeOutBounce",
+
+    //Boolean - Whether we animate the rotation of the Doughnut
+    animateRotate : true,
+
+    //Boolean - Whether we animate scaling the Doughnut from the centre
+    animateScale : false,
+
+    // responsive: true,
+
+    //String - A legend template
+    legendTemplate : {% verbatim %}"<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"{% endverbatim %}
+  }
+
+  var character_colors = randomColor({hue: 'red', count: {{ characters|length }}});
+  var kart_colors = randomColor({hue: 'blue', count: {{ karts|length }}});
+  var wheel_colors = randomColor({hue: 'green', count: {{ wheels|length }}});
+  var glider_colors = randomColor({hue: 'yellow', count: {{ gliders|length }}});
+
+  var data = [
+    {% for key, value in characters %}
+      {% if value.count > 0 %}
+      {
+          value: {{ value.count }},
+          color: character_colors.pop(),
+          // highlight: "#FF5A5E",
+          label: "{{ key }}"
+      },
+      {% endif %}
+    {% endfor %}
+  ]
+  var ctx = document.getElementById("charactersChart").getContext("2d");
+  var charactersChart = new Chart(ctx).Pie(data, options);
+  // var legend = charactersChart.generateLegend();
+  // $('#charactersChart').after(legend);
+  legend(document.getElementById('charactersLegend'), data);
+
+  var data = [
+    {% for key, value in karts %}
+      {% if value.count > 0 %}
+      {
+          value: {{ value.count }},
+          color: kart_colors.pop(),
+          label: "{{ key }}"
+      },
+      {% endif %}
+    {% endfor %}
+  ]
+  var ctx = document.getElementById("kartsChart").getContext("2d");
+  var kartsChart = new Chart(ctx).Pie(data, options);
+  // var legend = kartsChart.generateLegend();
+  // $('#kartsChart').after(legend);
+  legend(document.getElementById('kartsLegend'), data);
+
+  var data = [
+    {% for key, value in wheels %}
+      {% if value.count > 0 %}
+      {
+          value: {{ value.count }},
+          color: wheel_colors.pop(),
+          label: "{{ key }}"
+      },
+      {% endif %}
+    {% endfor %}
+  ]
+  var ctx = document.getElementById("wheelsChart").getContext("2d");
+  var wheelsChart = new Chart(ctx).Pie(data, options);
+  // var legend = wheelsChart.generateLegend();
+  // $('#wheelsChart').after(legend);
+  legend(document.getElementById('wheelsLegend'), data);
+
+  var data = [
+    {% for key, value in gliders %}
+      {% if value.count > 0 %}
+      {
+          value: {{ value.count }},
+          color: glider_colors.pop(),
+          label: "{{ key }}"
+      },
+      {% endif %}
+    {% endfor %}
+  ]
+  var ctx = document.getElementById("glidersChart").getContext("2d");
+  var glidersChart = new Chart(ctx).Pie(data, options);
+  // var legend = glidersChart.generateLegend();
+  // $('#glidersChart').after(legend);
+  legend(document.getElementById('glidersLegend'), data);
+});
+</script>
 {% endblock %}

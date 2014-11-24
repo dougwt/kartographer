@@ -1,0 +1,46 @@
+/* ====================== */
+/* Typography             */
+/* ====================== */
+/* ====================== */
+/* Layout                 */
+/* ====================== */
+@media only screen {
+  #charactersLegend,
+  #kartsLegend,
+  #wheelsLegend,
+  #glidersLegend {
+    display: none; }
+
+  .chart-container {
+    margin-left: -1em;
+    margin-right: -1em; }
+
+  .well {
+    text-align: center; }
+
+  .legend {
+    width: 14em;
+    max-height: 249px;
+    border: 1px solid #ccc;
+    float: right;
+    font-size: 0.6em;
+    overflow: hidden; }
+
+  .legend .title {
+    display: block;
+    margin: 0.5em;
+    border-style: solid;
+    border-width: 0 0 0 1em;
+    padding: 0 0.3em; } }
+@media only screen and (min-width: 768px) {
+  #charactersLegend,
+  #kartsLegend,
+  #wheelsLegend,
+  #glidersLegend {
+    display: inline-block; } }
+/* ====================== */
+/* Color                  */
+/* ====================== */
+/* ====================== */
+/* Print                  */
+/* ====================== */
