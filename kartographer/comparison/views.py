@@ -3,8 +3,10 @@
 import json
 import logging
 import random
+import os
+import datetime
 
-import settings.base as settings
+from django.conf import settings
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.db import IntegrityError
@@ -26,6 +28,14 @@ def log(msg, request):
     if ip is None:
         ip = get_ip(request)
     logger.info("[%s] %s" % (ip, msg))
+
+
+def fetch_update_datetime():
+    git_cmd = 'git --git-dir="%s" log -1 --format=%%ci' % settings.GIT_ROOT
+    update_timestamp = os.popen(git_cmd).read()
+    format = "%Y-%m-%d %H:%M:%S -0800\n"
+
+    return datetime.datetime.strptime(update_timestamp, format)
 
 
 def fetch_random_quote():
@@ -76,8 +86,7 @@ def home(request):
         'configurations':       configurations,
         'column_prefs':         json.dumps(column_prefs),
         'total_combinations':   total_combinations,
-        'total_list_count':     len(ConfigList.objects.all()),
-        'total_config_count':   len(ConfigListItem.objects.all()),
+        'update_timestamp':     fetch_update_datetime(),
         'quote':                fetch_random_quote(),
     }
     return render(request, 'comparison/home.html', context)
@@ -137,8 +146,7 @@ def add(request):
         'karts':                Kart.objects.all(),
         'wheels':               Wheel.objects.all(),
         'gliders':              Glider.objects.all(),
-        'total_list_count':     len(ConfigList.objects.all()),
-        'total_config_count':   len(ConfigListItem.objects.all()),
+        'update_timestamp':     fetch_update_datetime(),
         'quote':                fetch_random_quote(),
     }
     return render(request, 'comparison/add.html', context)
@@ -189,8 +197,7 @@ def components(request):
         'characterstats':       CharacterStats.objects.all(),
         'components':           components,
         'column_prefs':         json.dumps(column_prefs),
-        'total_list_count':     len(ConfigList.objects.all()),
-        'total_config_count':   len(ConfigListItem.objects.all()),
+        'update_timestamp':     fetch_update_datetime(),
         'quote':                fetch_random_quote(),
     }
     return render(request, 'comparison/components.html', context)
@@ -300,8 +307,7 @@ def list(request, url_hash):
         'gliders':              Glider.objects.all(),
         'configurations':       configurations,
         'column_prefs':         json.dumps(column_prefs),
-        'total_list_count':     len(ConfigList.objects.all()),
-        'total_config_count':   len(ConfigListItem.objects.all()),
+        'update_timestamp':     fetch_update_datetime(),
         'quote':                fetch_random_quote(),
     }
     return render(request, 'comparison/list.html', context)
@@ -313,8 +319,9 @@ def top(request):
 
     popular_lists = ConfigList.objects.order_by('-view_count')[0:10]
     context = {
-        'popular_lists': popular_lists,
-        'records': KartRecord.objects.all(),
+        'popular_lists':        popular_lists,
+        'records':              KartRecord.objects.all(),
+        'update_timestamp':     fetch_update_datetime(),
         'quote':                fetch_random_quote(),
     }
     return render(request, 'comparison/top.html', context)

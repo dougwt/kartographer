@@ -15,6 +15,9 @@ SITE_ROOT = dirname(DJANGO_ROOT)
 # Site name:
 SITE_NAME = basename(DJANGO_ROOT)
 
+# Absolute filesystem path to the git directory
+GIT_ROOT = "%s/../.git" % SITE_ROOT
+
 # Add our project to our pythonpath, this way we don't need to type our project
 # name in our dotted import paths:
 path.append(DJANGO_ROOT)

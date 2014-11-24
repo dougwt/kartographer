@@ -247,6 +247,9 @@ nav.navbar-default {
 }
 
 footer div.row div {
+  a.secondary {
+    color: lighten($footer-text, 10%);
+  }
   color: lighten($footer-text, 10%);
 }
 

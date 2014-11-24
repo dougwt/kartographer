@@ -5567,6 +5567,8 @@ nav.navbar-default {
 
 footer div.row div {
   color: #919191; }
+  footer div.row div a.secondary {
+    color: #919191; }
 
 footer ul li em {
   color: #d0d0d0; }

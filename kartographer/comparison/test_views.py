@@ -33,8 +33,6 @@ class ViewTestCase(TestCase):
         self.assertTrue(response.context['wheels'])
         self.assertTrue(response.context['gliders'])
         self.assertEqual(len(response.context['configurations']), 0)
-        self.assertEqual(response.context['total_list_count'], 0)
-        self.assertEqual(response.context['total_config_count'], 0)
 
     def test_add(self):
         """Ensure add view renders."""
@@ -124,8 +122,6 @@ class ViewTestCase(TestCase):
         # Ensure context variables exist
         self.assertTrue(response.context['characterstats'])
         self.assertTrue(response.context['components'])
-        self.assertEqual(response.context['total_list_count'], 0)
-        self.assertEqual(response.context['total_config_count'], 0)
 
     def test_reset(self):
         """Ensure reset view empties list and redirects."""
@@ -260,8 +256,6 @@ class PopulatedListViewTestCase(TestCase):
         self.assertTrue(response.context['wheels'])
         self.assertTrue(response.context['gliders'])
         self.assertTrue(response.context['configurations'])
-        self.assertEqual(response.context['total_list_count'], 1)
-        self.assertEqual(response.context['total_config_count'], 2)
 
     def test_save(self):
         """Ensure save view exports list."""
