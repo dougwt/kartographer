@@ -6,10 +6,17 @@ This project contains the Django source code for [kartographer.com](http://karto
 
 ---
 
+## Features
+
 kartographer currently allows visitors to...
 
-- view and compare the stats of all kart components, including characters, bodies, tires, and gliders
+- view and compare the stats of all kart components, including characters, kart bodies, tires, and gliders
 - create every possible kart loadout and compare them side-by-side in a sortable table
 - save created karts to a permanent url for sharing with others
+- view popular components and saved lists
 
 View this project in action at http://kartographer.com
+
+## Special Thanks
+
+- Favicon graciously provided by [NeoRame](http://neorame.deviantart.com/art/Wii-Wheels-v-2-271700550).
