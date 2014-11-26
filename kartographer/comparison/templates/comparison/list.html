@@ -36,7 +36,7 @@
   <div class="col-xs-12 col-sm-8">
     <h5>You're viewing a saved list of kart loadouts.</h5>
     <p>Someone thought these karts were worth sharing with you. Who knows, maybe it contains your next favorite Mario Kart 8 loadout, but there's only one way to find out, and it may just involve a red shell with your name on it.</p>
-    <p>This list has been viewed a total of {{ '0' }} times since {{ 'December 1, 2014' }}.</p>
+    <p>This list has been viewed a total of {{ config_list.view_count }} times in the past {{ config_list.create_date|timesince }}.</p>
   </div>
   <div class="hidden-xs col-sm-4 text-center">
     <img src="{% static 'images/mk8/koopalings.png' %}" alt="The Koopalings">

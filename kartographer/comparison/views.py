@@ -311,6 +311,7 @@ def list(request, url_hash):
         'wheels':               Wheel.objects.all(),
         'gliders':              Glider.objects.all(),
         'configurations':       configurations,
+        'config_list':          config_list_obj,
         'column_prefs':         json.dumps(column_prefs),
         'update_timestamp':     fetch_update_datetime(),
         'quote':                fetch_random_quote(),
