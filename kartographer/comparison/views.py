@@ -4,7 +4,6 @@ import json
 import logging
 import random
 import os
-import operator
 import datetime
 
 from django.conf import settings
@@ -348,6 +347,8 @@ def top(request):
         'karts':                kart_stats,
         'wheels':               wheel_stats,
         'gliders':              glider_stats,
+        'total_records':        KartRecord.objects.count(),
+        'total_lists':          ConfigList.objects.count(),
         'update_timestamp':     fetch_update_datetime(),
         'quote':                fetch_random_quote(),
     }
