@@ -207,6 +207,9 @@ def components(request):
     }
     return render(request, 'comparison/components.html', context)
 
+def components_redirect(request):
+    """Redirect to the components page."""
+    return redirect('components')
 
 def reset(request):
     """Erase the visitor's config list."""
