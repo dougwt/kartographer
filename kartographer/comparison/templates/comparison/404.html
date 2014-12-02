@@ -1,0 +1,19 @@
+{% extends "comparison/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+{% endblock %}
+
+{% block panel_title %}Page Not Found{% endblock %}
+
+{% block content-header %}
+<div id="content-header" class="row">
+  <div class="col-xs-12 col-sm-8">
+    <h5>Uh oh! The page you requested does not exist.</h5>
+    <p>Maybe you zigged when you meant to zag, or perhaps you just missed your turn? Either way, you've ended up at a dead end. Try one of the pages from the menu above.</p>
+  </div>
+  <div class="hidden-xs col-sm-4 text-center">
+    <img src="{% static 'images/mk8/itembox.png' %}" alt="Mechanic">
+  </div>
+</div>
+{% endblock %}

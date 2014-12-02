@@ -385,3 +385,12 @@ def ajax_set_preference(request):
         return HttpResponse(serialized, content_type="application/json")
     else:
         return HttpResponseServerError(serialized, content_type="application/json")
+
+
+def handler404(request):
+    """Display a 404 Page Not Found message."""
+    context = {
+        'update_timestamp':     fetch_update_datetime(),
+        'quote':                fetch_random_quote(),
+    }
+    return render(request, 'comparison/404.html', context)
