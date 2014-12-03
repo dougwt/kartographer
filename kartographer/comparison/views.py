@@ -393,4 +393,6 @@ def handler404(request):
         'update_timestamp':     fetch_update_datetime(),
         'quote':                fetch_random_quote(),
     }
-    return render(request, 'comparison/404.html', context)
+    response = render(request, 'comparison/404.html', context)
+    response.status_code = 404
+    return response
