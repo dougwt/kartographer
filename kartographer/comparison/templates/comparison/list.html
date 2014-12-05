@@ -98,7 +98,11 @@
     {% for config in configurations %}
     <!-- Visible: sm, md, lg -->
     <tr class="hidden-xs">
-      <td class="remove hidden"><a href="#" class="remove-btn"><span class="glyphicon glyphicon-trash"></span></a></td>
+      <td class="remove hidden">
+        <a href="#" class="remove-btn" data-character="{{ config.character.pk }}" data-kart="{{ config.kart.pk }}" data-wheel="{{ config.wheel.pk }}" data-glider="{{ config.glider.pk }}">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
       <td>
         <img src="{{ config.character.file }}" height="32" width="32" alt="{{ config.character.name }}" class="character"><img src="{{ config.kart.file }}" height="32" width="50" alt="{{ config.kart.name }}"><img src="{{ config.wheel.file }}" height="32" width="50" alt="{{ config.wheel.name }}"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
       </td>
@@ -117,7 +121,11 @@
     </tr>
     <!-- Visible: xs -->
     <tr class="hidden-sm hidden-md hidden-lg">
-      <td class="remove hidden"><a href="#" class="remove-btn"><span class="glyphicon glyphicon-trash"></span></a></td>
+      <td class="remove hidden">
+        <a href="#" class="remove-btn" data-character="{{ config.character.pk }}" data-kart="{{ config.kart.pk }}" data-wheel="{{ config.wheel.pk }}" data-glider="{{ config.glider.pk }}">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
       <td colspan="13">
         <img src="{{ config.character.file }}" height="32" width="32" alt="{{ config.character.name }}" class="character">
         <img src="{{ config.kart.file }}" height="32" width="50" alt="{{ config.kart.name }}">

@@ -1,4 +1,73 @@
 (function($){
+  ////////////////////////////////////////////////////////
+  // Nifty csrftoken functions for ajax from django docs
+  ////////////////////////////////////////////////////////
+  // fetch csrftoken using jQuery
+  getCookie = function(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  var csrftoken = getCookie('csrftoken');
+  csrfSafeMethod = function(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+  ////////////////////////////////////////////////////////
+
+  // Makes an AJAX POST request to store the updated preference
+  set_pref = function(preference, value) {
+    if (preference != "" && value != "") {
+      var data = { preference:preference, value:value };
+      var args = { type:"POST", url:"/ajax_set_pref/", data:data, complete:null };
+      $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+        }
+      });
+      $.ajax(args);
+    }
+    else {
+      // display an explanation of failure
+    }
+    return false;
+  };
+
+  remove_kart = function(character, kart, wheel, glider, $row) {
+    if (character != "" && kart != "" && wheel != "" && glider != "" && $row != "") {
+
+      // alert( "(" + character + ", " + kart + ", " + wheel + ", " + glider + ")");
+
+      var data = { character:character, kart:kart, wheel:wheel, glider:glider };
+      var args = { type:"POST", url:"/ajax_remove_kart/", data:data, complete:null };
+      $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+        }
+      });
+      $.ajax(args).done( function() {
+        $row.remove();
+      });
+    }
+    else {
+      // display an explanation of failure
+    }
+    return false;
+  }
   enable_toggleable_columns = function(column_prefs) {
     // column_prefs = column_prefs | null;
 
@@ -133,52 +202,6 @@
         $col[slug].addClass("hidden");
       }
     }
-
-    ////////////////////////////////////////////////////////
-    // Nifty csrftoken functions for ajax from django docs
-    ////////////////////////////////////////////////////////
-    // fetch csrftoken using jQuery
-    function getCookie(name) {
-      var cookieValue = null;
-      if (document.cookie && document.cookie != '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-          var cookie = jQuery.trim(cookies[i]);
-          // Does this cookie string begin with the name we want?
-          if (cookie.substring(0, name.length + 1) == (name + '=')) {
-            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-            break;
-          }
-        }
-      }
-      return cookieValue;
-    }
-    var csrftoken = getCookie('csrftoken');
-    function csrfSafeMethod(method) {
-      // these HTTP methods do not require CSRF protection
-      return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-    }
-    ////////////////////////////////////////////////////////
-
-    // Makes an AJAX POST request to store the updated preference
-    function set_pref(preference, value) {
-      if (preference != "" && value != "") {
-        var data = { preference:preference, value:value };
-        var args = { type:"POST", url:"/ajax_set_pref/", data:data, complete:null };
-        $.ajaxSetup({
-          beforeSend: function(xhr, settings) {
-            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-              xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            }
-          }
-        });
-        $.ajax(args);
-      }
-      else {
-        // display an explanation of failure
-      }
-      return false;
-    };
 
     // Set the initial state of all columns
     function initializeColumns() {
