@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^save/', 'comparison.views.save', name='save'),
     url(r'^l/(?P<url_hash>[0-9a-f]{5})/', 'comparison.views.list', name='list'),
     url(r'^ajax_set_pref/$','comparison.views.ajax_set_preference'),
+    url(r'^ajax_remove_kart/$','comparison.views.ajax_remove_kart'),
     url(r'^top/', 'comparison.views.top', name='top'),
 )

@@ -25,7 +25,18 @@
 {% block add_configform %}
 <div class="text-right">
   <a class="btn btn-default" href="/save/">Share <span class="glyphicon glyphicon-share"></span></a>
-  <button id="reset-btn" class="btn btn-default">Reset <span class="glyphicon glyphicon-trash"></span></button>
+  <div class="btn-group">
+    <button class="btn btn-default edit-btn">Edit <span class="glyphicon glyphicon-trash"></span></button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li id="reset-btn"><a href="#">Remove all karts</a></li>
+    </ul>
+  </div>
+  <!--<button id="reset-btn" class="btn btn-default">Delete <span class="glyphicon glyphicon-trash"></span></button>
+  <button id="reset-btn" class="btn btn-default">Reset <span class="glyphicon glyphicon-trash"></span></button>-->
   <a class="btn btn-danger" href="/add/">Add Kart <span class="glyphicon glyphicon-plus"></span></a>
 </div>
 {% endblock %}
@@ -66,6 +77,27 @@ $( document ).ready(function() {
     if (confirm('Are you sure you want to clear all your kart configurations?')) {
       window.location = "{% url 'reset' %}";
     }
+    return false;
+  });
+
+  // toggle edit column when button is licked
+  $( ".edit-btn" ).click(function() {
+    $( ".remove" ).toggleClass( "hidden" );
+    $( "button.edit-btn" ).toggleClass( "btn-default btn-primary" );
+    $( "button.edit-btn + button" ).toggleClass( "btn-default btn-primary" );
+    return false;
+  });
+
+  // handle removal for a row
+  $( ".remove-btn" ).click(function() {
+    if (confirm('Are you sure you want to remove this kart configuration?')) {
+      var character = $( this ).data("character");
+      var kart = $( this ).data("kart");
+      var wheel = $( this ).data("wheel");
+      var glider = $( this ).data("glider");
+      remove_kart(character, kart, wheel, glider);
+    }
+    return false;
   });
 
   {% if configurations %}

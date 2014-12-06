@@ -377,11 +377,43 @@ def ajax_set_preference(request):
                 else:
                     value = False
                 request.session['show_col_' + preference] = value
+                to_return['msg'] = u"Success!"
                 success = True
         else:
             to_return['msg'] = u"Requires both valid 'preference' and 'value'!"
     serialized = json.dumps(to_return)
-    if success == True:
+    if success:
+        return HttpResponse(serialized, content_type="application/json")
+    else:
+        return HttpResponseServerError(serialized, content_type="application/json")
+
+
+def ajax_remove_kart(request):
+    success = False
+    to_return = {'msg': u'No POST data sent.'}
+    if request.method == "POST":
+        post = request.POST.copy()
+        if post.has_key('character') and post.has_key('kart') and post.has_key('wheel') and post.has_key('glider'):
+            character = post['character']
+            kart = post['kart']
+            wheel = post['wheel']
+            glider = post['glider']
+
+            potential_config = [character, kart, wheel, glider]
+
+            if KartConfig(potential_config).valid:
+                config_list = request.session.get('config_list', [])
+
+                if potential_config in config_list:
+                    config_list.remove(potential_config)
+                    request.session['config_list'] = config_list
+
+            to_return = {'msg': u'Success!'}
+            success = True
+        else:
+            to_return['msg'] = u"Requires valid ids for all kart components!"
+    serialized = json.dumps(to_return)
+    if success:
         return HttpResponse(serialized, content_type="application/json")
     else:
         return HttpResponseServerError(serialized, content_type="application/json")

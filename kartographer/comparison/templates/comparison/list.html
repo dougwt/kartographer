@@ -49,6 +49,9 @@
   <table class="table table-condensed table-hover tablesorter" data-role="table" data-mode="columntoggle" id="kart-list">
     <thead>
     <tr>
+      <th class="remove hidden-xs hidden">
+        <span class="unsortable"></span>
+      </th>
       <th class="hidden-xs">
         <span class="unsortable">Configuration</span>
       </th>
@@ -94,7 +97,12 @@
     <tbody>
     {% for config in configurations %}
     <!-- Visible: sm, md, lg -->
-    <tr class="hidden-xs">
+    <tr class="hidden-xs" data-config="{{ config.character.pk }}-{{ config.kart.pk }}-{{ config.wheel.pk }}-{{ config.glider.pk }}">
+      <td class="remove hidden">
+        <a href="#" class="remove-btn" data-character="{{ config.character.pk }}" data-kart="{{ config.kart.pk }}" data-wheel="{{ config.wheel.pk }}" data-glider="{{ config.glider.pk }}">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
       <td>
         <img src="{{ config.character.file }}" height="32" width="32" alt="{{ config.character.name }}" class="character"><img src="{{ config.kart.file }}" height="32" width="50" alt="{{ config.kart.name }}"><img src="{{ config.wheel.file }}" height="32" width="50" alt="{{ config.wheel.name }}"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
       </td>
@@ -112,8 +120,13 @@
       <td data-priority="2" data-column="miniturbo">{{ config.miniturbo }}</td>
     </tr>
     <!-- Visible: xs -->
-    <tr class="hidden-sm hidden-md hidden-lg">
-      <td colspan="12">
+    <tr class="hidden-sm hidden-md hidden-lg" data-config="{{ config.character.pk }}-{{ config.kart.pk }}-{{ config.wheel.pk }}-{{ config.glider.pk }}">
+      <td class="remove hidden">
+        <a href="#" class="remove-btn" data-character="{{ config.character.pk }}" data-kart="{{ config.kart.pk }}" data-wheel="{{ config.wheel.pk }}" data-glider="{{ config.glider.pk }}">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
+      <td colspan="13">
         <img src="{{ config.character.file }}" height="32" width="32" alt="{{ config.character.name }}" class="character">
         <img src="{{ config.kart.file }}" height="32" width="50" alt="{{ config.kart.name }}">
         <img src="{{ config.wheel.file }}" height="32" width="50" alt="{{ config.wheel.name }}">
@@ -132,7 +145,8 @@
       <td data-priority="1" data-column="traction" class="hidden-xs">{{ config.traction }}</td>
       <td data-priority="2" data-column="miniturbo" class="hidden-xs">{{ config.miniturbo }}</td>
     </tr>
-    <tr class="hidden-sm hidden-md hidden-lg">
+    <tr class="hidden-sm hidden-md hidden-lg" data-config="{{ config.character.pk }}-{{ config.kart.pk }}-{{ config.wheel.pk }}-{{ config.glider.pk }}">
+      <td class="hidden-xs"></td>
       <td class="hidden-xs"></td>
       <td data-priority="1" data-column="speed_ground">{{ config.speed_ground }}</td>
       <td data-priority="3" data-column="speed_water">{{ config.speed_water }}</td>
