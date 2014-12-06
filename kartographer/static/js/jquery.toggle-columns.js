@@ -45,8 +45,8 @@
     return false;
   };
 
-  remove_kart = function(character, kart, wheel, glider, $row) {
-    if (character != "" && kart != "" && wheel != "" && glider != "" && $row != "") {
+  remove_kart = function(character, kart, wheel, glider) {
+    if (character != "" && kart != "" && wheel != "" && glider != "") {
 
       // alert( "(" + character + ", " + kart + ", " + wheel + ", " + glider + ")");
 
@@ -60,7 +60,8 @@
         }
       });
       $.ajax(args).done( function() {
-        $row.remove();
+        $( this ).remove();
+        $( "tr[data-config='" + character + "-" + kart + "-" + wheel + "-" + glider + "']" ).remove();
       });
     }
     else {
