@@ -23,6 +23,7 @@
 
 {% block content %}
 <form action="{% url 'add' %}" method="post">
+<input type="hidden" name="submitted" value="yes">
 {% csrf_token %}
 
 <div class="row add-header">
@@ -57,13 +58,13 @@
           <div class="col-xs-2 stat traction">-</div>
         </div>
       </div>
-      <div id="collapseCharacter" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingCharacter">
+      <div id="collapseCharacter" class="panel-collapse collapse{% if panel == 'character' %} in{% elif panel == None %} in{% endif %}" role="tabpanel" aria-labelledby="headingCharacter">
         <div class="panel-body">
 
           {% for item in characters %}<label class="fb fb-character" for="fb-character-{{ forloop.counter }}">
             <input id="fb-character-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.stats.speed_ground }}" data-acceleration="{{ item.stats.acceleration }}" data-weight="{{ item.stats.weight }}" data-handling="{{ item.stats.handling_ground }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" data-traction="{{ item.stats.traction }}" type="radio" name="add-character" value="{{ item.id }}" tabindex="1" />
             <div class="icon">
-              <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+              <img id="character-{{ item.pk }}" src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
             </div>
           </label>{% endfor %}
 
@@ -84,13 +85,13 @@
           <div class="col-xs-2 stat traction">-</div>
         </div>
       </div>
-      <div id="collapseKart" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingKart">
+      <div id="collapseKart" class="panel-collapse collapse{% if panel == 'kart' %} in{% endif %}" role="tabpanel" aria-labelledby="headingKart">
         <div class="panel-body">
 
           {% for item in karts %}<label class="fb fb-kart" for="fb-kart-{{ forloop.counter }}">
             <input id="fb-kart-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-kart" value="{{ item.id }}" tabindex="2" />
             <div class="icon">
-              <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+              <img id="kart-{{ item.pk }}" src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
             </div>
           </label>{% endfor %}
 
@@ -111,13 +112,13 @@
           <div class="col-xs-2 stat traction">-</div>
         </div>
       </div>
-      <div id="collapseWheel" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingWheel">
+      <div id="collapseWheel" class="panel-collapse collapse{% if panel == 'wheel' %} in{% endif %}" role="tabpanel" aria-labelledby="headingWheel">
         <div class="panel-body">
 
           {% for item in wheels %}<label class="fb fb-wheel" for="fb-wheel-{{ forloop.counter }}">
             <input id="fb-wheel-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-wheel" value="{{ item.id }}" tabindex="3" />
             <div class="icon">
-              <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+              <img id="wheel-{{ item.pk }}" src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
             </div>
           </label>{% endfor %}
 
@@ -138,13 +139,13 @@
           <div class="col-xs-2 stat traction">-</div>
         </div>
       </div>
-      <div id="collapseGlider" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGlider">
+      <div id="collapseGlider" class="panel-collapse collapse{% if panel == 'glider' %} in{% endif %}" role="tabpanel" aria-labelledby="headingGlider">
         <div class="panel-body">
 
           {% for item in gliders %}<label class="fb fb-glider" for="fb-glider-{{ forloop.counter }}">
             <input id="fb-glider-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-glider" value="{{ item.id }}" tabindex="4" />
             <div class="icon">
-              <img src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+              <img id="glider-{{ item.pk }}" src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
             </div>
           </label>{% endfor %}
 
@@ -318,7 +319,7 @@
 
     var register_selection = function() {
       $label = $( this ).parents('label');
-      $panelbody = $label.parents('.panel-body');
+      $panelbody = $label.parent('.panel-body');
       selectid( $label.find('input').attr('id') );
 
       refresh_kart_stats();
@@ -330,6 +331,20 @@
 
     $( 'input:radio' ).click(register_selection);
     $( 'label.fb img'  ).click(register_selection);
+
+    {% if add_character != '' %}
+      document.getElementById("character-{{ add_character }}").click();
+    {% endif %}
+    {% if add_kart != '' %}
+      document.getElementById("kart-{{ add_kart }}").click();
+    {% endif %}
+    {% if add_wheel != '' %}
+      document.getElementById("wheel-{{ add_wheel }}").click();
+    {% endif %}
+    {% if add_glider != '' %}
+      document.getElementById("glider-{{ add_glider }}").click();
+    {% endif %}
+
     $(function () {
       $('[data-toggle="popover"]').popover()
     })

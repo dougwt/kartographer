@@ -104,7 +104,10 @@
         </a>
       </td>
       <td>
-        <img src="{{ config.character.file }}" height="32" width="32" alt="{{ config.character.name }}" class="character"><img src="{{ config.kart.file }}" height="32" width="50" alt="{{ config.kart.name }}"><img src="{{ config.wheel.file }}" height="32" width="50" alt="{{ config.wheel.name }}"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
+        <a href="#" class="add-kart" data-field="character"><img src="{{ config.character.file }}" height="32" width="32" alt="{{ config.character.name }}" class="character"></a>
+        <a href="#" class="add-kart" data-field="kart"><img src="{{ config.kart.file }}" height="32" width="50" alt="{{ config.kart.name }}"></a>
+        <a href="#" class="add-kart" data-field="wheel"><img src="{{ config.wheel.file }}" height="32" width="50" alt="{{ config.wheel.name }}"></a>
+        <a href="#" class="add-kart" data-field="glider"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}"></a>
       </td>
       <td data-priority="1" data-column="speed_ground">{{ config.speed_ground }}</td>
       <td data-priority="3" data-column="speed_water">{{ config.speed_water }}</td>
@@ -127,10 +130,10 @@
         </a>
       </td>
       <td colspan="13">
-        <img src="{{ config.character.file }}" height="32" width="32" alt="{{ config.character.name }}" class="character">
-        <img src="{{ config.kart.file }}" height="32" width="50" alt="{{ config.kart.name }}">
-        <img src="{{ config.wheel.file }}" height="32" width="50" alt="{{ config.wheel.name }}">
-        <img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}">
+        <a href="#" class="add-kart" data-field="character"><img src="{{ config.character.file }}" height="32" width="32" alt="{{ config.character.name }}" class="character"></a>
+        <a href="#" class="add-kart" data-field="kart"><img src="{{ config.kart.file }}" height="32" width="50" alt="{{ config.kart.name }}"></a>
+        <a href="#" class="add-kart" data-field="wheel"><img src="{{ config.wheel.file }}" height="32" width="50" alt="{{ config.wheel.name }}"></a>
+        <a href="#" class="add-kart" data-field="glider"><img src="{{ config.glider.file }}" height="32" width="50" alt="{{ config.glider.name }}"></a>
       </td>
       <td data-priority="1" data-column="speed_ground" class="hidden-xs">{{ config.speed_ground }}</td>
       <td data-priority="3" data-column="speed_water" class="hidden-xs">{{ config.speed_water }}</td>
@@ -170,6 +173,14 @@
     </tbody>
 
   </table>
+  <form id="hidden-add" action="{% url 'add' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" id="hidden-character" name="add-character" value="">
+    <input type="hidden" id="hidden-kart" name="add-kart" value="">
+    <input type="hidden" id="hidden-wheel" name="add-wheel" value="">
+    <input type="hidden" id="hidden-glider" name="add-glider" value="">
+    <input type="hidden" id="hidden-panel" name="panel" value="">
+  </form>
 </div>
 {% block add_configform %}{% endblock %}
 {% endblock %}
@@ -204,6 +215,28 @@ $( document ).ready(function() {
 
   // Hide & Show Table Columns
   enable_toggleable_columns({{ column_prefs|safe }});
+
+  submit_add_kart = function(character, kart, wheel, glider, panel) {
+    document.getElementById("hidden-character").value = character;
+    document.getElementById("hidden-kart").value = kart;
+    document.getElementById("hidden-wheel").value = wheel;
+    document.getElementById("hidden-glider").value = glider;
+    document.getElementById("hidden-panel").value = panel;
+    document.getElementById("hidden-add").submit();
+  };
+
+  $( "a.add-kart" ).click(function( event ) {
+    var $parent = $( this ).parents("tr");
+    var character = $parent.find("a.remove-btn").data("character");
+    var kart = $parent.find("a.remove-btn").data("kart");
+    var wheel = $parent.find("a.remove-btn").data("wheel");
+    var glider = $parent.find("a.remove-btn").data("glider");
+    var panel = $( this ).data("field");
+
+    submit_add_kart(character, kart, wheel, glider, panel);
+    event.stopPropagation();
+  });
+
 });
 </script>
 {% block script_extra %}{% endblock %}

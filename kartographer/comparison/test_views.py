@@ -52,6 +52,7 @@ class ViewTestCase(TestCase):
             'add-kart': 19,
             'add-wheel': 2,
             'add-glider': 2,
+            'submitted': 'yes',
         }, follow=True)
         self.assertEqual(response.redirect_chain[0][1], 302)
         self.assertEqual(response.status_code, 200)
@@ -63,9 +64,10 @@ class ViewTestCase(TestCase):
         """Ensure add view processes incomplete form submission."""
         response = self.client.post(reverse('add'), {
             'add-character': '',
-            'add-kart': 'test string',
+            'add-kart': '',
             'add-wheel': '',
-            'add-glider': ''
+            'add-glider': '',
+            'submitted': 'yes',
         })
         self.assertEqual(response.status_code, 200)
 
@@ -84,6 +86,7 @@ class ViewTestCase(TestCase):
             'add-kart': 19,
             'add-wheel': 2,
             'add-glider': 2,
+            'submitted': 'yes',
         }, follow=True)
         self.assertEqual(response.redirect_chain[0][1], 302)
         self.assertEqual(response.status_code, 200)
@@ -97,6 +100,7 @@ class ViewTestCase(TestCase):
             'add-kart': 19,
             'add-wheel': 2,
             'add-glider': 2,
+            'submitted': 'yes',
         })
         self.assertEqual(response.status_code, 200)
 
@@ -135,6 +139,7 @@ class ViewTestCase(TestCase):
             'add-kart': 19,
             'add-wheel': 2,
             'add-glider': 2,
+            'submitted': 'yes',
         })
         response = self.client.get(reverse('home'))
 
@@ -168,6 +173,7 @@ class ViewTestCase(TestCase):
             'add-kart': 19,
             'add-wheel': 2,
             'add-glider': 2,
+            'submitted': 'yes',
         })
         response = self.client.get(reverse('home'))
 

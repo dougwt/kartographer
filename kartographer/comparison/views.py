@@ -100,48 +100,53 @@ def home(request):
 def add(request):
     """Display the visitor's config list and form to add a new config."""
     # Insert any potential new configurations that were submitted
+    potential_config = (None, None, None, None)
+    panel = None
     if request.method == "POST":
         potential_config = (
             request.POST.get('add-character', ''),
-            request.POST.get('add-kart', 'test string'),
+            request.POST.get('add-kart', ''),
             request.POST.get('add-wheel', ''),
             request.POST.get('add-glider', '')
         )
+        panel = request.POST.get('panel', '')
 
-        potential_config = [unicode(item) for item in potential_config]
-        if '' in potential_config:
-            msg = 'Unable to add kart. Please choose a component for each ' \
-                  'section and try again.'
-            messages.add_message(request, messages.ERROR, msg)
+        if request.POST.get('submitted', '') == 'yes':
 
-        elif potential_config in request.session.get('config_list', []):
-            msg = 'The configuration you added already exists in your list.'
-            messages.add_message(request, messages.WARNING, msg)
+            potential_config = [unicode(item) for item in potential_config]
+            if '' in potential_config:
+                msg = 'Unable to add kart. Please choose a component for each ' \
+                      'section and try again.'
+                messages.add_message(request, messages.ERROR, msg)
 
-            log('Rejecting duplicate configuration %s' % potential_config,
-                request)
+            elif potential_config in request.session.get('config_list', []):
+                msg = 'The configuration you added already exists in your list.'
+                messages.add_message(request, messages.WARNING, msg)
 
-        elif KartConfig(potential_config).valid:
-            config_list = request.session.get('config_list', [])
-            config_list.append(potential_config)
-            request.session['config_list'] = config_list
+                log('Rejecting duplicate configuration %s' % potential_config,
+                    request)
 
-            record = {
-                'character': Character.objects.get(pk=potential_config[0]),
-                'kart': Kart.objects.get(pk=potential_config[1]),
-                'wheel': Wheel.objects.get(pk=potential_config[2]),
-                'glider': Glider.objects.get(pk=potential_config[3]),
-            }
+            elif KartConfig(potential_config).valid:
+                config_list = request.session.get('config_list', [])
+                config_list.append(potential_config)
+                request.session['config_list'] = config_list
 
-            KartRecord.objects.create(**record)
+                record = {
+                    'character': Character.objects.get(pk=potential_config[0]),
+                    'kart': Kart.objects.get(pk=potential_config[1]),
+                    'wheel': Wheel.objects.get(pk=potential_config[2]),
+                    'glider': Glider.objects.get(pk=potential_config[3]),
+                }
 
-            msg = 'Your kart configuration was added successfully.'
-            messages.add_message(request, messages.SUCCESS, msg)
+                KartRecord.objects.create(**record)
 
-            log('Adding configuration %s' % potential_config, request)
+                msg = 'Your kart configuration was added successfully.'
+                messages.add_message(request, messages.SUCCESS, msg)
 
-            # Redirect to My List
-            return redirect('home')
+                log('Adding configuration %s' % potential_config, request)
+
+                # Redirect to My List
+                return redirect('home')
 
     log('Displaying Add page', request)
 
@@ -151,6 +156,11 @@ def add(request):
         'karts':                Kart.objects.all(),
         'wheels':               Wheel.objects.all(),
         'gliders':              Glider.objects.all(),
+        'add_character':        potential_config[0],
+        'add_kart':             potential_config[1],
+        'add_wheel':            potential_config[2],
+        'add_glider':           potential_config[3],
+        'panel':                panel,
         'update_timestamp':     fetch_update_datetime(),
         'quote':                fetch_random_quote(),
     }
@@ -207,9 +217,11 @@ def components(request):
     }
     return render(request, 'comparison/components.html', context)
 
+
 def components_redirect(request):
     """Redirect to the components page."""
     return redirect('components')
+
 
 def reset(request):
     """Erase the visitor's config list."""
