@@ -62,7 +62,7 @@
         <div class="panel-body">
 
           {% for item in characters %}<label class="fb fb-character" for="fb-character-{{ forloop.counter }}">
-            <input id="fb-character-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.stats.speed_ground }}" data-acceleration="{{ item.stats.acceleration }}" data-weight="{{ item.stats.weight }}" data-handling="{{ item.stats.handling_ground }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" data-traction="{{ item.stats.traction }}" type="radio" name="add-character" value="{{ item.id }}" tabindex="1" />
+            <input id="fb-character-{{ forloop.counter }}" data-pk="{{ item.pk }}" data-name="{{ item.name }}" data-speed="{{ item.stats.speed_ground }}" data-acceleration="{{ item.stats.acceleration }}" data-weight="{{ item.stats.weight }}" data-handling="{{ item.stats.handling_ground }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" data-traction="{{ item.stats.traction }}" type="radio" name="add-character" value="{{ item.id }}" tabindex="1" />
             <div class="icon">
               <img id="character-{{ item.pk }}" src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
             </div>
@@ -89,7 +89,7 @@
         <div class="panel-body">
 
           {% for item in karts %}<label class="fb fb-kart" for="fb-kart-{{ forloop.counter }}">
-            <input id="fb-kart-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-kart" value="{{ item.id }}" tabindex="2" />
+            <input id="fb-kart-{{ forloop.counter }}" data-pk="{{ item.pk }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-kart" value="{{ item.id }}" tabindex="2" />
             <div class="icon">
               <img id="kart-{{ item.pk }}" src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
             </div>
@@ -116,7 +116,7 @@
         <div class="panel-body">
 
           {% for item in wheels %}<label class="fb fb-wheel" for="fb-wheel-{{ forloop.counter }}">
-            <input id="fb-wheel-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-wheel" value="{{ item.id }}" tabindex="3" />
+            <input id="fb-wheel-{{ forloop.counter }}" data-pk="{{ item.pk }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-wheel" value="{{ item.id }}" tabindex="3" />
             <div class="icon">
               <img id="wheel-{{ item.pk }}" src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
             </div>
@@ -143,7 +143,7 @@
         <div class="panel-body">
 
           {% for item in gliders %}<label class="fb fb-glider" for="fb-glider-{{ forloop.counter }}">
-            <input id="fb-glider-{{ forloop.counter }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-glider" value="{{ item.id }}" tabindex="4" />
+            <input id="fb-glider-{{ forloop.counter }}" data-pk="{{ item.pk }}" data-name="{{ item.name }}" data-speed="{{ item.speed_ground }}" data-acceleration="{{ item.acceleration }}" data-weight="{{ item.weight }}" data-handling="{{ item.handling_ground }}" data-traction="{{ item.traction }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" type="radio" name="add-glider" value="{{ item.id }}" tabindex="4" />
             <div class="icon">
               <img id="glider-{{ item.pk }}" src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
             </div>
@@ -186,8 +186,9 @@
     </div>
   </div>
 
-<div class="row text-right">
-  <div class="col-xs-12">
+<div class="row">
+  <div class="col-xs-12 text-right">
+    <span id="share-link"></span>
     <a href="{% url 'home' %}" class="btn btn-default" role="button">Cancel</a>
     <button type="submit" id="add-submit" class="btn btn-danger">Finish Kart <span class="glyphicon glyphicon-flag"></span></button>
   </div>
@@ -214,6 +215,7 @@
 
     function fetch_array(item) {
       var array = new Array();
+      array['pk'] = item.data('pk');
       array['name'] = item.data('name');
       array['speed'] = item.data('speed');
       array['acceleration'] = item.data('acceleration');
@@ -254,6 +256,8 @@
     // Enable Submit button if all component slots are selected
     if (character['name'] && kart['name'] && wheel['name'] && glider['name']) {
       $( '#add-submit' ).removeClass('disabled');
+      var link = '<a href="{% url 'add' %}' + character['pk'] + '/' + kart['pk'] + '/' + wheel['pk'] + '/' + glider['pk'] + '/" class="btn"><small><span class="glyphicon glyphicon-share"></span> Link to this kart loadout</small></a>';
+      $( '#share-link' ).html(link);
     }
 
     // replace NaN totals with dashes
@@ -332,16 +336,16 @@
     $( 'input:radio' ).click(register_selection);
     $( 'label.fb img'  ).click(register_selection);
 
-    {% if add_character != '' %}
+    {% if add_character != None %}
       document.getElementById("character-{{ add_character }}").click();
     {% endif %}
-    {% if add_kart != '' %}
+    {% if add_kart != None %}
       document.getElementById("kart-{{ add_kart }}").click();
     {% endif %}
-    {% if add_wheel != '' %}
+    {% if add_wheel != None %}
       document.getElementById("wheel-{{ add_wheel }}").click();
     {% endif %}
-    {% if add_glider != '' %}
+    {% if add_glider != None %}
       document.getElementById("glider-{{ add_glider }}").click();
     {% endif %}
 
