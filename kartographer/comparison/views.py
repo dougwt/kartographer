@@ -97,11 +97,20 @@ def home(request):
     return render(request, 'comparison/home.html', context)
 
 
-def add(request):
+def add(request, character=None, kart=None, wheel=None, glider=None):
     """Display the visitor's config list and form to add a new config."""
     # Insert any potential new configurations that were submitted
     potential_config = (None, None, None, None)
     panel = None
+    if character and kart and wheel and glider:
+        potential_config = (
+            get_object_or_404(Character, pk=character).pk,
+            get_object_or_404(Kart, pk=kart).pk,
+            get_object_or_404(Wheel, pk=wheel).pk,
+            get_object_or_404(Glider, pk=glider).pk
+        )
+        pass
+
     if request.method == "POST":
         potential_config = (
             request.POST.get('add-character', ''),
