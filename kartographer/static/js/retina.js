@@ -56,6 +56,7 @@
             }
             existing_onload();
         };
+        context.onload();
     };
 
     Retina.isRetina = function(){
