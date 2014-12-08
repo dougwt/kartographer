@@ -95,7 +95,11 @@ class Character(KartComponent):
 
     def file(self):
         """Return a lowercase form of the name used for image filenames."""
-        return static('images/mk8/faces/%s.png' % super(Character, self).file())
+        return static('images/mk8/characters/%s.png' % super(Character, self).file())
+
+    def file_large(self):
+        """Return a lowercase form of the name used for image filenames."""
+        return static('images/mk8/characters-large/%s.png' % super(Character, self).file())
 
     class Meta:
         ordering = ['pk']

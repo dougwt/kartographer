@@ -5451,20 +5451,27 @@ footer ul li em {
 /* ====================== */
 /* Layout                 */
 /* ====================== */
-@media only screen {
-  body {
-    background-image: url("../images/mario-bg.jpg");
-    background-size: 379px 458px;
-    background-repeat: no-repeat;
-    background-position: right top; }
+body {
+  background-image: url("../images/mario-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: right top; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    body {
+      background-image: url("../images/mario-bg@2x.jpg");
+      background-size: 379px 458px; } }
 
-  nav.navbar .container {
-    background-image: url("../images/flags.png");
-    background-size: 70px 70px;
-    background-repeat: no-repeat;
-    background-position: left -10px; }
-    nav.navbar .container .navbar-brand {
-      padding-left: 75px; }
+nav.navbar .container {
+  background-image: url("../images/flags.png");
+  background-repeat: no-repeat;
+  background-position: left -10px; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    nav.navbar .container {
+      background-image: url("../images/flags@2x.png");
+      background-size: 70px 70px; } }
+
+@media only screen {
+  nav.navbar .container .navbar-brand {
+    padding-left: 75px; }
 
   .logo a img {
     width: 245px;

@@ -1,10 +1,10 @@
 @import "bootstrap";
-@import "variables.scss";
+@import "variables";
+@import "mixins/retina";
 
 /* ====================== */
 /* Typography             */
 /* ====================== */
-
 @import url(http://fonts.googleapis.com/css?family=Courgette|Nunito:300);
 
 #navbar .github-prompt {
@@ -42,59 +42,24 @@ footer ul li em {
 /* Layout                 */
 /* ====================== */
 
-//
-// Experimental Tweaks
-//
-
-// Golden Wii Wheel
-// nav.navbar {
-//   background-image: url("../images/wii_wheel_gold_512.png");
-//   background-size: 60px 60px;
-//   background-repeat: no-repeat;
-//   background-position: 30px -5px;
-//   background-transform: rotate(30deg);
-// }
-
-// Checkered Flag
-// .panel-heading {
-//   padding-left: 150px;
-//   background-image: url("../images/checkered-flag-background.png");
-//   background-size: 160px 120px;
-//   background-repeat: no-repeat;
-//   background-position: left top;
-// }
-
-//
-// Mobile Tweaks
-//
-
-// Fix for scrolling bug causing reloads in iOS Safari
-// html,
-// body {
-//   height: 100%;
-//   overflow: auto;
-//   margin: 0;
-//   -webkit-overflow-scrolling: touch;
-// }
+// Page/Header Background
+body {
+  @include at2x('../images/mario-bg', 'jpg', 379px, 458px);
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+// Crossed Flags icon
+nav.navbar .container {
+  @include at2x('../images/flags', 'png', 70px, 70px);
+  background-repeat: no-repeat;
+  background-position: left -10px;
+}
 
 //@media only screen and (min-width: $screen-xs-min) {
 @media only screen {
-  // Page/Header Background
-  body {
-    background-image: url("../images/mario-bg.jpg");
-    background-size: 379px 458px;
-    background-repeat: no-repeat;
-    background-position: right top;
-  }
   // Crossed Flags icon
-  nav.navbar .container {
-    .navbar-brand {
-      padding-left: 75px;
-    }
-    background-image: url("../images/flags.png");
-    background-size: 70px 70px;
-    background-repeat: no-repeat;
-    background-position: left -10px;
+  nav.navbar .container .navbar-brand {
+    padding-left: 75px;
   }
   // Logo
   .logo a img {

@@ -64,7 +64,7 @@
           {% for item in characters %}<label class="fb fb-character" for="fb-character-{{ forloop.counter }}">
             <input id="fb-character-{{ forloop.counter }}" data-pk="{{ item.pk }}" data-name="{{ item.name }}" data-speed="{{ item.stats.speed_ground }}" data-acceleration="{{ item.stats.acceleration }}" data-weight="{{ item.stats.weight }}" data-handling="{{ item.stats.handling_ground }}" data-stats="{% if item.stats.speed_ground %}{{ item.stats.speed_ground }}-{{ item.stats.speed_water }}-{{ item.stats.speed_air }}-{{ item.stats.speed_antigravity }}-{{ item.stats.acceleration }}-{{ item.stats.weight }}-{{ item.stats.handling_ground }}-{{ item.stats.handling_water }}-{{ item.stats.handling_air }}-{{ item.stats.handling_antigravity }}-{{ item.stats.traction }}-{{ item.stats.miniturbo }}{% else %}{{ item.speed_ground }}-{{ item.speed_water }}-{{ item.speed_air }}-{{ item.speed_antigravity }}-{{ item.acceleration }}-{{ item.weight }}-{{ item.handling_ground }}-{{ item.handling_water }}-{{ item.handling_air }}-{{ item.handling_antigravity }}-{{ item.traction }}-{{ item.miniturbo }}{% endif %}" data-traction="{{ item.stats.traction }}" type="radio" name="add-character" value="{{ item.id }}" tabindex="1" />
             <div class="icon">
-              <img id="character-{{ item.pk }}" src="{{ item.file }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
+              <img id="character-{{ item.pk }}" src="{{ item.file_large }}" alt="{{ item.name }}" title="{{ item.name }}" class="img-rounded">
             </div>
           </label>{% endfor %}
 
