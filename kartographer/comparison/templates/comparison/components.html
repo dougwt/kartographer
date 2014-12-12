@@ -40,7 +40,12 @@
     <p>Need to find a wheel with the highest speed or wondering which kart has the best acceleration? Use this sortable table to view all of the components' stats at a quick glance. Individual columns can be toggled using the View dropdown on the right. Additionally, you may click on a component's row to highlight other components with identical stats.</p>
   </div>
   <div class="hidden-xs col-sm-4 text-center">
-    <img src="{% static 'images/mk8/pit-toad.png' %}" alt="Pit Toad">
+    <picture>
+      <!--[if IE 9]><video style="display: none;"><![endif]-->
+      <source srcset="{% static 'images/mk8/pit-toad.png' %}, {% static 'images/mk8/pit-toad@2x.png' %} 2x" media="100vw">
+      <!--[if IE 9]></video><![endif]-->
+      <img srcset="{% static 'images/mk8/pit-toad.png' %}, {% static 'images/mk8/pit-toad@2x.png' %} 2x" alt="Pit Toad">
+    </picture>
   </div>
 </div>
 {% endblock %}

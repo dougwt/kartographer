@@ -13,7 +13,12 @@
     <p>Maybe you zigged when you meant to zag, or perhaps you just missed your turn? Either way, you've ended up at a dead end. Try one of the pages from the menu above.</p>
   </div>
   <div class="hidden-xs col-sm-4 text-center">
-    <img src="{% static 'images/mk8/itembox.png' %}" alt="Mechanic">
+    <picture>
+      <!--[if IE 9]><video style="display: none;"><![endif]-->
+      <source srcset="{% static 'images/mk8/itembox.png' %}, {% static 'images/mk8/itembox@2x.png' %} 2x" media="100vw">
+      <!--[if IE 9]></video><![endif]-->
+      <img srcset="{% static 'images/mk8/itembox.png' %}, {% static 'images/mk8/itembox@2x.png' %} 2x" alt="Item Box">
+    </picture>
   </div>
 </div>
 {% endblock %}

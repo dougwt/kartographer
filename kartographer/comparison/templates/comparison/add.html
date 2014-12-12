@@ -16,7 +16,12 @@
     <p>Click on a component's icon to select it. Selected components will appear highlighted in <span class="selected"><b>red</b></span>, while components with identical stats will appear highlighted in <span class="similar"><b>blue</b></span> for your convenience.</p>
   </div>
   <div class="hidden-xs col-sm-4 text-center">
-    <img src="{% static 'images/mk8/mechanic.png' %}" alt="Mechanic">
+    <picture>
+      <!--[if IE 9]><video style="display: none;"><![endif]-->
+      <source srcset="{% static 'images/mk8/mechanic.png' %}, {% static 'images/mk8/mechanic@2x.png' %} 2x" media="100vw">
+      <!--[if IE 9]></video><![endif]-->
+      <img srcset="{% static 'images/mk8/mechanic.png' %}, {% static 'images/mk8/mechanic@2x.png' %} 2x" alt="Mechanic">
+    </picture>
   </div>
 </div>
 {% endblock %}

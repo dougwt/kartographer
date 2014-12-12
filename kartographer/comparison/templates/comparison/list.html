@@ -39,7 +39,12 @@
     <p>This list has been viewed a total of {{ config_list.view_count }} times in the past {{ config_list.create_date|timesince }}.</p>
   </div>
   <div class="hidden-xs col-sm-4 text-center">
-    <img src="{% static 'images/mk8/koopalings.png' %}" alt="The Koopalings">
+    <picture>
+      <!--[if IE 9]><video style="display: none;"><![endif]-->
+      <source srcset="{% static 'images/mk8/koopalings.png' %}, {% static 'images/mk8/koopalings@2x.png' %} 2x" media="100vw">
+      <!--[if IE 9]></video><![endif]-->
+      <img srcset="{% static 'images/mk8/koopalings.png' %}, {% static 'images/mk8/koopalings@2x.png' %} 2x" alt="The Koopalings">
+    </picture>
   </div>
 </div>
 {% endblock %}

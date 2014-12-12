@@ -17,7 +17,12 @@
     <p>No more scrolling back and forth between kart components using in-game menus! Now you can plan the best possible loadout for your driving style by comparing any of the {{ total_combinations|intcomma }} possible kart loadouts in a user-friendly layout.</p>
   </div>
   <div class="hidden-xs col-sm-4 text-center">
-    <img src="{% static 'images/mk8/koopalings.png' %}" alt="Hold on to your hats.">
+    <picture>
+      <!--[if IE 9]><video style="display: none;"><![endif]-->
+      <source srcset="{% static 'images/mk8/koopalings.png' %}, {% static 'images/mk8/koopalings@2x.png' %} 2x" media="100vw">
+      <!--[if IE 9]></video><![endif]-->
+      <img srcset="{% static 'images/mk8/koopalings.png' %}, {% static 'images/mk8/koopalings@2x.png' %} 2x" alt="The Koopalings">
+    </picture>
   </div>
 </div>
 {% endblock %}
