@@ -278,5 +278,37 @@
       "name": "Link",
       "stats": 5
     }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 36,
+    "fields": {
+      "name": "Male Villager",
+      "stats": 9
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 37,
+    "fields": {
+      "name": "Female Villager",
+      "stats": 8
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 38,
+    "fields": {
+      "name": "Isabelle",
+      "stats": 2
+    }
+  },
+  {
+    "model": "comparison.character",
+    "pk": 39,
+    "fields": {
+      "name": "Dry Bowser",
+      "stats": 7
+    }
   }
 ]

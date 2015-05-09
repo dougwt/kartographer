@@ -245,5 +245,24 @@
       "traction": 0,
       "miniturbo": 0.25
     }
+  },
+  {
+    "model": "comparison.glider",
+    "pk": 14,
+    "fields": {
+      "name": "Paper Glider",
+      "speed_ground": 0,
+      "speed_water": 0,
+      "speed_air": 0,
+      "speed_antigravity": 0,
+      "acceleration": 0,
+      "weight": 0,
+      "handling_ground": 0,
+      "handling_water": 0,
+      "handling_air": 0,
+      "handling_antigravity": 0,
+      "traction": 0,
+      "miniturbo": 0
+    }
   }
 ]
