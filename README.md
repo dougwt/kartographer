@@ -20,3 +20,4 @@ View this project in action at http://kartographer.com
 ## Special Thanks
 
 - Favicon graciously provided by [NeoRame](http://neorame.deviantart.com/art/Wii-Wheels-v-2-271700550).
+- *Animal Crossing × Mario Kart 8* DLC updates contributed by [Josh Eversman](https://github.com/jeversmann)
