@@ -383,44 +383,6 @@
     "model": "comparison.kart",
     "pk": 21,
     "fields": {
-      "name": "Streetle",
-      "speed_ground": 0.25,
-      "speed_water": 0,
-      "speed_air": 0.25,
-      "speed_antigravity": 0.25,
-      "acceleration": 0.25,
-      "weight": -0.25,
-      "handling_ground": 0,
-      "handling_water": 0,
-      "handling_air": 0,
-      "handling_antigravity": 0,
-      "traction": -0.5,
-      "miniturbo": 0.25
-    }
-  },
-  {
-    "model": "comparison.kart",
-    "pk": 22,
-    "fields": {
-      "name": "P-Wing",
-      "speed_ground": 0.5,
-      "speed_water": 0.25,
-      "speed_air": 0.5,
-      "speed_antigravity": 0.25,
-      "acceleration": -0.25,
-      "weight": 0.25,
-      "handling_ground": 0,
-      "handling_water": 0,
-      "handling_air": 0,
-      "handling_antigravity": -0.25,
-      "traction": -1,
-      "miniturbo": -0.5
-    }
-  },
-  {
-    "model": "comparison.kart",
-    "pk": 23,
-    "fields": {
       "name": "Standard Bike",
       "speed_ground": 0,
       "speed_water": 0.25,
@@ -438,7 +400,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 24,
+    "pk": 22,
     "fields": {
       "name": "Comet",
       "speed_ground": 0,
@@ -457,7 +419,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 25,
+    "pk": 23,
     "fields": {
       "name": "Sport Bike",
       "speed_ground": 0,
@@ -476,7 +438,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 26,
+    "pk": 24,
     "fields": {
       "name": "The Duke",
       "speed_ground": 0,
@@ -495,7 +457,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 27,
+    "pk": 25,
     "fields": {
       "name": "Flame Rider",
       "speed_ground": 0,
@@ -514,7 +476,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 28,
+    "pk": 26,
     "fields": {
       "name": "Varmint",
       "speed_ground": 0,
@@ -533,7 +495,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 29,
+    "pk": 27,
     "fields": {
       "name": "Mr. Scooty",
       "speed_ground": -0.75,
@@ -552,7 +514,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 30,
+    "pk": 28,
     "fields": {
       "name": "Jet Bike",
       "speed_ground": 0,
@@ -571,7 +533,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 31,
+    "pk": 29,
     "fields": {
       "name": "Yoshi Bike",
       "speed_ground": 0,
@@ -590,7 +552,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 32,
+    "pk": 30,
     "fields": {
       "name": "Master Cycle",
       "speed_ground": 0.25,
@@ -609,26 +571,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 33,
-    "fields": {
-      "name": "City Tripper",
-      "speed_ground": 0,
-      "speed_water": 0.25,
-      "speed_air": 0.25,
-      "speed_antigravity": -0.25,
-      "acceleration": 0.25,
-      "weight": -0.25,
-      "handling_ground": 0.5,
-      "handling_water": 0.5,
-      "handling_air": 0.5,
-      "handling_antigravity": 0.25,
-      "traction": -0.5,
-      "miniturbo": 0.25
-    }
-  },
-  {
-    "model": "comparison.kart",
-    "pk": 34,
+    "pk": 31,
     "fields": {
       "name": "Standard ATV",
       "speed_ground": 0,
@@ -647,7 +590,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 35,
+    "pk": 32,
     "fields": {
       "name": "Wild Wiggler",
       "speed_ground": 0,
@@ -666,7 +609,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 36,
+    "pk": 33,
     "fields": {
       "name": "Teddy Buggy",
       "speed_ground": 0,
@@ -685,7 +628,7 @@
   },
   {
     "model": "comparison.kart",
-    "pk": 37,
+    "pk": 34,
     "fields": {
       "name": "Bone Rattler",
       "speed_ground": 0,
@@ -695,11 +638,68 @@
       "acceleration": -0.25,
       "weight": 0.25,
       "handling_ground": -0.25,
+      "handling_water": 0.5,
+      "handling_air": 0.25,
+      "handling_antigravity": -0.75,
+      "traction": 0.25,
+      "miniturbo": -0.5
+    }
+  },
+  {
+    "model": "comparison.kart",
+    "pk": 35,
+    "fields": {
+      "name": "Streetle",
+      "speed_ground": 0.25,
+      "speed_water": 0,
+      "speed_air": 0.25,
+      "speed_antigravity": 0.25,
+      "acceleration": 0.25,
+      "weight": -0.25,
+      "handling_ground": 0,
       "handling_water": 0,
       "handling_air": 0,
       "handling_antigravity": 0,
-      "traction": 0.25,
+      "traction": -0.5,
+      "miniturbo": 0.25
+    }
+  },
+  {
+    "model": "comparison.kart",
+    "pk": 36,
+    "fields": {
+      "name": "P-Wing",
+      "speed_ground": 0.5,
+      "speed_water": 0.25,
+      "speed_air": 0.5,
+      "speed_antigravity": 0.25,
+      "acceleration": -0.25,
+      "weight": 0.25,
+      "handling_ground": 0,
+      "handling_water": 0,
+      "handling_air": 0,
+      "handling_antigravity": -0.25,
+      "traction": -1,
       "miniturbo": -0.5
+    }
+  },
+  {
+    "model": "comparison.kart",
+    "pk": 37,
+    "fields": {
+      "name": "City Tripper",
+      "speed_ground": 0,
+      "speed_water": 0.25,
+      "speed_air": 0.25,
+      "speed_antigravity": -0.25,
+      "acceleration": 0.25,
+      "weight": -0.25,
+      "handling_ground": 0.5,
+      "handling_water": 0.5,
+      "handling_air": 0.5,
+      "handling_antigravity": 0.25,
+      "traction": -0.5,
+      "miniturbo": 0.25
     }
   }
 ]
